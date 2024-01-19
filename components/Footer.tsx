@@ -114,7 +114,7 @@ const Footer: React.FC<FooterProps> = () => {
                </div>
             </div>
             <div className="pt-[30px] pb-[38px] border-t border-[#1515151a]">
-               <p className="font-boldZz">MChJ “Wepro” © 2023</p>
+               <p className="font-bold">MChJ “Wepro” © 2023</p>
             </div>
          </div>
       </footer>
