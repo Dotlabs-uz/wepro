@@ -7,7 +7,7 @@ interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
    return (
-      <header className="shadow-sm">
+      <header className="border-b border-[#EEEBE0]">
          <div className="custom-container py-4 flex gap-5 items-center justify-between">
             <div className="flex items-center gap-11 max-3xl:gap-8 max-xl:gap-5">
                <div className="max-w-[120px] max-xl:max-w-[100px] w-full">
