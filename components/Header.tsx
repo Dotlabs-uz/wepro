@@ -1,72 +1,107 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
+
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
 
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
+   const pathName = usePathname();
+   console.log(pathName);
+
+   const links = [
+      {
+         title: "Главная",
+         link: "#",
+      },
+      {
+         title: "Курсы и цены",
+         link: "#",
+      },
+      {
+         title: "Отзывы",
+         link: "#",
+      },
+      {
+         title: "Запись в группу",
+         link: "#",
+      },
+   ];
+
    return (
-      <header className="border-b border-[#EEEBE0]">
+      <header
+         className={`${
+            pathName === "/course"
+               ? "bg-[#020119]"
+               : "border-b border-[#EEEBE0] bg-white"
+         }`}
+      >
          <div className="custom-container py-4 flex gap-5 items-center justify-between">
             <div className="flex items-center gap-11 max-3xl:gap-8 max-xl:gap-5">
                <div className="max-w-[120px] max-xl:max-w-[100px] w-full">
                   <Link href={"/"}>
-                     <Image
-                        src={"/assets/images/logo.svg"}
-                        width={1000}
-                        height={1000}
-                        alt="logo"
-                     />
+                     {pathName === "/course" ? (
+                        <Image
+                           src={"/assets/images/logo-white.svg"}
+                           width={1000}
+                           height={1000}
+                           alt="logo"
+                        />
+                     ) : (
+                        <Image
+                           src={"/assets/images/logo.svg"}
+                           width={1000}
+                           height={1000}
+                           alt="logo"
+                        />
+                     )}
                   </Link>
                </div>
                <nav className="max-lg:hidden block">
                   <ul className="flex items-center gap-6 max-3xl:gap-4 max-xl:gap-3">
-                     <li>
-                        <Link
-                           href={"#"}
-                           className="max-2xl:text-sm py-2 px-5 max-xl:px-3 rounded-full duration-150 ease-in bg-black hover:bg-black text-white hover:text-white"
-                        >
-                           Главная
-                        </Link>
-                     </li>
-                     <li>
-                        <Link
-                           href={"#"}
-                           className="max-2xl:text-sm py-2 px-5 max-xl:px-3 rounded-full duration-150 ease-in hover:bg-black hover:text-white"
-                        >
-                           Курсы и цены
-                        </Link>
-                     </li>
-                     <li>
-                        <Link
-                           href={"#"}
-                           className="max-2xl:text-sm py-2 px-5 max-xl:px-3 rounded-full duration-150 ease-in hover:bg-black hover:text-white"
-                        >
-                           Отзывы
-                        </Link>
-                     </li>
-                     <li>
-                        <Link
-                           href={"#"}
-                           className="max-2xl:text-sm py-2 px-5 max-xl:px-3 rounded-full duration-150 ease-in hover:bg-black hover:text-white"
-                        >
-                           Запись в группу
-                        </Link>
-                     </li>
+                     {links.map(
+                        (
+                           item: { title: string; link: string },
+                           idx: number
+                        ) => {
+                           return (
+                              <li key={idx}>
+                                 <Link
+                                    href={item.link}
+                                    className={`max-2xl:text-sm py-2 px-5 max-xl:px-3 rounded-full duration-150 ease-in hover:bg-black ${
+                                       pathName === "/course"
+                                          ? "text-white"
+                                          : "hover:text-white"
+                                    }`}
+                                 >
+                                    {item.title}
+                                 </Link>
+                              </li>
+                           );
+                        }
+                     )}
                   </ul>
                </nav>
             </div>
 
             <div className="flex items-center gap-7 max-2xl:gap-5 max-sm:gap-3">
-               <p className="font-bold underline underline-offset-2 cursor-pointer">
+               <p
+                  className={`font-bold underline underline-offset-2 cursor-pointer ${
+                     pathName === "/course" ? "text-white" : "text-black"
+                  }`}
+               >
                   Рус
                </p>
                <Link
                   href={"tel:+998 95 500-50-05"}
-                  className="font-bold underline underline-offset-2"
+                  className={`font-bold underline underline-offset-2 ${
+                     pathName === "/course" ? "text-white" : "text-black"
+                  }`}
                >
-                  <span className="max-3xl:hidden block">
+                  <span className={`max-3xl:hidden block`}>
                      +998 95 500-50-05
                   </span>
                   <FaPhoneAlt
