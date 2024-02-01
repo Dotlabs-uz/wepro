@@ -8,7 +8,7 @@ const Page: React.FC<PageProps> = () => {
    return (
       <>
          <section>
-            <div className="mb-28 max-xl:mb-20 max-md:mb-10">
+            <div className="mb-28 max-xl:mb-20 max-md:mb-5">
                <div className="custom-container my-14 max-xl:my-10 max-md:my-7">
                   <h2 className="max-w-2xl text-5xl max-lg:text-4xl max-md:text-3xl leading-normal font-bold mb-10 max-xl:mb-6">
                      Запишитесь в группу, которая скоро откроется
@@ -31,11 +31,11 @@ const Page: React.FC<PageProps> = () => {
                </div>
 
                <div className="custom-container py-3 max-sm:py-2 overflow-scroll no-scroll">
-                  <div className="w-fit lg:grid lg:grid-cols-3 flex items-center gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5">
+                  <div className="w-fit max-lg:max-w-[300px] lg:grid lg:grid-cols-3 flex items-center gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5">
                      {[0, 1, 2].map((item: number) => {
                         return (
                            <div className="max-lg:min-w-[300px] rounded-[20px] shadow-[0px_4px_5px_0px_#00000026]">
-                              <div className="p-2 max-lg:hidden">
+                              <div className="p-2">
                                  <Image
                                     src={"/assets/images/course-img.jpg"}
                                     width={1000}
@@ -57,16 +57,8 @@ const Page: React.FC<PageProps> = () => {
                                     575,000 сум/месяц
                                  </p>
                                  <div className="mt-auto">
-                                    <button className="px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-bold rounded-lg max-sm:rounded-full duration-100 ease-in sm:border-2 sm:border-black hover:bg-[#151FE1] max-sm:bg-[#151FE1] hover:border-[#151FE1] hover:text-white">
-                                       <span className="hidden max-sm:block">
-                                          <IoArrowForwardOutline
-                                             size={15}
-                                             color="white"
-                                          />
-                                       </span>
-                                       <span className="max-sm:hidden">
-                                          Хочу в эту группу!
-                                       </span>
+                                    <button className="max-md:w-full px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-bold rounded-lg duration-100 ease-in border-2 hover:bg-transparent bg-[#151FE1] hover:border-black text-white hover:text-black">
+                                       Хочу в эту группу!
                                     </button>
                                  </div>
                               </div>
@@ -77,8 +69,8 @@ const Page: React.FC<PageProps> = () => {
                   <div className="w-fit lg:grid lg:grid-cols-3 flex items-center gap-7 max-2xl:gap-5">
                      {[0].map((item: number) => {
                         return (
-                           <div className="max-lg:min-w-[300px] rounded-[20px] shadow-[0px_4px_5px_0px_#00000026]">
-                              <div className="p-2 max-lg:hidden">
+                           <div className="max-lg:max-w-[300px] rounded-[20px] shadow-[0px_4px_5px_0px_#00000026]">
+                              <div className="p-2">
                                  <Image
                                     src={"/assets/images/course-img.jpg"}
                                     width={1000}
@@ -100,16 +92,8 @@ const Page: React.FC<PageProps> = () => {
                                     575,000 сум/месяц
                                  </p>
                                  <div className="mt-auto">
-                                    <button className="px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-bold rounded-lg max-sm:rounded-full duration-100 ease-in sm:border-2 sm:border-black hover:bg-[#151FE1] max-sm:bg-[#151FE1] hover:border-[#151FE1] hover:text-white">
-                                       <span className="hidden max-sm:block">
-                                          <IoArrowForwardOutline
-                                             size={15}
-                                             color="white"
-                                          />
-                                       </span>
-                                       <span className="max-sm:hidden">
-                                          Хочу в эту группу!
-                                       </span>
+                                    <button className="max-md:w-full px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-bold rounded-lg duration-100 ease-in border-2 hover:bg-transparent bg-[#151FE1] hover:border-black text-white hover:text-black">
+                                       Хочу в эту группу!
                                     </button>
                                  </div>
                               </div>

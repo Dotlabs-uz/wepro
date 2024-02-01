@@ -39,7 +39,7 @@ const StudentWorks: React.FC<StudentWorksProps> = () => {
       <>
          <div className="custom-container pt-14 max-md:py-8 pb-20">
             <div className="max-w-4xl w-full mx-auto md:text-center">
-               <h2 className="text-5xl max-xl:text-4xl mb-4 max-xl:mb-2 font-bold text-white">
+               <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl mb-4 max-xl:mb-2 font-bold text-white">
                   Работы студентов
                </h2>
                <p className="text-[22px] max-2xl:text-xl max-lg:text-lg font-medium text-[#A3A2AB]">

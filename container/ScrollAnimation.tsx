@@ -33,8 +33,8 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ item }) => {
                   Мы организовываем самые разные мероприятия внутри центров для
                   наших студентов.
                </p>
-            </div>
-            <div className="w-full h-full m-auto px-80 max-md:px-6">
+            </div>   
+            <div className="w-full h-full m-auto px-80 max-2xl:px-6 max-md:px-6">
                <Image
                   className="w-full h-full object-cover"
                   src={"/assets/images/party.jpg"}
