@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
@@ -10,7 +10,6 @@ interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
    const pathName = usePathname();
-   console.log(pathName);
 
    const links = [
       {

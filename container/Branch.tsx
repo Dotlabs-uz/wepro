@@ -47,9 +47,9 @@ const Branch: React.FC<BranchProps> = () => {
                               WebkitTapHighlightColor: "transparent",
                            }}
                         >
-                           {active === tab.id && (
-                              <motion.span
-                                 layoutId="bubble"
+                           {active === tab.id ? (
+                              <motion.div
+                                 layoutId="bubble2"
                                  className="absolute inset-0 z-[-1] mix-blend-difference bg-[#151FE1]"
                                  style={{ borderRadius: 8 }}
                                  transition={{
@@ -58,7 +58,7 @@ const Branch: React.FC<BranchProps> = () => {
                                     duration: 0.6,
                                  }}
                               />
-                           )}
+                           ) : null}
                            {tab.title}
                         </button>
                      ))}
