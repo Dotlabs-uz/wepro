@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { BiCloset } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
+import ReactInputMask from "react-input-mask";
 
 interface ModalProps {
    isOpened: boolean;
@@ -62,15 +63,19 @@ const Modal: React.FC<ModalProps> = ({ isOpened, onClose }) => {
                         </span>
                         <input
                            type="text"
-                           placeholder="Имя и фамилия"
-                           className="px-5 py-[18px] rounded-[9px] bg-[#F4F4F4]"
+                           placeholder="Введите имя и фамилия"
+                           className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
                         />
                      </label>
                      <label className="flex flex-col mb-3">
                         <span className="text-[#A3A2AB] text-[15px] mb-1">
-                           Ваши имя и фамилия
+                           Ваш номер телефона
                         </span>
-                        <input type="text" placeholder="Имя и фамилия" />
+                        <ReactInputMask
+                           placeholder="Введите номер"
+                           className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
+                           mask="+\9\98-(99)-999-99-99"
+                        />
                      </label>
                      <button className="w-full py-4 text-xl rounded-lg border-2 duration-150 ease-in text-white hover:text-[#151FE1] bg-[#151FE1] hover:border-[#151FE1] hover:bg-transparent">
                         Отправить заявку

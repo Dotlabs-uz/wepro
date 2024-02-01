@@ -26,6 +26,10 @@ body {
 
 h2 {
    @apply text-5xl max-xl:text-4xl max-sm:text-3xl leading-normal font-bold;
+   /* rgba(21, 31, 225, 1)
+rgba(21, 31, 225, 0.55)
+rgba(21, 31, 225, 0.4)
+rgba(21, 31, 225, 0.4) */
 }
 
 .hero-gradient {
@@ -81,14 +85,18 @@ h2 {
    width: 100%;
 }
 .scroll-animated:nth-child(1) {
-   top: 0;
+   @apply w-4/5;
+   top: 20px;
 }
 .scroll-animated:nth-child(2) {
-   @apply top-12 max-sm:top-8;
+   @apply w-[83%];
+   @apply top-12 max-sm:top-10;
 }
 .scroll-animated:nth-child(3) {
+   @apply w-[88%];
    @apply top-40 max-sm:top-16;
 }
 .scroll-animated:nth-child(4) {
+   @apply w-[95%];
    @apply top-96;
 }
