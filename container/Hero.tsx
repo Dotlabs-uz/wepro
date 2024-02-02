@@ -56,37 +56,23 @@ const Hero: React.FC<HeroProps> = () => {
 
    useEffect(() => {
       const interval = setInterval(() => {
-         // Simulate progress update (replace with actual logic)
          setProgress((prevProgress) =>
             prevProgress + 1 <= 100 ? prevProgress + 1 : 0
          );
 
-         // Switch to the next slide after reaching 100% progress
          if (progress === 100) {
             setProgress(0);
             setCurrentSlide((prevSlide) => (prevSlide + 1) % arr.length);
          }
-      }, 100); // Update progress every 500 milliseconds
+      }, 100);
 
-      // Cleanup interval on component unmount
       return () => clearInterval(interval);
-   }, [currentSlide, progress]); // Re-run effect when currentSlide or progress changes
+   }, [currentSlide, progress]);
 
    const handelSlide = (id: number) => {
       setProgress(0);
       setCurrentSlide(id);
    };
-   // useEffect(() => {
-   //    const interval = setInterval(() => {
-   //       // Simulate progress update (replace with actual logic)
-   //       setProgress((prevProgress) =>
-   //          prevProgress + 10 <= 100 ? prevProgress + 10 : 100
-   //       );
-   //    }, 1000); // Update progress every second
-
-   //    // Cleanup interval on component unmount
-   //    return () => clearInterval(interval);
-   // }, []);
 
    return (
       <div className="custom-container mt-10 max-lg:mt-9">

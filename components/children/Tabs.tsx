@@ -14,7 +14,7 @@ const Tabs: React.FC<Tabs> = ({ tabs, id }) => {
    let [activeTab, setActiveTab] = useState(tabs[0].id);
 
    return (
-      <div className="bg-[#F4F4F4] w-full flex space-x-1 justify-between items-center gap-1 mb-5 p-1 rounded-lg overflow-auto no-scroll">
+      <div className="bg-[#F4F4F4] w-full flex space-x-1 justify-between items-center gap-1 p-1 rounded-lg overflow-auto no-scroll">
          {tabs.map((tab: { id: number; title: string }) => (
             <button
                key={tab.id}

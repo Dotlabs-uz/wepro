@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import ReactInputMask from "react-input-mask";
 
 interface FooterProps {}
 
@@ -20,17 +22,17 @@ const Footer: React.FC<FooterProps> = () => {
                      <input
                         type="text"
                         placeholder="Ваше имя"
-                        className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] col-span-2"
+                        className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] col-span-2"
                      />
-                     <input
-                        type="text"
-                        placeholder="Телефон"
-                        className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] max-sm:col-span-2"
+                     <ReactInputMask
+                        placeholder="Введите номер"
+                        className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
+                        mask="+\9\98-(99)-999-99-99"
                      />
                      <input
                         type="text"
                         placeholder="Откуда о нас узнали?"
-                        className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] max-sm:col-span-2"
+                        className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
                      />
                      <button className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white text-lg font-bold py-4 border rounded-[7px] col-span-2 duration-150 ease-in">
                         Отправить заявку

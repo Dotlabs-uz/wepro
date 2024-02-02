@@ -29,7 +29,7 @@ const Modal: React.FC<ModalProps> = ({ isOpened, onClose }) => {
                animate={{ opacity: 1 }}
                exit={{ opacity: 0 }}
                transition={{ duration: 0.3 }}
-               className={`w-full h-full flex items-center justify-center fixed z-50 top-0 left-0 backdrop-blur-sm bg-black/30`}
+               className={`w-full h-full flex items-center justify-center fixed z-[55] top-0 left-0 backdrop-blur-sm bg-black/30`}
                onClick={onClose}
             >
                <button
@@ -39,7 +39,7 @@ const Modal: React.FC<ModalProps> = ({ isOpened, onClose }) => {
                   <IoClose color="white" />
                </button>
                <div
-                  className="max-w-xl w-full p-10 rounded-lg bg-white"
+                  className="max-w-xl w-full p-10 max-lg:p-5 max-sm:p-4 max-sm:py-7 rounded-lg bg-white"
                   onClick={(e) => e.stopPropagation()}
                >
                   <div className="max-w-[160px] mb-3">

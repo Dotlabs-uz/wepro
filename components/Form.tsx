@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import { FaTelegram } from "react-icons/fa";
+import ReactInputMask from "react-input-mask";
 
 interface FormProps {}
 
@@ -23,17 +25,17 @@ const Form: React.FC<FormProps> = () => {
                <input
                   type="text"
                   placeholder="Имя и фамилия"
-                  className="px-5 py-[18px] rounded-[9px] bg-[#F4F4F4]"
+                  className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
                />
             </label>
             <label className="flex flex-col mb-6">
                <span className="text-[#A3A2AB] text-[15px] mb-[11px]">
                   Номер телефона
                </span>
-               <input
-                  type="text"
-                  placeholder="+998 ("
-                  className="px-5 py-[18px] rounded-[9px] bg-[#F4F4F4]"
+               <ReactInputMask
+                  placeholder="Введите номер"
+                  className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
+                  mask="+\9\98-(99)-999-99-99"
                />
             </label>
             <button className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-[18px] font-bold py-[18px] border rounded-[7px] duration-150 ease-in">
