@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FAQ from "@/container/FAQ";
 import Form from "@/components/Form";
-import Company from "@/container/company";
+import Company from "@/container/Company";
 
 const inter = Inter({ subsets: ["latin"] });
 

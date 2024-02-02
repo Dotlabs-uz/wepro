@@ -1,7 +1,11 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import {
+   motion,
+   //  useViewportScroll,
+   //   useTransform
+} from "framer-motion";
 
 interface ScrollAnimationProps {
    item: {
@@ -14,17 +18,17 @@ interface ScrollAnimationProps {
 }
 
 const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ item }) => {
-   const { scrollYProgress } = useViewportScroll();
-   const scale = useTransform(scrollYProgress, [0, 1], [item.scale, 0.6]);
+   // const { scrollYProgress } = useViewportScroll();
+   // const scale = useTransform(scrollYProgress, [0, 1], [item.scale, 0.6]);
 
    return (
       <>
-         <motion.div className="max-h-[900px] scroll-animated sticky m-auto overflow-hidden p-0">
+         <motion.div className="max-w-7xl scroll-animated sticky m-auto overflow-hidden p-0 shadow-[0px_4px_70px_0px_#00000033] rounded-[22px] bg-white">
             <motion.div
-               style={{
-                  scale,
-               }}
-               className="shadow-[0px_4px_70px_0px_#00000033] rounded-[22px] bg-white"
+               // style={{
+               //    scale,
+               // }}
+               className=""
             >
                <div className="text-center mb-9 px-20 max-lg:px-10 pt-7 max-md:mb-5">
                   <h3 className="text-[#151FE1] text-4xl max-md:text-3xl font-bold mb-3">
@@ -35,7 +39,7 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ item }) => {
                      для наших студентов.
                   </p>
                </div>
-               <div className="w-full h-full mt-auto px-60 max-2xl:px-6 max-md:px-6 ">
+               <div className="w-full h-full mt-auto px-14 max-2xl:px-6 max-md:px-6 ">
                   <Image
                      className="w-full h-full object-cover"
                      src={"/assets/images/party.jpg"}

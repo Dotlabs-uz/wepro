@@ -64,7 +64,7 @@ const Hero: React.FC<HeroProps> = () => {
             setProgress(0);
             setCurrentSlide((prevSlide) => (prevSlide + 1) % arr.length);
          }
-      }, 100);
+      }, 110);
 
       return () => clearInterval(interval);
    }, [currentSlide, progress]);

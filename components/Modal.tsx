@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { BiCloset } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
-import ReactInputMask from "react-input-mask";
+import InputMask from "react-input-mask";
 
 interface ModalProps {
    isOpened: boolean;
@@ -71,10 +71,11 @@ const Modal: React.FC<ModalProps> = ({ isOpened, onClose }) => {
                         <span className="text-[#A3A2AB] text-[15px] mb-1">
                            Ваш номер телефона
                         </span>
-                        <ReactInputMask
+                        <InputMask
                            placeholder="Введите номер"
                            className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
                            mask="+\9\98-(99)-999-99-99"
+                           name="phone"
                         />
                      </label>
                      <button className="w-full py-4 text-xl rounded-lg border-2 duration-150 ease-in text-white hover:text-[#151FE1] bg-[#151FE1] hover:border-[#151FE1] hover:bg-transparent">

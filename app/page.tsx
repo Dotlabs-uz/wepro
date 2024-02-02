@@ -181,7 +181,7 @@ export default function Home() {
                   </h2>
                </div>
 
-               <div className="relative flex flex-col gap-11 max-md:gap-0">
+               <div className="relative flex flex-col gap-11 max-md:gap-0 px-4">
                   {party.map(
                      (item: {
                         id: number;

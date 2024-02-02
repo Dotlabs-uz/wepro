@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import ReactInputMask from "react-input-mask";
+import InputMask from "react-input-mask";
 
 interface FooterProps {}
 
@@ -24,10 +24,11 @@ const Footer: React.FC<FooterProps> = () => {
                         placeholder="Ваше имя"
                         className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] col-span-2"
                      />
-                     <ReactInputMask
+                     <InputMask
                         placeholder="Введите номер"
                         className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
                         mask="+\9\98-(99)-999-99-99"
+                        name="phone"
                      />
                      <input
                         type="text"
