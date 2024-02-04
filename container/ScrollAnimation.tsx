@@ -1,55 +1,73 @@
 "use client";
 import { useRef } from "react";
-import Image from "next/image";
-import {
-   motion,
-   //  useViewportScroll,
-   //   useTransform
-} from "framer-motion";
+import { useInView } from "framer-motion";
 
-interface ScrollAnimationProps {
-   item: {
-      id: number;
-      title: string;
-      dcr: string;
-      img: string;
-      scale: number;
-   };
-}
+import AnimateBlock from "@/components/AnimateBlock";
 
-const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ item }) => {
-   // const { scrollYProgress } = useViewportScroll();
-   // const scale = useTransform(scrollYProgress, [0, 1], [item.scale, 0.6]);
+interface ScrollAnimationProps {}
+
+const ScrollAnimation: React.FC<ScrollAnimationProps> = ({}) => {
+   const party = [
+      {
+         id: 0,
+         title: "События",
+         dcr: "Мы организовываем самые разные мероприятия внутри центров для наших студентов.",
+         img: "party.jpg",
+         scale: 0.1,
+         scale2: 1.2,
+      },
+      {
+         id: 1.5,
+         title: "События",
+         dcr: "Мы организовываем самые разные мероприятия внутри центров для наших студентов.",
+         img: "party.jpg",
+         scale: 0.3,
+         scale2: 1.1,
+      },
+      {
+         id: 2,
+         title: "События",
+         dcr: "Мы организовываем самые разные мероприятия внутри центров для наших студентов.",
+         img: "party.jpg",
+         scale: 0.5,
+         scale2: 1,
+      },
+      {
+         id: 3,
+         title: "События",
+         dcr: "Мы организовываем самые разные мероприятия внутри центров для наших студентов.",
+         img: "party.jpg",
+         scale: 0.5,
+         scale2: 1.1,
+      },
+   ];
+   const ref = useRef(null);
+   const inView = useInView(ref);
 
    return (
       <>
-         <motion.div className="max-w-7xl scroll-animated sticky m-auto overflow-hidden p-0 shadow-[0px_4px_70px_0px_#00000033] rounded-[22px] bg-white">
-            <motion.div
-               // style={{
-               //    scale,
-               // }}
-               className=""
-            >
-               <div className="text-center mb-9 px-20 max-lg:px-10 pt-7 max-md:mb-5">
-                  <h3 className="text-[#151FE1] text-4xl max-md:text-3xl font-bold mb-3">
-                     События
-                  </h3>
-                  <p className="text-[#A3A2AB] text-base font-bold max-md:font-medium">
-                     Мы организовываем самые разные мероприятия внутри центров
-                     для наших студентов.
-                  </p>
-               </div>
-               <div className="w-full h-full mt-auto px-14 max-2xl:px-6 max-md:px-6 ">
-                  <Image
-                     className="w-full h-full object-cover"
-                     src={"/assets/images/party.jpg"}
-                     width={1000}
-                     height={1000}
-                     alt="photo"
-                  />
-               </div>
-            </motion.div>
-         </motion.div>
+         <div ref={ref} className="">
+            <div className="max-w-[720px] m-auto mb-28 max-xl:mb-16 max-md:mb-5 px-4">
+               <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold leading-normal md:text-center">
+                  Что еще входит в стоимость обучения
+               </h2>
+            </div>
+
+            <div className="relative flex flex-col gap-11 max-md:gap-0 px-10 max-sm:px-4">
+               {party.map(
+                  (item: {
+                     id: number;
+                     title: string;
+                     dcr: string;
+                     img: string;
+                     scale: number;
+                     scale2: number;
+                  }) => (
+                     <AnimateBlock item={item} key={item.id} inView={inView} />
+                  )
+               )}
+            </div>
+         </div>
       </>
    );
 };

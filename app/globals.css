@@ -107,13 +107,12 @@ rgba(21, 31, 225, 0.4) */
 }
 .scroll-animated:nth-child(2) {
    @apply w-[100%];
-   @apply top-12 max-sm:top-10;
+   @apply top-16 max-sm:top-10;
 }
 .scroll-animated:nth-child(3) {
    @apply w-[100%];
-   @apply top-32 max-sm:top-16;
+   @apply top-40 max-sm:top-16;
 }
 .scroll-animated:nth-child(4) {
    @apply w-[100%];
-   @apply top-96;
 }
