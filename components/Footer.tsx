@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import InputMask from "react-input-mask";
+import AnimateLink from "./children/AnimateLink";
 
 interface FooterProps {}
 
@@ -74,17 +75,19 @@ const Footer: React.FC<FooterProps> = () => {
                <div className="">
                   <h3 className="text-lg font-bold mb-5 max-md:mb-2">Курсы:</h3>
                   <ul className="text-[#A3A2AB] font-bold">
-                     <li className="mb-1">
-                        <Link href={"#"}>Frontend-программирование</Link>
+                     <li className="w-fit mb-1">
+                        <AnimateLink href="#">
+                           Frontend-программирование
+                        </AnimateLink>
                      </li>
-                     <li className="mb-1">
-                        <Link href={"#"}>Мобильная разработка</Link>
+                     <li className="w-fit mb-1">
+                        <AnimateLink href="#">Мобильная разработка</AnimateLink>
                      </li>
-                     <li className="mb-1">
-                        <Link href={"#"}>SMM</Link>
+                     <li className="w-fit mb-1">
+                        <AnimateLink href="#">SMM</AnimateLink>
                      </li>
-                     <li>
-                        <Link href={"#"}>Графический дизайн</Link>
+                     <li className="w-fit mb-1">
+                        <AnimateLink href="#">Графический дизайн</AnimateLink>
                      </li>
                   </ul>
                </div>
@@ -94,16 +97,16 @@ const Footer: React.FC<FooterProps> = () => {
                   </h3>
                   <ul className="text-[#A3A2AB] font-bold">
                      <li className="mb-1">
-                        <Link href={"#"}>Instagram</Link>
+                        <AnimateLink href="#">Instagram</AnimateLink>
                      </li>
-                     <li>
-                        <Link href={"#"}>Telegram</Link>
+                     <li className="mb-1">
+                        <AnimateLink href="#">Telegram</AnimateLink>
                      </li>
-                     <li>
-                        <Link href={"#"}>YouTube</Link>
+                     <li className="mb-1">
+                        <AnimateLink href="#">YouTube</AnimateLink>
                      </li>
-                     <li>
-                        <Link href={"#"}>LinkedIn</Link>
+                     <li className="mb-1">
+                        <AnimateLink href="#">LinkedIn</AnimateLink>
                      </li>
                   </ul>
                </div>
@@ -118,16 +121,21 @@ const Footer: React.FC<FooterProps> = () => {
                         </a>
                      </li>
                      <li className="mb-1">
-                        <Link href={"#"}>ул. Буюк Ипак Йули 52, Самарканд</Link>
+                        <AnimateLink href="#">
+                           ул. Буюк Ипак Йули 52, Самарканд
+                        </AnimateLink>
                      </li>
                      <li>
-                        <Link href={"#"}>ул. Мирзо Улугбека, 35</Link>
+                        <Link href={"#"}></Link>
+                        <AnimateLink href="#">
+                           ул. Мирзо Улугбека, 35
+                        </AnimateLink>
                      </li>
                   </ul>
                </div>
             </div>
             <div className="py-8 max-md:py-6 border-t border-[#1515151a]">
-               <p className="font-bold">MChJ “Wepro” © 2023</p>
+               <p className="font-bold">MChJ “Wepro” © 2024</p>
             </div>
          </div>
       </footer>

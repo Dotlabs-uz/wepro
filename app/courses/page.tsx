@@ -1,5 +1,6 @@
 import Course from "@/components/children/Course";
 import Tabs from "@/components/children/Tabs";
+import CoursesCom from "@/components/CoursesCom";
 
 interface CoursesProps {}
 
@@ -26,8 +27,8 @@ const Courses: React.FC<CoursesProps> = () => {
    return (
       <>
          <section>
-            <div className="mb-28 max-xl:mb-20 max-md:mb-10">
-               <div className="custom-container my-10 max-md:my-7">
+            <div className="custom-container mb-28 max-xl:mb-20 max-md:mb-10">
+               <div className="my-10 max-md:my-7">
                   <h2 className="max-w-xl text-5xl max-xl:text-4xl max-md:text-3xl leading-normal font-bold mb-10 max-xl:mb-6">
                      В Wepro мы обучаем профессиям будущего
                   </h2>
@@ -37,18 +38,7 @@ const Courses: React.FC<CoursesProps> = () => {
                   </div>
                </div>
 
-               <div className="custom-container py-3 max-sm:py-2 overflow-scroll no-scroll">
-                  <div className="w-fit lg:grid lg:grid-cols-3 flex items-center gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5">
-                     {[0, 1, 2].map((item: number) => (
-                        <Course key={item} />
-                     ))}
-                  </div>
-                  <div className="w-fit lg:grid lg:grid-cols-3 flex items-center gap-7 max-2xl:gap-5">
-                     {[0, 1, 2].map((item: number) => (
-                        <Course key={item} />
-                     ))}
-                  </div>
-               </div>
+               <CoursesCom />
             </div>
          </section>
       </>

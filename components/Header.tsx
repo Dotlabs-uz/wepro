@@ -56,7 +56,7 @@ const Header: React.FC<HeaderProps> = () => {
                   : "border-b border-[#EEEBE0] bg-white"
             }`}
          >
-            <div className="custom-container py-4 flex gap-5 items-center justify-between">
+            <div className="custom-container py-4 flex gap-4 items-center justify-between">
                <div className="flex items-center gap-11 max-3xl:gap-8 max-xl:gap-1">
                   <div className="max-w-[120px] max-xl:max-w-[100px] w-full">
                      <Link href={"/"}>
@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = () => {
                      </Link>
                   </div>
                   <nav className="max-lg:hidden block">
-                     <ul className="flex items-center gap-6 max-3xl:gap-4 max-xl:gap-1">
+                     <ul className="flex items-center gap-5 max-3xl:gap-3 max-xl:gap-1">
                         {links.map(
                            (
                               item: { title: string; link: string },
@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = () => {
                                  <li key={idx}>
                                     <Link
                                        href={item.link}
-                                       className={`max-2xl:text-sm py-2 px-5 max-xl:px-3 rounded-full duration-150 ease-in hover:bg-black ${
+                                       className={`max-2xl:text-sm text-nowrap py-2 px-4 max-xl:px-3 rounded-full duration-150 ease-in hover:bg-black ${
                                           pathName === "/course"
                                              ? "text-white"
                                              : "hover:text-white"
@@ -133,7 +133,7 @@ const Header: React.FC<HeaderProps> = () => {
                   </Link>
                   <button
                      onClick={onOpen}
-                     className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-bold py-3 px-7 max-xl:px-3 rounded-md border duration-150 ease-in max-lg:hidden block"
+                     className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-bold py-3 px-6 max-3xl:px-3 rounded-md border duration-150 ease-in max-lg:hidden block"
                   >
                      Бесплатная консультация
                   </button>

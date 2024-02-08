@@ -38,15 +38,11 @@ body {
 }
 
 .custom-container {
-   @apply max-w-[1728px] mx-auto px-32 max-3xl:px-16 max-lg:px-5 max-sm:px-4;
+   @apply max-w-[1728px] mx-auto px-36 max-3xl:px-16 max-lg:px-5 max-sm:px-4;
 }
 
 h2 {
    @apply text-5xl max-xl:text-4xl max-sm:text-3xl leading-normal font-bold;
-   /* rgba(21, 31, 225, 1)
-rgba(21, 31, 225, 0.55)
-rgba(21, 31, 225, 0.4)
-rgba(21, 31, 225, 0.4) */
 }
 
 .hero-gradient {
@@ -115,4 +111,17 @@ rgba(21, 31, 225, 0.4) */
 }
 .scroll-animated:nth-child(4) {
    @apply w-[100%];
+}
+
+/* =========== course =========== */
+
+.card {
+   @apply p-1 shadow-md rounded-[22px] max-lg:rounded-2xl max-sm:rounded-xl overflow-hidden relative;
+}
+.card:nth-child(1) {
+   @apply row-span-2 max-md:row-span-1;
+}
+
+.card-title {
+   @apply absolute bottom-3 max-md:bottom-2 left-5 max-md:left-2 max-md:right-2 px-3 py-3 backdrop-blur-3xl rounded-xl bg-[#ffffffa9];
 }

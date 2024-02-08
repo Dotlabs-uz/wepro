@@ -7,10 +7,10 @@ import StudentWorks from "@/container/StudentWorks";
 import Course from "@/components/children/Course";
 
 import { FaPlay } from "react-icons/fa";
-import { MdArrowOutward } from "react-icons/md";
 import Hero from "@/container/Hero";
 import Modal from "@/components/Modal";
 import Reviews from "@/container/Reviews";
+import Courses from "@/components/CoursesCom";
 
 export default function Home() {
    return (
@@ -72,24 +72,13 @@ export default function Home() {
          </section>
 
          <section>
-            <div className="">
-               <div className="custom-container mb-10 max-lg:mb-3">
+            <div className="custom-container">
+               <div className="mb-10 max-lg:mb-3">
                   <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl leading-normal font-bold">
                      Авторские курсы
                   </h2>
                </div>
-               <div className="custom-container py-3 max-sm:py-2 overflow-scroll no-scroll">
-                  <div className="max-lg:min-w-[950px] flex items-center gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5">
-                     {[0, 1, 2].map((item: number) => (
-                        <Course key={item} />
-                     ))}
-                  </div>
-                  <div className="max-lg:min-w-[950px] flex items-center gap-7 max-2xl:gap-5">
-                     {[0, 1, 2].map((item: number) => (
-                        <Course key={item} />
-                     ))}
-                  </div>
-               </div>
+               <Courses />
             </div>
          </section>
 

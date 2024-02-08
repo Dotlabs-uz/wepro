@@ -53,7 +53,7 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({}) => {
                </h2>
             </div>
 
-            <div className="relative flex flex-col gap-11 max-md:gap-0 px-10 max-sm:px-4">
+            <div className="relative flex flex-col gap-11 max-md:gap-0 px-10 max-sm:px-0">
                {party.map(
                   (item: {
                      id: number;

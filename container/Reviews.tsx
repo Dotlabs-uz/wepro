@@ -21,7 +21,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
          <div className="gradient"></div>
          <div className="custom-container py-14">
             <div className="md:text-center">
-               <h2 className="text-5xl max-xl:text-4xl leading-normal font-bold mb-4 max-xl:mb-2 text-white">
+               <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl leading-normal font-bold mb-4 max-xl:mb-2 text-white">
                   Отзывы выпускников
                </h2>
                <div className="max-w-[400px] max-md:max-w-[300px] md:m-auto">
@@ -36,9 +36,8 @@ const Reviews: React.FC<ReviewsProps> = () => {
                      <motion.div
                         key={item}
                         layoutId={`card-container-${item}`}
-                        initial={{ scale: 1 }}
                         onClick={() => setSelectedId(item)}
-                        className="min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/assets/images/student.jpg')] bg-no-repeat bg-cover bg-center"
+                        className="min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 cursor-pointer bg-[url('/assets/images/student.jpg')] bg-no-repeat bg-cover bg-center"
                         // style={
                         //    selectedId === item ? { overflow: "hidden" } : {}
                         // }
@@ -56,7 +55,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
             <AnimatePresence>
                {selectedId && (
                   <motion.div
-                     className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center px-10"
+                     className="fixed z-50 inset-0 bg-black bg-opacity-50 flex items-center justify-center px-10"
                      initial={{ opacity: 0 }}
                      animate={{ opacity: 1 }}
                      exit={{ opacity: 0 }}
@@ -68,22 +67,17 @@ const Reviews: React.FC<ReviewsProps> = () => {
                               <motion.div
                                  key={item}
                                  layoutId={`card-container-${item}`}
-                                 initial={{ scale: 1 }}
-                                 animate={{ scale: 1 }}
-                                 exit={{ scale: 1 }}
+                                 initial={{ scale: 1, opacity: 1 }}
+                                 animate={{ scale: 1, opacity: 1 }}
+                                 exit={{ scale: 1, opacity: 1 }}
                                  onClick={(e) => e.stopPropagation()}
-                                 className="max-w-xs w-full min-h-[420px] flex rounded-xl p-5 max-lg:p-2 bg-[url('/assets/images/student.jpg')] bg-no-repeat bg-cover bg-center"
+                                 className="max-w-xs w-full min-h-[420px] flex rounded-xl p-5 max-lg:p-2 bg-[url('/assets/images/student.jpg')]  bg-no-repeat bg-cover bg-center"
                               >
                                  <motion.button
                                     onClick={() => setSelectedId("")}
                                     className="mt-auto px-5 max-lg:px-2 py-2 rounded-[4px] bg-white"
                                  >
-                                    <motion.p
-                                       initial={{ opacity: 0 }}
-                                       animate={{ opacity: 1 }}
-                                       exit={{ opacity: 0 }}
-                                       className="text-sm font-medium"
-                                    >
+                                    <motion.p className="text-sm font-medium">
                                        Алекс Маметов
                                     </motion.p>
                                  </motion.button>
