@@ -288,7 +288,7 @@ const Course: React.FC<CourseProps> = () => {
          <section>
             <div className="bg-[#010018] relative z-10 rounded-3xl max-md:rounded-[20px] mx-10 max-2xl:mx-5 max-xl:mx-0 my-28 max-lg:my-20 overflow-hidden">
                <div className="gradient max-md:hidden"></div>
-               <div className="custom-container pt-14 max-lg:mt-8 pb-24 max-xl:pb-16 max-lg:pb-10 max-md:pb-7">
+               <div className="custom-container pt-14 max-xl:pt-10 max-lg:pt-8 max-md:pt-0 max-lg:mt-8 pb-24 max-xl:pb-16 max-lg:pb-10 max-md:pb-7">
                   <div className="mb-12 max-xl:mb-8 max-md:mb-6 md:text-center">
                      <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold mb-4 text-white">
                         Кем работают выпускники школы
@@ -394,7 +394,7 @@ const Course: React.FC<CourseProps> = () => {
          </section>
 
          <section>
-            <div className="bg-[#010018]">
+            <div className="bg-[#010018] rounded-3xl max-md:rounded-[20px]">
                <div className="custom-container my-28 max-xl:my-20">
                   <div className="mx-28 max-2xl:mx-10 max-xl:mx-0">
                      <div className="pt-14 pb-12 max-xl:py-8 max-md:py-7 md:text-center">
