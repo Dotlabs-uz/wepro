@@ -34,13 +34,13 @@ const Course: React.FC<CourseProps> = ({ item }) => {
             />
          </div>
          <div className="flex flex-col h-full px-7 max-2xl:px-4 pb-6 pt-3 max-sm:p-5">
-            <h3 className="text-3xl max-2xl:text-2xl leading-normal font-bold mb-6 max-2xl:mb-4">
+            <h3 className="text-3xl max-2xl:text-2xl leading-normal font-bold mb-5 max-2xl:mb-4">
                {item.title}
             </h3>
             <ul className="flex flex-wrap gap-[6px] mb-5 max-xl:mb-3">
                {item.apps.map((item: string[]) => {
                   return (
-                     <li className="px-4 py-1 rounded-full cursor-pointer border duration-150 ease-in hover:bg-black hover:text-white sm:border-[#00000015] max-sm:border-black">
+                     <li className="px-4 max-md:px-3 py-1 rounded-full cursor-pointer border duration-150 ease-in hover:bg-black hover:text-white sm:border-[#00000015] max-sm:border-black">
                         <p className="text-sm max-xl:text-xs leading-normal">
                            {item}
                         </p>

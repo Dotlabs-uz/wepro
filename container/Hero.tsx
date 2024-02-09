@@ -124,7 +124,7 @@ const Hero: React.FC<HeroProps> = () => {
                               <li
                                  key={item.id}
                                  onClick={() => handelSlide(item.id)}
-                                 className="relative flex items-center gap-3 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer duration-100 ease-in"
+                                 className="text-nowrap relative flex items-center gap-3 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer duration-100 ease-in"
                                  style={{
                                     background:
                                        currentSlide === item.id
@@ -150,7 +150,7 @@ const Hero: React.FC<HeroProps> = () => {
                                     }
                                  ></span>
                                  <FaFigma size={20} className="max-lg:hidden" />
-                                 <p className="text-sm font-bold text-nowrap">
+                                 <p className="text-sm font-bold">
                                     {item.title}
                                  </p>
                               </li>

@@ -39,17 +39,10 @@ const Courses: React.FC<CoursesProps> = () => {
 
    return (
       <div className="py-3 max-sm:py-2 overflow-scroll no-scroll">
-         <div className="flex gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5">
-            {courses.slice(0, courses.length / 2).map((item: CoursesTyps) => (
+         <div className="grid grid-flow-col grid-rows-2 gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5">
+            {courses.map((item: CoursesTyps) => (
                <Course key={item._id} item={item} />
             ))}
-         </div>
-         <div className="flex gap-7 max-2xl:gap-5">
-            {courses
-               .slice(courses.length / 2, courses.length)
-               .map((item: CoursesTyps) => (
-                  <Course key={item._id} item={item} />
-               ))}
          </div>
       </div>
    );

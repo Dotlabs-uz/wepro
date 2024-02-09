@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { useInView } from "framer-motion";
+import { useInView, useScroll, useTransform } from "framer-motion";
 
 import AnimateBlock from "@/components/AnimateBlock";
 
@@ -44,9 +44,12 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({}) => {
    const ref = useRef(null);
    const inView = useInView(ref);
 
+
+
    return (
       <>
-         <div ref={ref} className="">
+         <div ref={ref} 
+         className="">
             <div className="max-w-[720px] m-auto mb-28 max-xl:mb-16 max-md:mb-5 px-4">
                <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold leading-normal md:text-center">
                   Что еще входит в стоимость обучения

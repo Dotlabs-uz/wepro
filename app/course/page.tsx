@@ -1,3 +1,4 @@
+import Vacancies from "@/container/Vacancies";
 import Image from "next/image";
 import { MdArrowOutward } from "react-icons/md";
 
@@ -243,47 +244,11 @@ const Course: React.FC<CourseProps> = () => {
             </div>
          </section>
 
-         {/* <section>
-            <div className="bg-[#D6001C] mx-10 rounded-3xl">
-               <div className="custom-container py-14">
-                  <div className="">
-                     <h2 className="text-5xl font-bold leading-normal mb-8 text-white">
-                        Вакансии в Узбекистане
-                     </h2>
-                     <div className="flex items-center gap-24 mb-11">
-                        <div className="">
-                           <p className="text-xl font-medium leading-normal text-white">
-                              От 3,000,000 сум
-                           </p>
-                           <p className="text-lg font-medium leading-normal text-[#E0E0E0]">
-                              доход начинающего Графического дизайнера
-                           </p>
-                        </div>
-                        <div className="">
-                           <p className="text-xl font-medium leading-normal text-white">
-                              Более 3,000 вакансий
-                           </p>
-                           <p className="text-lg font-medium leading-normal text-[#E0E0E0]">
-                              открыто на данный момент
-                           </p>
-                        </div>
-                     </div>
-
-                     <div className="flex items-center gap-3">
-                        <Image
-                           src={"/assets/icons/hh.svg"}
-                           width={48}
-                           height={48}
-                           alt="hh"
-                        />
-                        <p className="text-xl font-medium text-white">
-                           HeadHunder Uzbekistan
-                        </p>
-                     </div>
-                  </div>
-               </div>
+         <section>
+            <div className="bg-[#D6001C] mx-10 max-2xl:mx-5 max-xl:mx-0 rounded-3xl">
+               <Vacancies />
             </div>
-         </section> */}
+         </section>
 
          <section>
             <div className="bg-[#010018] relative z-10 rounded-3xl max-md:rounded-[20px] mx-10 max-2xl:mx-5 max-xl:mx-0 my-28 max-lg:my-20 overflow-hidden">
