@@ -27,7 +27,7 @@ export default function RootLayout({
             {children}
             <Company />
             <section>
-               <div className="mx-10 max-2xl:mx-5 max-xl:mx-0 py-28 max-lg:py-14 max-sm:py-0 rounded-[20px] md:bg-[url('/assets/images/bg-form.jpg')] bg-no-repeat bg-cover">
+               <div className="mx-10 max-2xl:mx-5 max-xl:mx-0 py-28 max-lg:py-14 max-sm:py-0 rounded-[20px] md:bg-[url('/images/bg-form.jpg')] bg-no-repeat bg-cover">
                   <Form />
                </div>
             </section>

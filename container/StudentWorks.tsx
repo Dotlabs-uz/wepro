@@ -84,7 +84,7 @@ const StudentWorks: React.FC<StudentWorksProps> = () => {
                <div className="rounded-xl overflow-hidden">
                   <Image
                      className="w-full h-full object-cover"
-                     src={"/assets/images/students-project.jpg"}
+                     src={"/images/students-project.jpg"}
                      width={1000}
                      height={1000}
                      alt="students-project"

@@ -26,7 +26,7 @@ const Vacancy: React.FC<VacancyProps> = ({ item, inView, idx }) => {
          className="vacancy relative md:z-[-2] max-md:sticky top-0 rounded-2xl overflow-hidden shadow-[0px_-10px_15px_#00000050] bg-white"
       >
          <Image
-            src={`/assets/images/vacancies/vacancy-${idx + 1}.svg`}
+            src={`/images/vacancies/vacancy-${idx + 1}.svg`}
             width={1000}
             height={1000}
             alt="vacancy"

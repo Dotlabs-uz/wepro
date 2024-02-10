@@ -27,7 +27,7 @@ const Course: React.FC<CourseProps> = ({ item }) => {
       <div className="flex flex-col h-auto min-w-[460px] max-lg:min-w-[305px] rounded-[20px] cursor-pointer shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in bg-white">
          <div className="p-2 max-lg:hidden">
             <Image
-               src={"/assets/images/course-img.jpg"}
+               src={"/images/course-img.jpg"}
                width={1000}
                height={1000}
                alt="course"

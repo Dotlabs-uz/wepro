@@ -12,7 +12,7 @@ const Course: React.FC<CourseProps> = () => {
                <div className="w-1/2 relative max-lg:hidden">
                   <Image
                      className="w-full h-full object-cover bg-no-repeat"
-                     src={"/assets/images/hero-2.jpg"}
+                     src={"/images/hero-2.jpg"}
                      width={1000}
                      height={1000}
                      alt="photo"
@@ -25,7 +25,7 @@ const Course: React.FC<CourseProps> = () => {
                      <div className="w-2/5 max-md:w-full max-md:h-[250px] max-lg:block hidden">
                         <Image
                            className="w-full h-full object-cover bg-no-repeat rounded-xl"
-                           src={"/assets/images/hero-2.jpg"}
+                           src={"/images/hero-2.jpg"}
                            width={1000}
                            height={1000}
                            alt="photo"
@@ -112,7 +112,7 @@ const Course: React.FC<CourseProps> = () => {
                   <div className="bg-[#F4F4F4] w-fit flex items-center gap-4 py-2 pl-3 pr-7 rounded-3xl">
                      <div className="bg-white p-3 rounded-2xl">
                         <Image
-                           src={"/assets/icons/vacancies.svg"}
+                           src={"/icons/vacancies.svg"}
                            width={33}
                            height={33}
                            alt="icon"
@@ -128,7 +128,7 @@ const Course: React.FC<CourseProps> = () => {
                   <div className="bg-[#F4F4F4] w-fit flex items-center gap-4 py-2 pl-3 pr-7 rounded-3xl">
                      <div className="bg-white p-3 rounded-2xl">
                         <Image
-                           src={"/assets/icons/dollar.svg"}
+                           src={"/icons/dollar.svg"}
                            width={33}
                            height={33}
                            alt="icon"
@@ -144,7 +144,7 @@ const Course: React.FC<CourseProps> = () => {
                   <div className="bg-[#F4F4F4] w-fit flex items-center gap-4 py-2 pl-3 pr-7 rounded-3xl">
                      <div className="bg-white p-3 rounded-2xl">
                         <Image
-                           src={"/assets/icons/chart.svg"}
+                           src={"/icons/chart.svg"}
                            width={33}
                            height={33}
                            alt="icon"
@@ -173,7 +173,7 @@ const Course: React.FC<CourseProps> = () => {
                   <div className="card">
                      <Image
                         className="w-full h-full object-cover rounded-[22px] max-lg:rounded-2xl max-sm:rounded-xl"
-                        src={"/assets/images/created.jpg"}
+                        src={"/images/created.jpg"}
                         width={1000}
                         height={1000}
                         alt="photo"
@@ -187,7 +187,7 @@ const Course: React.FC<CourseProps> = () => {
                   <div className="card">
                      <Image
                         className="w-full h-full object-cover rounded-[22px] max-lg:rounded-2xl max-sm:rounded-xl"
-                        src={"/assets/images/books.jpg"}
+                        src={"/images/books.jpg"}
                         width={1000}
                         height={1000}
                         alt="photo"
@@ -201,7 +201,7 @@ const Course: React.FC<CourseProps> = () => {
                   <div className="card">
                      <Image
                         className="w-full h-full object-cover rounded-[22px] max-lg:rounded-2xl max-sm:rounded-xl"
-                        src={"/assets/images/books.jpg"}
+                        src={"/images/books.jpg"}
                         width={1000}
                         height={1000}
                         alt="photo"
@@ -215,7 +215,7 @@ const Course: React.FC<CourseProps> = () => {
                   <div className="card">
                      <Image
                         className="w-full h-full object-cover rounded-[22px] max-lg:rounded-2xl max-sm:rounded-xl"
-                        src={"/assets/images/books.jpg"}
+                        src={"/images/books.jpg"}
                         width={1000}
                         height={1000}
                         alt="photo"
@@ -229,7 +229,7 @@ const Course: React.FC<CourseProps> = () => {
                   <div className="card">
                      <Image
                         className="w-full h-full object-cover rounded-[22px] max-lg:rounded-2xl max-sm:rounded-xl"
-                        src={"/assets/images/books.jpg"}
+                        src={"/images/books.jpg"}
                         width={1000}
                         height={1000}
                         alt="photo"
@@ -376,7 +376,7 @@ const Course: React.FC<CourseProps> = () => {
                            return (
                               <div
                                  key={item}
-                                 className="min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/assets/images/student.jpg')] bg-no-repeat bg-cover bg-center"
+                                 className="min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
                               >
                                  <div className="mt-auto px-5 max-lg:px-2 py-2 rounded-[4px] bg-white">
                                     <p className="text-sm font-medium">
@@ -441,7 +441,7 @@ const Course: React.FC<CourseProps> = () => {
                            return (
                               <div
                                  key={item}
-                                 className="max-w-xs min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/assets/images/student.jpg')] bg-no-repeat bg-cover bg-center"
+                                 className="max-w-xs min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
                               >
                                  <div className="mt-auto px-5 max-md:px-2 max-lg:px-2 py-2 rounded-xl max-md:rounded-md md:backdrop-blur-[6px] bg-[#ffffff99] max-md:bg-white">
                                     <p className="text-sm font-bold max-xs:hidden">

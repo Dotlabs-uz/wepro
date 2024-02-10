@@ -24,7 +24,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
 
                   <div className="max-w-md max-2xl:max-w-xs max-md:max-w-[225px]">
                      <Image
-                        src={"/assets/images/reviwes.jpg"}
+                        src={"/images/reviwes.jpg"}
                         width={1000}
                         height={1000}
                         alt="reviwes"
@@ -37,7 +37,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
                      return (
                         <div
                            key={item}
-                           className="min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/assets/images/student.jpg')] bg-no-repeat bg-cover bg-center"
+                           className="min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
                         >
                            <div className="mt-auto px-5 max-lg:px-2 py-2 rounded-[4px] bg-white">
                               <p className="text-sm font-medium">

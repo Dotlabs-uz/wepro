@@ -44,7 +44,7 @@ const Modal: React.FC<ModalProps> = ({ isOpened, onClose }) => {
                >
                   <div className="max-w-[160px] mb-3">
                      <Image
-                        src={"/assets/images/logo.svg"}
+                        src={"/images/logo.svg"}
                         width={1000}
                         height={1000}
                         alt="logo"

@@ -76,7 +76,7 @@ const Branch: React.FC<BranchProps> = () => {
                      </div>
                   </div>
                </div>
-               <div className="w-1/2 max-lg:w-full min-h-[400px] max-xl:min-h-[300px] h-full flex p-5 max-lg:p-3 rounded-2xl bg-[url('/assets/images/company.jpg')] bg-cover bg-left bg-no-repeat">
+               <div className="w-1/2 max-lg:w-full min-h-[400px] max-xl:min-h-[300px] h-full flex p-5 max-lg:p-3 rounded-2xl bg-[url('/images/company.jpg')] bg-cover bg-left bg-no-repeat">
                   <button className="bg-white h-fit mt-auto p-3 rounded-[13px]">
                      Смотреть в галерее
                   </button>
