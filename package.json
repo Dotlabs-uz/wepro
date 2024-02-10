@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
     "axios": "^1.6.7",
     "framer-motion": "^11.0.3",
+    "i18next": "^23.8.2",
+    "negotiator": "^0.6.3",
     "next": "14.0.4",
+    "next-i18next": "^15.2.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
@@ -19,6 +23,7 @@
     "swiper": "^11.0.5"
   },
   "devDependencies": {
+    "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
