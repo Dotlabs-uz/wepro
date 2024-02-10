@@ -37,7 +37,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
                         key={item}
                         layoutId={`card-container-${item}`}
                         onClick={() => setSelectedId(item)}
-                        className="min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 cursor-pointer bg-[url('/assets/images/student.jpg')] bg-no-repeat bg-cover bg-center"
+                        className="min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 cursor-pointer bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
                         // style={
                         //    selectedId === item ? { overflow: "hidden" } : {}
                         // }
@@ -71,7 +71,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
                                  animate={{ scale: 1, opacity: 1 }}
                                  exit={{ scale: 1, opacity: 1 }}
                                  onClick={(e) => e.stopPropagation()}
-                                 className="max-w-xs w-full min-h-[420px] flex rounded-xl p-5 max-lg:p-2 bg-[url('/assets/images/student.jpg')]  bg-no-repeat bg-cover bg-center"
+                                 className="max-w-xs w-full min-h-[420px] flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')]  bg-no-repeat bg-cover bg-center"
                               >
                                  <motion.button
                                     onClick={() => setSelectedId("")}

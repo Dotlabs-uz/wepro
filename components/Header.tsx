@@ -62,14 +62,14 @@ const Header: React.FC<HeaderProps> = () => {
                      <Link href={"/"}>
                         {pathName === "/course" ? (
                            <Image
-                              src={"/assets/images/logo-white.svg"}
+                              src={"/images/logo-white.svg"}
                               width={1000}
                               height={1000}
                               alt="logo"
                            />
                         ) : (
                            <Image
-                              src={"/assets/images/logo.svg"}
+                              src={"/images/logo.svg"}
                               width={1000}
                               height={1000}
                               alt="logo"

@@ -8,7 +8,7 @@ interface FormProps {}
 const Form: React.FC<FormProps> = () => {
    return (
       <div className="max-w-[660px] w-full mx-auto px-5 py-6 rounded-[20px] max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white">
-         <div className="mb-5 p-7 pb-20 max-md:pb-12 rounded-2xl bg-[url('/assets/images/bg-form-black.jpg')] bg-no-repeat bg-cover">
+         <div className="mb-5 p-7 pb-20 max-md:pb-12 rounded-2xl bg-[url('/images/bg-form-black.jpg')] bg-no-repeat bg-cover">
             <h2 className="text-white text-5xl max-xl:text-4xl max-md:text-3xl font-bold">
                Записаться на курс
             </h2>

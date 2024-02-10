@@ -46,7 +46,7 @@ const AnimateBlock: React.FC<AnimateBlockProps> = ({ item, inView }) => {
             <div className="w-full h-full mt-auto px-14 max-2xl:px-6 max-md:px-6 ">
                <Image
                   className="w-full h-full object-cover"
-                  src={"/assets/images/party.jpg"}
+                  src={"/images/party.jpg"}
                   width={1000}
                   height={1000}
                   alt="photo"

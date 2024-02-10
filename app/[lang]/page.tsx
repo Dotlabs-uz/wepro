@@ -27,7 +27,6 @@ export default async function Home({
 	return (
 		<>
 			<section>
-            <h1>{translation.navigation.home}</h1>
 				<Hero />
 			</section>
 
@@ -49,7 +48,7 @@ export default async function Home({
 						</p>
 						<p className="max-sm:text-sm">программ обучения</p>
 					</div>
-					<div className="max-lg:hidden row-span-2 flex p-5 max-xl:p-3 bg-[url('/assets/images/man.jpg')] bg-cover bg-no-repeat bg-center rounded-[22px] overflow-hidden">
+					<div className="max-lg:hidden row-span-2 flex p-5 max-xl:p-3 bg-[url('/images/man.jpg')] bg-cover bg-no-repeat bg-center rounded-[22px] overflow-hidden">
 						<div className="mt-auto flex gap-2">
 							<button className="bg-white px-6 rounded-xl">
 								<FaPlay size={20} color="black" />

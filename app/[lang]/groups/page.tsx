@@ -46,7 +46,7 @@ const Page: React.FC<PageProps> = () => {
                            <div className="max-lg:min-w-[300px] rounded-[20px] shadow-[0px_4px_5px_0px_#00000026]">
                               <div className="p-2">
                                  <Image
-                                    src={"/assets/images/course-img.jpg"}
+                                    src={"/images/course-img.jpg"}
                                     width={1000}
                                     height={1000}
                                     alt="course"
@@ -81,7 +81,7 @@ const Page: React.FC<PageProps> = () => {
                            <div className="max-lg:max-w-[300px] rounded-[20px] shadow-[0px_4px_5px_0px_#00000026]">
                               <div className="p-2">
                                  <Image
-                                    src={"/assets/images/course-img.jpg"}
+                                    src={"/images/course-img.jpg"}
                                     width={1000}
                                     height={1000}
                                     alt="course"

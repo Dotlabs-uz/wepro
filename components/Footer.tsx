@@ -49,7 +49,7 @@ const Footer: React.FC<FooterProps> = () => {
                </div>
                <div className="max-w-md max-2xl:max-w-xs max-lg:max-w-60 max-md:hidden">
                   <Image
-                     src={"/assets/images/tick.svg"}
+                     src={"/images/tick.svg"}
                      width={1000}
                      height={1000}
                      alt="tick"
@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = () => {
                <div className="max-3xl:col-span-3 max-lg:col-span-2 max-3xl:mb-10 max-sm:m-0">
                   <div className="max-w-[160px] mb-4">
                      <Image
-                        src={"/assets/images/logo.svg"}
+                        src={"/images/logo.svg"}
                         width={1000}
                         height={1000}
                         alt="logo"

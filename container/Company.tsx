@@ -21,7 +21,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/assets/images/company/it-park.svg"}
+                        src={"/images/company/it-park.svg"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -30,7 +30,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/assets/images/company/family-park.svg"}
+                        src={"/images/company/family-park.svg"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -39,7 +39,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/assets/images/company/b-marketing.svg"}
+                        src={"/images/company/b-marketing.svg"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -48,7 +48,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/assets/images/company/sfx-marketing.svg"}
+                        src={"/images/company/sfx-marketing.svg"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -57,7 +57,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/assets/images/company/madad.svg"}
+                        src={"/images/company/madad.svg"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -66,7 +66,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/assets/images/company/akma-respect.svg"}
+                        src={"/images/company/akma-respect.svg"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -75,7 +75,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/assets/images/company/samcity.svg"}
+                        src={"/images/company/samcity.svg"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -84,7 +84,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/assets/images/company/py.svg"}
+                        src={"/images/company/py.svg"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -94,7 +94,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/assets/images/company/leader-print.svg"}
+                        src={"/images/company/leader-print.svg"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -104,7 +104,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/assets/images/company/brandex.svg"}
+                        src={"/images/company/brandex.svg"}
                         width={1000}
                         height={1000}
                         alt="company"
