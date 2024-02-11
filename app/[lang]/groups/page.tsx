@@ -3,27 +3,27 @@ import Tabs from "@/components/children/Tabs";
 import Image from "next/image";
 import { IoArrowForwardOutline } from "react-icons/io5";
 
-interface PageProps {}
+interface PageProps { }
 
 const Page: React.FC<PageProps> = () => {
-   const tabs = [
-      {
-         id: 0,
-         title: "Все курсы",
-      },
-      {
-         id: 1,
-         title: "Программирование",
-      },
-      {
-         id: 2,
-         title: "Дизайн",
-      },
-      {
-         id: 3,
-         title: "Другое",
-      },
-   ];
+   // const tabs = [
+   //    {
+   //       id: 0,
+   //       title: "Все курсы",
+   //    },
+   //    {
+   //       id: 1,
+   //       title: "Программирование",
+   //    },
+   //    {
+   //       id: 2,
+   //       title: "Дизайн",
+   //    },
+   //    {
+   //       id: 3,
+   //       title: "Другое",
+   //    },
+   // ];
 
    return (
       <>
@@ -34,9 +34,9 @@ const Page: React.FC<PageProps> = () => {
                      Запишитесь в группу, которая скоро откроется
                   </h2>
 
-                  <div className="md:w-fit rounded-lg overflow-scroll no-scroll">
+                  {/* <div className="md:w-fit rounded-lg overflow-scroll no-scroll">
                      <Tabs tabs={tabs} id={1} />
-                  </div>
+                  </div> */}
                </div>
 
                <div className="custom-container py-3 max-sm:py-2 overflow-scroll no-scroll">
