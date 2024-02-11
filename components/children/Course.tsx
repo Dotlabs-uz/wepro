@@ -1,30 +1,31 @@
 import Image from "next/image";
+import Link from "next/link";
 import { IoArrowForwardOutline } from "react-icons/io5";
 
 interface CourseProps {
-   // item: {
-   //    _id: string;
-   //    apps: string[];
-   //    category: string;
-   //    discount: number;
-   //    isAI: boolean;
-   //    isVisible: boolean;
-   //    language: string;
-   //    month: number;
-   //    price: number;
-   //    project: string;
-   //    textAboutCourse: string;
-   //    title: string;
-   //    url: string;
-   // };
-   item: any;
+   item: {
+      _id: string;
+      apps: string[];
+      category: string;
+      discount: number;
+      isAI: boolean;
+      isVisible: boolean;
+      language: string;
+      month: number;
+      price: number;
+      project: string;
+      textAboutCourse: string;
+      title: string;
+      url: string;
+   };
 }
 
 const Course: React.FC<CourseProps> = ({ item }) => {
-   console.log(item);
-
    return (
-      <div className="flex flex-col h-auto min-w-[460px] max-lg:min-w-[305px] rounded-[20px] cursor-pointer shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in bg-white">
+      <Link
+         href={{ pathname: `/course/${item.url}` }}
+         className="flex flex-col h-auto w-[460px] max-lg:w-[305px] rounded-[20px] cursor-pointer shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in bg-white"
+      >
          <div className="p-2 max-lg:hidden">
             <Image
                src={"/images/course-img.jpg"}
@@ -38,9 +39,12 @@ const Course: React.FC<CourseProps> = ({ item }) => {
                {item.title}
             </h3>
             <ul className="flex flex-wrap gap-[6px] mb-5 max-xl:mb-3">
-               {item.apps.map((item: string[]) => {
+               {item.apps.map((item: string, idx: number) => {
                   return (
-                     <li className="px-4 max-md:px-3 py-1 rounded-full cursor-pointer border duration-150 ease-in hover:bg-black hover:text-white sm:border-[#00000015] max-sm:border-black">
+                     <li
+                        key={idx}
+                        className="px-4 max-md:px-3 py-1 rounded-full cursor-pointer border duration-150 ease-in hover:bg-black hover:text-white sm:border-[#00000015] max-sm:border-black"
+                     >
                         <p className="text-sm max-xl:text-xs leading-normal">
                            {item}
                         </p>
@@ -63,7 +67,7 @@ const Course: React.FC<CourseProps> = ({ item }) => {
                </button>
             </div>
          </div>
-      </div>
+      </Link>
    );
 };
 

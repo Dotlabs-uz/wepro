@@ -2,17 +2,62 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import axios from "axios";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 import { BiCloset } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
 import ReactInputMask from "react-input-mask";
+import Link from "next/link";
+import { FaTelegram } from "react-icons/fa";
 
 interface ModalProps {
    isOpened: boolean;
    onClose: () => void;
+   select: boolean;
+   title: string;
+   dcr: string;
 }
+type Inputs = {
+   name: string;
+   phone: string;
+   additionally: string;
+};
 
-const Modal: React.FC<ModalProps> = ({ isOpened, onClose }) => {
+const Modal: React.FC<ModalProps> = ({
+   isOpened,
+   onClose,
+   select,
+   title,
+   dcr,
+}) => {
+   const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+      reset,
+   } = useForm<Inputs>();
+   const [disabled, setDisabled] = useState(false);
+
+   const onSubmit: SubmitHandler<Inputs> = (data) => {
+      setDisabled(true);
+      axios
+         .post("https://wepro.uz/api/leads", data)
+         .then((res) => {
+            if (res.status == 200 || res.status == 201) {
+               console.log(res);
+               reset({
+                  name: "",
+                  phone: "",
+               });
+            }
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
+
    useEffect(() => {
       if (isOpened) {
          document.body.style.overflowY = "hidden";
@@ -29,69 +74,124 @@ const Modal: React.FC<ModalProps> = ({ isOpened, onClose }) => {
                animate={{ opacity: 1 }}
                exit={{ opacity: 0 }}
                transition={{ duration: 0.3 }}
-               className={`w-full h-full flex items-center justify-center fixed z-[55] top-0 left-0 backdrop-blur-sm bg-black/30`}
+               className={`w-full h-full flex items-center justify-center fixed z-[55] top-0 left-0 backdrop-blur-sm bg-[#010018E5]`}
                onClick={onClose}
             >
-               <button
+               {/* <button
                   onClick={onClose}
                   className="absolute top-10 right-10 text-5xl"
                >
                   <IoClose color="white" />
-               </button>
+               </button> */}
                <div
-                  className="max-w-xl w-full p-10 max-lg:p-5 max-sm:p-4 max-sm:py-7 rounded-lg bg-white"
                   onClick={(e) => e.stopPropagation()}
+                  className="max-w-[660px] w-full mx-auto max-md:mx-3 px-5 py-6 rounded-[20px] max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
                >
-                  <div className="max-w-[160px] mb-3">
-                     <Image
-                        src={"/images/logo.svg"}
-                        width={1000}
-                        height={1000}
-                        alt="logo"
-                     />
+                  <div className="mb-5 lg:p-7 lg:pb-20 rounded-2xl bg-[url('/images/bg-form-black.jpg')] bg-no-repeat bg-cover max-lg:bg-none">
+                     <h2 className="text-white max-lg:text-black text-5xl max-xl:text-4xl max-md:text-3xl font-bold">
+                        {title}
+                     </h2>
+                     <p className="text-white max-lg:text-[#A3A2AB] text-[22px] max-2xl:text-xl max-lg:text-lg font-medium">
+                        {dcr}
+                     </p>
                   </div>
-                  <div className="mb-5">
-                     <h3 className="text-2xl text-black font-semibold">
-                        Заявка на консультацию
-                     </h3>
-                  </div>
-
-                  <form>
-                     <label className="flex flex-col mb-3">
-                        <span className="text-[#A3A2AB] text-[15px] mb-1">
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                     <label className="flex flex-col mb-6">
+                        <span
+                           className={`text-[#A3A2AB] text-sm mb-2 ${
+                              errors.name && "text-[red]"
+                           }`}
+                        >
                            Ваши имя и фамилия
                         </span>
                         <input
                            type="text"
-                           placeholder="Введите имя и фамилия"
-                           className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
+                           {...register("name", { required: true })}
+                           placeholder="Имя и фамилия"
+                           className={`px-5 py-[18px] rounded-[9px] bg-[#F4F4F4] ${
+                              errors.phone &&
+                              "border border-[red] outline-[red] text-[red]"
+                           }`}
                         />
                      </label>
-                     <label className="flex flex-col mb-3">
-                        <span className="text-[#A3A2AB] text-[15px] mb-1">
-                           Ваш номер телефона
+                     <label className="flex flex-col mb-6">
+                        <span
+                           className={`text-[#A3A2AB] text-sm mb-2 ${
+                              errors.phone && "text-[red]"
+                           }`}
+                        >
+                           Номер телефона
                         </span>
                         <input
                            type="text"
-                           placeholder="Введите номер"
+                           {...register("phone", { required: true })}
                            defaultValue={"+998 ("}
-                           className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
-                        />
-                        {/* <ReactInputMask
                            placeholder="Введите номер"
-                           className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
-                           mask="+\9\98-(99)-999-99-99"
-                           name="phone"
-                        /> */}
+                           className={`px-5 py-[18px] rounded-[9px] bg-[#F4F4F4] ${
+                              errors.phone &&
+                              "border border-[red] outline-[red] text-[red]"
+                           }`}
+                        />
+                        {/* <InputMask
+                  placeholder="Введите номер"
+                  className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
+                  mask="+\9\98-(99)-999-99-99"
+               /> */}
                      </label>
-                     <button className="w-full py-4 text-xl rounded-lg border-2 duration-150 ease-in text-white hover:text-[#151FE1] bg-[#151FE1] hover:border-[#151FE1] hover:bg-transparent">
+                     {select && (
+                        <label className="flex flex-col mb-6">
+                           <span className={`text-[#A3A2AB] text-sm mb-2 `}>
+                              Выберите курс
+                           </span>
+                           <select
+                              {...register("additionally", { required: true })}
+                              className={`px-5 py-[18px] rounded-[9px] bg-[#F4F4F4]`}
+                           >
+                              <option value="Frontend-разработка">
+                                 Frontend-программирование
+                              </option>
+                              <option value="Веб-дизайн">Веб-дизайн</option>
+                              <option value="Мобильная разработка">
+                                 Мобильная разработка
+                              </option>
+                              <option value="Мобилография">Мобилография</option>
+                              <option value="Графический дизайн">
+                                 Графический дизайн
+                              </option>
+                           </select>
+                        </label>
+                     )}
+                     <button
+                        disabled={disabled}
+                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-[18px] font-bold py-[18px] max-lg:py-3 border rounded-[7px] duration-150 ease-in"
+                     >
                         Отправить заявку
                      </button>
+                     <div className="mt-3 mb-7 max-lg:mb-6 py-2 rounded-[7px] bg-[#F4F4F4]">
+                        <p className="max-w-[270px] m-auto text-sm text-center text-[#A3A2AB]">
+                           Нажимая на кнопку, вы соглашаетесь на обработку
+                           персональных данных
+                        </p>
+                     </div>
                   </form>
-                  <div className="mt-4 py-3 border-t border-gray-400">
-                     <p className="text-gray-400 text-sm">
-                        Пожалуйста, убедитесь, что правильно ввели данные.
-                     </p>
+                  <div className="flex items-center justify-between pt-6 pb-1 border-t border-[#1515151a]">
+                     <div className="">
+                        <p className="max-md:text-xs font-bold text-[#A3A2AB]">
+                           Или напишите нам в
+                           <span className="text-[#000]"> Telegram</span>:
+                        </p>
+                     </div>
+                     <Link
+                        href={"#"}
+                        className="flex items-center gap-2 p-2 rounded-lg bg-[#F4F4F4]"
+                     >
+                        <span className="bg-white p-2 rounded-lg">
+                           <FaTelegram color={"#229ED9"} size={25} />
+                        </span>
+                        <span className="text-xl max-sm:text-base font-bold text-[#A3A2AB]">
+                           t.me/weprouz
+                        </span>
+                     </Link>
                   </div>
                </div>
             </motion.div>

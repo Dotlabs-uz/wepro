@@ -1,12 +1,69 @@
-import Vacancies from "@/container/Vacancies";
+"use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
+import axios from "axios";
+import { AnimatePresence, motion } from "framer-motion";
+
+import Vacancies from "@/container/Vacancies";
+import Form from "@/components/Form";
+
 import { MdArrowOutward } from "react-icons/md";
+import { IoClose } from "react-icons/io5";
+import Modal from "@/components/Modal";
+import Reviews from "@/container/Reviews";
 
 interface CourseProps {}
 
-const Course: React.FC<CourseProps> = () => {
+const Page: React.FC<CourseProps> = ({ params }: any) => {
+   const [data, setData] = useState<any>();
+   const [isOpened, setIsOpened] = useState(false);
+   let price = `${data?.price.toString().slice(0, 3)},${data?.price
+      .toString()
+      .slice(3)}`;
+
+   const onOpen = () => {
+      setIsOpened(true);
+   };
+   const onClose = () => {
+      setIsOpened(false);
+   };
+
+   useEffect(() => {
+      if (isOpened) {
+         document.body.style.overflowY = "hidden";
+      } else {
+         document.body.style.overflowY = "scroll";
+      }
+   }, [isOpened]);
+
+   useEffect(() => {
+      axios
+         .get(`https://wepro.uz/api/courses/slug/${params.courseId}`)
+         .then((res: any) => {
+            if (res.status === 200 || res.status === 201) {
+               setData(res.data);
+            }
+         })
+         .catch((err: any) => {
+            console.log(err);
+         });
+   }, []);
+
+   console.log(data);
+
    return (
       <>
+         <Modal
+            isOpened={isOpened}
+            onClose={onClose}
+            select={false}
+            title={"Записаться на курс"}
+            dcr={
+               "Оставьте заявку и получите возможность попасть на открытый урок абсолютно бесплатно."
+            }
+         />
          <section className="hero-gradient">
             <div className="flex gap-16 max-3xl:gap-10">
                <div className="w-1/2 relative max-lg:hidden">
@@ -33,37 +90,24 @@ const Course: React.FC<CourseProps> = () => {
                      </div>
                      <div className="max-lg:w-3/5 max-md:w-full">
                         <h1 className="text-5xl max-3xl:text-4xl max-xl:text-3xl font-bold leading-normal mb-7 max-2xl:mb-5 max-sm:mb-3 text-white">
-                           Станьте дизайнером с нуля до PRO с гарантией
-                           трудоустройства
+                           {data?.title}
                         </h1>
 
                         <h3 className="text-2xl max-2xl:text-xl max-lg:text-lg leading-normal mb-5 text-white">
-                           Научитесь основам 3D моделирования и зарабатывайте на
-                           создании графики для дизайна, кино, игр и интерьера.
+                           {data?.textAboutCourse}
                         </h3>
 
                         <ul className="max-w-[420px] max-2xl:max-w-lg w-full flex flex-wrap items-center gap-x-3 gap-y-2 text-white">
-                           <li className="text-sm py-2 px-5 rounded-lg border border-[#ffffff30]">
-                              Flutter
-                           </li>
-                           <li className="text-sm py-2 px-5 rounded-lg border border-[#ffffff30]">
-                              Dart
-                           </li>
-                           <li className="text-sm py-2 px-5 rounded-lg border border-[#ffffff30]">
-                              Android studio
-                           </li>
-                           <li className="text-sm py-2 px-5 rounded-lg border border-[#ffffff30]">
-                              Axios, API
-                           </li>
-                           <li className="text-sm py-2 px-5 rounded-lg border border-[#ffffff30]">
-                              Git, Github
-                           </li>
-                           <li className="text-sm py-2 px-5 rounded-lg border border-[#ffffff30]">
-                              Figma
-                           </li>
-                           <li className="text-sm py-2 px-5 rounded-lg border border-[#ffffff30]">
-                              ООП
-                           </li>
+                           {data?.apps.map((app: string, idx: number) => {
+                              return (
+                                 <li
+                                    key={idx}
+                                    className="text-sm py-2 px-5 rounded-lg border border-[#ffffff30]"
+                                 >
+                                    {app}
+                                 </li>
+                              );
+                           })}
                         </ul>
                      </div>
                   </div>
@@ -71,14 +115,16 @@ const Course: React.FC<CourseProps> = () => {
                   <div className="bg-white py-4 max-xs:py-3 px-7 max-xl:px-5 max-xs:px-3 rounded-3xl">
                      <div className="sm:flex max-sm:flex-wrap sm:items-center sm:justify-between max-sm:grid grid-cols-2  max-md:gap-y-4 mb-5">
                         <div className="">
-                           <p className="font-bold leading-normal">6 месяцев</p>
+                           <p className="font-bold leading-normal">
+                              {data?.month} месяцев
+                           </p>
                            <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
                               Длительность курса
                            </p>
                         </div>
                         <div className="">
                            <p className="font-bold leading-normal">
-                              775,000 сум
+                              {price} сум
                            </p>
                            <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
                               Стоимость до 21 февраля
@@ -86,7 +132,8 @@ const Course: React.FC<CourseProps> = () => {
                         </div>
                         <div className="">
                            <p className="font-bold leading-normal">
-                              48 уроков, 72 часа
+                              {data?.lessons.length} уроков,{" "}
+                              {Math.ceil(data?.lessons.length * 1.5)} часа
                            </p>
                            <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
                               Количество уроков
@@ -94,7 +141,10 @@ const Course: React.FC<CourseProps> = () => {
                         </div>
                      </div>
                      <div className="">
-                        <button className="bg-black text-white w-full text-xl max-lg:text-lg font-bold py-4 rounded-lg">
+                        <button
+                           onClick={onOpen}
+                           className="bg-black text-white w-full text-xl max-lg:text-lg font-bold py-4 rounded-lg"
+                        >
                            Начать обучение
                         </button>
                      </div>
@@ -267,7 +317,10 @@ const Course: React.FC<CourseProps> = () => {
                   <div className="grid md:grid-cols-3 max-md:grid-flow-col max-md:auto-cols-[310px] max-md:grid-rows-2 gap-6 max-xl:gap-3 mx-28 max-2xl:mx-20 max-xl:mx-0 py-12 max-xl:py-8 max-md:py-6 overflow-x-auto no-scroll border-y border-[#ffffff66]">
                      {[0, 1, 2, 3, 4].map((item: number) => {
                         return (
-                           <div className="flex flex-col p-6 max-xl:p-4 rounded-3xl bg-gradient-to-b from-[47%] from-[#f4f4f41a] to-[100%] to-[#f4f4f408]">
+                           <div
+                              key={item}
+                              className="flex flex-col p-6 max-xl:p-4 rounded-3xl bg-gradient-to-b from-[47%] from-[#f4f4f41a] to-[100%] to-[#f4f4f408]"
+                           >
                               <div className="mb-11 max-xl:mb-8 max-md:mb-5">
                                  <p className="text-white text-2xl leading-normal font-bold mb-2">
                                     Веб-дизайнер
@@ -297,7 +350,10 @@ const Course: React.FC<CourseProps> = () => {
                      <div className="grid grid-cols-2 max-md:grid-cols-1 gap-x-14 max-3xl:gap-x-10 max-lg:gap-x-5 mx-52 max-3xl:mx-40 max-xl:mx-20 max-lg:mx-0 max mb-24 max-xl:mb-16 max-lg:mb-10 max-md:mb-0">
                         {[0, 1, 2, 3, 4].map((item: number) => {
                            return (
-                              <div className="flex items-center justify-between py-4 border-b border-[#ffffff66]">
+                              <div
+                                 key={item}
+                                 className="flex items-center justify-between py-4 border-b border-[#ffffff66]"
+                              >
                                  <p className="text-[#A3A2AB] max-lg:text-sm font-bold">
                                     0{item + 1}.
                                  </p>
@@ -336,24 +392,25 @@ const Course: React.FC<CourseProps> = () => {
                   </h2>
                </div>
                <div className="grid md:grid-cols-3 max-md:grid-flow-col max-md:auto-cols-[310px] max-md:grid-rows-2 gap-6 max-xl:gap-4 max-lg:gap-3 mx-28 max-2xl:mx-20 max-xl:mx-0 overflow-x-auto no-scroll">
-                  {[0, 1, 2, 3, 4, 5].map((item: number) => {
-                     return (
-                        <div className="bg-[#3D2582] p-6 max-lg:p-4 rounded-3xl">
-                           <p className="text-xl font-bold mb-28 max-2xl:mb-20 max-xl:mb-12 max-lg:mb-4 text-white">
-                              0{item + 1}.
-                           </p>
-                           <div className="max-w-[235px]">
-                              <p className="text-xl font-bold text-white">
-                                 Новичкам
+                  {data?.suitableFor.map(
+                     (item: { title: string; text: string }, idx: number) => {
+                        return (
+                           <div className="bg-[#3D2582] p-6 max-lg:p-4 rounded-3xl flex flex-col">
+                              <p className="text-xl font-bold mb-28 max-2xl:mb-20 max-xl:mb-12 max-lg:mb-4 text-white">
+                                 0{idx + 1}.
                               </p>
-                              <p className="text-lg max-xl:text-base  text-[#E0E0E0]">
-                                 Вы сможете освоить востребованную профессию за
-                                 2 месяца
-                              </p>
+                              <div className="mt-auto">
+                                 <p className="text-xl font-bold text-white">
+                                    {item.title}
+                                 </p>
+                                 <p className="text-lg max-xl:text-base  text-[#E0E0E0]">
+                                    {item.text}
+                                 </p>
+                              </div>
                            </div>
-                        </div>
-                     );
-                  })}
+                        );
+                     }
+                  )}
                </div>
             </div>
          </section>
@@ -370,8 +427,10 @@ const Course: React.FC<CourseProps> = () => {
                            Посмотрите что говорят о нас выпускники курсов
                         </p>
                      </div>
-
-                     <div className="grid grid-cols-4 max-md:grid-cols-2 gap-4 py-12 max-xl:py-6 border-y border-[#ffffff66]">
+                     <div className="border-y border-[#FFFFFF66] py-12">
+                        <Reviews />
+                     </div>
+                     {/* <div className="grid grid-cols-4 max-md:grid-cols-2 gap-4 py-12 max-xl:py-6 border-y border-[#ffffff66]">
                         {[0, 1, 2, 3, 4, 5, 6, 7].map((item: number) => {
                            return (
                               <div
@@ -386,7 +445,7 @@ const Course: React.FC<CourseProps> = () => {
                               </div>
                            );
                         })}
-                     </div>
+                     </div> */}
                   </div>
 
                   <div className="mx-28 max-2xl:mx-10 max-xl:mx-0">
@@ -396,10 +455,10 @@ const Course: React.FC<CourseProps> = () => {
                         </h2>
                         <div className="flex max-md:flex-wrap items-center md:justify-center gap-2">
                            <p className="py-1 px-3 text-lg max-lg:text-base font-bold rounded-lg text-white bg-[#26145D]">
-                              4 месяца
+                              {data?.month} месяца
                            </p>
                            <p className="py-1 px-3 text-lg max-lg:text-base font-bold rounded-lg text-white bg-[#26145D]">
-                              32 урока
+                              {data?.lessons.length} урока
                            </p>
                            <p className="py-1 px-3 text-lg max-lg:text-base font-bold rounded-lg text-white bg-[#26145D]">
                               48 часов
@@ -410,21 +469,26 @@ const Course: React.FC<CourseProps> = () => {
                         </div>
                      </div>
 
-                     <ul className="bg-[#f4f4f40d] flex flex-col items-center gap-10 max-xl:gap-8 max-md:gap-0 mb-20 max-xl:mb-14 max-lg:mb-8 max-md:mb-7 p-12 max-xl:p-8 max-md:p-2 rounded-3xl">
-                        {[0, 1, 2, 3, 4, 5].map((item: number) => {
-                           return (
-                              <li className="w-full flex items-center gap-16 max-lg:gap-10 max-sm:gap-2 py-5 max-lg:py-4 cursor-pointer border-b last:border-none border-[#ffffff66]">
-                                 <p className="font-bold text-[#E0E0E0]">
-                                    0{item + 1}.
-                                 </p>
-                                 <p className="text-lg max-xs:text-base text-white">
-                                    Принципы графического дизайна
-                                 </p>
-                              </li>
-                           );
-                        })}
-                        <button className="bg-white hover:bg-[#151FE1] border-[#151FE1] hover:text-white text-[#151FE1] w-fit max-sm:w-full max-md:my-7 max-2xl:text-sm font-bold py-3 px-6 max-3xl:px-3 rounded-md border-2 duration-150 ease-in">
-                           Бесплатная консультация
+                     <ul className="bg-[#f4f4f40d] flex flex-col items-center mb-20 max-xl:mb-14 max-lg:mb-8 max-md:mb-7 p-12 max-xl:p-8 max-md:p-2 rounded-3xl">
+                        {data?.lessons.map(
+                           (lesson: { title: string }, idx: number) => {
+                              return (
+                                 <li
+                                    key={idx}
+                                    className="w-full flex items-center gap-16 max-lg:gap-10 max-sm:gap-2 py-5 max-lg:py-4 cursor-pointer last:border-none border-b border-[#ffffff66]"
+                                 >
+                                    <p className="font-bold text-[#E0E0E0]">
+                                       {idx + 1}.
+                                    </p>
+                                    <p className="text-lg max-xs:text-base text-white">
+                                       {lesson.title}
+                                    </p>
+                                 </li>
+                              );
+                           }
+                        )}
+                        <button className="bg-white hover:bg-[#151FE1] border-[#151FE1] hover:text-white text-[#151FE1] w-fit max-sm:w-full mt-10 max-md:my-7 max-2xl:text-sm font-bold py-3 px-8 max-3xl:px-6 rounded-md border-2 duration-150 ease-in">
+                           Показать всю программу
                         </button>
                      </ul>
                   </div>
@@ -435,20 +499,19 @@ const Course: React.FC<CourseProps> = () => {
                            Кураторы курса
                         </h2>
                      </div>
-
                      <div className="flex items-center justify-center gap-6">
-                        {[0, 1].map((item: number) => {
+                        {data?.teachersId.map((teacher: any) => {
                            return (
                               <div
-                                 key={item}
+                                 key={teacher._id}
                                  className="max-w-xs min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
                               >
                                  <div className="mt-auto px-5 max-md:px-2 max-lg:px-2 py-2 rounded-xl max-md:rounded-md md:backdrop-blur-[6px] bg-[#ffffff99] max-md:bg-white">
                                     <p className="text-sm font-bold max-xs:hidden">
-                                       3 года в дизайне
+                                       {teacher.description}
                                     </p>
                                     <p className="max-sm:text-sm">
-                                       Алекс Маметов
+                                       {teacher.name}
                                     </p>
                                  </div>
                               </div>
@@ -463,4 +526,4 @@ const Course: React.FC<CourseProps> = () => {
    );
 };
 
-export default Course;
+export default Page;

@@ -6,13 +6,18 @@ import { usePathname } from "next/navigation";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
 import Modal from "./Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoClose } from "react-icons/io5";
 
+// import { Locale } from "@/i18n.config";
+// import { getDictionary } from "@/lib/dictionary";
+// import localeSwitcher from "/locale-switcher";
+
 interface HeaderProps {}
 
-const Header: React.FC<HeaderProps> = () => {
+const Header = () => {
+   // const { navigation } = await getDictionary(lang);
    const pathName = usePathname();
    const [isOpened, setIsOpened] = useState(false);
    const [menu, setMenu] = useState(false);
@@ -46,12 +51,26 @@ const Header: React.FC<HeaderProps> = () => {
       },
    ];
 
+   useEffect(() => {
+      if (menu) {
+         document.body.style.overflowY = "hidden";
+      } else {
+         document.body.style.overflowY = "scroll";
+      }
+   }, [menu]);
+
    return (
       <>
-         <Modal isOpened={isOpened} onClose={onClose} />
+         <Modal
+            isOpened={isOpened}
+            onClose={onClose}
+            select={false}
+            title={"Заявка на консультацию"}
+            dcr={""}
+         />
          <header
             className={`relative z-50 ${
-               pathName === "/course"
+               pathName === "/ru/course"
                   ? "bg-[#020119]"
                   : "border-b border-[#EEEBE0] bg-white"
             }`}
@@ -111,7 +130,7 @@ const Header: React.FC<HeaderProps> = () => {
                <div className="flex items-center gap-7 max-2xl:gap-5 max-xl:gap-3">
                   <p
                      className={`font-bold underline underline-offset-2 cursor-pointer ${
-                        pathName === "/course" ? "text-white" : "text-black"
+                        pathName === "/ru/course" ? "text-white" : "text-black"
                      }`}
                   >
                      Рус
@@ -119,7 +138,7 @@ const Header: React.FC<HeaderProps> = () => {
                   <Link
                      href={"tel:+998 95 500-50-05"}
                      className={`font-bold underline underline-offset-2 ${
-                        pathName === "/course" ? "text-white" : "text-black"
+                        pathName === "/ru/course" ? "text-white" : "text-black"
                      }`}
                   >
                      <span className={`max-3xl:hidden block`}>
@@ -164,8 +183,12 @@ const Header: React.FC<HeaderProps> = () => {
                            idx: number
                         ) => {
                            return (
-                              <li key={idx} className="text-xl font-bold mb-2">
-                                 <Link href={"#"}>{item.title}</Link>
+                              <li
+                                 key={idx}
+                                 onClick={() => setMenu(false)}
+                                 className="text-xl font-bold mb-2"
+                              >
+                                 <Link href={item.link}>{item.title}</Link>
                               </li>
                            );
                         }

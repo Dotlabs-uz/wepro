@@ -1,13 +1,52 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
-import { FaTelegram } from "react-icons/fa";
+import axios from "axios";
 import InputMask from "react-input-mask";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { FaTelegram } from "react-icons/fa";
 
-interface FormProps {}
+interface FormProps {
+}
+type Inputs = {
+   name: string;
+   phone: string;
+   additionally: string;
+};
 
 const Form: React.FC<FormProps> = () => {
+   const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+      reset,
+   } = useForm<Inputs>();
+   const [disabled, setDisabled] = useState(false);
+
+   const onSubmit: SubmitHandler<Inputs> = (data) => {
+      setDisabled(true);
+      axios
+         .post("https://wepro.uz/api/leads", data)
+         .then((res) => {
+            if (res.status == 200 || res.status == 201) {
+               console.log(res);
+               reset({
+                  name: "",
+                  phone: "",
+               });
+            }
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
+
    return (
-      <div className="max-w-[660px] w-full mx-auto px-5 py-6 rounded-[20px] max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white">
+      <div
+         onClick={(e) => e.stopPropagation()}
+         className="max-w-[660px] w-full mx-auto px-5 py-6 rounded-[20px] max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
+      >
          <div className="mb-5 p-7 pb-20 max-md:pb-12 rounded-2xl bg-[url('/images/bg-form-black.jpg')] bg-no-repeat bg-cover">
             <h2 className="text-white text-5xl max-xl:text-4xl max-md:text-3xl font-bold">
                Записаться на курс
@@ -17,26 +56,42 @@ const Form: React.FC<FormProps> = () => {
                абсолютно бесплатно.
             </p>
          </div>
-         <form>
+         <form onSubmit={handleSubmit(onSubmit)}>
             <label className="flex flex-col mb-6">
-               <span className="text-[#A3A2AB] text-[15px] mb-[11px]">
+               <span
+                  className={`text-[#A3A2AB] text-[15px] mb-[11px] ${
+                     errors.name && "text-[red]"
+                  }`}
+               >
                   Ваши имя и фамилия
                </span>
                <input
                   type="text"
+                  {...register("name", { required: true })}
                   placeholder="Имя и фамилия"
-                  className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
+                  className={`px-5 py-[18px] rounded-[9px] bg-[#F4F4F4] ${
+                     errors.phone &&
+                     "border border-[red] outline-[red] text-[red]"
+                  }`}
                />
             </label>
             <label className="flex flex-col mb-6">
-               <span className="text-[#A3A2AB] text-[15px] mb-[11px]">
+               <span
+                  className={`text-[#A3A2AB] text-[15px] mb-[11px] ${
+                     errors.phone && "text-[red]"
+                  }`}
+               >
                   Номер телефона
                </span>
                <input
                   type="text"
+                  {...register("phone", { required: true })}
                   defaultValue={"+998 ("}
                   placeholder="Введите номер"
-                  className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
+                  className={`px-5 py-[18px] rounded-[9px] bg-[#F4F4F4] ${
+                     errors.phone &&
+                     "border border-[red] outline-[red] text-[red]"
+                  }`}
                />
                {/* <InputMask
                   placeholder="Введите номер"
@@ -44,7 +99,11 @@ const Form: React.FC<FormProps> = () => {
                   mask="+\9\98-(99)-999-99-99"
                /> */}
             </label>
-            <button className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-[18px] font-bold py-[18px] border rounded-[7px] duration-150 ease-in">
+           
+            <button
+               disabled={disabled}
+               className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-[18px] font-bold py-[18px] border rounded-[7px] duration-150 ease-in"
+            >
                Отправить заявку
             </button>
             <div className="mt-[12px] mb-[30px] py-[10px] rounded-[7px] bg-[#F4F4F4]">

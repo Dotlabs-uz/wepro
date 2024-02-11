@@ -62,12 +62,7 @@ const Vacancies: React.FC<VacanciesProps> = () => {
             </div>
 
             <div className="flex items-center gap-3">
-               <Image
-                  src={"/icons/hh.svg"}
-                  width={48}
-                  height={48}
-                  alt="hh"
-               />
+               <Image src={"/icons/hh.svg"} width={48} height={48} alt="hh" />
                <p className="text-xl max-lg:text-lg max-md:text-base font-medium text-white">
                   HeadHunder Uzbekistan
                </p>
@@ -120,7 +115,9 @@ const Vacancies: React.FC<VacanciesProps> = () => {
          <div className="relative z-10 max-md:flex flex-col gap-5 hidden">
             {vacancies.map(
                (item: { scaleMax: number; scaleMin: number }, idx: number) => {
-                  return <Vacancy inView={inView} item={item} idx={idx} />;
+                  return (
+                     <Vacancy inView={inView} item={item} idx={idx} key={idx} />
+                  );
                }
             )}
          </div>

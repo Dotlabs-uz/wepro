@@ -1,12 +1,48 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useForm, SubmitHandler } from "react-hook-form";
 import InputMask from "react-input-mask";
 import AnimateLink from "./children/AnimateLink";
+import { useState } from "react";
+import axios from "axios";
 
 interface FooterProps {}
+type Inputs = {
+   name: string;
+   phone: string;
+   additionally: string;
+};
 
 const Footer: React.FC<FooterProps> = () => {
+   const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+      reset,
+   } = useForm<Inputs>();
+   const [disabled, setDisabled] = useState(false);
+
+   const onSubmit: SubmitHandler<Inputs> = (data) => {
+      setDisabled(true);
+
+      axios
+         .post("https://wepro.uz/api/leads", data)
+         .then((res) => {
+            if (res.status == 200 || res.status == 201) {
+               console.log(res);
+               reset({
+                  name: "",
+                  phone: "",
+               });
+            }
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   };
+
    return (
       <footer className="custom-container max-sm:px-0">
          <div className="md:mb-12 pt-16 max-lg:pt-10 max-md:pt-7 px-28 max-3xl:px-20 max-2xl:px-10 max-lg:px-4 rounded-2xl shadow-[0px_5px_20px_0px_#15151526] bg-[#F5F5F5]">
@@ -19,29 +55,40 @@ const Footer: React.FC<FooterProps> = () => {
                      Оставьте свои контакты и получите бесплатную консультацию
                      по курсу, программе и спикерам.
                   </p>
-                  <form className="max-w-[515px] max-md:max-w-full grid grid-cols-2 gap-3">
+                  <form
+                     onSubmit={handleSubmit(onSubmit)}
+                     className="max-w-[515px] max-md:max-w-full grid grid-cols-2 gap-3"
+                  >
                      <input
                         type="text"
+                        {...register("name", { required: true })}
                         placeholder="Ваше имя"
                         className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] col-span-2"
                      />
                      <input
                         type="text"
+                        {...register("phone", { required: true })}
                         defaultValue={"+998 ("}
                         placeholder="Введите номер"
                         className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
                      />
+                     <select
+                        {...register("additionally", { required: true })}
+                        className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
+                     >
+                        <option defaultChecked>Не выбрано</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Tik Tok">Tik Tok</option>
+                        <option value="Билборды">Билборды</option>
+                        <option value="Через знакомых">Через знакомых</option>
+                     </select>
                      {/* <InputMask
                         placeholder="Введите номер"
                         className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
                         mask="+\9\98-(99)-999-99-99"
                         name="phone"
                      /> */}
-                     <input
-                        type="text"
-                        placeholder="Откуда о нас узнали?"
-                        className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
-                     />
                      <button className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white text-lg font-bold py-4 border rounded-[7px] col-span-2 duration-150 ease-in">
                         Отправить заявку
                      </button>
