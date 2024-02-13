@@ -66,7 +66,7 @@ const Page: React.FC<PageProps> = () => {
                                     575,000 сум/месяц
                                  </p>
                                  <div className="mt-auto">
-                                    <button className="max-md:w-full px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-bold rounded-lg duration-100 ease-in border-2 hover:bg-transparent bg-[#151FE1] hover:border-black text-white hover:text-black">
+                                    <button className="max-md:w-full px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-bold rounded-lg duration-100 ease-in border-2 hover:bg-transparent bg-[#151FE1] border-transparent hover:border-black text-white hover:text-black">
                                        Хочу в эту группу!
                                     </button>
                                  </div>

@@ -85,7 +85,7 @@ const Modal: React.FC<ModalProps> = ({
                </button> */}
                <div
                   onClick={(e) => e.stopPropagation()}
-                  className="max-w-[660px] w-full mx-auto max-md:mx-3 px-5 py-6 rounded-[20px] max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
+                  className="max-w-[660px] w-full mx-auto max-md:mx-3 px-4 py-6 max-sm:py-3 rounded-3xl max-md:rounded-2xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
                >
                   <div className="mb-5 lg:p-7 lg:pb-20 rounded-2xl bg-[url('/images/bg-form-black.jpg')] bg-no-repeat bg-cover max-lg:bg-none">
                      <h2 className="text-white max-lg:text-black text-5xl max-xl:text-4xl max-md:text-3xl font-bold">
@@ -96,11 +96,10 @@ const Modal: React.FC<ModalProps> = ({
                      </p>
                   </div>
                   <form onSubmit={handleSubmit(onSubmit)}>
-                     <label className="flex flex-col mb-6">
+                     <label className="flex flex-col mb-6 max-sm:mb-4">
                         <span
-                           className={`text-[#A3A2AB] text-sm mb-2 ${
-                              errors.name && "text-[red]"
-                           }`}
+                           className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.name && "text-[red]"
+                              }`}
                         >
                            Ваши имя и фамилия
                         </span>
@@ -108,17 +107,15 @@ const Modal: React.FC<ModalProps> = ({
                            type="text"
                            {...register("name", { required: true })}
                            placeholder="Имя и фамилия"
-                           className={`px-5 py-[18px] rounded-[9px] bg-[#F4F4F4] ${
-                              errors.phone &&
+                           className={`px-5 max-sm:px-3 py-4 max-sm:py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
                               "border border-[red] outline-[red] text-[red]"
-                           }`}
+                              }`}
                         />
                      </label>
-                     <label className="flex flex-col mb-6">
+                     <label className="flex flex-col mb-6 max-sm:mb-4">
                         <span
-                           className={`text-[#A3A2AB] text-sm mb-2 ${
-                              errors.phone && "text-[red]"
-                           }`}
+                           className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.phone && "text-[red]"
+                              }`}
                         >
                            Номер телефона
                         </span>
@@ -127,10 +124,9 @@ const Modal: React.FC<ModalProps> = ({
                            {...register("phone", { required: true })}
                            defaultValue={"+998 ("}
                            placeholder="Введите номер"
-                           className={`px-5 py-[18px] rounded-[9px] bg-[#F4F4F4] ${
-                              errors.phone &&
+                           className={`max-sm:text-sm px-5 max-sm:px-3 py-4 max-sm:py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
                               "border border-[red] outline-[red] text-[red]"
-                           }`}
+                              }`}
                         />
                         {/* <InputMask
                   placeholder="Введите номер"
@@ -163,7 +159,7 @@ const Modal: React.FC<ModalProps> = ({
                      )}
                      <button
                         disabled={disabled}
-                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-[18px] font-bold py-[18px] max-lg:py-3 border rounded-[7px] duration-150 ease-in"
+                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-lg max-sm:text-base font-bold py-4 max-sm:py-3 border rounded-[7px] duration-150 ease-in"
                      >
                         Отправить заявку
                      </button>
@@ -174,7 +170,7 @@ const Modal: React.FC<ModalProps> = ({
                         </p>
                      </div>
                   </form>
-                  <div className="flex items-center justify-between pt-6 pb-1 border-t border-[#1515151a]">
+                  <div className="flex gap-2 items-center justify-between pt-7 max-sm:pt-4 pb-1 border-t border-[#1515151a]">
                      <div className="">
                         <p className="max-md:text-xs font-bold text-[#A3A2AB]">
                            Или напишите нам в
@@ -183,12 +179,12 @@ const Modal: React.FC<ModalProps> = ({
                      </div>
                      <Link
                         href={"#"}
-                        className="flex items-center gap-2 p-2 rounded-lg bg-[#F4F4F4]"
+                        className="flex items-center p-2 max-sm:p-1 rounded-lg bg-[#F4F4F4]"
                      >
-                        <span className="bg-white p-2 rounded-lg">
+                        <span className="bg-white p-2 max-sm:p-1 rounded-lg">
                            <FaTelegram color={"#229ED9"} size={25} />
                         </span>
-                        <span className="text-xl max-sm:text-base font-bold text-[#A3A2AB]">
+                        <span className="text-xl max-sm:text-sm font-bold mx-2 text-[#A3A2AB]">
                            t.me/weprouz
                         </span>
                      </Link>

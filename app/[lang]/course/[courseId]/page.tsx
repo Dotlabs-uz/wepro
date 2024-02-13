@@ -12,9 +12,9 @@ import Form from "@/components/Form";
 import { MdArrowOutward } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 import Modal from "@/components/Modal";
-import Reviews from "@/container/Reviews";
+import Reviews from "@/components/ReviewsCom";
 
-interface CourseProps {}
+interface CourseProps { }
 
 const Page: React.FC<CourseProps> = ({ params }: any) => {
    const [data, setData] = useState<any>();
@@ -93,7 +93,7 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                            {data?.title}
                         </h1>
 
-                        <h3 className="text-2xl max-2xl:text-xl max-lg:text-lg leading-normal mb-5 text-white">
+                        <h3 className="text-2xl max-2xl:text-xl max-lg:text-lg leading-normal max-sm:leading-snug mb-5 text-white">
                            {data?.textAboutCourse}
                         </h3>
 
@@ -112,7 +112,7 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                      </div>
                   </div>
 
-                  <div className="bg-white py-4 max-xs:py-3 px-7 max-xl:px-5 max-xs:px-3 rounded-3xl">
+                  <div className="bg-white py-4 max-xs:py-3 px-7 max-xl:px-5 max-xs:px-3 rounded-3xl max-md:rounded-2xl">
                      <div className="sm:flex max-sm:flex-wrap sm:items-center sm:justify-between max-sm:grid grid-cols-2  max-md:gap-y-4 mb-5">
                         <div className="">
                            <p className="font-bold leading-normal">
@@ -153,7 +153,7 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
             </div>
 
             <div className="custom-container py-16 max-2xl:py-12 max-lg:py-8 max-md:hidden">
-               <div className="mb-5">
+               <div className="mb-5 ">
                   <h3 className="text-3xl max-xl:text-2xl font-bold text-center text-white">
                      Зачем становиться дизайнером?
                   </h3>
@@ -213,8 +213,8 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
 
          <section>
             <div className="custom-container my-28 max-lg:my-20">
-               <div className="mb-9 max-md:mb-6">
-                  <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold sm:text-center">
+               <div className="mb-9 max-md:mb-6 max-sm:mb-3">
+                  <h2 className="sm:text-center">
                      Вы сможете создавать
                   </h2>
                </div>
@@ -419,7 +419,7 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
             <div className="bg-[#010018] rounded-3xl max-md:rounded-[20px]">
                <div className="custom-container my-28 max-xl:my-20">
                   <div className="mx-28 max-2xl:mx-10 max-xl:mx-0">
-                     <div className="pt-14 pb-12 max-xl:py-8 max-md:py-7 md:text-center">
+                     <div className="pt-14 pb-12 max-xl:py-8 max-md:py-7 max-sm:pb-0 md:text-center">
                         <h2 className="text-white text-5xl max-xl:text-4xl max-sm:text-3xl font-bold mb-4 max-lg:mb-2">
                            Отзывы выпускников
                         </h2>
@@ -427,7 +427,7 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                            Посмотрите что говорят о нас выпускники курсов
                         </p>
                      </div>
-                     <div className="border-y border-[#FFFFFF66] py-12">
+                     <div className="border-b border-[#FFFFFF66] py-12 max-lg:py-8">
                         <Reviews />
                      </div>
                      {/* <div className="grid grid-cols-4 max-md:grid-cols-2 gap-4 py-12 max-xl:py-6 border-y border-[#ffffff66]">
@@ -499,12 +499,12 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                            Кураторы курса
                         </h2>
                      </div>
-                     <div className="flex items-center justify-center gap-6">
+                     <div className="w-fit max-sm:w-full m-auto grid grid-cols-2 gap-6 max-lg:gap-4">
                         {data?.teachersId.map((teacher: any) => {
                            return (
                               <div
                                  key={teacher._id}
-                                 className="max-w-xs min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
+                                 className="max-w-xs min-h-[420px] max-xl:min-h-[370px] max-sm:min-h-[300px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
                               >
                                  <div className="mt-auto px-5 max-md:px-2 max-lg:px-2 py-2 rounded-xl max-md:rounded-md md:backdrop-blur-[6px] bg-[#ffffff99] max-md:bg-white">
                                     <p className="text-sm font-bold max-xs:hidden">

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 
-interface BranchProps {}
+interface BranchProps { }
 
 const Branch: React.FC<BranchProps> = () => {
    const tabs = [
@@ -21,12 +21,12 @@ const Branch: React.FC<BranchProps> = () => {
    return (
       <>
          <div className="custom-container my-28 max-lg:my-24 max-sm:my-20">
-            <div className="flex max-lg:flex-col items-center gap-20 max-2xl:gap-10 max-lg:gap-7 mb-11 max-lg:mb-7 mx-28 max-2xl:mx-20 max-xl:mx-0">
+            <div className="flex max-lg:flex-col items-center gap-20 max-2xl:gap-10 max-lg:gap-7 max-sm:gap-4 mb-11 max-lg:mb-7 max-sm:mb-4 mx-28 max-2xl:mx-0 max-xl:mx-0">
                <div className="w-1/2 max-lg:w-full">
                   <h2 className="text-5xl max-2xl:text-4xl leading-normal font-bold mb-4">
                      Выберите филиал
                   </h2>
-                  <p className="mb-8 max-lg:mb-4 text-[22px] max-2xl:text-xl max-md:text-lg font-medium max-sm:leading-normal text-[#A3A2AB]">
+                  <p className="mb-8 max-lg:mb-4 text-xl max-md:text-lg font-medium max-xs:leading-snug text-[#A3A2AB]">
                      На данный момент оперируют 2 филиала в самых удобных
                      локациях Самарканде. Все филиалы оборудованы передовыми
                      технологиями, созданы лучшие условия для обучения на
@@ -38,11 +38,10 @@ const Branch: React.FC<BranchProps> = () => {
                         <button
                            key={tab.id}
                            onClick={() => setActive(tab.id)}
-                           className={`${
-                              active === tab.id
-                                 ? "text-white"
-                                 : "hover:text-black/60"
-                           } relative w-full z-10 rounded-lg py-4 max-lg:py-3 px-8 max-3xl:px-5 max-lg:px-4 text-sm font-bold text-center text-nowrap text-black outline-sky-400 transition focus-visible:outline-2`}
+                           className={`${active === tab.id
+                              ? "text-white"
+                              : "hover:text-black/60"
+                              } relative w-full z-10 rounded-lg py-4 max-lg:py-3 px-8 max-3xl:px-5 max-lg:px-4 text-sm font-bold text-center text-nowrap text-black outline-sky-400 transition focus-visible:outline-2`}
                            style={{
                               WebkitTapHighlightColor: "transparent",
                            }}

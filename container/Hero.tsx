@@ -4,7 +4,7 @@ import { FaFigma } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-interface HeroProps {}
+interface HeroProps { }
 
 const Hero: React.FC<HeroProps> = () => {
    const arr = [
@@ -93,7 +93,7 @@ const Hero: React.FC<HeroProps> = () => {
                </button>
             </div>
          </div>
-         <div className="relative min-h-[550px] max-3xl:min-h-[450px] max-lg:min-h-[400px] max-sm:min-h-[300px] max-xs:min-h-[270px] flex p-5 max-xl:p-4 max-sm:p-2 rounded-[22px]  bg-cover bg-no-repeat">
+         <div className="relative min-h-[550px] max-3xl:min-h-[450px] max-lg:min-h-[350px] max-sm:min-h-[300px] max-xs:min-h-[270px] flex p-5 max-xl:p-4 max-sm:px-2 max-sm:py-4 rounded-3xl bg-cover bg-no-repeat">
             <Image
                className="w-full h-full absolute top-0 left-0 object-cover rounded-3xl max-md:rounded-2xl pointer-events-none select-none"
                src={arr[currentSlide].img}
@@ -101,8 +101,8 @@ const Hero: React.FC<HeroProps> = () => {
                height={1000}
                alt="course"
             />
-            <div className="w-full mt-auto rounded-[22px] max-md:rounded-[12px] px-6 max-xl:px-3 max-sm:px-2 backdrop-blur-[15px] bg-[#ffffffd9]">
-               <div className="max-sm:hidden py-6 max-2xl:py-4 text-center border-b border-[#1515151a]">
+            <div className="w-full mt-auto rounded-3xl max-lg:rounded-xl max-sm:rounded-lg px-6 max-xl:px-3 max-sm:px-2 backdrop-blur-[15px] bg-[#f4f4f48c]">
+               <div className="max-lg:hidden py-6 max-2xl:py-4 text-center border-b border-[#1515151a]">
                   <h1 className="text-3xl max-lg:text-2xl font-bold">
                      С нуля до PRO за {arr[currentSlide].month} месяца
                   </h1>
@@ -110,8 +110,9 @@ const Hero: React.FC<HeroProps> = () => {
                      Wepro - это сеть IT-школ в Самарканде
                   </p>
                </div>
-               <div className="px-14 max-3xl:px-9 max-2xl:px-5 max-xl:px-0 py-6 max-3xl:py-4 max-sm:py-2">
-                  <ul className="flex items-center justify-between overflow-scroll no-scroll">
+
+               <div className="px-14 max-3xl:px-9 max-2xl:px-5 max-xl:px-0 py-6 max-3xl:py-4 max-lg:py-2 max-sm:py-1 overflow-scroll no-scroll">
+                  <ul className="flex items-center justify-between">
                      {arr.map(
                         (item: {
                            id: number;
@@ -124,7 +125,7 @@ const Hero: React.FC<HeroProps> = () => {
                               <li
                                  key={item.id}
                                  onClick={() => handelSlide(item.id)}
-                                 className="text-nowrap relative flex items-center gap-3 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer duration-100 ease-in"
+                                 className="text-nowrap space-nowrap relative flex items-center gap-2 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer duration-100 ease-in"
                                  style={{
                                     background:
                                        currentSlide === item.id
@@ -137,20 +138,20 @@ const Hero: React.FC<HeroProps> = () => {
                                  }}
                               >
                                  <span
-                                    className="absolute inset-0 z-[-1] rounded-lg duration-500 ease-linear bg-[#151FE1]"
+                                    className="absolute inset-0 z-[-1] rounded-lg duration-700 ease-linear bg-[#151FE1]"
                                     style={
                                        currentSlide === item.id
                                           ? {
-                                               width: `${progress}%`,
-                                               background: "#151FE1",
-                                            }
+                                             width: `${progress}%`,
+                                             background: "#151FE1",
+                                          }
                                           : {
-                                               background: "transparent",
-                                            }
+                                             background: "transparent",
+                                          }
                                     }
                                  ></span>
-                                 <FaFigma size={20} className="max-lg:hidden" />
-                                 <p className="text-sm font-bold">
+                                 <FaFigma className="text-[20px] max-lg:text-[16px]" />
+                                 <p className="text-sm max-xs:text-xs font-bold">
                                     {item.title}
                                  </p>
                               </li>

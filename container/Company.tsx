@@ -1,16 +1,16 @@
 import Image from "next/image";
 
-interface CompanyProps {}
+interface CompanyProps { }
 
 const Company: React.FC<CompanyProps> = () => {
    return (
       <section className="">
          <div className="custom-container my-28 max-lg:my-24 max-sm:my-20">
             <div className="max-w-4xl w-full mx-auto mb-[10px] md:text-center">
-               <h2 className="text-5xl max-xl:text-4xl font-bold mb-4">
+               <h2 className="mb-4">
                   Компании, где работают наши выпускники
                </h2>
-               <p className="text-[22px] max-2xl:text-xl max-lg:text-lg font-medium text-[#A3A2AB]">
+               <p className="text-xl max-lg:text-lg font-medium text-[#A3A2AB]">
                   Собираем лучшие вакансии в отрасли, готовим к интервью и
                   рекомендуем вас компаниям-партнёрам.
                </p>

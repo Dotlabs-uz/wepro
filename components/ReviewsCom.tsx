@@ -3,7 +3,7 @@ import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
 import { useEffect, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
 
-interface ReviewsProps {}
+interface ReviewsProps { }
 
 const Reviews: React.FC<ReviewsProps> = () => {
    const [selectedId, setSelectedId] = useState<any>(null);
@@ -25,10 +25,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
                      key={item}
                      layoutId={`card-container-${item}`}
                      onClick={() => setSelectedId(item)}
-                     className="min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 cursor-pointer bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
-                     // style={
-                     //    selectedId === item ? { overflow: "hidden" } : {}
-                     // }
+                     className="min-h-[400px] max-2xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 cursor-pointer bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
                   >
                      <motion.div className="mt-auto px-5 max-lg:px-2 py-2 rounded-[4px] bg-white">
                         <motion.p className="text-sm font-medium">

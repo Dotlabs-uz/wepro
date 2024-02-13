@@ -4,7 +4,7 @@ import Tabs from "@/components/children/Tabs";
 import CoursesCom from "@/components/CoursesCom";
 import { useState } from "react";
 
-interface CoursesProps {}
+interface CoursesProps { }
 
 const Courses: React.FC<CoursesProps> = () => {
    const [category, setCategory] = useState("all");

@@ -45,22 +45,22 @@ h2 {
    @apply text-5xl max-xl:text-4xl max-sm:text-3xl leading-normal font-bold;
 }
 
+.space-nowrap {
+   white-space: nowrap !important;
+}
+
 .hero-gradient {
-   background: linear-gradient(
-      180deg,
-      rgba(1, 0, 24, 0.56) 0%,
-      #010018 24%,
-      #010018 100%
-   );
+   background: linear-gradient(180deg,
+         rgba(1, 0, 24, 0.56) 0%,
+         #010018 24%,
+         #010018 100%);
 }
 
 .hero-img-gradient {
-   background: linear-gradient(
-      180deg,
-      #02011900 0%,
-      #02011900 77.5%,
-      #020118 100%
-   );
+   background: linear-gradient(180deg,
+         #02011900 0%,
+         #02011900 77.5%,
+         #020118 100%);
 }
 
 .swiper-wrapper {
@@ -72,11 +72,9 @@ h2 {
 }
 
 .text-white-gradient {
-   background: linear-gradient(
-      181deg,
-      #000 40.97%,
-      rgba(255, 255, 255, 0) 99.23%
-   );
+   background: linear-gradient(181deg,
+         #000 40.97%,
+         rgba(255, 255, 255, 0) 99.23%);
    background-clip: text;
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
@@ -86,29 +84,31 @@ h2 {
    @apply w-[908.452px] h-[884.847px] absolute z-[-1] -bottom-1/2 left-1/2 -translate-x-1/2;
 
    border-radius: 908.452px;
-   background: radial-gradient(
-      50% 50% at 50% 50%,
-      #5334aa 0%,
-      #26145d 56.5%,
-      #010018 100%
-   );
+   background: radial-gradient(50% 50% at 50% 50%,
+         #5334aa 0%,
+         #26145d 56.5%,
+         #010018 100%);
 }
 
 .scroll-animated {
    width: 100%;
 }
+
 .scroll-animated:nth-child(1) {
    @apply w-[100%];
-   top: 20px;
+   top: 0px;
 }
+
 .scroll-animated:nth-child(2) {
    @apply w-[100%];
-   @apply top-16 max-sm:top-10;
+   @apply top-14 max-sm:top-7;
 }
+
 .scroll-animated:nth-child(3) {
    @apply w-[100%];
-   @apply top-40 max-sm:top-16;
+   @apply top-32 max-sm:top-14;
 }
+
 .scroll-animated:nth-child(4) {
    @apply w-[100%];
 }
@@ -118,6 +118,7 @@ h2 {
 .card {
    @apply p-1 shadow-md rounded-[22px] max-lg:rounded-2xl max-sm:rounded-xl overflow-hidden relative;
 }
+
 .card:nth-child(1) {
    @apply row-span-2 max-md:row-span-1;
 }
@@ -129,15 +130,19 @@ h2 {
 .vacancy:nth-child(1) {
    @apply top-9;
 }
+
 .vacancy:nth-child(2) {
    @apply top-[65px];
 }
+
 .vacancy:nth-child(3) {
    @apply top-[95px];
 }
+
 .vacancy:nth-child(4) {
    @apply top-[130px];
 }
+
 .vacancy:nth-child(5) {
    @apply top-[100px];
 }

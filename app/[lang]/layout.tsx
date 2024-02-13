@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
@@ -8,7 +8,10 @@ import FAQ from "@/container/FAQ";
 import Form from "@/components/Form";
 import Company from "@/container/Company";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Roboto({
+   subsets: ["latin"],
+   weight: "400"
+});
 
 export const metadata: Metadata = {
    title: "Wepro | Home",

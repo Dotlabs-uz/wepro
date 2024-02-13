@@ -14,7 +14,7 @@ import { IoClose } from "react-icons/io5";
 // import { getDictionary } from "@/lib/dictionary";
 // import localeSwitcher from "/locale-switcher";
 
-interface HeaderProps {}
+interface HeaderProps { }
 
 const Header = () => {
    // const { navigation } = await getDictionary(lang);
@@ -31,23 +31,24 @@ const Header = () => {
    const HandelMenu = () => {
       setMenu(!menu);
    };
+   console.log(pathName);
 
    const links = [
       {
          title: "Главная",
-         link: "/",
+         link: `${pathName.slice(0, 3)}`,
       },
       {
          title: "Курсы и цены",
-         link: "/courses",
+         link: `${pathName.slice(0, 3)}/courses`,
       },
       {
          title: "Отзывы",
-         link: "/reviews",
+         link: `${pathName.slice(0, 3)}/reviews`,
       },
       {
          title: "Запись в группу",
-         link: "/groups",
+         link: `${pathName.slice(0, 3)}/groups`,
       },
    ];
 
@@ -69,11 +70,10 @@ const Header = () => {
             dcr={""}
          />
          <header
-            className={`relative z-50 ${
-               pathName === "/ru/course"
-                  ? "bg-[#020119]"
-                  : "border-b border-[#EEEBE0] bg-white"
-            }`}
+            className={`relative z-50 ${pathName === "/ru/course"
+               ? "bg-[#020119]"
+               : "border-b border-[#EEEBE0] bg-white"
+               }`}
          >
             <div className="custom-container py-4 flex gap-4 items-center justify-between">
                <div className="flex items-center gap-11 max-3xl:gap-8 max-xl:gap-1">
@@ -107,15 +107,13 @@ const Header = () => {
                                  <li key={idx}>
                                     <Link
                                        href={item.link}
-                                       className={`max-2xl:text-sm text-nowrap py-2 px-4 max-xl:px-3 rounded-full duration-150 ease-in hover:bg-black ${
-                                          pathName === "/course"
-                                             ? "text-white"
-                                             : "hover:text-white"
-                                       } ${
-                                          pathName === item.link
+                                       className={`max-2xl:text-sm text-nowrap py-2 px-4 max-xl:px-3 rounded-full duration-150 ease-in hover:bg-black ${pathName === "/course"
+                                          ? "text-white"
+                                          : "hover:text-white"
+                                          } ${pathName === item.link
                                              ? "bg-black text-white"
                                              : ""
-                                       }`}
+                                          }`}
                                     >
                                        {item.title}
                                     </Link>
@@ -129,17 +127,15 @@ const Header = () => {
 
                <div className="flex items-center gap-7 max-2xl:gap-5 max-xl:gap-3">
                   <p
-                     className={`font-bold underline underline-offset-2 cursor-pointer ${
-                        pathName === "/ru/course" ? "text-white" : "text-black"
-                     }`}
+                     className={`font-bold underline underline-offset-2 cursor-pointer ${pathName === "/ru/course" ? "text-white" : "text-black"
+                        }`}
                   >
                      Рус
                   </p>
                   <Link
                      href={"tel:+998 95 500-50-05"}
-                     className={`font-bold underline underline-offset-2 ${
-                        pathName === "/ru/course" ? "text-white" : "text-black"
-                     }`}
+                     className={`font-bold underline underline-offset-2 ${pathName === "/ru/course" ? "text-white" : "text-black"
+                        }`}
                   >
                      <span className={`max-3xl:hidden block`}>
                         +998 95 500-50-05

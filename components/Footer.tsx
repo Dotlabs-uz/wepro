@@ -7,7 +7,7 @@ import AnimateLink from "./children/AnimateLink";
 import { useState } from "react";
 import axios from "axios";
 
-interface FooterProps {}
+interface FooterProps { }
 type Inputs = {
    name: string;
    phone: string;
@@ -114,26 +114,26 @@ const Footer: React.FC<FooterProps> = () => {
                      />
                   </div>
                   <div className="max-w-xs">
-                     <p className="font-bold text-[#A3A2AB]">
+                     <p className="max-sm:text-sm max-sm:leading-tight font-medium text-[#A3A2AB]">
                         Профессиональное обучение профессиям будущего
                      </p>
                   </div>
                </div>
                <div className="">
                   <h3 className="text-lg font-bold mb-5 max-md:mb-2">Курсы:</h3>
-                  <ul className="text-[#A3A2AB] font-bold">
-                     <li className="w-fit mb-1">
+                  <ul className="text-[#A3A2AB] font-medium">
+                     <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-2">
                         <AnimateLink href="#">
                            Frontend-программирование
                         </AnimateLink>
                      </li>
-                     <li className="w-fit mb-1">
+                     <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-2">
                         <AnimateLink href="#">Мобильная разработка</AnimateLink>
                      </li>
-                     <li className="w-fit mb-1">
+                     <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-2">
                         <AnimateLink href="#">SMM</AnimateLink>
                      </li>
-                     <li className="w-fit mb-1">
+                     <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-0">
                         <AnimateLink href="#">Графический дизайн</AnimateLink>
                      </li>
                   </ul>
@@ -142,17 +142,17 @@ const Footer: React.FC<FooterProps> = () => {
                   <h3 className="text-lg font-bold mb-5 max-md:mb-2">
                      Социальные сети:
                   </h3>
-                  <ul className="text-[#A3A2AB] font-bold">
-                     <li className="mb-1">
+                  <ul className="text-[#A3A2AB] font-medium">
+                     <li className="max-sm:text-sm max-sm:leading-tight mb-2">
                         <AnimateLink href="#">Instagram</AnimateLink>
                      </li>
-                     <li className="mb-1">
+                     <li className="max-sm:text-sm max-sm:leading-tight mb-2">
                         <AnimateLink href="#">Telegram</AnimateLink>
                      </li>
-                     <li className="mb-1">
+                     <li className="max-sm:text-sm max-sm:leading-tight mb-2">
                         <AnimateLink href="#">YouTube</AnimateLink>
                      </li>
-                     <li className="mb-1">
+                     <li className="max-sm:text-sm max-sm:leading-tight mb-2">
                         <AnimateLink href="#">LinkedIn</AnimateLink>
                      </li>
                   </ul>
@@ -161,7 +161,7 @@ const Footer: React.FC<FooterProps> = () => {
                   <h3 className="text-lg font-bold mb-5 max-md:mb-2">
                      Контакты:
                   </h3>
-                  <ul className="text-[#A3A2AB] font-bold">
+                  <ul className="text-[#A3A2AB] font-medium">
                      <li className="text-black text-2xl max-md:text-xl font-bold mb-5 max-md:mb-2">
                         <a href={"tel:+998 (90) 197-71-00"}>
                            +998 (90) 197-71-00

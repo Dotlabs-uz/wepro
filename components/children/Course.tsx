@@ -24,7 +24,7 @@ const Course: React.FC<CourseProps> = ({ item }) => {
    return (
       <Link
          href={{ pathname: `/course/${item.url}` }}
-         className="flex flex-col h-auto w-[460px] max-lg:w-[305px] rounded-[20px] cursor-pointer shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in bg-white"
+         className="flex flex-col h-auto w-[460px] max-2xl:w-[400px] max-lg:w-[310px] rounded-3xl max-xl:rounded-2xl cursor-pointer shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in bg-white"
       >
          <div className="p-2 max-lg:hidden">
             <Image
@@ -34,28 +34,28 @@ const Course: React.FC<CourseProps> = ({ item }) => {
                alt="course"
             />
          </div>
-         <div className="flex flex-col h-full px-7 max-2xl:px-4 pb-6 pt-3 max-sm:p-5">
-            <h3 className="text-3xl max-2xl:text-2xl leading-normal font-bold mb-5 max-2xl:mb-4">
+         <div className="flex flex-col h-full px-7 max-2xl:px-4 pb-6 max-xl:pb-3 pt-3 max-xl:pt-0 max-sm:p-5">
+            <h3 className="text-3xl max-2xl:text-2xl max-sm:text-xl leading-normal max-sm:leading-tight font-bold mb-5 max-2xl:mb-3">
                {item.title}
             </h3>
-            <ul className="flex flex-wrap gap-[6px] mb-5 max-xl:mb-3">
+            <ul className="flex flex-wrap gap-[6px] mb-5 max-2xl:mb-3">
                {item.apps.map((item: string, idx: number) => {
                   return (
                      <li
                         key={idx}
                         className="px-4 max-md:px-3 py-1 rounded-full cursor-pointer border duration-150 ease-in hover:bg-black hover:text-white sm:border-[#00000015] max-sm:border-black"
                      >
-                        <p className="text-sm max-xl:text-xs leading-normal">
+                        <p className="text-sm max-2xl:text-xs leading-normal">
                            {item}
                         </p>
                      </li>
                   );
                })}
             </ul>
-            <p className="max-xl:text-sm mb-1">
+            <p className="max-xl:text-sm mb-1 max-xl:mb-0">
                Срок обучения: {item.month} месяцев
             </p>
-            <p className="max-xl:text-sm mb-7 max-xl:mb-4">
+            <p className="max-xl:text-sm mb-7 max-2xl:mb-4">
                Цена: {item.price} сум/месяц
             </p>
             <div className="mt-auto">
