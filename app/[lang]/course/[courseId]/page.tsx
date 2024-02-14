@@ -7,12 +7,16 @@ import axios from "axios";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Vacancies from "@/container/Vacancies";
-import Form from "@/components/Form";
+import Form from "@/container/Form";
 
 import { MdArrowOutward } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 import Modal from "@/components/Modal";
 import Reviews from "@/components/ReviewsCom";
+import Company from "@/container/Company";
+import FAQ from "@/container/FAQ";
+import BgAnimated from "@/container/BgAnimated";
+import Lessons from "@/components/Lessons";
 
 interface CourseProps { }
 
@@ -295,13 +299,11 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
          </section>
 
          <section>
-            <div className="bg-[#D6001C] mx-10 max-2xl:mx-5 max-xl:mx-0 rounded-3xl">
-               <Vacancies />
-            </div>
+            <Vacancies />
          </section>
 
-         <section>
-            <div className="bg-[#010018] relative z-10 rounded-3xl max-md:rounded-[20px] mx-10 max-2xl:mx-5 max-xl:mx-0 my-28 max-lg:my-20 overflow-hidden">
+         <section className="relative">
+            <BgAnimated>
                <div className="gradient max-md:hidden"></div>
                <div className="custom-container pt-14 max-xl:pt-10 max-lg:pt-8 max-md:pt-0 max-lg:mt-8 pb-24 max-xl:pb-16 max-lg:pb-10 max-md:pb-7">
                   <div className="mb-12 max-xl:mb-8 max-md:mb-6 md:text-center">
@@ -381,7 +383,7 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                      </button>
                   </div>
                </div>
-            </div>
+            </BgAnimated>
          </section>
 
          <section>
@@ -416,7 +418,8 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
          </section>
 
          <section>
-            <div className="bg-[#010018] rounded-3xl max-md:rounded-[20px]">
+            <BgAnimated>
+               {/* <div className="bg-[#010018] rounded-3xl max-md:rounded-[20px]"> */}
                <div className="custom-container my-28 max-xl:my-20">
                   <div className="mx-28 max-2xl:mx-10 max-xl:mx-0">
                      <div className="pt-14 pb-12 max-xl:py-8 max-md:py-7 max-sm:pb-0 md:text-center">
@@ -469,28 +472,7 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                         </div>
                      </div>
 
-                     <ul className="bg-[#f4f4f40d] flex flex-col items-center mb-20 max-xl:mb-14 max-lg:mb-8 max-md:mb-7 p-12 max-xl:p-8 max-md:p-2 rounded-3xl">
-                        {data?.lessons.map(
-                           (lesson: { title: string }, idx: number) => {
-                              return (
-                                 <li
-                                    key={idx}
-                                    className="w-full flex items-center gap-16 max-lg:gap-10 max-sm:gap-2 py-5 max-lg:py-4 cursor-pointer last:border-none border-b border-[#ffffff66]"
-                                 >
-                                    <p className="font-bold text-[#E0E0E0]">
-                                       {idx + 1}.
-                                    </p>
-                                    <p className="text-lg max-xs:text-base text-white">
-                                       {lesson.title}
-                                    </p>
-                                 </li>
-                              );
-                           }
-                        )}
-                        <button className="bg-white hover:bg-[#151FE1] border-[#151FE1] hover:text-white text-[#151FE1] w-fit max-sm:w-full mt-10 max-md:my-7 max-2xl:text-sm font-bold py-3 px-8 max-3xl:px-6 rounded-md border-2 duration-150 ease-in">
-                           Показать всю программу
-                        </button>
-                     </ul>
+                     <Lessons data={data} />
                   </div>
 
                   <div className="mx-28 max-2xl:mx-10 max-xl:mx-0 pt-20 max-xl:pt-14 max-lg:pt-8 max-md:pt-7 pb-14 border-t border-[#ffffff66]">
@@ -520,8 +502,12 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                      </div>
                   </div>
                </div>
-            </div>
+               {/* </div> */}
+            </BgAnimated>
          </section>
+         <Company />
+         <Form />
+         <FAQ />
       </>
    );
 };

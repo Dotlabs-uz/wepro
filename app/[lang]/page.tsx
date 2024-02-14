@@ -15,6 +15,10 @@ import Courses from "@/components/CoursesCom";
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
 import { MdArrowOutward } from "react-icons/md";
+import Company from "@/container/Company";
+import Form from "@/container/Form";
+import FAQ from "@/container/FAQ";
+import BgAnimated from "@/container/BgAnimated";
 
 export default async function Home({
    params: { lang },
@@ -93,7 +97,7 @@ export default async function Home({
          </section>
 
          <section>
-            <div className="relative my-28 max-lg:my-20 mx-10 max-2xl:mx-5 max-xl:mx-0 rounded-3xl overflow-hidden bg-[#010018] z-10">
+            <BgAnimated>
                <div className="gradient"></div>
                <div className="custom-container py-14 max-2xl:py-8 max-md:py-5">
                   <div className="md:text-center">
@@ -124,7 +128,7 @@ export default async function Home({
                      </button>
                   </div>
                </div>
-            </div>
+            </BgAnimated>
          </section>
 
          <section>
@@ -135,10 +139,13 @@ export default async function Home({
             <Branch />
          </section>
 
-         <section className="bg-[#010018] relative z-10 mx-10 max-2xl:mx-5 max-xl:mx-0 rounded-[20px] overflow-hidden">
+         <BgAnimated>
             <div className="gradient"></div>
             <StudentWorks />
-         </section>
+         </BgAnimated>
+         <Company />
+         <Form />
+         <FAQ />
       </>
    );
 }

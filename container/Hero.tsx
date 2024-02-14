@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { FaFigma } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface HeroProps { }
@@ -53,6 +53,7 @@ const Hero: React.FC<HeroProps> = () => {
    ];
    const [currentSlide, setCurrentSlide] = useState(0);
    const [progress, setProgress] = useState(0);
+   const sliderRef = useRef(null);
 
    useEffect(() => {
       const interval = setInterval(() => {
@@ -64,10 +65,27 @@ const Hero: React.FC<HeroProps> = () => {
             setProgress(0);
             setCurrentSlide((prevSlide) => (prevSlide + 1) % arr.length);
          }
-      }, 110);
+      }, 100);
 
       return () => clearInterval(interval);
+
    }, [currentSlide, progress]);
+
+   useEffect(() => {
+      scrollToElement(currentSlide)
+   }, [currentSlide]);
+
+   const scrollToElement = (index: number) => {
+      const container = sliderRef.current as unknown as HTMLDivElement;
+      const element = document.getElementById(`item-${index}`);
+      if (container && element) {
+         const scrollOffset = element.offsetLeft - (container.clientWidth - element.clientWidth) / 2;
+         container.scrollTo({
+            left: scrollOffset,
+            behavior: 'smooth'
+         });
+      }
+   };
 
    const handelSlide = (id: number) => {
       setProgress(0);
@@ -93,6 +111,7 @@ const Hero: React.FC<HeroProps> = () => {
                </button>
             </div>
          </div>
+
          <div className="relative min-h-[550px] max-3xl:min-h-[450px] max-lg:min-h-[350px] max-sm:min-h-[300px] max-xs:min-h-[270px] flex p-5 max-xl:p-4 max-sm:px-2 max-sm:py-4 rounded-3xl bg-cover bg-no-repeat">
             <Image
                className="w-full h-full absolute top-0 left-0 object-cover rounded-3xl max-md:rounded-2xl pointer-events-none select-none"
@@ -111,7 +130,7 @@ const Hero: React.FC<HeroProps> = () => {
                   </p>
                </div>
 
-               <div className="px-14 max-3xl:px-9 max-2xl:px-5 max-xl:px-0 py-6 max-3xl:py-4 max-lg:py-2 max-sm:py-1 overflow-scroll no-scroll">
+               <div ref={sliderRef} className="px-14 max-3xl:px-9 max-2xl:px-5 max-xl:px-0 py-6 max-3xl:py-4 max-lg:py-2 max-sm:py-1 overflow-scroll no-scroll">
                   <ul className="flex items-center justify-between">
                      {arr.map(
                         (item: {
@@ -124,6 +143,7 @@ const Hero: React.FC<HeroProps> = () => {
                            return (
                               <li
                                  key={item.id}
+                                 id={`item-${item.id}`}
                                  onClick={() => handelSlide(item.id)}
                                  className="text-nowrap space-nowrap relative flex items-center gap-2 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer duration-100 ease-in"
                                  style={{

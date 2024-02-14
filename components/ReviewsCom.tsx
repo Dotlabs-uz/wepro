@@ -13,6 +13,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
          document.body.style.overflowY = "hidden";
       } else {
          document.body.style.overflowY = "scroll";
+
       }
    }, [selectedId]);
 

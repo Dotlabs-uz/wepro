@@ -13,8 +13,8 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ }) => {
          title: "События",
          dcr: "Мы организовываем самые разные мероприятия внутри центров для наших студентов.",
          img: "party.jpg",
-         scale: 0.1,
-         scale2: 1.2,
+         scale: 0.2,
+         scale2: 1.1,
       },
       {
          id: 1.5,
@@ -43,8 +43,6 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ }) => {
    ];
    const ref = useRef(null);
    const inView = useInView(ref);
-
-
 
    return (
       <>

@@ -70,7 +70,7 @@ const Header = () => {
             dcr={""}
          />
          <header
-            className={`relative z-50 ${pathName === "/ru/course"
+            className={`relative z-50 ${pathName.includes("/ru/course/") || pathName.includes("/uz/course/")
                ? "bg-[#020119]"
                : "border-b border-[#EEEBE0] bg-white"
                }`}
@@ -79,7 +79,7 @@ const Header = () => {
                <div className="flex items-center gap-11 max-3xl:gap-8 max-xl:gap-1">
                   <div className="max-w-[120px] max-xl:max-w-[100px] w-full">
                      <Link href={"/"}>
-                        {pathName === "/course" ? (
+                        {pathName.includes("/ru/course/") || pathName.includes("/uz/course/") ? (
                            <Image
                               src={"/images/logo-white.svg"}
                               width={1000}
@@ -107,7 +107,7 @@ const Header = () => {
                                  <li key={idx}>
                                     <Link
                                        href={item.link}
-                                       className={`max-2xl:text-sm text-nowrap py-2 px-4 max-xl:px-3 rounded-full duration-150 ease-in hover:bg-black ${pathName === "/course"
+                                       className={`max-2xl:text-sm text-nowrap py-2 px-4 max-xl:px-3 rounded-full duration-150 ease-in hover:bg-black ${pathName.includes("/ru/course/") || pathName.includes("/uz/course/")
                                           ? "text-white"
                                           : "hover:text-white"
                                           } ${pathName === item.link
@@ -127,14 +127,14 @@ const Header = () => {
 
                <div className="flex items-center gap-7 max-2xl:gap-5 max-xl:gap-3">
                   <p
-                     className={`font-bold underline underline-offset-2 cursor-pointer ${pathName === "/ru/course" ? "text-white" : "text-black"
+                     className={`font-bold underline underline-offset-2 cursor-pointer ${pathName.includes("/ru/course/") || pathName.includes("/uz/course/") ? "text-white" : "text-black"
                         }`}
                   >
                      Рус
                   </p>
                   <Link
                      href={"tel:+998 95 500-50-05"}
-                     className={`font-bold underline underline-offset-2 ${pathName === "/ru/course" ? "text-white" : "text-black"
+                     className={`font-bold underline underline-offset-2 ${pathName.includes("/ru/course/") || pathName.includes("/uz/course/") ? "text-white" : "text-black"
                         }`}
                   >
                      <span className={`max-3xl:hidden block`}>

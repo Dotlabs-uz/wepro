@@ -5,7 +5,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FAQ from "@/container/FAQ";
-import Form from "@/components/Form";
+import Form from "@/container/Form";
 import Company from "@/container/Company";
 
 const inter = Roboto({
@@ -28,13 +28,7 @@ export default function RootLayout({
          <body className={inter.className}>
             <Header />
             {children}
-            <Company />
-            <section>
-               <div className="mx-10 max-2xl:mx-5 max-xl:mx-0 py-28 max-lg:py-14 max-sm:py-0 rounded-[20px] md:bg-[url('/images/bg-form.jpg')] bg-no-repeat bg-cover">
-                  <Form />
-               </div>
-            </section>
-            <FAQ />
+            
             <Footer />
          </body>
       </html>

@@ -168,15 +168,10 @@ const Footer: React.FC<FooterProps> = () => {
                         </a>
                      </li>
                      <li className="mb-1">
-                        <AnimateLink href="#">
-                           ул. Буюк Ипак Йули 52, Самарканд
-                        </AnimateLink>
+                        ул. Буюк Ипак Йули 52, Самарканд
                      </li>
                      <li>
-                        <Link href={"#"}></Link>
-                        <AnimateLink href="#">
-                           ул. Мирзо Улугбека, 35
-                        </AnimateLink>
+                        ул. Мирзо Улугбека, 35
                      </li>
                   </ul>
                </div>
