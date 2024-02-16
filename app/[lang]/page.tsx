@@ -96,40 +96,38 @@ export default async function Home({
             </div>
          </section>
 
-         <section>
-            <BgAnimated>
-               <div className="gradient"></div>
-               <div className="custom-container py-14 max-2xl:py-8 max-md:py-5">
-                  <div className="md:text-center">
-                     <h2 className="text-white">
-                        Отзывы выпускников
-                     </h2>
-                     <div className="max-w-[400px] max-md:max-w-[300px] md:m-auto">
-                        <p className="text-xl max-md:text-lg leading-normal font-medium text-[#A3A2AB]">
-                           Посмотрите что говорят о нас выпускники курсов
-                        </p>
-                     </div>
-                  </div>
-                  <div className="mx-20 max-2xl:mx-0 max-xl:mx-0 my-8 max-xl:my-4 py-8 max-2xl:py-8 max-xl:py-4 border-t border-[#ffffff66]">
-                     <ReviewsCom />
-                  </div>
-                  <div className="w-fit m-auto">
-                     <button className="bg-white flex items-center gap-2 p-2 rounded-lg">
-                        <span className="p-2 rounded-lg bg-[#000]">
-                           <MdArrowOutward
-                              size={20}
-                              color="white"
-                              className=""
-                           />
-                        </span>
-                        <span className="text-xl max-lg:text-lg max-sm:text-base font-bold">
-                           Посмотреть все отзывы
-                        </span>
-                     </button>
+         <BgAnimated>
+            <div className="gradient"></div>
+            <div className="custom-container py-14 max-2xl:py-8 max-md:py-5">
+               <div className="md:text-center">
+                  <h2 className="text-white">
+                     Отзывы выпускников
+                  </h2>
+                  <div className="max-w-[400px] max-md:max-w-[300px] md:m-auto">
+                     <p className="text-xl max-md:text-lg leading-normal font-medium text-[#A3A2AB]">
+                        Посмотрите что говорят о нас выпускники курсов
+                     </p>
                   </div>
                </div>
-            </BgAnimated>
-         </section>
+               <div className="mx-20 max-2xl:mx-0 max-xl:mx-0 my-8 max-xl:my-4 py-8 max-2xl:py-8 max-xl:py-4 border-t border-[#ffffff66]">
+                  <ReviewsCom />
+               </div>
+               <div className="w-fit m-auto">
+                  <button className="bg-white flex items-center gap-2 p-2 rounded-lg">
+                     <span className="p-2 rounded-lg bg-[#000]">
+                        <MdArrowOutward
+                           size={20}
+                           color="white"
+                           className=""
+                        />
+                     </span>
+                     <span className="text-xl max-lg:text-lg max-sm:text-base font-bold">
+                        Посмотреть все отзывы
+                     </span>
+                  </button>
+               </div>
+            </div>
+         </BgAnimated>
 
          <section>
             <ScrollAnimation />
@@ -139,10 +137,13 @@ export default async function Home({
             <Branch />
          </section>
 
-         <BgAnimated>
-            <div className="gradient"></div>
-            <StudentWorks />
-         </BgAnimated>
+         <section className="overflow-hidden">
+            <BgAnimated>
+               <div className="gradient max-sm:w-96 max-sm:h-full"></div>
+               <StudentWorks />
+            </BgAnimated>
+         </section>
+
          <Company />
          <Form />
          <FAQ />

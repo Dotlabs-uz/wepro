@@ -93,7 +93,7 @@ const Hero: React.FC<HeroProps> = () => {
    };
 
    return (
-      <div className="custom-container mt-10 max-lg:mt-9">
+      <div className="custom-container mt-10">
          <div className="max-sm:block hidden mb-8">
             <h1 className="text-4xl font-bold text-center mb-3">
                С нуля до PRO за {arr[currentSlide].month} месяца

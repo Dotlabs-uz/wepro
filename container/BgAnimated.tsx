@@ -1,5 +1,6 @@
 "use client"
-import { motion } from "framer-motion"
+import { motion, useInView, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react";
 
 interface BgAnimatedProps {
     children: any
@@ -7,17 +8,12 @@ interface BgAnimatedProps {
 
 const BgAnimated: React.FC<BgAnimatedProps> = ({ children }) => {
     return (
-        <motion.div
-            initial={{ width: "95%", }}
-            whileInView={{ width: "100%" }}
-            transition={{
-                duration: 0.5,
-                ease: "easeIn"
-            }}
-            viewport={{ once: true }}
-            className="relative my-28 max-lg:my-20 mx-auto rounded-3xl overflow-hidden bg-[#010018] z-10">
+        <div className="relative my-28 max-lg:my-20 overflow-hidden rounded-3xl">
+            <motion.div
+                className="absolute z-[-1] inset-0 mix-blend-difference mx-auto rounded-3xl bg-[#010018]">
+            </motion.div>
             {children}
-        </motion.div>
+        </div>
     )
 }
 

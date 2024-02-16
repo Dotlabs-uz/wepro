@@ -417,9 +417,8 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
             </div>
          </section>
 
-         <section>
+         <section className="relative">
             <BgAnimated>
-               {/* <div className="bg-[#010018] rounded-3xl max-md:rounded-[20px]"> */}
                <div className="custom-container my-28 max-xl:my-20">
                   <div className="mx-28 max-2xl:mx-10 max-xl:mx-0">
                      <div className="pt-14 pb-12 max-xl:py-8 max-md:py-7 max-sm:pb-0 md:text-center">
@@ -433,22 +432,6 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                      <div className="border-b border-[#FFFFFF66] py-12 max-lg:py-8">
                         <Reviews />
                      </div>
-                     {/* <div className="grid grid-cols-4 max-md:grid-cols-2 gap-4 py-12 max-xl:py-6 border-y border-[#ffffff66]">
-                        {[0, 1, 2, 3, 4, 5, 6, 7].map((item: number) => {
-                           return (
-                              <div
-                                 key={item}
-                                 className="min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
-                              >
-                                 <div className="mt-auto px-5 max-lg:px-2 py-2 rounded-[4px] bg-white">
-                                    <p className="text-sm font-medium">
-                                       Алекс Маметов
-                                    </p>
-                                 </div>
-                              </div>
-                           );
-                        })}
-                     </div> */}
                   </div>
 
                   <div className="mx-28 max-2xl:mx-10 max-xl:mx-0">
@@ -471,7 +454,6 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                            </p>
                         </div>
                      </div>
-
                      <Lessons data={data} />
                   </div>
 
@@ -502,7 +484,6 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                      </div>
                   </div>
                </div>
-               {/* </div> */}
             </BgAnimated>
          </section>
          <Company />

@@ -68,7 +68,7 @@ const Branch: React.FC<BranchProps> = () => {
                         <FaLocationDot color="#151FE1" size={73} className="" />
                      </div>
                      <div className="">
-                        <p className="text-[28px] max-sm:text-2xl font-bold">
+                        <p className="text-3xl max-sm:text-2xl font-bold">
                            Мирзо Улугбека, 12
                         </p>
                         <p>Ориентир: Trump Tower</p>
@@ -76,7 +76,7 @@ const Branch: React.FC<BranchProps> = () => {
                   </div>
                </div>
                <div className="w-1/2 max-lg:w-full min-h-[400px] max-xl:min-h-[300px] h-full flex p-5 max-lg:p-3 rounded-2xl bg-[url('/images/company.jpg')] bg-cover bg-left bg-no-repeat">
-                  <button className="bg-white h-fit mt-auto p-3 rounded-[13px]">
+                  <button className="bg-white h-fit max-sm:text-sm mt-auto p-3 max-md:p-2 rounded-xl max-sm:rounded-lg">
                      Смотреть в галерее
                   </button>
                </div>

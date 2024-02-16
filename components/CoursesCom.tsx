@@ -26,6 +26,7 @@ type CoursesTyps = {
 
 const Courses: React.FC<CoursesProps> = ({ category }) => {
    const [courses, setCourses] = useState<Array<CoursesTyps>>([]);
+   const [grabbing, setGrabbing] = useState(false);
    const pathName = usePathname();
 
    useEffect(() => {
@@ -43,7 +44,9 @@ const Courses: React.FC<CoursesProps> = ({ category }) => {
 
    return (
       <>
-         <div className="grid grid-flow-col grid-rows-2 grid-cols-[460px] max-2xl:grid-cols-[400px] max-lg:grid-cols-[310px] gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5 p-3 max-sm:p-2 overflow-x-scroll no-scroll">
+         <div
+            onMouseUp={() => setGrabbing(true)}
+            className="grid grid-flow-col grid-rows-2 grid-cols-[460px] max-2xl:grid-cols-[400px] max-lg:grid-cols-[310px] gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5 p-3 max-sm:p-2 cursor-grab overflow-x-scroll no-scroll">
             {
                courses.length ?
                   courses.map((item: CoursesTyps) => {

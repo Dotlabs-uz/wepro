@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { MdArrowOutward } from "react-icons/md";
 
@@ -34,7 +34,20 @@ const StudentWorks: React.FC<StudentWorksProps> = () => {
       },
    ];
    let [activeTab, setActiveTab] = useState(tabs[0].id);
-   
+   const sliderRef = useRef(null);
+
+   const scrollToElement = (index: number) => {
+      const container = sliderRef.current as unknown as HTMLDivElement;
+      const element = document.getElementById(`item-${index}`);
+      if (container && element) {
+         const scrollOffset = element.offsetLeft - (container.clientWidth - element.clientWidth) / 2;
+         container.scrollTo({
+            left: scrollOffset,
+            behavior: 'smooth'
+         });
+      }
+   };
+
    return (
       <>
          <div className="custom-container pt-14 pb-20 max-lg:py-8">
@@ -50,11 +63,12 @@ const StudentWorks: React.FC<StudentWorksProps> = () => {
             </div>
 
             <div className="mx-20 max-3xl:mx-10 max-2xl:mx-0 mt-6 pt-6 max-lg:pt-3 px-11 max-3xl:px-0 border-t border-[#ffffff66]">
-               <div className="bg-[#F4F4F4] w-full flex space-x-1 justify-between items-center gap-1 mb-5 max-lg:mb-3 p-1 max-sm:p-[2px] rounded-lg overflow-auto no-scroll">
+               <div ref={sliderRef} className="bg-[#F4F4F4] w-full flex space-x-1 justify-between items-center gap-1 mb-5 max-lg:mb-3 p-1 max-sm:p-[2px] rounded-lg overflow-auto no-scroll">
                   {tabs.map((item: { id: number; title: string }) => (
                      <button
                         key={item.id}
-                        onClick={() => setActiveTab(item.id)}
+                        onClick={() => { setActiveTab(item.id), scrollToElement(item.id) }}
+                        id={`item-${item.id}`}
                         className={`${activeTab === item.id
                            ? "text-white"
                            : "hover:text-black/60"
