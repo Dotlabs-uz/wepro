@@ -16,7 +16,7 @@ const Header = () => {
    const pathName = usePathname();
    const [isOpened, setIsOpened] = useState(false);
    const [menu, setMenu] = useState(false);
-   const [activeLink, setActiveLink] = useState(false);
+   const [activeLink, setActiveLink] = useState(window.innerWidth < 540 ? true : false);
 
    const links = [
       {
@@ -66,6 +66,7 @@ const Header = () => {
             title={"Заявка на консультацию"}
             dcr={""}
          />
+
          <motion.header
             transition={{ duration: 0.3, ease: "easeOut" }}
             className={`relative z-[60] top-2 m-auto  ${pathName.includes("/ru/course/") || pathName.includes("/uz/course/")
@@ -75,7 +76,7 @@ const Header = () => {
                ${menu ? "border-transparent" : ""}`}
          >
             <motion.div className={`custom-container w-full duration-300 ease-in`}>
-               <motion.div className={`w-full flex gap-4 items-center justify-between py-4 px-8 max-lg:px-5 max-md:px-3 duration-300 ease-in rounded-xl bg-white`}>
+               <motion.div className={`w-full flex gap-4 items-center justify-between py-4 px-8 max-lg:px-5 max-md:px-3 duration-300 ease-in rounded-xl bg-white ${menu ? "border-transparent shadow-lg" : ""}`}>
                   <div className="flex items-center gap-11 max-3xl:gap-8 max-xl:gap-1">
                      <div className="max-w-[120px] max-xl:max-w-[100px] w-full">
                         <Link href={"/"}>
@@ -134,16 +135,17 @@ const Header = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="w-full h-full fixed z-[55] top-0 left-0 pt-24 backdrop-blur-sm bg-[#010018e2]"
+                  className="w-full h-full fixed z-[55] top-0 left-0 backdrop-blur-sm bg-[#010018e2]"
                >
                   <motion.div
                      initial={{ y: 20, opacity: 0 }}
                      animate={{ y: 0, opacity: 1 }}
                      exit={{ y: 20, opacity: 0 }}
                      transition={{ duration: 0.3 }}
-                     className="custom-container max-h-[600px] overflow-auto m-auto grid grid-cols-10 gap-2.5">
-                     <div className="bg-white col-span-6 max-2xl:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-3 rounded-2xl">
-                        <div className="flex items-center gap-4 mb-10">
+                     className="custom-container h-screen overflow-auto no-scroll m-auto pt-24 pb-5 grid grid-cols-10 gap-2.5"
+                  >
+                     <div className="bg-white col-span-6 max-2xl:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-0 rounded-2xl">
+                        <div className="flex items-center gap-4 mb-10 max-md:mb-5 max-md:p-3">
                            <div className="w-fit flex gap-0.5 py-2 px-3 rounded-lg bg-[#f4f4f4]">
                               <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
                               <span className="block w-1.5 h-6 rounded-full bg-blue-600"></span>
@@ -154,7 +156,7 @@ const Header = () => {
                               Разделы сайта:
                            </p>
                         </div>
-                        <ul className="w-full grid grid-flow-col grid-rows-3 max-md:grid-flow-col max-md:grid-cols-[200px] gap-x-5 max-lg:gap-2 gap-y-3 mt-auto max-md:overflow-auto no-scroll">
+                        <ul className="w-full grid grid-flow-col grid-rows-3 max-md:grid-flow-col max-md:grid-cols-[200px] gap-x-5 max-lg:gap-2 gap-y-3 mt-auto max-md:p-3 max-md:overflow-auto no-scroll">
                            {
                               [0, 1, 2, 3, 4, 5, 6, 7, 8].map((item: number) => {
                                  return (
@@ -171,8 +173,8 @@ const Header = () => {
                            }
                         </ul>
                      </div>
-                     <div className="bg-white col-span-4 max-2xl:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-3 rounded-2xl">
-                        <div className="flex items-center gap-4 mb-10">
+                     <div className="bg-white col-span-4 max-2xl:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-0 rounded-2xl">
+                        <div className="flex items-center gap-4 mb-10 max-md:mb-5 max-md:p-3">
                            <div className="w-fit flex gap-0.5 py-2 px-3 rounded-lg bg-[#f4f4f4]">
                               <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
                               <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
@@ -183,7 +185,7 @@ const Header = () => {
                               Другие страницы:
                            </p>
                         </div>
-                        <div className="grid grid-cols-2 max-2xl:grid-cols-4 max-md:grid-flow-col max-md:grid-cols-[200px] gap-2 mt-auto max-md:overflow-auto no-scroll">
+                        <div className="grid grid-cols-2 max-2xl:grid-cols-4 max-md:grid-flow-col max-md:grid-cols-[200px] gap-2 mt-auto max-md:p-3 max-md:overflow-auto no-scroll">
                            {
                               links.map((link: { title: string, link: string, img: string }, idx: number) => {
                                  return (
@@ -232,7 +234,7 @@ const Header = () => {
                         </div>
                      </div>
                      <div className="bg-white col-span-6 max-xl:col-span-5 max-md:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-3 rounded-2xl">
-                        <div className="flex items-center gap-4 mb-10">
+                        <div className="flex items-center gap-4 mb-10 max-md:mb-5">
                            <div className="w-fit flex gap-0.5 py-2 px-3 rounded-lg bg-[#f4f4f4]">
                               <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
                               <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
@@ -255,7 +257,7 @@ const Header = () => {
                                  <FaTelegram size={25} />
                               </p>
                               <p className="text-sm font-semibold text-[#151515cc]">
-                                 t.me/werouz
+                                 Telegram
                               </p>
                            </a>
                            <a href="tel:+998 95 500-50-05" className="bg-[#f4f4f4] w-full max-xl:flex hidden items-center gap-5 p-1 rounded-2xl cursor-pointer duration-150 ease-in hover:text-white hover:bg-[#151FE1]">
@@ -285,7 +287,7 @@ const Header = () => {
                         </div>
                      </div>
                      <div className="bg-white col-span-4 max-xl:col-span-5 max-md:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-3 rounded-2xl">
-                        <div className="flex items-center gap-4 mb-10">
+                        <div className="flex items-center gap-4 mb-10 max-md:mb-5">
                            <div className="w-fit flex gap-0.5 py-2 px-3 rounded-lg bg-[#f4f4f4]">
                               <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
                               <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
