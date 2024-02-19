@@ -9,10 +9,9 @@ interface BgAnimatedProps {
 const BgAnimated: React.FC<BgAnimatedProps> = ({ children }) => {
     return (
         <div className="relative my-28 max-lg:my-20 overflow-hidden rounded-3xl">
-            <motion.div
-                className="absolute z-[-1] inset-0 mix-blend-difference mx-auto rounded-3xl bg-[#010018]">
+            <motion.div className="mx-auto rounded-3xl bg-[#010018]">
+                {children}
             </motion.div>
-            {children}
         </div>
     )
 }

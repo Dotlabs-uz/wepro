@@ -46,13 +46,6 @@ const Form: React.FC<FormProps> = () => {
    return (
       <section>
          <motion.div
-            initial={{ width: "95%", }}
-            whileInView={{ width: "100%" }}
-            transition={{
-               duration: 0.5,
-               ease: "easeIn"
-            }}
-            viewport={{ once: true }}
             className="mx-auto py-28 max-lg:py-14 max-sm:py-0 rounded-[20px] md:bg-[url('/images/bg-form.jpg')] bg-no-repeat bg-cover">
             <div
                onClick={(e) => e.stopPropagation()}

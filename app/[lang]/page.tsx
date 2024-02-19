@@ -145,6 +145,27 @@ export default async function Home({
          </section>
 
          <Company />
+
+         <section className="bg-[#F5F5F5] mb-28">
+            <div className="custom-container">
+               <div className="flex px-28 max-2xl:px-10 max-xl:px-0">
+                  <div className="max-w-xl max-lg:max-w-full w-full py-14">
+                     <h2 className="leading-tight mb-5">Школа английского с уклоном на Speaking от Wepro</h2>
+                     <div className="max-w-lg mx-auto mb-5 max-lg:block hidden">
+                        <Image src={"/images/weaspik.svg"} width={1000} height={1000} alt="weapik" />
+                     </div>
+                     <p className="text-[#A3A2AB] text-xl mb-10">Уже 30 000+ наших студентов уверенно заговорили по-английски — освойте язык и вы!</p>
+                     <Link href={"https://wespeak.uz/"} className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-bold py-3 px-6 max-3xl:px-3 rounded-md border duration-150 ease-in">
+                        Перейти на сайт
+                     </Link>
+                  </div>
+                  <div className="max-w-2xl mt-auto max-lg:hidden">
+                     <Image src={"/images/weaspik.svg"} width={1000} height={1000} alt="weapik" />
+                  </div>
+               </div>
+            </div>
+         </section>
+
          <Form />
          <FAQ />
       </>

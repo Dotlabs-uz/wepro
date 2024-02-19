@@ -74,7 +74,7 @@ const Modal: React.FC<ModalProps> = ({
                animate={{ opacity: 1 }}
                exit={{ opacity: 0 }}
                transition={{ duration: 0.3 }}
-               className={`w-full h-full flex items-center justify-center fixed z-[55] top-0 left-0 backdrop-blur-sm bg-[#010018E5]`}
+               className={`w-full h-full flex items-center justify-center fixed z-[100] top-0 left-0 backdrop-blur-sm bg-[#010018E5]`}
                onClick={onClose}
             >
                {/* <button

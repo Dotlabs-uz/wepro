@@ -130,7 +130,7 @@ const Hero: React.FC<HeroProps> = () => {
                   </p>
                </div>
 
-               <div ref={sliderRef} className="px-14 max-3xl:px-9 max-2xl:px-5 max-xl:px-0 py-6 max-3xl:py-4 max-lg:py-2 max-sm:py-1 overflow-scroll no-scroll">
+               <div ref={sliderRef} className="px-14 max-3xl:px-5 max-xl:px-0 py-6 max-3xl:py-4 max-lg:py-2 max-sm:py-1 overflow-scroll no-scroll">
                   <ul className="flex items-center justify-between">
                      {arr.map(
                         (item: {
@@ -171,7 +171,7 @@ const Hero: React.FC<HeroProps> = () => {
                                     }
                                  ></span>
                                  <FaFigma className="text-[20px] max-lg:text-[16px]" />
-                                 <p className="text-sm max-xs:text-xs font-bold">
+                                 <p className="text-xs font-bold">
                                     {item.title}
                                  </p>
                               </li>

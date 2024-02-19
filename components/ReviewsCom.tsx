@@ -41,7 +41,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
          <AnimatePresence>
             {selectedId && (
                <motion.div
-                  className="fixed z-50 inset-0 bg-black bg-opacity-50 flex items-center justify-center px-10"
+                  className="fixed z-[100] inset-0 backdrop-blur-sm bg-black bg-opacity-50 flex items-center justify-center px-10"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

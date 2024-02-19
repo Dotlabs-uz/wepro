@@ -35,13 +35,6 @@ const Vacancies: React.FC<VacanciesProps> = () => {
 
    return (
       <motion.div
-         initial={{ width: "95%", }}
-         whileInView={{ width: "100%" }}
-         transition={{
-            duration: 0.5,
-            ease: "easeIn"
-         }}
-         viewport={{ once: true }}
          className="bg-[#D6001C] mx-auto rounded-3xl"
       >
          <div className="custom-container py-14 max-xl:py-10 max-lg:py-7">
