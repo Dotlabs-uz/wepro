@@ -10,6 +10,7 @@ import { IoClose } from "react-icons/io5";
 import ReactInputMask from "react-input-mask";
 import Link from "next/link";
 import { FaTelegram } from "react-icons/fa";
+import { useRouter } from 'next/navigation';
 
 interface ModalProps {
    isOpened: boolean;
@@ -39,6 +40,7 @@ const Modal: React.FC<ModalProps> = ({
       reset,
    } = useForm<Inputs>();
    const [disabled, setDisabled] = useState(false);
+   const { push } = useRouter()
 
    const onSubmit: SubmitHandler<Inputs> = (data) => {
       setDisabled(true);
@@ -47,6 +49,7 @@ const Modal: React.FC<ModalProps> = ({
          .then((res) => {
             if (res.status == 200 || res.status == 201) {
                console.log(res);
+               push("/thanks")
                reset({
                   name: "",
                   phone: "",
@@ -85,10 +88,10 @@ const Modal: React.FC<ModalProps> = ({
                </button> */}
                <div
                   onClick={(e) => e.stopPropagation()}
-                  className="max-w-[660px] w-full mx-auto max-md:mx-3 px-4 py-6 max-sm:py-3 rounded-3xl max-md:rounded-2xl max-sm:rounded-xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
+                  className="max-w-[550px] w-full mx-auto max-md:mx-3 px-4 py-6 max-sm:py-3 rounded-3xl max-md:rounded-2xl max-sm:rounded-xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
                >
-                  <div className="mb-5 lg:p-7 lg:pb-20 rounded-2xl bg-[url('/images/bg-form-black.jpg')] bg-no-repeat bg-cover max-lg:bg-none">
-                     <h2 className="text-white max-lg:text-black text-5xl max-xl:text-4xl max-md:text-3xl font-bold">
+                  <div className="mb-4 lg:p-7 lg:pb-14 rounded-2xl bg-[url('/images/bg-form-black.jpg')] bg-no-repeat bg-cover max-lg:bg-none">
+                     <h2 className="text-white max-lg:text-black text-4xl max-md:text-3xl font-bold">
                         {title}
                      </h2>
                      <p className="text-white max-lg:text-[#A3A2AB] text-[22px] max-2xl:text-xl max-lg:text-lg font-medium">
@@ -96,7 +99,7 @@ const Modal: React.FC<ModalProps> = ({
                      </p>
                   </div>
                   <form onSubmit={handleSubmit(onSubmit)}>
-                     <label className="flex flex-col mb-6 max-sm:mb-4">
+                     <label className="flex flex-col mb-4">
                         <span
                            className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.name && "text-[red]"
                               }`}
@@ -112,7 +115,7 @@ const Modal: React.FC<ModalProps> = ({
                               }`}
                         />
                      </label>
-                     <label className="flex flex-col mb-6 max-sm:mb-4">
+                     <label className="flex flex-col mb-4">
                         <span
                            className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.phone && "text-[red]"
                               }`}
@@ -129,13 +132,13 @@ const Modal: React.FC<ModalProps> = ({
                               }`}
                         />
                         {/* <InputMask
-                  placeholder="Введите номер"
-                  className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
-                  mask="+\9\98-(99)-999-99-99"
-               /> */}
+                           placeholder="Введите номер"
+                           className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
+                           mask="+\9\98-(99)-999-99-99"
+                         /> */}
                      </label>
                      {select && (
-                        <label className="flex flex-col mb-6">
+                        <label className="flex flex-col mb-4">
                            <span className={`text-[#A3A2AB] text-sm mb-2 `}>
                               Выберите курс
                            </span>
@@ -158,33 +161,34 @@ const Modal: React.FC<ModalProps> = ({
                         </label>
                      )}
                      <button
+                        onClick={errors.name && errors.phone ? onClose : undefined}
                         disabled={disabled}
                         className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-lg max-sm:text-base font-bold py-4 max-sm:py-3 border rounded-[7px] duration-150 ease-in"
                      >
                         Отправить заявку
                      </button>
-                     <div className="mt-3 mb-7 max-lg:mb-6 py-2 rounded-[7px] bg-[#F4F4F4]">
+                     <div className="mt-3 mb-4 max-lg:mb-6 py-2 rounded-[7px] bg-[#F4F4F4]">
                         <p className="max-w-[270px] m-auto text-sm text-center text-[#A3A2AB]">
                            Нажимая на кнопку, вы соглашаетесь на обработку
                            персональных данных
                         </p>
                      </div>
                   </form>
-                  <div className="flex gap-2 items-center justify-between pt-7 max-sm:pt-4 pb-1 border-t border-[#1515151a]">
+                  <div className="flex gap-2 items-center justify-between pt-4 max-sm:pt-4 pb-0 border-t border-[#1515151a]">
                      <div className="">
-                        <p className="max-md:text-xs font-bold text-[#A3A2AB]">
+                        <p className="text-sm max-md:text-xs font-bold text-[#A3A2AB]">
                            Или напишите нам в
                            <span className="text-[#000]"> Telegram</span>:
                         </p>
                      </div>
                      <Link
                         href={"#"}
-                        className="flex items-center p-2 max-sm:p-1 rounded-lg bg-[#F4F4F4]"
+                        className="flex items-center p-1 rounded-lg bg-[#F4F4F4]"
                      >
                         <span className="bg-white p-2 max-sm:p-1 rounded-lg">
                            <FaTelegram color={"#229ED9"} size={25} />
                         </span>
-                        <span className="text-xl max-sm:text-sm font-bold mx-2 text-[#A3A2AB]">
+                        <span className="max-sm:text-sm font-bold mx-2 text-[#A3A2AB]">
                            t.me/weprouz
                         </span>
                      </Link>

@@ -1,7 +1,6 @@
 import Course from "@/components/children/Course";
 import Tabs from "@/components/children/Tabs";
 import Image from "next/image";
-import { IoArrowForwardOutline } from "react-icons/io5";
 
 interface PageProps { }
 
@@ -43,7 +42,7 @@ const Page: React.FC<PageProps> = () => {
                   <div className="w-fit max-lg:max-w-[300px] lg:grid lg:grid-cols-3 flex items-center gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5">
                      {[0, 1, 2].map((item: number) => {
                         return (
-                           <div className="max-lg:min-w-[300px] rounded-[20px] shadow-[0px_4px_5px_0px_#00000026]">
+                           <div key={item} className="max-lg:min-w-[300px] rounded-[20px] shadow-[0px_4px_5px_0px_#00000026]">
                               <div className="p-2">
                                  <Image
                                     src={"/images/course-img.jpg"}
@@ -78,7 +77,7 @@ const Page: React.FC<PageProps> = () => {
                   <div className="w-fit lg:grid lg:grid-cols-3 flex items-center gap-7 max-2xl:gap-5">
                      {[0].map((item: number) => {
                         return (
-                           <div className="max-lg:max-w-[300px] rounded-[20px] shadow-[0px_4px_5px_0px_#00000026]">
+                           <div key={item} className="max-lg:max-w-[300px] rounded-[20px] shadow-[0px_4px_5px_0px_#00000026]">
                               <div className="p-2">
                                  <Image
                                     src={"/images/course-img.jpg"}

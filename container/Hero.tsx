@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaFigma } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import axios from "axios";
 
 interface HeroProps { }
 
@@ -51,6 +52,7 @@ const Hero: React.FC<HeroProps> = () => {
          month: "1",
       },
    ];
+   const [courses, setCourses] = useState<any>([]);
    const [currentSlide, setCurrentSlide] = useState(0);
    const [progress, setProgress] = useState(0);
    const sliderRef = useRef(null);
@@ -63,7 +65,7 @@ const Hero: React.FC<HeroProps> = () => {
 
          if (progress === 100) {
             setProgress(0);
-            setCurrentSlide((prevSlide) => (prevSlide + 1) % arr.length);
+            setCurrentSlide((prevSlide: number) => (prevSlide + 1) % arr.length);
          }
       }, 100);
 
@@ -92,11 +94,24 @@ const Hero: React.FC<HeroProps> = () => {
       setCurrentSlide(id);
    };
 
+   useEffect(() => {
+      axios
+         .get("https://wepro.uz/api/courses?project=wepro")
+         .then((res) => {
+            if (res.status === 200 || res.status === 201) {
+               setCourses(res.data);
+            }
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   }, []);
+
    return (
       <div className="custom-container mt-10">
          <div className="max-sm:block hidden mb-8">
             <h1 className="text-4xl font-bold text-center mb-3">
-               С нуля до PRO за {arr[currentSlide].month} месяца
+               С нуля до PRO за 5 месяца
             </h1>
             <p className="text-[#00000099] text-sm font-bold text-center mb-7">
                Wepro - это сеть IT-школ в Самарканде
@@ -113,17 +128,15 @@ const Hero: React.FC<HeroProps> = () => {
          </div>
 
          <div className="relative min-h-[550px] max-3xl:min-h-[450px] max-lg:min-h-[350px] max-sm:min-h-[300px] max-xs:min-h-[270px] flex p-5 max-xl:p-4 max-sm:px-2 max-sm:py-4 rounded-3xl bg-cover bg-no-repeat">
-            <Image
+            <img
                className="w-full h-full absolute top-0 left-0 object-cover rounded-3xl max-md:rounded-2xl pointer-events-none select-none"
-               src={arr[currentSlide].img}
-               width={1000}
-               height={1000}
+               src={courses[currentSlide]?.preview}
                alt="course"
             />
             <div className="w-full mt-auto rounded-3xl max-lg:rounded-xl max-sm:rounded-lg px-6 max-xl:px-3 max-sm:px-2 backdrop-blur-[15px] bg-[#f4f4f48c]">
                <div className="max-lg:hidden py-6 max-2xl:py-4 text-center border-b border-[#1515151a]">
                   <h1 className="text-3xl max-lg:text-2xl font-bold">
-                     С нуля до PRO за {arr[currentSlide].month} месяца
+                     С нуля до PRO за 5 месяца
                   </h1>
                   <p className="text-[#00000099] text-sm font-bold">
                      Wepro - это сеть IT-школ в Самарканде
@@ -132,51 +145,44 @@ const Hero: React.FC<HeroProps> = () => {
 
                <div ref={sliderRef} className="px-14 max-3xl:px-5 max-xl:px-0 py-6 max-3xl:py-4 max-lg:py-2 max-sm:py-1 overflow-scroll no-scroll">
                   <ul className="flex items-center justify-between">
-                     {arr.map(
-                        (item: {
-                           id: number;
-                           icon: string;
-                           title: string;
-                           img: string;
-                           month: string;
-                        }) => {
-                           return (
-                              <li
-                                 key={item.id}
-                                 id={`item-${item.id}`}
-                                 onClick={() => handelSlide(item.id)}
-                                 className="text-nowrap space-nowrap relative flex items-center gap-2 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer duration-100 ease-in"
-                                 style={{
-                                    background:
-                                       currentSlide === item.id
-                                          ? "#151fe166"
-                                          : "transparent",
-                                    color:
-                                       currentSlide === item.id
-                                          ? "white"
-                                          : "black",
-                                 }}
-                              >
-                                 <span
-                                    className="absolute inset-0 z-[-1] rounded-lg duration-700 ease-linear bg-[#151FE1]"
-                                    style={
-                                       currentSlide === item.id
-                                          ? {
-                                             width: `${progress}%`,
-                                             background: "#151FE1",
-                                          }
-                                          : {
-                                             background: "transparent",
-                                          }
-                                    }
-                                 ></span>
-                                 <FaFigma className="text-[20px] max-lg:text-[16px]" />
-                                 <p className="text-xs font-bold">
-                                    {item.title}
-                                 </p>
-                              </li>
-                           );
-                        }
+                     {courses.map((item: any, idx: number) => {
+                        return (
+                           <li
+                              key={item._id}
+                              id={`item-${idx}`}
+                              onClick={() => handelSlide(idx)}
+                              className="text-nowrap space-nowrap relative flex items-center gap-2 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer duration-100 ease-in"
+                              style={{
+                                 background:
+                                    currentSlide === idx
+                                       ? "#151fe166"
+                                       : "transparent",
+                                 color:
+                                    currentSlide === idx
+                                       ? "white"
+                                       : "black",
+                              }}
+                           >
+                              <span
+                                 className="absolute inset-0 z-[-1] rounded-lg duration-700 ease-linear bg-[#151FE1]"
+                                 style={
+                                    currentSlide === idx
+                                       ? {
+                                          width: `${progress}%`,
+                                          background: "#151FE1",
+                                       }
+                                       : {
+                                          background: "transparent",
+                                       }
+                                 }
+                              ></span>
+                              {/* <FaFigma className="text-[20px] max-lg:text-[16px]" /> */}
+                              <p className="text-xs font-bold">
+                                 {item.title}
+                              </p>
+                           </li>
+                        );
+                     }
                      )}
                   </ul>
                </div>

@@ -27,6 +27,49 @@ export default async function Home({
 }) {
    const { homePage } = await getDictionary(lang);
 
+   const reviews = [
+      {
+         _id: "0",
+         name: "Jony",
+         url: "https://www.youtube.com/shorts/HYS9ImCPPqk"
+      },
+      {
+         _id: "1",
+         name: "Jony",
+         url: "https://www.youtube.com/shorts/536c_bUL1_Y"
+      },
+      {
+         _id: "2",
+         name: "Jony",
+         url: "https://www.youtube.com/shorts/9FT-B3gtwNg"
+      },
+      {
+         _id: "3",
+         name: "Jony",
+         url: "https://www.youtube.com/shorts/VTZCk6_tfAE"
+      },
+      {
+         _id: "4",
+         name: "Jony",
+         url: "https://www.youtube.com/shorts/_czWEndmg0c"
+      },
+      {
+         _id: "5",
+         name: "Jony",
+         url: "https://www.youtube.com/watch?v=LYSd6PyFYqo"
+      },
+      {
+         _id: "6",
+         name: "Jony",
+         url: "https://www.youtube.com/watch?v=GZpItP_XjGA"
+      },
+      {
+         _id: "7",
+         name: "Jony",
+         url: "https://www.youtube.com/watch?v=yvHkvzVWD9s"
+      },
+   ]
+
    return (
       <>
          <section>
@@ -110,21 +153,7 @@ export default async function Home({
                   </div>
                </div>
                <div className="mx-20 max-2xl:mx-0 max-xl:mx-0 my-8 max-xl:my-4 py-8 max-2xl:py-8 max-xl:py-4 border-t border-[#ffffff66]">
-                  <ReviewsCom />
-               </div>
-               <div className="w-fit m-auto">
-                  <button className="bg-white flex items-center gap-2 p-2 rounded-lg">
-                     <span className="p-2 rounded-lg bg-[#000]">
-                        <MdArrowOutward
-                           size={20}
-                           color="white"
-                           className=""
-                        />
-                     </span>
-                     <span className="text-xl max-lg:text-lg max-sm:text-base font-bold">
-                        Посмотреть все отзывы
-                     </span>
-                  </button>
+                  <ReviewsCom reviews={reviews} />
                </div>
             </div>
          </BgAnimated>

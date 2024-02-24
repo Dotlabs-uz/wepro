@@ -123,18 +123,18 @@ const Footer: React.FC<FooterProps> = () => {
                   <h3 className="text-lg font-bold mb-5 max-md:mb-2">Курсы:</h3>
                   <ul className="text-[#A3A2AB] font-medium">
                      <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-2">
-                        <AnimateLink href="#">
+                        <AnimateLink href="/course/frontend">
                            Frontend-программирование
                         </AnimateLink>
                      </li>
                      <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-2">
-                        <AnimateLink href="#">Мобильная разработка</AnimateLink>
+                        <AnimateLink href="/course/mobiledev">Мобильная разработка</AnimateLink>
                      </li>
                      <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-2">
-                        <AnimateLink href="#">SMM</AnimateLink>
+                        <AnimateLink href="/course/smm">SMM</AnimateLink>
                      </li>
                      <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-0">
-                        <AnimateLink href="#">Графический дизайн</AnimateLink>
+                        <AnimateLink href="/course/design">Графический дизайн</AnimateLink>
                      </li>
                   </ul>
                </div>
@@ -144,13 +144,13 @@ const Footer: React.FC<FooterProps> = () => {
                   </h3>
                   <ul className="text-[#A3A2AB] font-medium">
                      <li className="max-sm:text-sm max-sm:leading-tight mb-2">
-                        <AnimateLink href="#">Instagram</AnimateLink>
+                        <AnimateLink href="https://www.instagram.com/wepro.uz/">Instagram</AnimateLink>
                      </li>
                      <li className="max-sm:text-sm max-sm:leading-tight mb-2">
                         <AnimateLink href="#">Telegram</AnimateLink>
                      </li>
                      <li className="max-sm:text-sm max-sm:leading-tight mb-2">
-                        <AnimateLink href="#">YouTube</AnimateLink>
+                        <AnimateLink href="https://www.youtube.com/@weproacademy2988">YouTube</AnimateLink>
                      </li>
                      <li className="max-sm:text-sm max-sm:leading-tight mb-2">
                         <AnimateLink href="#">LinkedIn</AnimateLink>

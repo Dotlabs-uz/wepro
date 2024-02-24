@@ -1,45 +1,55 @@
 "use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
-import { FaTelegram } from "react-icons/fa";
-import { IoIosMenu, IoLogoWhatsapp } from "react-icons/io";
-import Modal from "./Modal";
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { IoClose } from "react-icons/io5";
-import { MdArrowOutward, MdEmail } from "react-icons/md";
-import { FaPhone } from "react-icons/fa6";
 import LinkPages from "./children/LinkPages";
+import Modal from "./Modal";
+
+import { AnimatePresence, motion } from "framer-motion";
+
+import { IoIosMenu, IoLogoWhatsapp } from "react-icons/io";
+import { FaTelegram } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+import { MdEmail } from "react-icons/md";
+import { FaPhone } from "react-icons/fa6";
 
 const Header = () => {
    const pathName = usePathname();
-   const [isOpened, setIsOpened] = useState(false);
-   const [menu, setMenu] = useState(false);
-
    const links = [
       {
          title: "Главная",
          link: `${pathName.slice(0, 3)}`,
-         img: ""
+         img: "/images/pages/home.png"
       },
       {
          title: "Курсы и цены",
          link: `${pathName.slice(0, 3)}/courses`,
-         img: ""
+         img: "/images/pages/reviews.png"
       },
       {
          title: "Отзывы",
          link: `${pathName.slice(0, 3)}/reviews`,
-         img: ""
+         img: "/images/pages/home.png"
       },
       {
          title: "Запись в группу",
          link: `${pathName.slice(0, 3)}/groups`,
-         img: ""
+         img: "/images/pages/reviews.png"
       },
    ];
+   const [isOpened, setIsOpened] = useState(false);
+   const [menu, setMenu] = useState(false);
+   // const { i18n } = useTranslation()
+   // const router = useRouter()
+
+   // const handleChange = (locale: any) => {
+   // router.push(router.pathname, router.asPath, { locale })
+   // }
+
    const onOpen = () => {
       setIsOpened(true);
    };
@@ -113,10 +123,9 @@ const Header = () => {
                   </div>
 
                   <div className="flex items-center gap-7 max-2xl:gap-5 max-xl:gap-3">
-                     <p
-                        className={`font-bold underline underline-offset-2 cursor-pointer ${pathName.includes("/course/") ? "text-white" : "text-black"}`}>
+                     <button className={`font-bold underline underline-offset-2 cursor-pointer ${pathName.includes("/course/") ? "text-white" : "text-black"}`}>
                         Рус
-                     </p>
+                     </button>
                      <button
                         onClick={onOpen}
                         className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-bold py-3 px-6 max-3xl:px-3 rounded-md border duration-150 ease-in max-lg:hidden block">
@@ -151,7 +160,7 @@ const Header = () => {
                                  <span className="block w-1.5 h-6 rounded-full bg-blue-400"></span>
                               </div>
                               <p className={`font-semibold ${pathName.includes("/course/") ? "text-white" : "text-black"}`}>
-                                 Разделы сайта:
+                                 Курсы:
                               </p>
                            </div>
                            <ul className="w-full grid grid-flow-col grid-rows-3 max-md:grid-flow-col max-md:grid-cols-[200px] gap-x-5 max-lg:gap-2 gap-y-3 mt-auto max-md:p-3 max-md:overflow-auto no-scroll">
@@ -186,7 +195,7 @@ const Header = () => {
                                  <span className="block w-1.5 h-6 rounded-full bg-blue-500"></span>
                               </div>
                               <p className={`font-semibold ${pathName.includes("/course/") ? "text-white" : "text-black"}`}>
-                                 Другие страницы:
+                                 Другие проекты:
                               </p>
                            </div>
                            <div className="grid grid-cols-2 max-2xl:grid-cols-4 max-md:grid-flow-col max-md:grid-cols-[200px] gap-2 mt-auto max-md:p-3 max-md:overflow-auto no-scroll">
@@ -207,7 +216,7 @@ const Header = () => {
                                  Контакты для связи:
                               </p>
                            </div>
-                           <div className="flex max-xl:flex-col items-center gap-3">
+                           <div className="flex max-xl:flex-col items-center gap-3 mt-auto">
                               <Link href={"#"} className={`text-gray-400 p-3.5 rounded-2xl duration-150 ease-in max-xl:hidden hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <FaTelegram size={25} />
                               </Link>

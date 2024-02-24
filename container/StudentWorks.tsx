@@ -11,26 +11,32 @@ const StudentWorks: React.FC<StudentWorksProps> = () => {
       {
          id: 0,
          title: "Frontend-разработка",
+         img: "/images/students-project.jpg"
       },
       {
          id: 1,
          title: "Разработка под iOS/Android",
+         img: "/images/company.jpg"
       },
       {
          id: 2,
          title: "Графический дизайн",
+         img: "/images/students-project.jpg"
       },
       {
          id: 3,
          title: "Веб-дизайн",
+         img: "/images/company.jpg"
       },
       {
          id: 4,
          title: "SMM",
+         img: "/images/students-project.jpg"
       },
       {
          id: 5,
          title: "Мобилография",
+         img: "/images/company.jpg"
       },
    ];
    let [activeTab, setActiveTab] = useState(tabs[0].id);
@@ -95,23 +101,14 @@ const StudentWorks: React.FC<StudentWorksProps> = () => {
 
                <div className="rounded-xl overflow-hidden">
                   <Image
-                     className="w-full h-full object-cover"
-                     src={"/images/students-project.jpg"}
+                     className="w-full max-h-[500px] object-cover"
+                     src={tabs[activeTab].img}
                      width={1000}
                      height={1000}
                      alt="students-project"
                   />
                </div>
             </div>
-
-            <button className="bg-white m-auto flex items-center gap-2 p-2 rounded-lg mt-8">
-               <span className="p-2 maxsm rounded-lg bg-[#000]">
-                  <MdArrowOutward size={20} color="white" className="" />
-               </span>
-               <span className="text-xl max-lg:text-lg max-sm:text-base font-bold">
-                  Посмотреть все отзывы
-               </span>
-            </button>
          </div>
       </>
    );

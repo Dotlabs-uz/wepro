@@ -3,9 +3,11 @@ import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
 import { useEffect, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
 
-interface ReviewsProps { }
+interface ReviewsProps {
+   reviews: any
+}
 
-const Reviews: React.FC<ReviewsProps> = () => {
+const ReviewsCom: React.FC<ReviewsProps> = ({ reviews }) => {
    const [selectedId, setSelectedId] = useState<any>(null);
 
    useEffect(() => {
@@ -13,24 +15,29 @@ const Reviews: React.FC<ReviewsProps> = () => {
          document.body.style.overflowY = "hidden";
       } else {
          document.body.style.overflowY = "scroll";
-
       }
    }, [selectedId]);
 
    return (
       <>
          <div className="grid grid-cols-4 max-md:grid-cols-2 gap-4">
-            {[1, 2, 3, 4].map((item: number) => {
+            {reviews.map((item: { name: string, url: string, _id: string }) => {
                return (
                   <motion.div
-                     key={item}
-                     layoutId={`card-container-${item}`}
-                     onClick={() => setSelectedId(item)}
-                     className="min-h-[400px] max-2xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full flex rounded-xl p-5 max-lg:p-2 cursor-pointer bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
+                     key={item._id}
+                     layoutId={`card-container-${item._id}`}
+                     onClick={() => setSelectedId(item._id)}
+                     className="min-h-[400px] max-2xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[260px] w-full relative flex rounded-xl p-5 max-lg:p-2 cursor-pointer overflow-hidden bg-black"
                   >
-                     <motion.div className="mt-auto px-5 max-lg:px-2 py-2 max-sm:py-1.5 rounded-[4px] bg-white">
+                     <div className="absolute z-20 top-0 left-0 w-full h-full"></div>
+                     <motion.div className="absolute top-0 left-0 w-full h-full">
+                        {/* <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.url}`} frameBorder="0" allowFullScreen></iframe> */}
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/1dL6LnNDEBI?si=5jMoRgR4mj9POg3J" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                     </motion.div>
+
+                     <motion.div className="relative z-10 mt-auto px-5 max-lg:px-2 py-2 max-sm:py-1.5 rounded-[4px] bg-white">
                         <motion.p className="text-sm max-sm:text-xs font-medium">
-                           Алекс Маметов
+                           {item.name}
                         </motion.p>
                      </motion.div>
                   </motion.div>
@@ -47,21 +54,26 @@ const Reviews: React.FC<ReviewsProps> = () => {
                   exit={{ opacity: 0 }}
                   onClick={() => setSelectedId("")}
                >
-                  {[1, 2, 3, 4].map((item: number) => {
+                  {reviews.map((item: { name: string, url: string, _id: string }) => {
                      return (
-                        item === selectedId && (
+                        item._id === selectedId && (
                            <motion.div
-                              key={item}
-                              layoutId={`card-container-${item}`}
+                              key={item._id}
+                              layoutId={`card-container-${item._id}`}
                               initial={{ scale: 1, opacity: 1 }}
                               animate={{ scale: 1, opacity: 1 }}
                               exit={{ scale: 1, opacity: 1 }}
                               onClick={(e) => e.stopPropagation()}
-                              className="max-w-xs w-full min-h-[420px] flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')]  bg-no-repeat bg-cover bg-center"
+                              className="max-w-xs w-full min-h-[420px] relative flex rounded-xl p-5 max-lg:p-2 overflow-hidden bg-black"
                            >
-                              <motion.div className="mt-auto px-5 max-lg:px-2 py-2 rounded-[4px] bg-white">
+                              <motion.div className="absolute top-0 left-0 w-full h-full">
+                                 {/* <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.url}`} frameBorder="0" allowFullScreen></iframe> */}
+                                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/1dL6LnNDEBI?si=5jMoRgR4mj9POg3J" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                              </motion.div>
+
+                              <motion.div className="relative z-10 mt-auto px-5 max-lg:px-2 py-2 rounded-[4px] bg-white">
                                  <motion.p className="text-sm font-medium">
-                                    Алекс Маметов
+                                    {item.name}
                                  </motion.p>
                               </motion.div>
                            </motion.div>
@@ -75,4 +87,4 @@ const Reviews: React.FC<ReviewsProps> = () => {
    );
 };
 
-export default Reviews;
+export default ReviewsCom;

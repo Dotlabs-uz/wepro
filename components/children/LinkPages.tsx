@@ -35,7 +35,7 @@ const LinkPages: React.FC<LinkPagesProps> = ({ link, idx, HandelMenu, pathName }
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.2 }}
                                 className="absolute z-[-2] top-4 left-3 right-3">
-                                <Image src={"/images/pages/reviews.png"} width={1000} height={1000} alt="page" />
+                                <Image src={link.img} width={1000} height={1000} alt="page" />
                             </motion.div>
                             <motion.div
                                 initial={{ opacity: 0 }}

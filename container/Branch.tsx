@@ -1,5 +1,7 @@
 "use client";
+import Modal from "@/components/Modal";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -16,10 +18,30 @@ const Branch: React.FC<BranchProps> = () => {
          title: "Второй филиал",
       },
    ];
+
    let [active, setActive] = useState(tabs[0].id);
+   const [isOpened, setIsOpened] = useState(false);
+   const [change, setChange] = useState(false);
+
+   const onOpen = () => {
+      setIsOpened(true);
+   };
+   const onClose = () => {
+      setIsOpened(false);
+   };
 
    return (
       <>
+         <Modal
+            isOpened={isOpened}
+            onClose={onClose}
+            select={true}
+            title={"Оставить заявку"}
+            dcr={
+               "Оставьте заявку и получите возможность попасть на открытый урок абсолютно бесплатно."
+            }
+         />
+
          <div className="custom-container my-28 max-lg:my-24 max-sm:my-20">
             <div className="flex max-lg:flex-col items-center gap-20 max-2xl:gap-10 max-lg:gap-7 max-sm:gap-4 mb-11 max-lg:mb-7 max-sm:mb-4 mx-28 max-2xl:mx-0 max-xl:mx-0">
                <div className="w-1/2 max-lg:w-full">
@@ -69,20 +91,40 @@ const Branch: React.FC<BranchProps> = () => {
                      </div>
                      <div className="">
                         <p className="text-3xl max-sm:text-2xl font-bold">
-                           Мирзо Улугбека, 12
+                           {
+                              active === 0 ?
+                                 "ул. Буюк Ипак Йули 52"
+                                 :
+                                 "Мирзо Улугбека, 12"
+                           }
                         </p>
                         <p>Ориентир: Trump Tower</p>
                      </div>
                   </div>
                </div>
-               <div className="w-1/2 max-lg:w-full min-h-[400px] max-xl:min-h-[300px] h-full flex p-5 max-lg:p-3 rounded-2xl bg-[url('/images/company.jpg')] bg-cover bg-left bg-no-repeat">
-                  <button className="bg-white h-fit max-sm:text-sm mt-auto p-3 max-md:p-2 rounded-xl max-sm:rounded-lg">
-                     Смотреть в галерее
-                  </button>
+               <div className="w-1/2 max-lg:w-full min-h-[320px] max-xl:min-h-[300px] h-full flex  rounded-2xl overflow-hidden">
+                  {
+                     active === 0 ?
+                        <Image
+                           className="w-full h-auto object-cover"
+                           src={"/images/company.jpg"}
+                           width={1000}
+                           height={1000}
+                           alt="branch"
+                        />
+                        :
+                        <Image
+                           className="w-full h-auto object-cover"
+                           src={"/images/students-project.jpg"}
+                           width={1000}
+                           height={1000}
+                           alt="branch"
+                        />
+                  }
                </div>
             </div>
             <div className="w-fit m-auto max-sm:w-full">
-               <button className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-sm:w-full py-4 px-[94px] text-[20px] max-sm:text-base font-bold rounded-[7px] border duration-150 ease-in">
+               <button onClick={onOpen} className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-sm:w-full py-4 px-[94px] text-[20px] max-sm:text-base font-bold rounded-[7px] border duration-150 ease-in">
                   Оставить заявку
                </button>
             </div>

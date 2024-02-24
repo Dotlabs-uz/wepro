@@ -1,12 +1,16 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
-import { useInView, useScroll, useTransform, motion } from "framer-motion";
+import { useInView, motion } from "framer-motion";
 import Vacancy from "@/components/Vacancy";
 
-interface VacanciesProps { }
+interface VacanciesProps {
+   data: {
+      hhImage: string
+   }
+}
 
-const Vacancies: React.FC<VacanciesProps> = () => {
+const Vacancies: React.FC<VacanciesProps> = ({ data }) => {
    const ref = useRef(null);
    const inView = useInView(ref);
 
@@ -69,47 +73,11 @@ const Vacancies: React.FC<VacanciesProps> = () => {
                </div>
             </div>
 
-            <div className="md:grid md:grid-cols-3 gap-6 max-xl:gap-3 relative z-10 max-md:hidden">
-               <div className="relative md:z-[-2] max-md:sticky">
-                  <Image
-                     src={"/images/vacancies/vacancy-1.svg"}
-                     width={1000}
-                     height={1000}
-                     alt="vacancy"
-                  />
-               </div>
-               <div className="max-md:sticky ">
-                  <Image
-                     src={"/images/vacancies/vacancy-2.svg"}
-                     width={1000}
-                     height={1000}
-                     alt="vacancy"
-                  />
-               </div>
-               <div className="max-md:sticky top-[60px]">
-                  <Image
-                     src={"/images/vacancies/vacancy-3.svg"}
-                     width={1000}
-                     height={1000}
-                     alt="vacancy"
-                  />
-               </div>
-               <div className="md:-translate-y-40 md:translate-x-40 relative md:z-[-1] max-md:sticky">
-                  <Image
-                     src={"/images/vacancies/vacancy-4.svg"}
-                     width={1000}
-                     height={1000}
-                     alt="vacancy"
-                  />
-               </div>
-               <div className="md:-translate-y-40 md:translate-x-40 max-md:sticky top-[100px]">
-                  <Image
-                     src={"/images/vacancies/vacancy-5.svg"}
-                     width={1000}
-                     height={1000}
-                     alt="vacancy"
-                  />
-               </div>
+            <div className="relative z-10 max-md:hidden">
+               <img
+                  src={data?.hhImage}
+                  alt="vacacies"
+               />
             </div>
 
             <div

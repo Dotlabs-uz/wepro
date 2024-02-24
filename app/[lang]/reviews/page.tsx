@@ -34,7 +34,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
                   </div>
                </div>
 
-               <ReviewsCom />
+               {/* <ReviewsCom reviews={[]} /> */}
             </div>
          </section>
       </>
