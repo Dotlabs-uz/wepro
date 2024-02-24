@@ -1,11 +1,8 @@
-"use client";
-import { useEffect, useState } from "react";
 import Course from "./children/Course";
-import axios from "axios";
-import { usePathname } from "next/navigation";
 
 interface CoursesProps {
    category: string;
+   courses: any
 }
 
 type CoursesTyps = {
@@ -25,31 +22,29 @@ type CoursesTyps = {
    preview: string
 };
 
-const Courses: React.FC<CoursesProps> = ({ category }) => {
-   const [courses, setCourses] = useState<Array<CoursesTyps>>([]);
-   const [isDragging, setIsDragging] = useState(false);
-   const pathName = usePathname();
+const Courses: React.FC<CoursesProps> = async ({ category, courses }) => {
+   // const [courses, setCourses] = useState<Array<CoursesTyps>>([]);
+   // const [isDragging, setIsDragging] = useState(false);
 
-   useEffect(() => {
-      axios
-         .get("https://wepro.uz/api/courses?project=wepro")
-         .then((res) => {
-            if (res.status === 200 || res.status === 201) {
-               setCourses(res.data);
-               // console.log(res.data);
-            }
-         })
-         .catch((err) => {
-            console.log(err);
-         });
-   }, []);
 
-   console.log(courses);
+   // useEffect(() => {
+   //    axios
+   //       .get("https://wepro.uz/api/courses?project=wepro")
+   //       .then((res) => {
+   //          if (res.status === 200 || res.status === 201) {
+   //             setCourses(res.data);
+   //             // console.log(res.data);
+   //          }
+   //       })
+   //       .catch((err) => {
+   //          console.log(err);
+   //       });
+   // }, []);
 
    return (
       <>
          <div
-            className={`overflow-x-scroll no-scroll  ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+            className={`overflow-x-scroll no-scroll`}
          >
             <div
                className={`grid grid-flow-col grid-rows-2 grid-cols-[460px] max-2xl:grid-cols-[400px] max-lg:grid-cols-[310px] gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5 p-3 max-sm:p-2`}

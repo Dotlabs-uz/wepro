@@ -19,6 +19,8 @@ import { FaPhone } from "react-icons/fa6";
 
 const Header = () => {
    const pathName = usePathname();
+   const [isOpened, setIsOpened] = useState(false);
+   const [menu, setMenu] = useState(false);
    const links = [
       {
          title: "Главная",
@@ -41,8 +43,7 @@ const Header = () => {
          img: "/images/pages/reviews.png"
       },
    ];
-   const [isOpened, setIsOpened] = useState(false);
-   const [menu, setMenu] = useState(false);
+   
    // const { i18n } = useTranslation()
    // const router = useRouter()
 
