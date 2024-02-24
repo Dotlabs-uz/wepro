@@ -65,9 +65,10 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
             onClose={onClose}
             select={false}
             title={"Записаться на курс"}
-            dcr={
-               "Оставьте заявку и получите возможность попасть на открытый урок абсолютно бесплатно."
-            }
+            type={"classic"}
+            admissionId={""}
+            courseId={""}
+            dcr={"Оставьте заявку и получите возможность попасть на открытый урок абсолютно бесплатно."}
          />
          <section className="hero-gradient">
             <div className="flex gap-16 max-3xl:gap-10">
@@ -457,7 +458,9 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
             </BgAnimated>
          </section>
          <Company />
-         <Form />
+         <Form
+            courseId={data?._id}
+         />
          <FAQ />
       </>
    );

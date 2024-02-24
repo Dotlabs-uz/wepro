@@ -10,7 +10,7 @@ import { IoClose } from "react-icons/io5";
 import ReactInputMask from "react-input-mask";
 import Link from "next/link";
 import { FaTelegram } from "react-icons/fa";
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface ModalProps {
    isOpened: boolean;
@@ -18,11 +18,14 @@ interface ModalProps {
    select: boolean;
    title: string;
    dcr: string;
+   type: string;
+   admissionId: string;
+   courseId: string
 }
 type Inputs = {
    name: string;
    phone: string;
-   additionally: string;
+   courseId: string;
 };
 
 const Modal: React.FC<ModalProps> = ({
@@ -30,7 +33,10 @@ const Modal: React.FC<ModalProps> = ({
    onClose,
    select,
    title,
+   admissionId,
    dcr,
+   type,
+   courseId
 }) => {
    const {
       register,
@@ -39,17 +45,42 @@ const Modal: React.FC<ModalProps> = ({
       formState: { errors },
       reset,
    } = useForm<Inputs>();
+
    const [disabled, setDisabled] = useState(false);
+   const pathName = usePathname()
    const { push } = useRouter()
 
    const onSubmit: SubmitHandler<Inputs> = (data) => {
-      setDisabled(true);
+      // setDisabled(true);
+
+      console.log(
+         {
+            ...data,
+            type: type,
+            origin: pathName,
+            project: "wepro",
+            language: "",
+            courseId: courseId,
+            admissionId: admissionId,
+         }
+      );
+
       axios
-         .post("https://wepro.uz/api/leads", data)
+         .post("https://wepro.uz/api/leads",
+            {
+               ...data,
+               type: type,
+               origin: pathName,
+               project: "wepro",
+               language: "",
+               courseId: courseId,
+               admissionId: "",
+            }
+         )
          .then((res) => {
             if (res.status == 200 || res.status == 201) {
-               console.log(res);
-               push("/thanks")
+               console.log(res.data);
+               // push("/thanks")
                reset({
                   name: "",
                   phone: "",
@@ -101,8 +132,7 @@ const Modal: React.FC<ModalProps> = ({
                   <form onSubmit={handleSubmit(onSubmit)}>
                      <label className="flex flex-col mb-4">
                         <span
-                           className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.name && "text-[red]"
-                              }`}
+                           className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.name && "text-[red]"}`}
                         >
                            Ваши имя и фамилия
                         </span>
@@ -110,15 +140,13 @@ const Modal: React.FC<ModalProps> = ({
                            type="text"
                            {...register("name", { required: true })}
                            placeholder="Имя и фамилия"
-                           className={`max-sm:text-sm px-5 max-sm:px-3 py-4 max-sm:py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
-                              "border border-[red] outline-[red] text-[red]"
-                              }`}
+                           className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
+                              "border border-[red] outline-[red] text-[red]"}`}
                         />
                      </label>
                      <label className="flex flex-col mb-4">
                         <span
-                           className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.phone && "text-[red]"
-                              }`}
+                           className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.phone && "text-[red]"}`}
                         >
                            Номер телефона
                         </span>
@@ -127,9 +155,8 @@ const Modal: React.FC<ModalProps> = ({
                            {...register("phone", { required: true })}
                            defaultValue={"+998 ("}
                            placeholder="Введите номер"
-                           className={`max-sm:text-sm px-5 max-sm:px-3 py-4 max-sm:py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
-                              "border border-[red] outline-[red] text-[red]"
-                              }`}
+                           className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
+                              "border border-[red] outline-[red] text-[red]"}`}
                         />
                         {/* <InputMask
                            placeholder="Введите номер"
@@ -143,19 +170,37 @@ const Modal: React.FC<ModalProps> = ({
                               Выберите курс
                            </span>
                            <select
-                              {...register("additionally", { required: true })}
-                              className={`px-5 py-[18px] rounded-[9px] bg-[#F4F4F4]`}
+                              {...register("courseId", { required: true })}
+                              className={`px-5 py-3 rounded-lg bg-[#F4F4F4]`}
                            >
-                              <option value="Frontend-разработка">
+                              <option value="64b7d1e60c881a3375f9a3fd">
                                  Frontend-программирование
                               </option>
-                              <option value="Веб-дизайн">Веб-дизайн</option>
-                              <option value="Мобильная разработка">
+                              <option value="659cdaaaf12fcb2da5b0c62a">Веб-дизайн</option>
+                              <option value="64c78eb4a73f738c33b0786a">
                                  Мобильная разработка
                               </option>
-                              <option value="Мобилография">Мобилография</option>
-                              <option value="Графический дизайн">
+                              <option value="6471a7bf0d3305648839d9df">Мобилография</option>
+                              <option value="63d1051c1dac7333cb7ddc5c">
                                  Графический дизайн
+                              </option>
+                              <option value="63c68f42212cd8a88011f2c0">
+                                 Интернет-маркетинг
+                              </option>
+                              <option value="63dcac99d0ffb1abcd58cc61">
+                                 Интерьер-дизайн
+                              </option>
+                              <option value="63be6a91f2f0644aac48b9b2">
+                                 Kompyuter savodxonligi
+                              </option>
+                              <option value="63b937aa6a1ff7eb1a5ba494">
+                                 JavaScript
+                              </option>
+                              <option value="63b7fa7a3daae359bc9656ae">
+                                 HTML & CSS
+                              </option>
+                              <option value="63b5c0807a68ac3685934af9">
+                                 Компьютерная грамотность
                               </option>
                            </select>
                         </label>
@@ -163,7 +208,7 @@ const Modal: React.FC<ModalProps> = ({
                      <button
                         onClick={errors.name && errors.phone ? onClose : undefined}
                         disabled={disabled}
-                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-lg max-sm:text-base font-bold py-4 max-sm:py-3 border rounded-[7px] duration-150 ease-in"
+                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-lg max-sm:text-base font-bold py-3 border rounded-[7px] duration-150 ease-in"
                      >
                         Отправить заявку
                      </button>

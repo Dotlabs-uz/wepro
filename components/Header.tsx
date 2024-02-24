@@ -43,7 +43,7 @@ const Header = () => {
          img: "/images/pages/reviews.png"
       },
    ];
-   
+
    // const { i18n } = useTranslation()
    // const router = useRouter()
 
@@ -74,8 +74,11 @@ const Header = () => {
             isOpened={isOpened}
             onClose={onClose}
             select={false}
-            title={"Заявка на консультацию"}
             dcr={""}
+            admissionId={""}
+            courseId={""}
+            title={"Заявка на консультацию"}
+            type={"consultation"}
          />
 
          <motion.header

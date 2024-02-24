@@ -30,7 +30,7 @@ const Courses: React.FC<CoursesProps> = () => {
          category: "other",
       },
    ];
-
+   
    return (
       <>
          <section>

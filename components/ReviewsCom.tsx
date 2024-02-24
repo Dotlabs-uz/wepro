@@ -31,8 +31,8 @@ const ReviewsCom: React.FC<ReviewsProps> = ({ reviews }) => {
                   >
                      <div className="absolute z-20 top-0 left-0 w-full h-full"></div>
                      <motion.div className="absolute top-0 left-0 w-full h-full">
-                        {/* <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.url}`} frameBorder="0" allowFullScreen></iframe> */}
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/1dL6LnNDEBI?si=5jMoRgR4mj9POg3J" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                        <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.url}`} frameBorder="0" allowFullScreen></iframe>
+                        {/* <iframe width="100%" height="100%" src="https://www.youtube.com/embed/1dL6LnNDEBI?si=5jMoRgR4mj9POg3J" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> */}
                      </motion.div>
 
                      <motion.div className="relative z-10 mt-auto px-5 max-lg:px-2 py-2 max-sm:py-1.5 rounded-[4px] bg-white">
@@ -67,8 +67,8 @@ const ReviewsCom: React.FC<ReviewsProps> = ({ reviews }) => {
                               className="max-w-xs w-full min-h-[420px] relative flex rounded-xl p-5 max-lg:p-2 overflow-hidden bg-black"
                            >
                               <motion.div className="absolute top-0 left-0 w-full h-full">
-                                 {/* <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.url}`} frameBorder="0" allowFullScreen></iframe> */}
-                                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/1dL6LnNDEBI?si=5jMoRgR4mj9POg3J" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                                 <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.url}`} frameBorder="0" allowFullScreen></iframe>
+                                 {/* <iframe width="100%" height="100%" src="https://www.youtube.com/embed/1dL6LnNDEBI?si=5jMoRgR4mj9POg3J" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> */}
                               </motion.div>
 
                               <motion.div className="relative z-10 mt-auto px-5 max-lg:px-2 py-2 rounded-[4px] bg-white">

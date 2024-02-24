@@ -2,6 +2,7 @@
 import Modal from "@/components/Modal";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -36,10 +37,11 @@ const Branch: React.FC<BranchProps> = () => {
             isOpened={isOpened}
             onClose={onClose}
             select={true}
+            type={"classic"}
+            admissionId={""}
+            courseId={""}
             title={"Оставить заявку"}
-            dcr={
-               "Оставьте заявку и получите возможность попасть на открытый урок абсолютно бесплатно."
-            }
+            dcr={"Оставьте заявку и получите возможность попасть на открытый урок абсолютно бесплатно."}
          />
 
          <div className="custom-container my-28 max-lg:my-24 max-sm:my-20">

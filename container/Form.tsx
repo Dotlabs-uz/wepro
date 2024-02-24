@@ -6,8 +6,10 @@ import InputMask from "react-input-mask";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FaTelegram } from "react-icons/fa";
 import { motion } from "framer-motion"
+import { usePathname } from "next/navigation";
 
 interface FormProps {
+   courseId: string
 }
 type Inputs = {
    name: string;
@@ -15,7 +17,7 @@ type Inputs = {
    additionally: string;
 };
 
-const Form: React.FC<FormProps> = () => {
+const Form: React.FC<FormProps> = ({ courseId }) => {
    const {
       register,
       handleSubmit,
@@ -24,23 +26,35 @@ const Form: React.FC<FormProps> = () => {
       reset,
    } = useForm<Inputs>();
    const [disabled, setDisabled] = useState(false);
+   const pathName = usePathname()
 
    const onSubmit: SubmitHandler<Inputs> = (data) => {
-      setDisabled(true);
-      axios
-         .post("https://wepro.uz/api/leads", data)
-         .then((res) => {
-            if (res.status == 200 || res.status == 201) {
-               console.log(res);
-               reset({
-                  name: "",
-                  phone: "",
-               });
-            }
-         })
-         .catch((err) => {
-            console.log(err);
-         });
+      console.log(
+         {
+            ...data,
+            type: "classic",
+            origin: pathName,
+            project: "wepro",
+            language: "",
+            courseId: courseId,
+            admissionId: "",
+         }
+      );
+      // setDisabled(true);
+      // axios
+      //    .post("https://wepro.uz/api/leads", data)
+      //    .then((res) => {
+      //       if (res.status == 200 || res.status == 201) {
+      //          console.log(res);
+      //          reset({
+      //             name: "",
+      //             phone: "",
+      //          });
+      //       }
+      //    })
+      //    .catch((err) => {
+      //       console.log(err);
+      //    });
    };
 
    return (
@@ -63,8 +77,7 @@ const Form: React.FC<FormProps> = () => {
                <form onSubmit={handleSubmit(onSubmit)}>
                   <label className="flex flex-col mb-6 max-sm:mb-4">
                      <span
-                        className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.name && "text-[red]"
-                           }`}
+                        className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.name && "text-[red]"}`}
                      >
                         Ваши имя и фамилия
                      </span>
@@ -73,14 +86,12 @@ const Form: React.FC<FormProps> = () => {
                         {...register("name", { required: true })}
                         placeholder="Имя и фамилия"
                         className={`max-sm:text-sm px-5 max-sm:px-3 py-4 max-sm:py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
-                           "border border-[red] outline-[red] text-[red]"
-                           }`}
+                           "border border-[red] outline-[red] text-[red]"}`}
                      />
                   </label>
                   <label className="flex flex-col mb-6 max-sm:mb-4">
                      <span
-                        className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.phone && "text-[red]"
-                           }`}
+                        className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.phone && "text-[red]"}`}
                      >
                         Номер телефона
                      </span>
@@ -89,15 +100,13 @@ const Form: React.FC<FormProps> = () => {
                         {...register("phone", { required: true })}
                         defaultValue={"+998 ("}
                         placeholder="Введите номер"
-                        className={`max-sm:text-sm px-5 max-sm:px-3 py-4 max-sm:py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
-                           "border border-[red] outline-[red] text-[red]"
-                           }`}
+                        className={`max-sm:text-sm px-5 max-sm:px-3 py-4 max-sm:py-3 rounded-lg bg-[#F4F4F4] ${errors.phone && "border border-[red] outline-[red] text-[red]"}`}
                      />
                      {/* <InputMask
-         placeholder="Введите номер"
-         className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
-         mask="+\9\98-(99)-999-99-99"
-      /> */}
+                           placeholder="Введите номер"
+                           className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
+                           mask="+\9\98-(99)-999-99-99"
+                        /> */}
                   </label>
 
                   <button

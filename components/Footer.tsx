@@ -6,6 +6,7 @@ import InputMask from "react-input-mask";
 import AnimateLink from "./children/AnimateLink";
 import { useState } from "react";
 import axios from "axios";
+import { usePathname } from "next/navigation";
 
 interface FooterProps { }
 type Inputs = {
@@ -23,24 +24,37 @@ const Footer: React.FC<FooterProps> = () => {
       reset,
    } = useForm<Inputs>();
    const [disabled, setDisabled] = useState(false);
+   const pathname = usePathname()
 
    const onSubmit: SubmitHandler<Inputs> = (data) => {
-      setDisabled(true);
+      // setDisabled(true);
 
-      axios
-         .post("https://wepro.uz/api/leads", data)
-         .then((res) => {
-            if (res.status == 200 || res.status == 201) {
-               console.log(res);
-               reset({
-                  name: "",
-                  phone: "",
-               });
-            }
-         })
-         .catch((err) => {
-            console.log(err);
-         });
+      console.log(
+         {
+            ...data,
+            type: "consultation",
+            origin: pathname,
+            project: "wepro",
+            language: "",
+            courseId: "",
+            admissionId: "",
+         }
+      );
+
+      // axios
+      //    .post("https://wepro.uz/api/leads", data)
+      //    .then((res) => {
+      //       if (res.status == 200 || res.status == 201) {
+      //          console.log(res);
+      //          reset({
+      //             name: "",
+      //             phone: "",
+      //          });
+      //       }
+      //    })
+      //    .catch((err) => {
+      //       console.log(err);
+      //    });
    };
 
    return (
@@ -76,7 +90,7 @@ const Footer: React.FC<FooterProps> = () => {
                         {...register("additionally", { required: true })}
                         className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
                      >
-                        <option defaultChecked>Не выбрано</option>
+                        <option value="Не выбрано" defaultChecked>Откуда о нас узнали?</option>
                         <option value="Instagram">Instagram</option>
                         <option value="Facebook">Facebook</option>
                         <option value="Tik Tok">Tik Tok</option>
