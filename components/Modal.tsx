@@ -7,10 +7,12 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 import { BiCloset } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
-import ReactInputMask from "react-input-mask";
+import InputMask from "react-input-mask";
 import Link from "next/link";
 import { FaTelegram } from "react-icons/fa";
 import { usePathname, useRouter } from 'next/navigation';
+import moment from "moment";
+import { courses } from "@/constants";
 
 interface ModalProps {
    isOpened: boolean;
@@ -25,7 +27,13 @@ interface ModalProps {
 type Inputs = {
    name: string;
    phone: string;
-   courseId: string;
+   type: string
+   origin: string
+   project: string
+   language: string
+   courseId: string | undefined
+   admissionId: string | undefined
+   time: string
 };
 
 const Modal: React.FC<ModalProps> = ({
@@ -49,34 +57,32 @@ const Modal: React.FC<ModalProps> = ({
    const [disabled, setDisabled] = useState(false);
    const pathName = usePathname()
    const { push } = useRouter()
+   const [selected, setSelected] = useState('');
 
    const onSubmit: SubmitHandler<Inputs> = (data) => {
-      // setDisabled(true);
+      setDisabled(true);
+      const dataForm: Inputs = {
+         ...data, // req
+         type: type, // req
+         origin: pathName, // req
+         project: "wepro", // req
+         language: "ru", // req
+         courseId: courseId || selected,
+         admissionId: admissionId,
+         time: moment().format() // req
+      }
+      if (dataForm.courseId === "") {
+         delete dataForm.courseId
+      }
+      if (dataForm.admissionId === "") {
+         delete dataForm.admissionId
+      }
 
-      console.log(
-         {
-            ...data,
-            type: type,
-            origin: pathName,
-            project: "wepro",
-            language: "",
-            courseId: courseId,
-            admissionId: admissionId,
-         }
-      );
-
-      axios
-         .post("https://wepro.uz/api/leads",
-            {
-               ...data,
-               type: type,
-               origin: pathName,
-               project: "wepro",
-               language: "",
-               courseId: courseId,
-               admissionId: "",
-            }
-         )
+      // const headers = {
+      //    "Access-Control-Allow-Origin": "*",
+      //    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+      // };
+      axios.post("https://wepro.uz/api/leads", dataForm)
          .then((res) => {
             if (res.status == 200 || res.status == 201) {
                console.log(res.data);
@@ -138,10 +144,9 @@ const Modal: React.FC<ModalProps> = ({
                         </span>
                         <input
                            type="text"
-                           {...register("name", { required: true })}
+                           {...register("name", { required: true, pattern: /^[а-яА-ЯёЁa-zA-Z]+$/ })}
                            placeholder="Имя и фамилия"
-                           className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
-                              "border border-[red] outline-[red] text-[red]"}`}
+                           className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone && "border-[red] outline-[red]"}`}
                         />
                      </label>
                      <label className="flex flex-col mb-4">
@@ -150,19 +155,24 @@ const Modal: React.FC<ModalProps> = ({
                         >
                            Номер телефона
                         </span>
-                        <input
+                        {/* <input
                            type="text"
                            {...register("phone", { required: true })}
                            defaultValue={"+998 ("}
                            placeholder="Введите номер"
                            className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
                               "border border-[red] outline-[red] text-[red]"}`}
-                        />
-                        {/* <InputMask
-                           placeholder="Введите номер"
-                           className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
+                           /> */}
+                        <InputMask
+                           type="text"
+                           placeholder="+998-(__)-___-__-__"
+                           {...register("phone", {
+                              pattern: /^\+\d{3}-\(\d{2}\)-\d{3}-\d{2}-\d{2}$/,
+                              required: true
+                           })}
+                           className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone && "border-[red] outline-[red]"}`}
                            mask="+\9\98-(99)-999-99-99"
-                         /> */}
+                        />
                      </label>
                      {select && (
                         <label className="flex flex-col mb-4">
@@ -170,38 +180,17 @@ const Modal: React.FC<ModalProps> = ({
                               Выберите курс
                            </span>
                            <select
-                              {...register("courseId", { required: true })}
+                              onChange={(e) => setSelected(e.target.value)}
                               className={`px-5 py-3 rounded-lg bg-[#F4F4F4]`}
                            >
-                              <option value="64b7d1e60c881a3375f9a3fd">
-                                 Frontend-программирование
-                              </option>
-                              <option value="659cdaaaf12fcb2da5b0c62a">Веб-дизайн</option>
-                              <option value="64c78eb4a73f738c33b0786a">
-                                 Мобильная разработка
-                              </option>
-                              <option value="6471a7bf0d3305648839d9df">Мобилография</option>
-                              <option value="63d1051c1dac7333cb7ddc5c">
-                                 Графический дизайн
-                              </option>
-                              <option value="63c68f42212cd8a88011f2c0">
-                                 Интернет-маркетинг
-                              </option>
-                              <option value="63dcac99d0ffb1abcd58cc61">
-                                 Интерьер-дизайн
-                              </option>
-                              <option value="63be6a91f2f0644aac48b9b2">
-                                 Kompyuter savodxonligi
-                              </option>
-                              <option value="63b937aa6a1ff7eb1a5ba494">
-                                 JavaScript
-                              </option>
-                              <option value="63b7fa7a3daae359bc9656ae">
-                                 HTML & CSS
-                              </option>
-                              <option value="63b5c0807a68ac3685934af9">
-                                 Компьютерная грамотность
-                              </option>
+                              {
+                                 courses.map((item: { title: string, id: string }, idx: number) => (
+                                    <option key={idx} value={item.id}>
+                                       {item.title}
+                                    </option>
+                                 )
+                                 )
+                              }
                            </select>
                         </label>
                      )}

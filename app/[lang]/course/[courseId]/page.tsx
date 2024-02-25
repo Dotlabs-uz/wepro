@@ -223,7 +223,7 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                   </h2>
                </div>
 
-               <div className="grid md:grid-cols-3 row-auto-[200px] max-md:grid-flow-col max-md:auto-cols-[180px] max-md:auto-rows-[100px] grid-rows-[300px_minmax(300px,_1fr)] gap-6 max-xl:gap-3 max-sm:gap-2 overflow-x-auto no-scroll max-md:py-3">
+               <div className="grid md:grid-cols-3 max-md:grid-flow-col max-md:auto-cols-[195px] max-md:grid-rows-[200px_minmax(200px,_1fr)] grid-rows-[300px_minmax(300px,_1fr)] gap-6 max-xl:gap-3 max-sm:gap-2 overflow-x-auto no-scroll max-md:py-3">
                   {
                      data?.canCreate.map((item: { image: string, title: string, _id: string }) => {
                         return (
@@ -381,7 +381,7 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                >
                   {
                      data?.admissions.map((item: any) => {
-                        return <Group key={item._id} item={item} onOpen={onOpen} />;
+                        return <Group key={item._id} item={item} />;
                      })
                   }
                </div>
@@ -434,12 +434,12 @@ const Page: React.FC<CourseProps> = ({ params }: any) => {
                            Кураторы курса
                         </h2>
                      </div>
-                     <div className="w-fit max-sm:w-full m-auto flex items-center max-lg:flex-wrap gap-6 max-lg:gap-4">
+                     <div className="w-fit max-sm:w-full m-auto grid grid-cols-3 max-md:grid-cols-2 gap-6 max-lg:gap-4 max-sm:gap-2">
                         {data?.teachersId.map((teacher: any) => {
                            return (
                               <div
                                  key={teacher._id}
-                                 className="max-w-xs min-h-[420px] max-xl:min-h-[370px] max-sm:min-h-[300px] w-full flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
+                                 className="w-full min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[250px] flex rounded-xl p-5 max-lg:p-2 bg-[url('/images/student.jpg')] bg-no-repeat bg-cover bg-center"
                               >
                                  <div className="mt-auto px-5 max-md:px-2 max-lg:px-2 py-2 rounded-xl max-md:rounded-md md:backdrop-blur-[6px] bg-[#ffffff99] max-md:bg-white">
                                     <p className="text-sm font-bold max-xs:hidden">

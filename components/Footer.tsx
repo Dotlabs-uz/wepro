@@ -7,6 +7,7 @@ import AnimateLink from "./children/AnimateLink";
 import { useState } from "react";
 import axios from "axios";
 import { usePathname } from "next/navigation";
+import moment from "moment";
 
 interface FooterProps { }
 type Inputs = {
@@ -29,32 +30,28 @@ const Footer: React.FC<FooterProps> = () => {
    const onSubmit: SubmitHandler<Inputs> = (data) => {
       // setDisabled(true);
 
-      console.log(
-         {
-            ...data,
-            type: "consultation",
-            origin: pathname,
-            project: "wepro",
-            language: "",
-            courseId: "",
-            admissionId: "",
-         }
-      );
+      let formData = {
+         ...data,
+         type: "classic",
+         origin: pathname,
+         project: "wepro",
+         language: "ru",
+         time: moment().format()
+      }
 
-      // axios
-      //    .post("https://wepro.uz/api/leads", data)
-      //    .then((res) => {
-      //       if (res.status == 200 || res.status == 201) {
-      //          console.log(res);
-      //          reset({
-      //             name: "",
-      //             phone: "",
-      //          });
-      //       }
-      //    })
-      //    .catch((err) => {
-      //       console.log(err);
-      //    });
+      axios.post("https://wepro.uz/api/leads", formData)
+         .then((res) => {
+            if (res.status == 200 || res.status == 201) {
+               console.log(res);
+               reset({
+                  name: "",
+                  phone: "",
+               });
+            }
+         })
+         .catch((err) => {
+            console.log(err);
+         });
    };
 
    return (

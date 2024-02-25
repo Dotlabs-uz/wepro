@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import ReviewsCom from "@/components/ReviewsCom"
+import { reviews } from '@/constants/index'
 
 interface ReviewsProps { }
 
@@ -34,7 +35,7 @@ const Reviews: React.FC<ReviewsProps> = () => {
                   </div>
                </div>
 
-               {/* <ReviewsCom reviews={[]} /> */}
+               <ReviewsCom reviews={reviews} />
             </div>
          </section>
       </>

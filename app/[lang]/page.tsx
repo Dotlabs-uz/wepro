@@ -22,63 +22,20 @@ import FAQ from "@/container/FAQ";
 import BgAnimated from "@/container/BgAnimated";
 import axios from "axios";
 import Loading from "./loading";
+import { reviews } from '@/constants/index'
 
 export default async function Home({
    params: { lang },
 }: {
    params: { lang: Locale };
 }) {
-   const { data } = await axios.get(
-      process.env.NEXT_PUBLIC_BASE + "/courses?project=wepro"
-   );
+
    const { homePage } = await getDictionary(lang);
-   const reviews = [
-      {
-         _id: "0",
-         name: "Jony",
-         url: "HYS9ImCPPqk",
-      },
-      {
-         _id: "1",
-         name: "Jony",
-         url: "536c_bUL1_Y",
-      },
-      {
-         _id: "2",
-         name: "Jony",
-         url: "9FT-B3gtwNg",
-      },
-      {
-         _id: "3",
-         name: "Jony",
-         url: "VTZCk6_tfAE",
-      },
-      {
-         _id: "4",
-         name: "Jony",
-         url: "_czWEndmg0c",
-      },
-      {
-         _id: "5",
-         name: "Jony",
-         url: "LYSd6PyFYqo",
-      },
-      {
-         _id: "6",
-         name: "Jony",
-         url: "GZpItP_XjGA",
-      },
-      {
-         _id: "7",
-         name: "Jony",
-         url: "yvHkvzVWD9s",
-      },
-   ];
 
    return (
       <>
          <section>
-            <Hero courses={data} />
+            <Hero />
          </section>
 
          <section className="xl:bg-[#F5F5F5] my-24 max-md:my-20">

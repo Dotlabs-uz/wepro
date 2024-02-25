@@ -6,10 +6,14 @@ import axios from "axios";
 import HeroTabs from "@/components/HeroTabs";
 
 interface HeroProps {
-   courses: any
 }
 
-const Hero: React.FC<HeroProps> = ({ courses }) => {
+const Hero: React.FC<HeroProps> = async () => {
+
+   const { data } = await axios.get(
+      process.env.NEXT_PUBLIC_BASE + "/courses?project=wepro"
+   );
+
    return (
       <div className="custom-container mt-10">
          <div className="max-sm:block hidden mb-8">
@@ -29,7 +33,7 @@ const Hero: React.FC<HeroProps> = ({ courses }) => {
                </button>
             </div>
          </div>
-         <HeroTabs courses={courses} />
+         <HeroTabs courses={data} />
       </div>
    );
 };

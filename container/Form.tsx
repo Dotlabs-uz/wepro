@@ -7,6 +7,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { FaTelegram } from "react-icons/fa";
 import { motion } from "framer-motion"
 import { usePathname } from "next/navigation";
+import moment from "moment";
 
 interface FormProps {
    courseId: string
@@ -14,10 +15,16 @@ interface FormProps {
 type Inputs = {
    name: string;
    phone: string;
-   additionally: string;
+   type: string
+   origin: string
+   project: string
+   language: string
+   time: string
+   courseId: string | undefined
+   admissionId: string | undefined
 };
 
-const Form: React.FC<FormProps> = ({ courseId }) => {
+const Form: React.FC<FormProps> = () => {
    const {
       register,
       handleSubmit,
@@ -26,35 +33,32 @@ const Form: React.FC<FormProps> = ({ courseId }) => {
       reset,
    } = useForm<Inputs>();
    const [disabled, setDisabled] = useState(false);
-   const pathName = usePathname()
+   const pathname = usePathname()
 
    const onSubmit: SubmitHandler<Inputs> = (data) => {
-      console.log(
-         {
-            ...data,
-            type: "classic",
-            origin: pathName,
-            project: "wepro",
-            language: "",
-            courseId: courseId,
-            admissionId: "",
-         }
-      );
-      // setDisabled(true);
-      // axios
-      //    .post("https://wepro.uz/api/leads", data)
-      //    .then((res) => {
-      //       if (res.status == 200 || res.status == 201) {
-      //          console.log(res);
-      //          reset({
-      //             name: "",
-      //             phone: "",
-      //          });
-      //       }
-      //    })
-      //    .catch((err) => {
-      //       console.log(err);
-      //    });
+      setDisabled(true);
+      let formData = {
+         ...data,
+         type: "classic",
+         origin: pathname,
+         project: "wepro",
+         language: "ru",
+         time: moment().format()
+      }
+      
+      axios.post("https://wepro.uz/api/leads", formData)
+         .then((res) => {
+            if (res.status == 200 || res.status == 201) {
+               console.log(res);
+               reset({
+                  name: "",
+                  phone: "",
+               });
+            }
+         })
+         .catch((err) => {
+            console.log(err);
+         });
    };
 
    return (
@@ -83,10 +87,9 @@ const Form: React.FC<FormProps> = ({ courseId }) => {
                      </span>
                      <input
                         type="text"
-                        {...register("name", { required: true })}
+                        {...register("name", { required: true, pattern: /^[а-яА-ЯёЁa-zA-Z]+$/ })}
                         placeholder="Имя и фамилия"
-                        className={`max-sm:text-sm px-5 max-sm:px-3 py-4 max-sm:py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
-                           "border border-[red] outline-[red] text-[red]"}`}
+                        className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone && "border-[red] outline-[red]"}`}
                      />
                   </label>
                   <label className="flex flex-col mb-6 max-sm:mb-4">
@@ -95,18 +98,16 @@ const Form: React.FC<FormProps> = ({ courseId }) => {
                      >
                         Номер телефона
                      </span>
-                     <input
+                     <InputMask
                         type="text"
-                        {...register("phone", { required: true })}
-                        defaultValue={"+998 ("}
-                        placeholder="Введите номер"
-                        className={`max-sm:text-sm px-5 max-sm:px-3 py-4 max-sm:py-3 rounded-lg bg-[#F4F4F4] ${errors.phone && "border border-[red] outline-[red] text-[red]"}`}
+                        placeholder="+998-(__)-___-__-__"
+                        {...register("phone", {
+                           pattern: /^\+\d{3}-\(\d{2}\)-\d{3}-\d{2}-\d{2}$/,
+                           required: true
+                        })}
+                        className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone && "border-[red] outline-[red]"}`}
+                        mask="+\9\98-(99)-999-99-99"
                      />
-                     {/* <InputMask
-                           placeholder="Введите номер"
-                           className="px-5 py-[18px] rounded-[9px] outline-[#151FE1] bg-[#F4F4F4]"
-                           mask="+\9\98-(99)-999-99-99"
-                        /> */}
                   </label>
 
                   <button
