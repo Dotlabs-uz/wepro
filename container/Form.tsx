@@ -6,7 +6,7 @@ import InputMask from "react-input-mask";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FaTelegram } from "react-icons/fa";
 import { motion } from "framer-motion"
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import moment from "moment";
 
 interface FormProps {
@@ -34,6 +34,7 @@ const Form: React.FC<FormProps> = () => {
    } = useForm<Inputs>();
    const [disabled, setDisabled] = useState(false);
    const pathname = usePathname()
+   const { push } = useRouter()
 
    const onSubmit: SubmitHandler<Inputs> = (data) => {
       setDisabled(true);
@@ -45,11 +46,12 @@ const Form: React.FC<FormProps> = () => {
          language: "ru",
          time: moment().format()
       }
-      
+
       axios.post("https://wepro.uz/api/leads", formData)
          .then((res) => {
             if (res.status == 200 || res.status == 201) {
                console.log(res);
+               push("/thanks")
                reset({
                   name: "",
                   phone: "",
@@ -63,8 +65,7 @@ const Form: React.FC<FormProps> = () => {
 
    return (
       <section>
-         <motion.div
-            className="mx-auto py-28 max-lg:py-14 max-sm:py-0 rounded-[20px] md:bg-[url('/images/bg-form.jpg')] bg-no-repeat bg-cover">
+         <motion.div className="mx-auto py-28 max-lg:py-14 max-sm:py-0 rounded-[20px] md:bg-[url('/images/bg-form.jpg')] bg-no-repeat bg-cover">
             <div
                onClick={(e) => e.stopPropagation()}
                className="max-w-[660px] w-full mx-auto px-4 py-6 max-sm:py-3 rounded-3xl max-lg:rounded-2xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"

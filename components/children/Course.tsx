@@ -25,7 +25,7 @@ const Course: React.FC<CourseProps> = ({ item }) => {
 	return (
 		<Link
 			href={{ pathname: `/course/${item.url}` }}
-			className="flex flex-col h-auto w-[460px] max-2xl:w-[400px] max-lg:w-[310px] rounded-3xl max-xl:rounded-2xl cur shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in bg-white"
+			className="flex flex-col h-auto w-[450px] max-2xl:w-[400px] max-lg:w-[310px] rounded-3xl max-xl:rounded-2xl shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in bg-white"
 		>
 			<div className="p-2 max-lg:hidden">
 				<img

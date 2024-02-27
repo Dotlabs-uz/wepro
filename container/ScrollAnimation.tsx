@@ -4,38 +4,40 @@ import { useInView, useScroll, useTransform } from "framer-motion";
 
 import AnimateBlock from "@/components/AnimateBlock";
 
-interface ScrollAnimationProps { }
+interface ScrollAnimationProps {
+   lang: any
+}
 
-const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ }) => {
+const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ lang }) => {
    const party = [
       {
          id: 0,
-         title: "События",
-         dcr: "Мы организовываем самые разные мероприятия внутри центров для наших студентов.",
+         title: lang.included.itemTitile,
+         dcr: lang.included.itemDcr,
          img: "party.svg",
          scale: 0.2,
          scale2: 1.1,
       },
       {
          id: 1.5,
-         title: "Доступ к коворкингу",
-         dcr: "Коворкинг - это зона, оборудованная всем необходимым для того, чтобы вы могли дополнительно практиковаться.",
+         title: lang.included.itemTitile2,
+         dcr: lang.included.itemDcr2,
          img: "coworking.svg",
          scale: 0.3,
          scale2: 1.1,
       },
       {
          id: 2,
-         title: "Личный кабинет",
-         dcr: "Вы получите доступ к личному кабинету чтобы видеть свой прогресс обучения.",
+         title: lang.included.itemTitile3,
+         dcr: lang.included.itemDcr3,
          img: "locale.svg",
          scale: 0.5,
          scale2: 1,
       },
       {
          id: 3,
-         title: "Бонусный английский язык",
-         dcr: "Студенты получают доступ к платформе для отслеживания статуса обучения, оценок и посещаемости.",
+         title: lang.included.itemTitile4,
+         dcr: lang.included.itemDcr4,
          img: "englishBonus.svg",
          scale: 0.5,
          scale2: 1.1,
@@ -50,7 +52,7 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ }) => {
             className="">
             <div className="max-w-[720px] m-auto mb-28 max-xl:mb-16 max-md:mb-5 px-4">
                <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold leading-normal md:text-center">
-                  Что еще входит в стоимость обучения
+                  {lang.included.party}
                </h2>
             </div>
 

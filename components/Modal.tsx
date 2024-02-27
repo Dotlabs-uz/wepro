@@ -86,7 +86,7 @@ const Modal: React.FC<ModalProps> = ({
          .then((res) => {
             if (res.status == 200 || res.status == 201) {
                console.log(res.data);
-               // push("/thanks")
+               push("/thanks")
                reset({
                   name: "",
                   phone: "",

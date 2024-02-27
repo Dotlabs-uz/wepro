@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from "react";
 
 interface HeroTabsProps {
     courses: any
+    homePage: any
 }
 
-const HeroTabs: React.FC<HeroTabsProps> = ({ courses }) => {
+const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [progress, setProgress] = useState(0);
     const sliderRef = useRef(null);
@@ -62,17 +63,17 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses }) => {
                 <div className="w-full mt-auto rounded-3xl max-lg:rounded-xl max-sm:rounded-lg px-6 max-xl:px-3 max-sm:px-2 backdrop-blur-[15px] bg-[#f4f4f48c]">
                     <div className="max-lg:hidden py-6 max-2xl:py-4 text-center border-b border-[#1515151a]">
                         <h1 className="text-3xl max-lg:text-2xl font-bold">
-                            С нуля до PRO за 5 месяца
+                            {homePage.Hero.title}
                         </h1>
                         <p className="text-[#00000099] text-sm font-bold">
-                            Wepro - это сеть IT-школ в Самарканде
+                            {homePage.Hero.dcr}
                         </p>
                     </div>
-                    <div
-                        ref={sliderRef}
-                        className="px-14 max-3xl:px-5 max-xl:px-0 py-6 max-3xl:py-4 max-lg:py-2 max-sm:py-1 overflow-scroll no-scroll"
-                    >
-                        <ul className="flex items-center justify-between">
+                    <div className="px-14 max-3xl:px-5 max-xl:px-0 py-6 max-3xl:py-4 max-lg:py-2 max-sm:py-1">
+                        <ul
+                            ref={sliderRef}
+                            className="flex items-center justify-between overflow-scroll no-scroll"
+                        >
                             {courses.map((item: any, idx: number) => {
                                 return (
                                     <li

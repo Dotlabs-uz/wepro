@@ -8,17 +8,17 @@ const thanks: React.FC<thanksProps> = () => {
     return (
         <>
             <section>
-                <div className="custom-container flex items-center justify-between py-16">
-                    <div className="">
+                <div className="custom-container flex items-center justify-between py-16 max-xl:py-14">
+                    <div className="mb-20">
                         <h2 className="mb-4">Ваша заявка принята!</h2>
-                        <p className="text-2xl">
+                        <p className="text-2xl max-xl:text-xl max-md:text-lg leading-normal">
                             Мы работаем каждый день с 10:00 до 19:00 (кроме воскресений).
                         </p>
-                        <p className="text-2xl">
+                        <p className="text-2xl max-xl:text-xl max-md:text-lg leading-normal">
                             Телефон для справок: +998 (90) 197-71-00
                         </p>
                     </div>
-                    <div className="max-w-xs">
+                    <div className="max-w-xs max-xl:max-w-[250px] max-md:hidden">
                         <Image
                             src={"/images/tick.svg"}
                             width={1000}
@@ -28,10 +28,12 @@ const thanks: React.FC<thanksProps> = () => {
                     </div>
                 </div>
             </section>
-            {/* <section>
-                <iframe className="w-full min-h-[400px]" src="https://static.elfsight.com/platform/platform.js" data-use-service-core></iframe>
-                <div className="elfsight-app-851dbf41-45e9-4c81-86ce-081fb250ce87" data-elfsight-app-lazy></div>
-            </section> */}
+            <section>
+                <div className="custom-container">
+                    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+                    <div className="elfsight-app-851dbf41-45e9-4c81-86ce-081fb250ce87" data-elfsight-app-lazy></div>
+                </div>
+            </section>
         </>
     );
 }

@@ -6,9 +6,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 
-interface BranchProps { }
+interface BranchProps {
+   lang: any
+}
 
-const Branch: React.FC<BranchProps> = () => {
+const Branch: React.FC<BranchProps> = ({ lang }) => {
    const tabs = [
       {
          id: 0,
@@ -48,13 +50,10 @@ const Branch: React.FC<BranchProps> = () => {
             <div className="flex max-lg:flex-col items-center gap-20 max-2xl:gap-10 max-lg:gap-7 max-sm:gap-4 mb-11 max-lg:mb-7 max-sm:mb-4 mx-28 max-2xl:mx-0 max-xl:mx-0">
                <div className="w-1/2 max-lg:w-full">
                   <h2 className="text-5xl max-2xl:text-4xl leading-normal font-bold mb-4">
-                     Выберите филиал
+                     {lang.branch.title}
                   </h2>
                   <p className="mb-8 max-lg:mb-4 text-xl max-md:text-lg font-medium max-xs:leading-snug text-[#A3A2AB]">
-                     На данный момент оперируют 2 филиала в самых удобных
-                     локациях Самарканде. Все филиалы оборудованы передовыми
-                     технологиями, созданы лучшие условия для обучения на
-                     высоком уровне.
+                     {lang.branch.dcr}
                   </p>
 
                   <div className="bg-[#F4F4F4] w-full flex space-x-1 justify-between items-center gap-1 mb-5 p-1 rounded-lg overflow-auto no-scroll">
@@ -92,23 +91,23 @@ const Branch: React.FC<BranchProps> = () => {
                         <FaLocationDot color="#151FE1" size={73} className="" />
                      </div>
                      <div className="">
-                        <p className="text-3xl max-sm:text-2xl font-bold">
+                        <p className="text-3xl max-sm:text-xl font-bold">
                            {
                               active === 0 ?
-                                 "ул. Буюк Ипак Йули 52"
+                                 lang.branch.button
                                  :
-                                 "Мирзо Улугбека, 12"
+                                 lang.branch.button2
                            }
                         </p>
                         <p>Ориентир: Trump Tower</p>
                      </div>
                   </div>
                </div>
-               <div className="w-1/2 max-lg:w-full min-h-[320px] max-xl:min-h-[300px] h-full flex  rounded-2xl overflow-hidden">
+               <div className="w-1/2 max-lg:w-full max-h-[280px] max-xl:max-h-[400px] h-full flex rounded-2xl overflow-hidden">
                   {
                      active === 0 ?
                         <Image
-                           className="w-full h-auto object-cover"
+                           className="w-full h-full object-cover"
                            src={"/images/company.jpg"}
                            width={1000}
                            height={1000}
@@ -116,7 +115,7 @@ const Branch: React.FC<BranchProps> = () => {
                         />
                         :
                         <Image
-                           className="w-full h-auto object-cover"
+                           className="w-full h-full object-cover"
                            src={"/images/students-project.jpg"}
                            width={1000}
                            height={1000}
@@ -127,7 +126,7 @@ const Branch: React.FC<BranchProps> = () => {
             </div>
             <div className="w-fit m-auto max-sm:w-full">
                <button onClick={onOpen} className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-sm:w-full py-4 px-[94px] text-[20px] max-sm:text-base font-bold rounded-[7px] border duration-150 ease-in">
-                  Оставить заявку
+                  {lang.branch.button3}
                </button>
             </div>
          </div>

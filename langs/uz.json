@@ -1,54 +1,61 @@
 {
 	"header": {
 		"nav": {
-			"home": "Главная",
-			"courses": "Курсы и цены",
-			"reviews": "Отзывы",
-			"groups": "Запись в группу"
+			"home": "Bosh sahifa",
+			"courses": "Kurslar va narxlar",
+			"reviews": "Sharhlar",
+			"groups": "Guruhga ro'yxatdan o'ting"
 		},
-		"button": "Бесплатная консультация"
+		"menu": {
+			"course": "Kurslar",
+			"pages": "Sahifa bo'limlari",
+			"contact": "Aloqa uchun kontaktlar",
+			"Social": "Ijtimoiy tarmoqlar"
+		},
+		"button": "mutaxassis maslahati"
 	},
 	"homePage": {
 		"Hero": {
-			"title": "С нуля до PRO за 4 месяца",
-			"dcr": "Wepro - это сеть IT-школ в Самарканде",
-			"buttton": "Начать обучение",
-			"buttton2": "Посмотреть все курсы",
-			"tabs": {
-				"tab": "Frontend-разработка",
-				"tab2": "Разработка под iOS/Android",
-				"tab3": "Графический дизайн",
-				"tab4": "Веб-дизайн",
-				"tab5": "SMM",
-				"tab6": "Мобилография"
-			}
+			"title": "4 oy ichida noldan PRO gacha",
+			"dcr": "Wepro — Samarqanddagi IT maktablar tarmog‘i",
+			"buttton": "O'qishni boshlash",
+			"buttton2": "Barcha kurslarni ko'rish"
 		},
 		"howOur": {
-			"title": "Почему выбирают именно Wepro",
-			"text": "программ обучения",
-			"text2": "выпускников за 3 года работы",
-			"text3": "доступ к учебному материалу",
-			"text4": "студентов находят работу после обучения"
+			"title": "Nima uchun Weproni tanlaydilar",
+			"text": "o'quv dasturlari",
+			"text2": "bitiruvchilar 3 yil ichida",
+			"text3": "O'quv materialiga kirish",
+			"text4": "talabalar o'qishdan keyin ish topadilar",
+			"look": "Sharhlarni ko'rib chiqing",
+			"name": "Yusupov Mansur"
 		},
 		"courses": {
-			"title": "Авторские курсы"
+			"title": "Mualliflik kurslari"
 		},
 		"reviews": {
-			"title": "Отзывы выпускников",
-			"dcr": "Посмотрите что говорят о нас выпускники курсов"
+			"title": "Bitiruvchilarning sharhlari",
+			"dcr": "Kurs bitiruvchilari biz haqimizda nima deyishiga qarang"
 		},
 		"included": {
-			"party": "События"
+			"party": "O'qish narxiga yana nima kiradi",
+			"itemTitile": "Voqealar",
+			"itemDcr": "Biz o'quvchilarimiz uchun markazlar ichida turli tadbirlarni tashkil qilamiz.",
+			"itemTitile2": "Kovorkingga kirish",
+			"itemDcr2": "Kovorking - bu qo'shimcha mashq qilish uchun zarur bo'lgan barcha narsalar bilan jihozlangan maydon.",
+			"itemTitile3": "Shaxsiy kabinet",
+			"itemDcr3": "Siz shaxsiy kabinetga kirishingiz mumkin o'quv jarayonini ko'rish uchun.",
+			"itemTitile4": "Bonus ingliz tili",
+			"itemDcr4": "Talabalar o'quv holati, baholari va davomatini kuzatish uchun platformaga kirishadi."
 		},
 		"branch": {
-			"title": "Выберите филиал",
-			"dcr": "На данный момент оперируют 2 филиала в самых удобных локациях Самарканде. Все филиалы оборудованы передовыми технологиями, созданы лучшие условия для обучения на высоком уровне.",
-			"button": "Первый филиал",
-			"button2": "Второй филиал",
-			"address": "Мирзо Улугбека, 12",
+			"title": "Filialni tanlang",
+			"dcr": "Ayni paytda Samarqandning eng qulay joylarida 2 ta filial faoliyat yuritmoqda. Barcha filiallar ilg'or texnologiyalar bilan jihozlangan, yuqori darajadagi o'qish uchun eng yaxshi sharoitlar yaratilgan.",
+			"button": "Birinchi filial",
+			"button2": "Ikkinchi filial",
+			"address": "Mirzo Ulug'bek, 12",
 			"reference": "Ориентир: Trump Tower",
-			"see": "Смотреть в галерее",
-			"button3": "Оставить заявку"
+			"button3": "Arizani qoldiring"
 		},
 		"studentWorks": {
 			"title": "Работы студентов",
