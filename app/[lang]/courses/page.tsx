@@ -1,5 +1,4 @@
 "use client";
-import Course from "@/components/children/Course";
 import Tabs from "@/components/children/Tabs";
 import CoursesCom from "@/components/CoursesCom";
 import { useState } from "react";

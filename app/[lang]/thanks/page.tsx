@@ -28,6 +28,7 @@ const thanks: React.FC<thanksProps> = () => {
                     </div>
                 </div>
             </section>
+
             <section>
                 <div className="custom-container">
                     <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>

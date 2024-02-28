@@ -15,17 +15,19 @@ interface Tabs {
 const Tabs: React.FC<Tabs> = ({ tabs, id, setCategory }) => {
    let [activeTab, setActiveTab] = useState(tabs[0].id);
 
+   console.log(activeTab);
+
    return (
       <div className="bg-[#F4F4F4] w-full flex max-sm:grid grid-cols-2 space-x-1 justify-between items-center gap-1 p-1 rounded-lg overflow-auto no-scroll">
          {tabs.map((tab: { id: number; title: string; category: string }) => (
             <button
                key={tab.id}
                onClick={() => {
-                  setActiveTab(tab.id), setCategory(tab.category);
+                  setActiveTab(tab.id)
+                  setCategory(tab.category);
                }}
-               className={`${
-                  activeTab === tab.id ? "text-white" : "hover:text-black/60"
-               } relative w-full z-10 rounded-lg py-4 max-lg:py-3 px-8 max-3xl:px-5 max-lg:px-4 text-sm font-bold text-center text-nowrap text-black outline-sky-400 transition focus-visible:outline-2`}
+               className={`${activeTab === tab.id ? "text-white" : "hover:text-black/60"
+                  } relative w-full z-10 rounded-lg py-4 max-lg:py-3 px-8 max-3xl:px-5 max-lg:px-4 text-sm font-bold text-center text-nowrap text-black outline-sky-400 transition focus-visible:outline-2`}
                style={{
                   WebkitTapHighlightColor: "transparent",
                }}

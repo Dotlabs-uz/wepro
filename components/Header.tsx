@@ -25,23 +25,23 @@ const Header = ({ lang }: any) => {
    const links = [
       {
          title: lang.nav.home,
-         link: `${pathName.slice(0, 3)}`,
-         img: "/images/pages/home.png"
+         link: `/`,
+         img: "/images/pages/home1.png"
       },
       {
          title: lang.nav.courses,
-         link: `${pathName.slice(0, 3)}/courses`,
-         img: "/images/pages/reviews.png"
+         link: `/courses`,
+         img: "/images/pages/courses.png"
       },
       {
          title: lang.nav.reviews,
-         link: `${pathName.slice(0, 3)}/reviews`,
-         img: "/images/pages/home.png"
+         link: `/reviews`,
+         img: "/images/pages/reviews1.png"
       },
       {
          title: lang.nav.groups,
-         link: `${pathName.slice(0, 3)}/groups`,
-         img: "/images/pages/reviews.png"
+         link: `/groups`,
+         img: "/images/pages/groups.png"
       },
    ];
 
@@ -98,7 +98,7 @@ const Header = ({ lang }: any) => {
                   <div className="flex items-center gap-11 max-3xl:gap-8 max-xl:gap-1">
                      <div className="max-w-[120px] max-xl:max-w-[100px] w-full">
                         <Link href={"/"} onClick={() => setMenu(false)}>
-                           {pathName.includes("/course/") || pathName.includes("/uz/course/") ? (
+                           {pathName.includes("/course/") ? (
                               <Image
                                  src={"/images/logo-white.svg"}
                                  width={1000}
@@ -117,7 +117,7 @@ const Header = ({ lang }: any) => {
                      </div>
                   </div>
 
-                  <div className="">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                      <button
                         onClick={HandelMenu}
                         className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white flex items-center gap-2 font-bold py-2 max-sm:py-1 px-4 max-sm:px-2 rounded-md border duration-150 ease-in"
@@ -129,7 +129,7 @@ const Header = ({ lang }: any) => {
 
                   <div className="flex items-center gap-7 max-2xl:gap-5 max-xl:gap-3">
                      <Link
-                        className="uppercase underline underline-offset-2 font-semibold"
+                        className={`uppercase underline underline-offset-2 font-semibold ${pathName.includes("/course/") ? "text-black" : ""}`}
                         href={href}
                      >
                         {locale}

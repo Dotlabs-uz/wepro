@@ -55,7 +55,7 @@ const Modal: React.FC<ModalProps> = ({
    } = useForm<Inputs>();
 
    const [disabled, setDisabled] = useState(false);
-   const pathName = usePathname()
+   const pathname = usePathname()
    const { push } = useRouter()
    const [selected, setSelected] = useState('');
 
@@ -64,9 +64,9 @@ const Modal: React.FC<ModalProps> = ({
       const dataForm: Inputs = {
          ...data, // req
          type: type, // req
-         origin: pathName, // req
+         origin: pathname, // req
          project: "wepro", // req
-         language: "ru", // req
+         language: pathname.split("/")[1], // req
          courseId: courseId || selected,
          admissionId: admissionId,
          time: moment().format() // req
@@ -78,10 +78,6 @@ const Modal: React.FC<ModalProps> = ({
          delete dataForm.admissionId
       }
 
-      // const headers = {
-      //    "Access-Control-Allow-Origin": "*",
-      //    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-      // };
       axios.post("https://wepro.uz/api/leads", dataForm)
          .then((res) => {
             if (res.status == 200 || res.status == 201) {
@@ -155,22 +151,14 @@ const Modal: React.FC<ModalProps> = ({
                         >
                            Номер телефона
                         </span>
-                        {/* <input
-                           type="text"
-                           {...register("phone", { required: true })}
-                           defaultValue={"+998 ("}
-                           placeholder="Введите номер"
-                           className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg bg-[#F4F4F4] ${errors.phone &&
-                              "border border-[red] outline-[red] text-[red]"}`}
-                           /> */}
                         <InputMask
                            type="text"
                            placeholder="+998-(__)-___-__-__"
+                           className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone && "border-[red] outline-[red]"}`}
                            {...register("phone", {
                               pattern: /^\+\d{3}-\(\d{2}\)-\d{3}-\d{2}-\d{2}$/,
                               required: true
                            })}
-                           className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone && "border-[red] outline-[red]"}`}
                            mask="+\9\98-(99)-999-99-99"
                         />
                      </label>

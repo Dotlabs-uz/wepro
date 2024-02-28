@@ -26,7 +26,7 @@ const AnimateBlock: React.FC<AnimateBlockProps> = ({ item, inView }) => {
       <motion.div
          style={inView ? { scale } : {}}
          transition={{ duration: 0.5 }}
-         className=" m-auto sticky scroll-animated overflow-hidden p-0 shadow-[0px_4px_70px_0px_#00000033] rounded-[22px] bg-white"
+         className="m-auto sticky scroll-animated overflow-hidden p-0 shadow-[0px_4px_70px_0px_#00000033] rounded-[22px] bg-white"
       >
          <div
             // style={{

@@ -80,7 +80,7 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                                         key={item._id}
                                         id={`item-${idx}`}
                                         onClick={() => handelSlide(idx)}
-                                        className="text-nowrap space-nowrap relative flex items-center gap-2 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer duration-100 ease-in"
+                                        className="overflow-hidden flex-shrink-0 text-nowrap space-nowrap relative flex items-center gap-2 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer"
                                         style={{
                                             background:
                                                 currentSlide === idx
@@ -93,7 +93,7 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                                         }}
                                     >
                                         <span
-                                            className="absolute inset-0 z-[-1] rounded-lg duration-700 ease-linear bg-[#151FE1]"
+                                            className="absolute inset-0 z-[-1] rounded-lg  bg-[#151FE1]"
                                             style={
                                                 currentSlide === idx
                                                     ? {
@@ -106,7 +106,9 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                                                             "transparent",
                                                     }
                                             }
-                                        ></span>
+                                        >
+                                        </span>
+
                                         <p className="text-xs font-bold">
                                             {item.title}
                                         </p>

@@ -43,7 +43,7 @@ const Form: React.FC<FormProps> = () => {
          type: "classic",
          origin: pathname,
          project: "wepro",
-         language: "ru",
+         language: pathname.split("/")[1],
          time: moment().format()
       }
 

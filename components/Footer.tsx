@@ -6,43 +6,63 @@ import InputMask from "react-input-mask";
 import AnimateLink from "./children/AnimateLink";
 import { useState } from "react";
 import axios from "axios";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import moment from "moment";
 
 interface FooterProps { }
+
 type Inputs = {
    name: string;
    phone: string;
-   additionally: string;
+   type: string
+   origin: string
+   project: string
+   language: string
+   courseId: string | undefined
+   admissionId: string | undefined
+   time: string
+   additionally: string | undefined
 };
 
 const Footer: React.FC<FooterProps> = () => {
    const {
       register,
       handleSubmit,
-      watch,
       formState: { errors },
       reset,
    } = useForm<Inputs>();
+
    const [disabled, setDisabled] = useState(false);
    const pathname = usePathname()
+   const { push } = useRouter()
 
    const onSubmit: SubmitHandler<Inputs> = (data) => {
       // setDisabled(true);
-
-      let formData = {
-         ...data,
-         type: "classic",
-         origin: pathname,
-         project: "wepro",
-         language: "ru",
-         time: moment().format()
+      const dataForm: Inputs = {
+         ...data, // req
+         type: "classic", // req
+         origin: pathname, // req
+         project: "wepro", // req
+         language: pathname.split("/")[1], // req
+         courseId: "",
+         admissionId: "",
+         time: moment().format() // req
+      }
+      if (dataForm.courseId === "") {
+         delete dataForm.courseId
+      }
+      if (dataForm.admissionId === "") {
+         delete dataForm.admissionId
+      }
+      if (dataForm.additionally === "1") {
+         delete dataForm.additionally
       }
 
-      axios.post("https://wepro.uz/api/leads", formData)
+      axios.post("https://wepro.uz/api/leads", dataForm)
          .then((res) => {
             if (res.status == 200 || res.status == 201) {
-               console.log(res);
+               console.log(res.data);
+               push("/thanks")
                reset({
                   name: "",
                   phone: "",
@@ -76,31 +96,30 @@ const Footer: React.FC<FooterProps> = () => {
                         placeholder="Ваше имя"
                         className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] col-span-2"
                      />
-                     <input
+                     <InputMask
                         type="text"
-                        {...register("phone", { required: true })}
-                        defaultValue={"+998 ("}
-                        placeholder="Введите номер"
+                        placeholder="+998-(__)-___-__-__"
                         className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
+                        {...register("phone", {
+                           pattern: /^\+\d{3}-\(\d{2}\)-\d{3}-\d{2}-\d{2}$/,
+                           required: true
+                        })}
+                        mask="+\9\98-(99)-999-99-99"
                      />
                      <select
                         {...register("additionally", { required: true })}
                         className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
                      >
-                        <option value="Не выбрано" defaultChecked>Откуда о нас узнали?</option>
-                        <option value="Instagram">Instagram</option>
-                        <option value="Facebook">Facebook</option>
-                        <option value="Tik Tok">Tik Tok</option>
-                        <option value="Билборды">Билборды</option>
-                        <option value="Через знакомых">Через знакомых</option>
+                        <option value="1" defaultChecked>Откуда о нас узнали?</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="tiktok">Tik Tok</option>
+                        <option value="billboards">Билборды</option>
+                        <option value="friends">Через знакомых</option>
                      </select>
-                     {/* <InputMask
-                        placeholder="Введите номер"
-                        className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
-                        mask="+\9\98-(99)-999-99-99"
-                        name="phone"
-                     /> */}
-                     <button className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white text-lg font-bold py-4 border rounded-[7px] col-span-2 duration-150 ease-in">
+                     <button
+                        disabled={disabled}
+                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white text-lg font-bold py-4 border rounded-[7px] col-span-2 duration-150 ease-in">
                         Отправить заявку
                      </button>
                   </form>

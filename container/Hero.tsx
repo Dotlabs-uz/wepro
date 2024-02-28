@@ -17,7 +17,6 @@ const Hero: React.FC<HeroProps> = async ({ lang }) => {
    );
    const { homePage } = await getDictionary(lang);
 
-
    return (
       <div className="custom-container mt-10">
          <div className="max-sm:block hidden mb-8">
