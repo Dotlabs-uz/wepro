@@ -1,34 +1,12 @@
-"use client";
 import Tabs from "@/components/children/Tabs";
 import CoursesCom from "@/components/CoursesCom";
 import { useState } from "react";
 
 interface CoursesProps { }
 
-const Courses: React.FC<CoursesProps> = () => {
-   const [category, setCategory] = useState("all");
-   const tabs = [
-      {
-         id: 0,
-         title: "Все курсы",
-         category: "all",
-      },
-      {
-         id: 1,
-         title: "Программирование",
-         category: "programming",
-      },
-      {
-         id: 2,
-         title: "Дизайн",
-         category: "design",
-      },
-      {
-         id: 3,
-         title: "Другое",
-         category: "other",
-      },
-   ];
+const Courses: React.FC<CoursesProps> = ({searchParams}: any) => {
+   const category = searchParams['type'] ?? 'all'
+
 
    return (
       <>
@@ -40,7 +18,7 @@ const Courses: React.FC<CoursesProps> = () => {
                   </h2>
 
                   <div className="md:w-fit rounded-lg overflow-scroll no-scroll">
-                     <Tabs tabs={tabs} id={1} setCategory={setCategory} />
+                     <Tabs category={category} />
                   </div>
                </div>
 
