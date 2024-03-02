@@ -123,7 +123,7 @@ const Modal: React.FC<ModalProps> = ({
                   onClick={(e) => e.stopPropagation()}
                   className="max-w-[550px] w-full mx-auto max-md:mx-3 px-4 py-6 max-sm:py-3 rounded-3xl max-md:rounded-2xl max-sm:rounded-xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
                >
-                  <div className="mb-4 lg:p-7 lg:pb-14 rounded-2xl bg-[url('/images/bg-form-black.jpg')] bg-no-repeat bg-cover max-lg:bg-none">
+                  <div className="mb-4 lg:p-7 lg:pb-14 rounded-2xl bg-[url('/images/bg-form-black.webp')] bg-no-repeat bg-cover max-lg:bg-none">
                      <h2 className="text-white max-lg:text-black text-4xl max-md:text-3xl font-bold">
                         {title}
                      </h2>

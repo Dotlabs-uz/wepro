@@ -1,18 +1,26 @@
 import Image from "next/image";
+import { getDictionary } from "@/lib/dictionary";
+import { Locale } from "@/i18n.config";
 
-interface CompanyProps { }
+interface CompanyProps {
+   homePage: {
+      company: {
+         title: string
+         dcr: string
+      }
+   }
+}
 
-const Company: React.FC<CompanyProps> = () => {
+const Company: React.FC<CompanyProps> = async ({ homePage }) => {
    return (
       <section className="">
          <div className="custom-container my-28 max-lg:my-24 max-sm:my-20">
             <div className="max-w-4xl w-full mx-auto mb-[10px] md:text-center">
                <h2 className="mb-4">
-                  Компании, где работают наши выпускники
+                  {homePage.company.title}
                </h2>
                <p className="text-xl max-lg:text-lg font-medium text-[#A3A2AB]">
-                  Собираем лучшие вакансии в отрасли, готовим к интервью и
-                  рекомендуем вас компаниям-партнёрам.
+                  {homePage.company.dcr}
                </p>
             </div>
 
@@ -21,7 +29,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/images/company/it-park.svg"}
+                        src={"/images/company/it-park.webp"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -30,7 +38,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/images/company/family-park.svg"}
+                        src={"/images/company/family-park.webp"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -39,7 +47,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/images/company/b-marketing.svg"}
+                        src={"/images/company/b-marketing.webp"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -48,7 +56,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/images/company/sfx-marketing.svg"}
+                        src={"/images/company/sfx-marketing.webp"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -57,7 +65,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/images/company/madad.svg"}
+                        src={"/images/company/madad.webp"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -66,7 +74,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/images/company/akma-respect.svg"}
+                        src={"/images/company/akma-respect.webp"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -75,7 +83,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/images/company/samcity.svg"}
+                        src={"/images/company/samcity.webp"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -84,7 +92,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5 md:border-b md:border-[#1515151a]">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/images/company/py.svg"}
+                        src={"/images/company/py.webp"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -94,7 +102,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/images/company/leader-print.svg"}
+                        src={"/images/company/leader-print.webp"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -104,7 +112,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className="overflow-hidden py-5">
                      <Image
                         className="max-md:scale-[1.7]"
-                        src={"/images/company/brandex.svg"}
+                        src={"/images/company/brandex.webp"}
                         width={1000}
                         height={1000}
                         alt="company"
@@ -113,7 +121,7 @@ const Company: React.FC<CompanyProps> = () => {
                   <li className=""></li>
                </ul>
             </div>
-         </div>
+         </div>   
       </section>
    );
 };

@@ -3,9 +3,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AiOutlinePlus } from "react-icons/ai";
 
-interface FAQProps { }
+interface FAQProps {
+   faq: any
+}
 
-const Accordion = () => {
+const Accordion = ({ item, idx }: any) => {
    const [isOpen, setIsOpen] = useState(false);
 
    const toggleAccordion = () => {
@@ -17,10 +19,10 @@ const Accordion = () => {
          <div className="">
             <div className="flex items-center max-sm:justify-between mb-2 max-md:mb-1">
                <p className="bg-[#E0E0E0] text-[#A3A2AB] text-lg font-bold py-1 px-2 rounded-md">
-                  01
+                  0{idx + 1}
                </p>
                <p className="font-bold sm:ml-4 flex-1 max-sm:hidden">
-                  Если я совсем ничего не знаю о дизайне, мне подойдет курс?
+                  {item.question}
                </p>
                <button
                   onClick={toggleAccordion}
@@ -36,7 +38,7 @@ const Accordion = () => {
             </div>
             <div className="sm:hidden">
                <p className="font-bold sm:ml-4 flex-1">
-                  Если я совсем ничего не знаю о дизайне, мне подойдет курс?
+                  {item.question}
                </p>
             </div>
          </div>
@@ -50,10 +52,7 @@ const Accordion = () => {
                   className="text-[#A3A2AB] max-sm:text-sm font-bold sm:px-14 overflow-hidden "
                >
                   <p>
-                     Конечно. Чтобы начать, достаточно просто владеть
-                     компьютером. Мы обучаем с нуля теории и основным
-                     дизайнерским программам, чтобы в конце курса вы стали
-                     профессионалом.
+                     {item.answer}
                   </p>
                </motion.div>
             )}
@@ -62,19 +61,67 @@ const Accordion = () => {
    );
 };
 
-const FAQ: React.FC<FAQProps> = () => {
+const FAQ: React.FC<FAQProps> = ({ faq }) => {
+   const arr = [
+      {
+         question: faq.question,
+         answer: faq.answer
+      },
+      {
+         question: faq.question1,
+         answer: faq.answer1
+      },
+      {
+         question: faq.question2,
+         answer: faq.answer2
+      },
+      {
+         question: faq.question3,
+         answer: faq.answer3
+      },
+      {
+         question: faq.question4,
+         answer: faq.answer4
+      },
+      {
+         question: faq.question5,
+         answer: faq.answer5
+      },
+      {
+         question: faq.question6,
+         answer: faq.answer6
+      },
+      {
+         question: faq.question7,
+         answer: faq.answer7
+      },
+      {
+         question: faq.question8,
+         answer: faq.answer8
+      },
+      {
+         question: faq.question9,
+         answer: faq.answer9
+      },
+   ]
+
    return (
       <section>
          <div className="custom-container my-28 max-lg:my-24 max-sm:my-20">
             <div className="mb-12 max-sm:mb-8">
                <h2 className="md:text-center">
-                  Ответы на вопросы
+                  {faq.title}
                </h2>
             </div>
 
             <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-6 max-xl:gap-4">
-               {[0, 1, 2, 3, 4, 5].map((item: number) => (
-                  <Accordion key={item} />
+               {arr.map((item: {
+                  question: string
+                  answer: string
+               },
+                  idx: number
+               ) => (
+                  <Accordion key={idx} item={item} idx={idx} />
                ))}
             </div>
          </div>

@@ -8,9 +8,10 @@ interface VacanciesProps {
    data: {
       hhImage: string
    }
+   course: any
 }
 
-const Vacancies: React.FC<VacanciesProps> = ({ data }) => {
+const Vacancies: React.FC<VacanciesProps> = ({ data, course }) => {
    const ref = useRef(null);
    const inView = useInView(ref);
 
@@ -44,23 +45,23 @@ const Vacancies: React.FC<VacanciesProps> = ({ data }) => {
          <div className="custom-container py-14 max-xl:py-10 max-lg:py-7">
             <div className="mb-11 max-lg:mb-8 max-md:mb-6">
                <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold leading-normal mb-8 max-lg:mb-4 text-white">
-                  Вакансии в Узбекистане
+                  {course.vacancies.title}
                </h2>
                <div className="flex max-xs:flex-col sm:items-center gap-24 max-xl:gap-14 max-lg:gap-12 max-md:gap-2 mb-11 max-lg:mb-8 max-md:mb-6">
                   <div className="">
                      <p className="text-xl max-xl:text-lg max-md:text-base font-medium leading-normal text-nowrap text-white">
-                        От 3,000,000 сум
+                        {course.vacancies.salary}
                      </p>
                      <p className="text-lg max-xl:text-base max-md:text-sm font-medium leading-normal text-[#E0E0E0]">
-                        доход начинающего Графического дизайнера
+                        {course.vacancies.text}
                      </p>
                   </div>
                   <div className="">
                      <p className="text-xl max-xl:text-lg max-md:text-base font-medium leading-normal text-nowrap text-white">
-                        Более 3,000 вакансий
+                        {course.vacancies.vacancies}
                      </p>
                      <p className="text-lg max-xl:text-base max-md:text-sm font-medium leading-normal text-[#E0E0E0]">
-                        открыто на данный момент
+                        {course.vacancies.text2}
                      </p>
                   </div>
                </div>
@@ -68,7 +69,7 @@ const Vacancies: React.FC<VacanciesProps> = ({ data }) => {
                <div className="flex items-center gap-3">
                   <Image src={"/icons/hh.svg"} width={48} height={48} alt="hh" />
                   <p className="text-xl max-lg:text-lg max-md:text-base font-medium text-white">
-                     HeadHunder Uzbekistan
+                     {course.vacancies.hh}
                   </p>
                </div>
             </div>

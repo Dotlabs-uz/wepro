@@ -30,7 +30,7 @@ const thanks: React.FC<thanksProps> = () => {
             </section>
 
             <section>
-                <div className="custom-container">
+                <div className="custom-container mb-10">
                     <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
                     <div className="elfsight-app-851dbf41-45e9-4c81-86ce-081fb250ce87" data-elfsight-app-lazy></div>
                 </div>

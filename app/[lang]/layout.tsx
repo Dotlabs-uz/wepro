@@ -25,14 +25,14 @@ export default async function RootLayout({
    children: React.ReactNode;
    params: { lang: Locale };
 }) {
-   const { header } = await getDictionary(lang);
+   const { header, homePage } = await getDictionary(lang);
 
    return (
       <html lang="en">
          <body className={inter.className}>
             <Header lang={header} />
             {children}
-            <Footer />
+            <Footer homePage={homePage} />
          </body>
       </html>
    );

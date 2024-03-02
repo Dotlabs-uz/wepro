@@ -2,6 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
+import { Locale } from "@/i18n.config";
+import { getDictionary } from "@/lib/dictionary";
+
+import { reviews } from '@/constants/index'
+
 import ScrollAnimation from "@/container/ScrollAnimation";
 import Branch from "@/container/Branch";
 import StudentWorks from "@/container/StudentWorks";
@@ -12,21 +17,15 @@ import Company from "@/container/Company";
 import Form from "@/container/Form";
 import FAQ from "@/container/FAQ";
 import BgAnimated from "@/container/BgAnimated";
-
-import { Locale } from "@/i18n.config";
-import { getDictionary } from "@/lib/dictionary";
-
-import { reviews } from '@/constants/index'
-
-import { FaPlay } from "react-icons/fa";
 import CoursesLoading from "@/components/CoursesLoading";
+import RandomVideo from "@/components/RandomVideo";
 
 export default async function Home({
    params: { lang },
 }: {
    params: { lang: Locale };
 }) {
-   const { homePage } = await getDictionary(lang);
+   const { homePage, faq } = await getDictionary(lang);
 
    return (
       <>
@@ -54,20 +53,8 @@ export default async function Home({
                      {homePage.howOur.text}
                   </p>
                </div>
-               <div className="max-md:hidden row-span-2 flex p-5 max-2xl:p-3 bg-[url('/images/man.jpg')] bg-cover bg-no-repeat bg-center rounded-[22px] overflow-hidden">
-                  <div className="mt-auto flex gap-2">
-                     <button className="bg-white px-6 max-2xl:px-4 rounded-xl">
-                        <FaPlay size={20} color="black" />
-                     </button>
-                     <div className="backdrop-blur-[7px] rounded-xl p-3 max-2xl:p-2 bg-[#ffffff99]">
-                        <p className="text-xs font-bold">
-                           {homePage.howOur.look}
 
-                        </p>
-                        <p>{homePage.howOur.name}</p>
-                     </div>
-                  </div>
-               </div>
+               <RandomVideo reviews={reviews} homePage={homePage} />
                <div className="bg-[#FFF] flex flex-col justify-center py-4 px-7 max-xl:p-5 rounded-[22px]">
                   <p className="text-8xl max-3xl:text-7xl max-2xl:text-6xl max-sm:text-4xl font-bold tracking-tighter text-white-gradient mb-2">
                      2200+
@@ -132,45 +119,43 @@ export default async function Home({
          <section>
             <Branch lang={homePage} />
          </section>
-
+         {/* 
          <section className="overflow-hidden">
             <BgAnimated>
                <div className="gradient max-sm:w-96 max-sm:h-full"></div>
                <StudentWorks />
             </BgAnimated>
-         </section>
+         </section> */}
 
-         <Company />
-
+         <Company homePage={homePage} />
          <section className="bg-[#F5F5F5] mb-28">
             <div className="custom-container">
                <div className="flex px-28 max-2xl:px-10 max-xl:px-0">
                   <div className="max-w-xl max-lg:max-w-full w-full py-14">
                      <h2 className="leading-tight mb-5">
-                        Школа английского с уклоном на Speaking от Wepro
+                        {homePage.english.title}
                      </h2>
                      <div className="max-w-lg mx-auto mb-5 max-lg:block hidden">
                         <Image
-                           src={"/images/weaspik.svg"}
+                           src={"/images/wespeak.webp"}
                            width={1000}
                            height={1000}
                            alt="weapik"
                         />
                      </div>
                      <p className="text-[#A3A2AB] text-xl mb-10">
-                        Уже 30 000+ наших студентов уверенно заговорили
-                        по-английски — освойте язык и вы!
+                        {homePage.english.dcr}
                      </p>
                      <Link
                         href={"https://wespeak.uz/"}
                         className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-bold py-3 px-6 max-3xl:px-3 rounded-md border duration-150 ease-in"
                      >
-                        Перейти на сайт
+                        {homePage.english.button}
                      </Link>
                   </div>
                   <div className="max-w-2xl mt-auto max-lg:hidden">
                      <Image
-                        src={"/images/weaspik.svg"}
+                        src={"/images/wespeak.webp"}
                         width={1000}
                         height={1000}
                         alt="weapik"
@@ -179,9 +164,8 @@ export default async function Home({
                </div>
             </div>
          </section>
-
-         <Form courseId={""} />
-         <FAQ />
+         <Form courseId={""} homePage={homePage} />
+         <FAQ faq={faq} />
       </>
    );
 }

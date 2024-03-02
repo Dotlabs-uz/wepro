@@ -25,23 +25,23 @@ const Header = ({ lang }: any) => {
    const links = [
       {
          title: lang.nav.home,
-         link: `/`,
-         img: "/images/pages/home1.png"
+         link: `/${pathName.split('/')[1]}`,
+         img: "/images/pages/home1.webp"
       },
       {
          title: lang.nav.courses,
-         link: `/courses`,
-         img: "/images/pages/courses.png"
+         link: `/${pathName.split('/')[1]}/courses`,
+         img: "/images/pages/courses.webp"
       },
       {
          title: lang.nav.reviews,
-         link: `/reviews`,
-         img: "/images/pages/reviews1.png"
+         link: `/${pathName.split('/')[1]}/reviews`,
+         img: "/images/pages/reviews1.webp"
       },
       {
          title: lang.nav.groups,
-         link: `/groups`,
-         img: "/images/pages/groups.png"
+         link: `/${pathName.split('/')[1]}/groups`,
+         img: "/images/pages/groups.webp"
       },
    ];
 
@@ -97,7 +97,7 @@ const Header = ({ lang }: any) => {
                >
                   <div className="flex items-center gap-11 max-3xl:gap-8 max-xl:gap-1">
                      <div className="max-w-[120px] max-xl:max-w-[100px] w-full">
-                        <Link href={"/"} onClick={() => setMenu(false)}>
+                        <Link href={`/${pathName.split('/')[1]}`} onClick={() => setMenu(false)}>
                            {pathName.includes("/course/") ? (
                               <Image
                                  src={"/images/logo-white.svg"}
@@ -123,29 +123,18 @@ const Header = ({ lang }: any) => {
                         className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white flex items-center gap-2 font-bold py-2 max-sm:py-1 px-4 max-sm:px-2 rounded-md border duration-150 ease-in"
                      >
                         {menu ? <IoClose size={20} /> : <IoIosMenu size={20} />}
-                        Меню
+                        {lang.menu.title}
                      </button>
                   </div>
 
                   <div className="flex items-center gap-7 max-2xl:gap-5 max-xl:gap-3">
                      <Link
-                        className={`uppercase underline underline-offset-2 font-semibold ${pathName.includes("/course/") ? "text-black" : ""}`}
+                        className={`uppercase underline underline-offset-2 font-semibold ${pathName.includes("/course/") ? "text-white" : "text-black"}`}
                         href={href}
                      >
                         {locale}
                      </Link>
 
-                     {/* {
-                        i18n.locales.map((locale: any, idx: number) => (
-                           <Link
-                              key={idx}
-                              href={redirectedPathName(locale)}
-                              className={`font-bold underline underline-offset-2 cursor-pointer uppercase ${pathName.includes("/course/") ? "text-white" : "text-black"}`}
-                           >
-                              {locale}
-                           </Link>
-                        ))
-                     } */}
                      <button
                         onClick={onOpen}
                         className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-bold py-3 px-6 max-3xl:px-3 rounded-md border duration-150 ease-in max-lg:hidden block"

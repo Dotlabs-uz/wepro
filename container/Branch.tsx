@@ -14,11 +14,11 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
    const tabs = [
       {
          id: 0,
-         title: "Первый филиал",
+         title: lang.branch.button,
       },
       {
          id: 1,
-         title: "Второй филиал",
+         title: lang.branch.button2,
       },
    ];
 
@@ -94,12 +94,19 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
                         <p className="text-3xl max-sm:text-xl font-bold">
                            {
                               active === 0 ?
-                                 lang.branch.button
+                                 lang.branch.address
                                  :
-                                 lang.branch.button2
+                                 lang.branch.address2
                            }
                         </p>
-                        <p>Ориентир: Trump Tower</p>
+                        <p>
+                           {
+                              active === 0 ?
+                                 lang.branch.reference2
+                                 :
+                                 lang.branch.reference2
+                           }
+                        </p>
                      </div>
                   </div>
                </div>

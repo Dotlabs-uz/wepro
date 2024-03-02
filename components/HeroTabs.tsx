@@ -54,7 +54,7 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
 
     return (
         <>
-            <div className="relative min-h-[550px] max-3xl:min-h-[450px] max-lg:min-h-[350px] max-sm:min-h-[300px] max-xs:min-h-[270px] flex p-5 max-xl:p-4 max-sm:px-2 max-sm:py-4 rounded-3xl bg-cover bg-no-repeat">
+            <div className="relative min-h-[650px] max-3xl:min-h-[550px] max-lg:min-h-[350px] max-sm:min-h-[300px] max-xs:min-h-[270px] flex p-5 max-xl:p-4 max-sm:px-2 max-sm:py-4 rounded-3xl bg-cover bg-no-repeat">
                 <img
                     className="w-full h-full absolute top-0 left-0 object-cover rounded-3xl max-md:rounded-2xl pointer-events-none select-none"
                     src={courses[currentSlide]?.preview}

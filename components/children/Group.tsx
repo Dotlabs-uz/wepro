@@ -40,7 +40,7 @@ const Group: React.FC<GroupProps> = ({ item }) => {
             <div className="w-[450px] max-2xl:w-[400px] max-lg:w-[310px] flex flex-col rounded-[20px] shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in">
                 <div className="p-2">
                     <Image
-                        src={"/images/course-img.jpg"}
+                        src={"/images/course-img.webp"}
                         width={1000}
                         height={1000}
                         alt="course"
