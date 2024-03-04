@@ -20,10 +20,9 @@ const Vacancy: React.FC<VacancyProps> = ({ item, inView, idx }) => {
 
    return (
       <motion.div
-         key={idx}
          style={inView ? { scale } : {}}
          transition={{ duration: 0.5 }}
-         className="vacancy relative md:z-[-2] max-md:sticky top-0 rounded-2xl overflow-hidden shadow-[0px_-10px_15px_#00000050] bg-white"
+         className="mt-auto sticky vacancy rounded-2xl overflow-hidden shadow-[0px_-10px_15px_#00000050] bg-white"
       >
          <Image
             src={`/images/vacancies/vacancy-${idx + 1}.svg`}

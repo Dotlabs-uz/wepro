@@ -43,16 +43,14 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                 <div className="flex gap-16 max-3xl:gap-10">
                     <div className="w-1/2 relative max-lg:hidden">
                         {
-                            data?.preview ?
+                            data.preview ?
                                 <img
                                     className="w-full h-full object-cover bg-no-repeat"
                                     src={data?.preview}
                                     alt="photo"
                                 />
                                 :
-                                <div className="w-full h-full flex items-center justify-center animate-pulse bg-gray-300">
-
-                                </div>
+                                <div className="w-full h-full animate-pulse bg-gray-300"></div>
                         }
                         <div className="h-full w-full absolute z-10 left-0 bottom-0 hero-img-gradient"></div>
                     </div>
@@ -60,13 +58,16 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                     <div className="max-w-[655px] max-xl:max-w-xl max-lg:max-w-full py-12 max-lg:py-8 max-3xl:pr-16 max-lg:px-5 max-sm:px-4">
                         <div className="flex max-md:flex-col gap-5 mb-14 max-2xl:mb-10">
                             <div className="w-2/5 max-md:w-full max-md:h-[250px] max-lg:block hidden">
-                                <Image
-                                    className="w-full h-full object-cover bg-no-repeat rounded-xl"
-                                    src={"/images/hero-2.jpg"}
-                                    width={1000}
-                                    height={1000}
-                                    alt="photo"
-                                />
+                                {
+                                    data.preview ?
+                                        <img
+                                            className="w-full h-full object-cover bg-no-repeat rounded-xl"
+                                            src={data.preview}
+                                            alt="photo"
+                                        />
+                                        :
+                                        <div className="w-full h-full animate-pulse bg-gray-300"></div>
+                                }
                             </div>
                             <div className="max-lg:w-3/5 max-md:w-full">
                                 <h1 className="text-5xl max-3xl:text-4xl max-xl:text-3xl font-bold leading-normal mb-7 max-2xl:mb-5 max-sm:mb-3 text-white">

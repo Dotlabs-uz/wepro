@@ -104,7 +104,7 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
                               active === 0 ?
                                  lang.branch.reference2
                                  :
-                                 lang.branch.reference2
+                                 lang.branch.reference
                            }
                         </p>
                      </div>

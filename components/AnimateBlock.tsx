@@ -26,14 +26,9 @@ const AnimateBlock: React.FC<AnimateBlockProps> = ({ item, inView }) => {
       <motion.div
          style={inView ? { scale } : {}}
          transition={{ duration: 0.5 }}
-         className="m-auto sticky scroll-animated overflow-hidden p-0 shadow-[0px_4px_70px_0px_#00000033] rounded-[22px] bg-white"
+         className="m-auto sticky scroll-animated overflow-hidden shadow-[0px_4px_70px_0px_#00000033] rounded-[22px] bg-white"
       >
-         <div
-            // style={{
-            //    scale,
-            // }}
-            className=""
-         >
+         <div>
             <div className="text-center mb-9 px-20 max-lg:px-10 pt-7 max-md:mb-5">
                <h3 className="text-[#151FE1] text-4xl max-md:text-3xl font-bold mb-3">
                   {item.title}

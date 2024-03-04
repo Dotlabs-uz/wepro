@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
 
-import { reviews } from '@/constants/index'
+import { reviewsVideo } from '@/constants/index'
 
 import ScrollAnimation from "@/container/ScrollAnimation";
 import Branch from "@/container/Branch";
@@ -19,6 +19,7 @@ import FAQ from "@/container/FAQ";
 import BgAnimated from "@/container/BgAnimated";
 import CoursesLoading from "@/components/CoursesLoading";
 import RandomVideo from "@/components/RandomVideo";
+import DragableSection from "@/components/DragableSection";
 
 export default async function Home({
    params: { lang },
@@ -54,7 +55,7 @@ export default async function Home({
                   </p>
                </div>
 
-               <RandomVideo reviews={reviews} homePage={homePage} />
+               <RandomVideo reviews={reviewsVideo} homePage={homePage} />
                <div className="bg-[#FFF] flex flex-col justify-center py-4 px-7 max-xl:p-5 rounded-[22px]">
                   <p className="text-8xl max-3xl:text-7xl max-2xl:text-6xl max-sm:text-4xl font-bold tracking-tighter text-white-gradient mb-2">
                      2200+
@@ -83,7 +84,7 @@ export default async function Home({
          </section>
 
          <section className="">
-            <div className="">
+            <div id="courses" className="">
                <div className="custom-container mb-10 max-2xl:mb-2">
                   <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl leading-normal font-bold">
                      {homePage.courses.title}
@@ -107,7 +108,7 @@ export default async function Home({
                   </div>
                </div>
                <div className="mx-20 max-2xl:mx-0 max-xl:mx-0 my-8 max-xl:my-4 py-8 max-2xl:py-8 max-xl:py-4 border-t border-[#ffffff66]">
-                  <ReviewsCom reviews={reviews} />
+                  <ReviewsCom reviews={reviewsVideo} />
                </div>
             </div>
          </BgAnimated>
@@ -128,6 +129,7 @@ export default async function Home({
          </section> */}
 
          <Company homePage={homePage} />
+         <DragableSection />
          <section className="bg-[#F5F5F5] mb-28">
             <div className="custom-container">
                <div className="flex px-28 max-2xl:px-10 max-xl:px-0">

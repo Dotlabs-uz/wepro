@@ -6,6 +6,7 @@ import axios from "axios";
 import HeroTabs from "@/components/HeroTabs";
 import HeroLoading from "@/components/HeroLoading";
 import { getDictionary } from "@/lib/dictionary";
+import Link from "next/link";
 
 interface HeroProps {
    lang: any
@@ -31,9 +32,9 @@ const Hero: React.FC<HeroProps> = async ({ lang }) => {
                <button className="bg-[#151FE1] text-[#ffffff] w-full font-bold py-3 rounded-lg border-2 border-[#151FE1]">
                   {homePage.Hero.buttton}
                </button>
-               <button className="bg-[#ffffff] text-[#151FE1] w-full font-bold py-3 rounded-lg border-2 border-[#151FE1]">
+               <Link href={"#courses"} className="bg-[#ffffff] text-[#151FE1] w-full font-bold text-center py-3 rounded-lg border-2 border-[#151FE1]">
                   {homePage.Hero.buttton2}
-               </button>
+               </Link>
             </div>
          </div>
          <Suspense fallback={<HeroLoading />}>

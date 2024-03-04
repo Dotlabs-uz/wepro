@@ -101,18 +101,15 @@ h2 {
 }
 
 .scroll-animated:nth-child(2) {
-   @apply w-[100%];
    @apply top-14 max-sm:top-7;
 }
 
 .scroll-animated:nth-child(3) {
-   @apply w-[100%];
    @apply top-32 max-sm:top-14;
 }
 
-.scroll-animated:nth-child(4) {
-   @apply w-[100%];
-}
+/* .scroll-animated:nth-child(4) {
+} */
 
 /* =========== course =========== */
 
@@ -128,8 +125,12 @@ h2 {
    @apply absolute bottom-3 max-md:bottom-2 left-5 max-md:left-2 max-md:right-2 px-3 py-3 backdrop-blur-3xl rounded-xl bg-[#ffffffa9];
 }
 
+.vacancy {
+   width: 100%;
+}
+
 .vacancy:nth-child(1) {
-   @apply top-9;
+   @apply top-0;
 }
 
 .vacancy:nth-child(2) {
@@ -146,4 +147,40 @@ h2 {
 
 .vacancy:nth-child(5) {
    @apply top-[100px];
+}
+
+.footer-select {
+   @apply bg-white w-full relative p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1];
+
+   appearance: none;
+   -webkit-appearance: none;
+}
+
+.select-modal {
+   appearance: none;
+   -webkit-appearance: none;
+}
+
+.custom-select::before,
+.custom-select::after {
+   --size: 0.3rem;
+   content: "";
+   position: absolute;
+   right: 1rem;
+   pointer-events: none;
+   z-index: 10;
+}
+
+.custom-select::before {
+   border-left: var(--size) solid transparent;
+   border-right: var(--size) solid transparent;
+   border-bottom: var(--size) solid black;
+   top: 40%;
+}
+
+.custom-select::after {
+   border-left: var(--size) solid transparent;
+   border-right: var(--size) solid transparent;
+   border-top: var(--size) solid black;
+   top: 55%;
 }

@@ -10,15 +10,18 @@ import Modal from "./Modal";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { IoIosMenu, IoLogoWhatsapp } from "react-icons/io";
-import { FaTelegram } from "react-icons/fa";
+import { FaLinkedin, FaTelegram, FaTiktok, FaYoutube } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
+import { RiInstagramFill } from "react-icons/ri";
+import axios from "axios";
 
 const Header = ({ lang }: any) => {
    const pathName = usePathname();
    const locale = pathName.split('/')[1] === "ru" ? "uz" : "ru"
    const href = pathName ? `/${locale}/${pathName.slice(4)}` : `/${locale}`
+   const [data, setdata] = useState<any>();
 
    const [isOpened, setIsOpened] = useState(false);
    const [menu, setMenu] = useState(false);
@@ -68,6 +71,16 @@ const Header = ({ lang }: any) => {
          document.body.style.overflowY = "scroll";
       }
    }, [menu]);
+
+   useEffect(() => {
+      axios.get(process.env.NEXT_PUBLIC_BASE + "/courses?project=wepro")
+         .then((res: any) => {
+            setdata(res.data);
+         })
+         .catch((err: any) => {
+            console.log(err);
+         })
+   }, [])
 
    return (
       <>
@@ -159,7 +172,7 @@ const Header = ({ lang }: any) => {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: 20, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="custom-container h-screen overflow-auto no-scroll m-auto pt-24 pb-5 grid grid-cols-10 gap-2.5"
+                        className="custom-container h-screen overflow-auto no-scroll m-auto pt-24 pb-20 max-sm:pb-60 grid grid-cols-10 gap-2.5"
                      >
                         <div className={`col-span-6 max-2xl:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-0 rounded-2xl ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
                            <div className="flex items-center gap-4 mb-10 max-md:mb-5 max-md:p-3">
@@ -173,24 +186,20 @@ const Header = ({ lang }: any) => {
                                  {lang.menu.course}:
                               </p>
                            </div>
-                           <ul className="w-full grid grid-flow-col grid-rows-3 max-md:grid-flow-col max-md:grid-cols-[200px] gap-x-5 max-lg:gap-2 gap-y-3 mt-auto max-md:p-3 max-md:overflow-auto no-scroll">
+                           <ul className="w-full grid grid-cols-3 grid-rows-3 max-md:grid-flow-col max-md:grid-cols-[200px] gap-x-5 max-lg:gap-2 gap-y-3 mt-auto max-md:p-3 max-md:overflow-auto no-scroll">
                               {
-                                 [0, 1, 2, 3, 4, 5, 6, 7, 8].map((item: number) => {
+                                 data.map((item: any, idx: number) => {
                                     return (
-                                       <li key={item} className={`w-full max-md:w-[200px] flex items-center gap-3 max p-1 rounded-xl cursor-pointer duration-150 ease-in hover:text-white hover:bg-[#151FE1] 
-                                          ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}
-                                       `}>
-                                          <p className={`text-gray-400 text-sm font- p-3 px-3.5  rounded-lg
-                                             ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}
-                                          `}>
-                                             {item >= 9 ? "" : "0"}{item + 1}
-                                          </p>
-                                          <p className={`text-sm font-semibold 
-                                             ${pathName.includes("/course/") ? "text-white" : ""}
-                                          `}>
-                                             Программа курса
-                                          </p>
-                                       </li>
+                                       <Link key={item._id} href={{ pathname: `/course/${item.url}` }}>
+                                          <li className={`w-full max-md:w-[200px] flex items-center gap-3 max p-1 rounded-xl cursor-pointer duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                                             <p className={`text-gray-400 text-sm font- p-3 px-3.5  rounded-lg ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
+                                                {idx >= 9 ? "" : "0"}{idx + 1}
+                                             </p>
+                                             <p className={`text-sm font-semibold ${pathName.includes("/course/") ? "text-white" : ""}`}>
+                                                {item.title}
+                                             </p>
+                                          </li>
+                                       </Link>
                                     )
                                  })
                               }
@@ -287,13 +296,16 @@ const Header = ({ lang }: any) => {
                                  <IoLogoWhatsapp size={25} className="m-auto" />
                               </Link>
                               <Link href={"#"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
-                                 <IoLogoWhatsapp size={25} className="m-auto" />
+                                 <RiInstagramFill size={25} className="m-auto" />
                               </Link>
                               <Link href={"#"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
-                                 <IoLogoWhatsapp size={25} className="m-auto" />
+                                 <FaTiktok size={25} className="m-auto" />
                               </Link>
                               <Link href={"#"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
-                                 <IoLogoWhatsapp size={25} className="m-auto" />
+                                 <FaLinkedin size={25} className="m-auto" />
+                              </Link>
+                              <Link href={"#"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                                 <FaYoutube size={25} className="m-auto" />
                               </Link>
                            </div>
                         </div>
@@ -301,7 +313,7 @@ const Header = ({ lang }: any) => {
                   </motion.div>
                )}
             </AnimatePresence>
-         </motion.header>
+         </motion.header >
          {
             pathName.includes("/ru/course/") || pathName.includes("/uz/course/") ?
                null

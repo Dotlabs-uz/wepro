@@ -83,14 +83,13 @@ const Vacancies: React.FC<VacanciesProps> = ({ data, course }) => {
 
             <div
                ref={ref}
-               className="relative z-10 max-md:flex flex-col gap-5 hidden">
-               {vacancies.map(
-                  (item: { scaleMax: number; scaleMin: number }, idx: number) => {
-                     return (
-                        <Vacancy inView={inView} item={item} idx={idx} key={idx} />
-                     );
-                  }
-               )}
+               className="relative max-md:flex flex-col gap-10 hidden"
+            >
+               {vacancies.map((item: { scaleMax: number; scaleMin: number }, idx: number) => {
+                  return (
+                     <Vacancy inView={inView} item={item} idx={idx} key={idx} />
+                  );
+               })}
             </div>
          </div>
       </motion.div>

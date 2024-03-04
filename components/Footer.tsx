@@ -113,20 +113,22 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                                  })}
                                  mask="+\9\98-(99)-999-99-99"
                               />
-                              <select
-                                 {...register("additionally", { required: true })}
-                                 className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] max-sm:col-span-2"
-                              >
-                                 <option value="1" defaultChecked>{homePage.footer.select.option}</option>
-                                 <option value="instagram">Instagram</option>
-                                 <option value="facebook">Facebook</option>
-                                 <option value="tiktok">Tik Tok</option>
-                                 <option value="billboards">{homePage.footer.select.option1}</option>
-                                 <option value="friends">{homePage.footer.select.option2}</option>
-                              </select>
+                              <div className="custom-select relative w-full max-sm:col-span-2">
+                                 <select
+                                    {...register("additionally", { required: true })}
+                                    className="footer-select"
+                                 >
+                                    <option value="1" defaultChecked>{homePage.footer.select.option}</option>
+                                    <option value="instagram">Instagram</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="tiktok">Tik Tok</option>
+                                    <option value="billboards">{homePage.footer.select.option1}</option>
+                                    <option value="friends">{homePage.footer.select.option2}</option>
+                                 </select>
+                              </div>
                               <button
                                  disabled={disabled}
-                                 className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white text-lg font-bold py-4 border rounded-[7px] col-span-2 duration-150 ease-in">
+                                 className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white text-lg font-bold py-4 max-sm:py-3 border rounded-[7px] col-span-2 duration-150 ease-in">
                                  {homePage.footer.button}
                               </button>
                            </form>

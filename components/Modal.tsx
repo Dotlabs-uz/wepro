@@ -167,19 +167,22 @@ const Modal: React.FC<ModalProps> = ({
                            <span className={`text-[#A3A2AB] text-sm mb-2 `}>
                               Выберите курс
                            </span>
-                           <select
-                              onChange={(e) => setSelected(e.target.value)}
-                              className={`px-5 py-3 rounded-lg bg-[#F4F4F4]`}
-                           >
-                              {
-                                 courses.map((item: { title: string, id: string }, idx: number) => (
-                                    <option key={idx} value={item.id}>
-                                       {item.title}
-                                    </option>
-                                 )
-                                 )
-                              }
-                           </select>
+
+                           <div className="custom-select relative">
+                              <select
+                                 onChange={(e) => setSelected(e.target.value)}
+                                 className={`select-modal w-full px-5 py-3 rounded-lg bg-[#F4F4F4]`}
+                              >
+                                 {
+                                    courses.map((item: { title: string, id: string }, idx: number) => (
+                                       <option key={idx} value={item.id}>
+                                          {item.title}
+                                       </option>
+                                    )
+                                    )
+                                 }
+                              </select>
+                           </div>
                         </label>
                      )}
                      <button

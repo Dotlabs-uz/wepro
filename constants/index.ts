@@ -45,10 +45,10 @@ export let courses = [
     },
 ]
 
-export let reviews = [
+export let reviewsVideo = [
     {
         _id: "0",
-        name: "Jony",
+        name: "Aleksa",
         url: "HYS9ImCPPqk",
     },
     {
@@ -58,32 +58,32 @@ export let reviews = [
     },
     {
         _id: "2",
-        name: "Jony",
+        name: "Artashes",
         url: "9FT-B3gtwNg",
     },
     {
         _id: "3",
-        name: "Jony",
+        name: "Karina",
         url: "VTZCk6_tfAE",
     },
     {
         _id: "4",
-        name: "Jony",
+        name: "Shohruxbek",
         url: "_czWEndmg0c",
     },
     {
         _id: "5",
-        name: "Jony",
+        name: "Muhammad",
         url: "LYSd6PyFYqo",
     },
     {
         _id: "6",
-        name: "Jony",
+        name: "Samir",
         url: "GZpItP_XjGA",
     },
     {
         _id: "7",
-        name: "Jony",
+        name: "Sultan",
         url: "yvHkvzVWD9s",
     },
 ];

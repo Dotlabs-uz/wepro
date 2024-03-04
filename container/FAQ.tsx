@@ -19,7 +19,7 @@ const Accordion = ({ item, idx }: any) => {
          <div className="">
             <div className="flex items-center max-sm:justify-between mb-2 max-md:mb-1">
                <p className="bg-[#E0E0E0] text-[#A3A2AB] text-lg font-bold py-1 px-2 rounded-md">
-                  0{idx + 1}
+                  {idx.length === 1 ? "0" : ""}{idx + 1}
                </p>
                <p className="font-bold sm:ml-4 flex-1 max-sm:hidden">
                   {item.question}

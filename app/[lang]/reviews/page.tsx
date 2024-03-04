@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
 
-import { reviews } from '@/constants/index'
+import { reviewsVideo } from '@/constants/index'
 
 import ReviewsCom from "@/components/ReviewsCom"
 
@@ -26,7 +26,7 @@ const Reviews: React.FC<ReviewsProps> = async ({ params: { lang }, }) => {
 
                      <p className="text-2xl max-2xl:text-xl max-xl:text-base leading-8">
                         {reviews.dcr}
-                     </p>3
+                     </p>
                   </div>
 
                   <div className="max-w-md max-2xl:max-w-xs max-md:max-w-[225px]">
@@ -39,7 +39,7 @@ const Reviews: React.FC<ReviewsProps> = async ({ params: { lang }, }) => {
                   </div>
                </div>
 
-               <ReviewsCom reviews={reviews} />
+               <ReviewsCom reviews={reviewsVideo} />
             </div>
          </section>
       </>
