@@ -5,36 +5,20 @@ import React from "react";
 
 const DragableSection = ({ rootClass = "", children }: any) => {
     const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
 
-    const containerRef = useRef<any>(null);
-
-    const handleMouseDown = (e: any) => {
-        setIsDragging(true);
-        setStartX(e.pageX - containerRef.current.offsetLeft);
-        setScrollLeft(containerRef.current.scrollLeft);
+    const handleMouseLeave = () => {
+        setIsDragging(true)
     };
 
-    const handleMouseMove = (e: any) => {
-        if (!isDragging) return;
-        const x = e.pageX - containerRef.current.offsetLeft;
-        const walk = x - startX;
-        containerRef.current.scrollLeft = scrollLeft - walk;
-    };
-
-    const handleMouseUp = () => {
+    const handleMouseEnter = () => {
         setIsDragging(false);
     };
 
     return (
         <div
-            ref={containerRef}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            className={rootClass + "w-full flex gap-10 overflow-x-scroll no-scroll"}
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+            className={rootClass + `w-full overflow-x-scroll ${isDragging ? "no-scroll" : ""}`}
         >
             {children}
         </div>
