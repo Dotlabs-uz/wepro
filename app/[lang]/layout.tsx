@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 
 import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "@/i18n.config";

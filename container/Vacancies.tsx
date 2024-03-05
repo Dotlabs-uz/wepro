@@ -1,42 +1,32 @@
 "use client";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { useInView, motion } from "framer-motion";
+import { useInView, motion, useScroll } from "framer-motion";
 import Vacancy from "@/components/Vacancy";
+import Lenis from '@studio-freight/lenis'
 
 interface VacanciesProps {
-   data: {
-      hhImage: string
-   }
+   data: any
    course: any
 }
 
 const Vacancies: React.FC<VacanciesProps> = ({ data, course }) => {
-   const ref = useRef(null);
-   const inView = useInView(ref);
+   const container = useRef(null);
+   const { scrollYProgress } = useScroll({
+      target: container,
+      offset: ['start start', 'end end']
+   })
 
-   const vacancies = [
-      {
-         scaleMax: 1.1,
-         scaleMin: 0.2,
-      },
-      {
-         scaleMax: 1.1,
-         scaleMin: 0.4,
-      },
-      {
-         scaleMax: 1.1,
-         scaleMin: 0.6,
-      },
-      {
-         scaleMax: 1.1,
-         scaleMin: 0.8,
-      },
-      {
-         scaleMax: 1.1,
-         scaleMin: 0.9,
-      },
-   ];
+   useEffect(() => {
+      const lenis = new Lenis()
+
+      function raf(time: any) {
+         lenis.raf(time)
+         requestAnimationFrame(raf)
+      }
+
+      requestAnimationFrame(raf)
+   })
 
    return (
       <motion.div
@@ -74,20 +64,37 @@ const Vacancies: React.FC<VacanciesProps> = ({ data, course }) => {
                </div>
             </div>
 
-            <div className="relative z-10 max-md:hidden">
-               <img
-                  src={data?.hhImage}
-                  alt="vacacies"
-               />
+            <div className="w-fit m-auto grid grid-cols-3 gap-6 max-md:hidden">
+               {
+                  data.map((item: string, idx: number) => (
+                     <div key={idx} className="vacacy-grid">
+                        <img
+                           className="object-cover w-auto h-auto rounded-xl"
+                           src={`https://wepro.uz/api/uploads/${item}`}
+                           width={1000}
+                           height={1000}
+                           alt="vacacy"
+                        />
+                     </div>
+                  ))
+               }
             </div>
 
             <div
-               ref={ref}
-               className="relative max-md:flex flex-col gap-10 hidden"
+               ref={container}
+               className="w-fit max-md:w-full relative max-md:flex flex-col m-auto gap-10 mt-[10vh] hidden"
             >
-               {vacancies.map((item: { scaleMax: number; scaleMin: number }, idx: number) => {
+               {data.map((item: string, idx: number) => {
+                  const targetScale = 1 - ((data.length - idx) * 0.05);
                   return (
-                     <Vacancy inView={inView} item={item} idx={idx} key={idx} />
+                     <Vacancy
+                        key={`p_${idx}`}
+                        idx={idx}
+                        item={item}
+                        progress={scrollYProgress}
+                        range={[idx * .25, 1]}
+                        targetScale={targetScale}
+                     />
                   );
                })}
             </div>

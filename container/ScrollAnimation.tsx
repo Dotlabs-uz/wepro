@@ -1,78 +1,71 @@
-"use client";
-import { useRef } from "react";
-import { useInView, useScroll, useTransform } from "framer-motion";
+'use client';
+import { useScroll } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import Lenis from '@studio-freight/lenis'
+import Card from '@/components/Card';
 
-import AnimateBlock from "@/components/AnimateBlock";
+export const projects = [
+   {
+      title: "События",
+      description: "Мы организовываем самые разные мероприятия внутри центров для наших студентов.",
+      src: "party.webp",
+      link: "https://www.ignant.com/2023/03/25/ad2186-matthias-leidingers-photographic-exploration-of-awe-and-wonder/",
+      color: "#fff"
+   },
+   {
+      title: "Доступ к коворкингу",
+      description: "Коворкинг - это зона, оборудованная всем необходимым для того, чтобы вы могли дополнительно практиковаться.",
+      src: "coworking.webp",
+      link: "https://www.ignant.com/2022/09/30/clement-chapillon-questions-geographical-and-mental-isolation-with-les-rochers-fauves/",
+      color: "#fff"
+   },
+   {
+      title: "Личный кабинет",
+      description: "Вы получите доступ к личному кабинету чтобы видеть свой прогресс обучения.",
+      src: "locale.webp",
+      link: "https://www.ignant.com/2023/10/28/capturing-balis-many-faces-zissou-documents-the-sacred-and-the-mundane-of-a-fragile-island/",
+      color: "#fff"
+   },
+   {
+      title: "Бонусный английский язык",
+      description: "Вы можете изучать английский язык в нашем английском центре “Wespeak”",
+      src: "englishBonus.webp",
+      link: "https://www.ignant.com/2019/03/13/a-photographic-series-depicting-the-uncertain-future-of-denmarks-treasured-coastlines/",
+      color: "#fff"
+   }
+]
 
-interface ScrollAnimationProps {
-   lang: any
-}
+export default function Home() {
+   const container = useRef(null);
+   const { scrollYProgress } = useScroll({
+      target: container,
+      offset: ['start start', 'end end']
+   })
 
-const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ lang }) => {
-   const party = [
-      {
-         id: 0,
-         title: lang.included.itemTitile,
-         dcr: lang.included.itemDcr,
-         img: "party.webp",
-         scale: 0.2,
-         scale2: 1.1,
-      },
-      {
-         id: 1.5,
-         title: lang.included.itemTitile2,
-         dcr: lang.included.itemDcr2,
-         img: "coworking.webp",
-         scale: 0.3,
-         scale2: 1.1,
-      },
-      {
-         id: 2,
-         title: lang.included.itemTitile3,
-         dcr: lang.included.itemDcr3,
-         img: "locale.webp",
-         scale: 0.5,
-         scale2: 1,
-      },
-      {
-         id: 3,
-         title: lang.included.itemTitile4,
-         dcr: lang.included.itemDcr4,
-         img: "englishBonus.webp",
-         scale: 0.5,
-         scale2: 1.1,
-      },
-   ];
-   const ref = useRef(null);
-   const inView = useInView(ref);
+   useEffect(() => {
+      const lenis = new Lenis()
+
+      function raf(time: any) {
+         lenis.raf(time)
+         requestAnimationFrame(raf)
+      }
+
+      requestAnimationFrame(raf)
+   })
 
    return (
-      <>
-         <div ref={ref}
-            className="">
-            <div className="max-w-[720px] m-auto mb-28 max-xl:mb-16 max-md:mb-5 px-4">
-               <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold leading-normal md:text-center">
-                  {lang.included.party}
-               </h2>
-            </div>
-
-            <div className="relative flex flex-col gap-11 max-md:gap-0 px-10 max-sm:px-0">
-               {party.map(
-                  (item: {
-                     id: number;
-                     title: string;
-                     dcr: string;
-                     img: string;
-                     scale: number;
-                     scale2: number;
-                  }) => (
-                     <AnimateBlock item={item} key={item.id} inView={inView} />
-                  )
-               )}
-            </div>
+      <div className="">
+         <div className="">
+            <h2 className='text-center'>Что еще входит в стоимость обучения</h2>
          </div>
-      </>
-   );
-};
-
-export default ScrollAnimation;
+         <div ref={container} className={"main"}>
+            {
+               projects.map((project: any, i: any) => {
+                  const targetScale = 1 - ((projects.length - i) * 0.05);
+                  return <Card key={`p_${i}`} i={i} {...project} progress={scrollYProgress} range={[i * .25, 1]} targetScale={targetScale} />
+               })
+            }
+         </div>
+      </div>
+   )
+}

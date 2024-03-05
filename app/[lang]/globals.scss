@@ -39,7 +39,7 @@ body {
 }
 
 .custom-container {
-   @apply max-w-[1728px] mx-auto px-36 max-3xl:px-16 max-lg:px-5 max-sm:px-4 overflow-auto;
+   @apply max-w-[1728px] mx-auto px-36 max-3xl:px-16 max-lg:px-5 max-sm:px-4;
 }
 
 h2 {
@@ -125,12 +125,24 @@ h2 {
    @apply absolute bottom-3 max-md:bottom-2 left-5 max-md:left-2 max-md:right-2 px-3 py-3 backdrop-blur-3xl rounded-xl bg-[#ffffffa9];
 }
 
-.vacancy {
+.vacacy-grid:nth-child(2) {
+   @apply z-10
+}
+
+.vacacy-grid:nth-child(4) {
+   @apply translate-x-[45%] translate-y-[-50%];
+}
+
+.vacacy-grid:last-child {
+   @apply translate-x-[55%] translate-y-[-50%] z-20
+}
+
+/* .vacancy {
    width: 100%;
 }
 
 .vacancy:nth-child(1) {
-   @apply top-0;
+   @apply top-10;
 }
 
 .vacancy:nth-child(2) {
@@ -147,7 +159,7 @@ h2 {
 
 .vacancy:nth-child(5) {
    @apply top-[100px];
-}
+} */
 
 .footer-select {
    @apply bg-white w-full relative p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1];
@@ -183,4 +195,80 @@ h2 {
    border-right: var(--size) solid transparent;
    border-top: var(--size) solid black;
    top: 55%;
+}
+
+// ============ scroll animate ============= //
+
+.main {
+   position: relative;
+   margin-top: 5vh;
+}
+
+.cardContainer {
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: sticky;
+   top: 0px;
+
+   .card {
+      @apply max-sm:h-[400px] px-7 max-md:px-3 pt-7 max-md:pt-5;
+      width: 1000px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      top: -25%;
+      border-radius: 22px;
+      padding-bottom: 0;
+      transform-origin: top;
+      box-shadow: 0 5px 20px gray;
+
+      h2 {
+         @apply mb-3 max-md:mb-1;
+         text-align: center;
+         font-size: 28px;
+         color: #151FE1;
+      }
+
+      .body {
+         display: flex;
+         flex-direction: column;
+         height: 100%;
+
+         .description {
+            max-width: 500px;
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            position: relative;
+            color: #A3A2AB;
+
+            p {
+               @apply mb-9 max-md:mb-7;
+               font-size: 16px;
+            }
+         }
+
+         .imageContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px 30px 0 0;
+            overflow: hidden;
+
+            .inner {
+               width: 100%;
+               height: 100%;
+            }
+
+            img {
+               width: 100%;
+               height: 100%;
+               margin-top: auto;
+               object-fit: cover;
+            }
+         }
+      }
+   }
 }

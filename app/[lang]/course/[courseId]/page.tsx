@@ -24,6 +24,8 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
       process.env.NEXT_PUBLIC_BASE + `/courses/slug/${params.courseId}`
    );
 
+   console.log(data);
+
    return (
       <>
          <HeroCourse data={data} course={course} />
@@ -62,7 +64,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
          </section>
 
          <section>
-            <Vacancies data={data} course={course} />
+            <Vacancies data={data.jobs} course={course} />
          </section>
 
          <section className="relative">
@@ -268,6 +270,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                </div>
             </BgAnimated>
          </section>
+
          <Company homePage={homePage} />
          <Form courseId={data?._id} homePage={homePage} />
          <FAQ faq={faq} />
