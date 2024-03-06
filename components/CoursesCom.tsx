@@ -45,7 +45,7 @@ const Courses: React.FC<CoursesProps> = async ({ category }) => {
                dragFree: true
             }}
          >
-            <CarouselContent className="max-w-[1728px] m-auto grid grid-flow-col grid-rows-2 gap-5 mx-36 max-3xl:mx-16 max-lg:mx-5 max-sm:mx-4 py-3 max-md:py-2">
+            <CarouselContent className="max-w-[1728px] 3xl:mx-auto grid grid-flow-col grid-rows-2 gap-5 px-36 max-3xl:px-16 max-lg:px-5 max-sm:px-4 py-3 max-md:py-2">
                {
                   data.map((item: CoursesTyps) => {
                      if (category === item.category) {

@@ -8,7 +8,7 @@ const thanks: React.FC<thanksProps> = () => {
     return (
         <>
             <section>
-                <div className="custom-container flex items-center justify-between py-16 max-xl:py-14">
+                <div className="custom-container flex items-center justify-around py-16 max-xl:py-14">
                     <div className="mb-20">
                         <h2 className="mb-4">Ваша заявка принята!</h2>
                         <p className="text-2xl max-xl:text-xl max-md:text-lg leading-normal">
@@ -20,7 +20,7 @@ const thanks: React.FC<thanksProps> = () => {
                     </div>
                     <div className="max-w-xs max-xl:max-w-[250px] max-md:hidden">
                         <Image
-                            src={"/images/tick.svg"}
+                            src={"/images/tick.webp"}
                             width={1000}
                             height={1000}
                             alt="tick"

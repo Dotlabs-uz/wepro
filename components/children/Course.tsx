@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoArrowForwardOutline } from "react-icons/io5";
+import { CarouselItem } from "../ui/carousel";
 
 interface CourseProps {
 	item: {

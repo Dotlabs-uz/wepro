@@ -15,7 +15,7 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             setProgress((prevProgress) =>
-                prevProgress + 1 <= 100 ? prevProgress + 1 : 0
+                prevProgress + 1 <= 100 ? prevProgress + 2 : 0
             );
 
             if (progress === 100) {
@@ -93,17 +93,15 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                                         }}
                                     >
                                         <span
-                                            className="absolute inset-0 z-[-1] rounded-lg  bg-[#151FE1]"
+                                            className="absolute inset-0 z-[-1] rounded-lg transition-all bg-[#151FE1]"
                                             style={
                                                 currentSlide === idx
                                                     ? {
                                                         width: `${progress}%`,
-                                                        background:
-                                                            "#151FE1",
+                                                        background: "#151FE1",
                                                     }
                                                     : {
-                                                        background:
-                                                            "transparent",
+                                                        background: "transparent",
                                                     }
                                             }
                                         >

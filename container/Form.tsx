@@ -72,7 +72,7 @@ const Form: React.FC<FormProps> = ({ homePage, courseId }) => {
          <motion.div className="mx-auto py-28 max-lg:py-14 max-sm:py-0 rounded-[20px] md:bg-[url('/images/bg-form.webp')] bg-no-repeat bg-cover">
             <div
                onClick={(e) => e.stopPropagation()}
-               className="max-w-[660px] w-full mx-auto px-4 py-6 max-sm:py-3 rounded-3xl max-lg:rounded-2xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
+               className="max-w-[660px] w-full mx-auto p-5 max-sm:p-3 rounded-3xl max-lg:rounded-2xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
             >
                <div className="mb-5 p-7 pb-20 max-md:pb-12 max-sm:p-4 rounded-2xl bg-[url('/images/bg-form-black.webp')] bg-no-repeat bg-cover">
                   <h2 className="text-white text-5xl max-xl:text-4xl max-md:text-3xl max-sm:text-2xl font-bold">
@@ -116,9 +116,14 @@ const Form: React.FC<FormProps> = ({ homePage, courseId }) => {
 
                   <button
                      disabled={disabled}
-                     className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-lg max-sm:text-base font-bold py-4 max-sm:py-3 border rounded-[7px] duration-150 ease-in"
+                     className={`bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-lg max-sm:text-base font-bold py-4 max-sm:py-3 border rounded-[7px] duration-150 ease-in ${disabled ? "bg-transparent border-[#151FE1] text-[#151FE1]" : "text-white"}`}
                   >
-                     {homePage.form.button}
+                     {
+                        disabled ?
+                           <div className="w-10 h-10 m-auto rounded-full animate-spin border-y-2 border-[#151FE1]"></div>
+                           :
+                           homePage.form.button
+                     }
                   </button>
                   <div className="mt-3 mb-7 max-sm:mb-4 py-2 rounded-lg text-center bg-[#F4F4F4]">
                      <p className="max-w-[270px] m-auto text-sm text-[#A3A2AB]">

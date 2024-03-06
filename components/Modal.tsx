@@ -82,6 +82,8 @@ const Modal: React.FC<ModalProps> = ({
          .then((res) => {
             if (res.status == 200 || res.status == 201) {
                console.log(res.data);
+               setDisabled(false);
+               onClose()
                push("/thanks")
                reset({
                   name: "",
@@ -113,15 +115,9 @@ const Modal: React.FC<ModalProps> = ({
                className={`w-full h-full flex items-center justify-center fixed z-[100] top-0 left-0 backdrop-blur-sm bg-[#010018E5]`}
                onClick={onClose}
             >
-               {/* <button
-                  onClick={onClose}
-                  className="absolute top-10 right-10 text-5xl"
-               >
-                  <IoClose color="white" />
-               </button> */}
                <div
                   onClick={(e) => e.stopPropagation()}
-                  className="max-w-[550px] w-full mx-auto max-md:mx-3 px-4 py-6 max-sm:py-3 rounded-3xl max-md:rounded-2xl max-sm:rounded-xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
+                  className="max-w-[550px] w-full mx-auto max-md:mx-3 p-5 max-sm:py-3 rounded-3xl max-md:rounded-2xl max-sm:rounded-xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
                >
                   <div className="mb-4 lg:p-7 lg:pb-14 rounded-2xl bg-[url('/images/bg-form-black.webp')] bg-no-repeat bg-cover max-lg:bg-none">
                      <h2 className="text-white max-lg:text-black text-4xl max-md:text-3xl font-bold">
@@ -132,9 +128,9 @@ const Modal: React.FC<ModalProps> = ({
                      </p>
                   </div>
                   <form onSubmit={handleSubmit(onSubmit)}>
-                     <label className="flex flex-col mb-4">
+                     <label className="flex flex-col mb-3">
                         <span
-                           className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.name && "text-[red]"}`}
+                           className={`text-[#A3A2AB] text-sm mb-1 ${errors.name && "text-[red]"}`}
                         >
                            Ваши имя и фамилия
                         </span>
@@ -145,9 +141,9 @@ const Modal: React.FC<ModalProps> = ({
                            className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone && "border-[red] outline-[red]"}`}
                         />
                      </label>
-                     <label className="flex flex-col mb-4">
+                     <label className="flex flex-col mb-3">
                         <span
-                           className={`text-[#A3A2AB] text-sm mb-2 max-sm:mb-1 ${errors.phone && "text-[red]"}`}
+                           className={`text-[#A3A2AB] text-sm mb-1 ${errors.phone && "text-[red]"}`}
                         >
                            Номер телефона
                         </span>
@@ -163,8 +159,8 @@ const Modal: React.FC<ModalProps> = ({
                         />
                      </label>
                      {select && (
-                        <label className="flex flex-col mb-4">
-                           <span className={`text-[#A3A2AB] text-sm mb-2 `}>
+                        <label className="flex flex-col mb-3">
+                           <span className={`text-[#A3A2AB] text-sm mb-1`}>
                               Выберите курс
                            </span>
 
@@ -188,9 +184,14 @@ const Modal: React.FC<ModalProps> = ({
                      <button
                         onClick={errors.name && errors.phone ? onClose : undefined}
                         disabled={disabled}
-                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-lg max-sm:text-base font-bold py-3 border rounded-[7px] duration-150 ease-in"
+                        className={`bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] w-full text-lg max-sm:text-base font-bold py-3 border rounded-[7px] duration-150 ease-in ${disabled ? "bg-transparent border-[#151FE1] text-[#151FE1]" : "text-white"}`}
                      >
-                        Отправить заявку
+                        {
+                           disabled ?
+                              <div className="w-10 h-10 m-auto rounded-full animate-spin border-y-2 border-[#151FE1]"></div>
+                              :
+                              "Отправить заявку"
+                        }
                      </button>
                      <div className="mt-3 mb-4 max-lg:mb-6 py-2 rounded-[7px] bg-[#F4F4F4]">
                         <p className="max-w-[270px] m-auto text-sm text-center text-[#A3A2AB]">

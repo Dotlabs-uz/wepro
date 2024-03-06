@@ -24,8 +24,6 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
       process.env.NEXT_PUBLIC_BASE + `/courses/slug/${params.courseId}`
    );
 
-   console.log(data);
-
    return (
       <>
          <HeroCourse data={data} course={course} />
@@ -38,7 +36,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                   </h2>
                </div>
 
-               <div className="grid md:grid-cols-3 max-md:grid-flow-col max-md:auto-cols-[195px] max-md:grid-rows-[200px_minmax(200px,_1fr)] grid-rows-[300px_minmax(300px,_1fr)] gap-6 max-xl:gap-3 max-sm:gap-2 overflow-x-auto no-scroll max-md:py-3">
+               <div className="grid md:grid-cols-3 max-md:grid-flow-col max-md:auto-cols-[195px] max-md:grid-rows-[200px_minmax(200px,_1fr)] grid-rows-[300px_minmax(300px,_1fr)] gap-6 max-xl:gap-3 max-sm:gap-2 max-md:overflow-x-auto no-scroll max-md:py-3">
                   {
                      data?.canCreate.map((item: { image: string, title: string, _id: string }) => {
                         return (
@@ -75,7 +73,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                      <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold mb-4 text-white">
                         {course.studentsWork.title}
                      </h2>
-                     <p className="max-w-2xl m-auto text-xl max-md:text-lg font-medium text-[#A3A2AB]">
+                     <p className="max-w-2xl m-auto font-helveticaNeueMedium text-xl max-md:text-lg font-medium text-[#A3A2AB]">
                         {course.studentsWork.dcr}
                      </p>
                   </div>
@@ -87,7 +85,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                               className="flex flex-col p-6 max-xl:p-4 rounded-3xl bg-gradient-to-b from-[47%] from-[#f4f4f41a] to-[100%] to-[#f4f4f408]"
                            >
                               <div className="mb-11 max-xl:mb-8 max-md:mb-5">
-                                 <p className="text-white text-2xl leading-normal font-bold mb-2">
+                                 <p className="text-white font-helveticaNeueBold text-2xl leading-normal font-bold mb-2">
                                     {item.title}
                                  </p>
                                  <p className="text-white bg-[#ffffff99] w-fit px-2 py-1 text-base leading-normal font-bold rounded-lg">
@@ -95,7 +93,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                                  </p>
                               </div>
 
-                              <div className="mt-auto">
+                              <div className="mt-auto max-w-[280px]">
                                  <p className="text-[#ffffff99] text-base font-medium leading-snug">
                                     Создает макеты лендингов, сайтов,
                                     интернет-магазинов, приложений для бизнеса.

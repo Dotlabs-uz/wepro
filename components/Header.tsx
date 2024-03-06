@@ -64,12 +64,15 @@ const Header = ({ lang }: any) => {
    const HandelMenu = () => {
       setMenu(!menu);
    };
+
    useEffect(() => {
       if (menu) {
-         document.body.style.overflowY = "hidden";
+         document.body.style.overflow = "hidden";
       } else {
          document.body.style.overflowY = "scroll";
       }
+
+      console.log(document.body);
    }, [menu]);
 
    useEffect(() => {

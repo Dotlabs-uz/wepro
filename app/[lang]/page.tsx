@@ -149,6 +149,7 @@ export default async function Home({
                         {homePage.english.dcr}
                      </p>
                      <Link
+                        target="_blank"
                         href={"https://wespeak.uz/"}
                         className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-bold py-3 px-6 max-3xl:px-3 rounded-md border duration-150 ease-in"
                      >

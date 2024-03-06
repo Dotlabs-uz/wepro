@@ -39,7 +39,7 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
    const { push } = useRouter()
 
    const onSubmit: SubmitHandler<Inputs> = (data) => {
-      // setDisabled(true);
+      setDisabled(true);
       const dataForm: Inputs = {
          ...data, // req
          type: "classic", // req
@@ -63,8 +63,8 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
       axios.post("https://wepro.uz/api/leads", dataForm)
          .then((res) => {
             if (res.status == 200 || res.status == 201) {
-               console.log(res.data);
                push("/thanks")
+               setDisabled(false);
                reset({
                   name: "",
                   phone: "",
@@ -128,12 +128,18 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                               </div>
                               <button
                                  disabled={disabled}
-                                 className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white text-lg font-bold py-4 max-sm:py-3 border rounded-[7px] col-span-2 duration-150 ease-in">
-                                 {homePage.footer.button}
+                                 className={`bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white text-lg font-bold py-4 max-sm:py-3 border rounded-[7px] col-span-2 duration-150 ease-in ${disabled ? "bg-transparent border-[#151FE1] text-[#151FE1]" : "text-white"}`}
+                              >
+                                 {
+                                    disabled ?
+                                       <div className="w-10 h-10 m-auto rounded-full animate-spin border-y-2 border-[#151FE1]"></div>
+                                       :
+                                       homePage.footer.button
+                                 }
                               </button>
                            </form>
                         </div>
-                        <div className="max-w-md max-2xl:max-w-xs max-lg:max-w-60 max-md:hidden">
+                        <div className="max-w-xs max-lg:max-w-60 max-md:hidden">
                            <Image
                               src={"/images/tick.webp"}
                               width={1000}
