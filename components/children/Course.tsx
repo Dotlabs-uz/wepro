@@ -25,7 +25,7 @@ const Course: React.FC<CourseProps> = ({ item }) => {
 	return (
 		<Link
 			href={{ pathname: `/course/${item.url}` }}
-			className="select-none flex flex-col h-auto w-[450px] max-2xl:w-[400px] max-lg:w-[310px] rounded-3xl max-xl:rounded-2xl shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in bg-white"
+			className="select-none flex flex-col h-auto w-[450px] max-2xl:w-[400px] max-lg:w-[300px] rounded-3xl max-xl:rounded-2xl shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in bg-white"
 		>
 			<div className="p-2 max-lg:hidden">
 				<img
@@ -36,7 +36,7 @@ const Course: React.FC<CourseProps> = ({ item }) => {
 					alt="course"
 				/>
 			</div>
-			<div className="flex flex-col h-full px-7 max-2xl:px-4 pb-6 max-xl:pb-3 pt-3 max-xl:pt-0 max-sm:p-5">
+			<div className="flex flex-col h-full px-7 max-2xl:px-4 pb-6 max-xl:pb-3 pt-3 max-xl:pt-0 max-lg:p-5">
 				<h3 className="text-3xl max-2xl:text-2xl max-sm:text-xl leading-normal max-sm:leading-tight font-bold mb-3">
 					{item.title}
 				</h3>

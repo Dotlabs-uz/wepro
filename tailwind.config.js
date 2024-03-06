@@ -4,17 +4,23 @@ module.exports = {
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
+    "./container/**/*.{js,ts,jsx,tsx,mdx}",
     './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
   ],
   prefix: "",
   theme: {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+    },
+    screens: {
+      xs: "440px",
+      sm: "540px",
+      md: "720px",
+      lg: "960px",
+      xl: "1140px",
+      "2xl": "1320px",
+      "3xl": "1536px",
     },
     extend: {
       colors: {
@@ -52,11 +58,11 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
+      // borderRadius: {
+      //   lg: "var(--radius)",
+      //   md: "calc(var(--radius) - 2px)",
+      //   sm: "calc(var(--radius) - 4px)",
+      // },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
