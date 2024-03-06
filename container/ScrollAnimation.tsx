@@ -4,38 +4,41 @@ import { useEffect, useRef } from 'react';
 import Lenis from '@studio-freight/lenis'
 import Card from '@/components/Card';
 
-export const projects = [
-   {
-      title: "События",
-      description: "Мы организовываем самые разные мероприятия внутри центров для наших студентов.",
-      src: "party.webp",
-      link: "https://www.ignant.com/2023/03/25/ad2186-matthias-leidingers-photographic-exploration-of-awe-and-wonder/",
-      color: "#fff"
-   },
-   {
-      title: "Доступ к коворкингу",
-      description: "Коворкинг - это зона, оборудованная всем необходимым для того, чтобы вы могли дополнительно практиковаться.",
-      src: "coworking.webp",
-      link: "https://www.ignant.com/2022/09/30/clement-chapillon-questions-geographical-and-mental-isolation-with-les-rochers-fauves/",
-      color: "#fff"
-   },
-   {
-      title: "Личный кабинет",
-      description: "Вы получите доступ к личному кабинету чтобы видеть свой прогресс обучения.",
-      src: "locale.webp",
-      link: "https://www.ignant.com/2023/10/28/capturing-balis-many-faces-zissou-documents-the-sacred-and-the-mundane-of-a-fragile-island/",
-      color: "#fff"
-   },
-   {
-      title: "Бонусный английский язык",
-      description: "Вы можете изучать английский язык в нашем английском центре “Wespeak”",
-      src: "englishBonus.webp",
-      link: "https://www.ignant.com/2019/03/13/a-photographic-series-depicting-the-uncertain-future-of-denmarks-treasured-coastlines/",
-      color: "#fff"
-   }
-]
+interface ScrollAnimationProps {
+   lang: any
+}
 
-export default function Home() {
+const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ lang }) => {
+   const projects = [
+      {
+         title: "События",
+         description: "Мы организовываем самые разные мероприятия внутри центров для наших студентов.",
+         src: "party.webp",
+         link: "https://www.ignant.com/2023/03/25/ad2186-matthias-leidingers-photographic-exploration-of-awe-and-wonder/",
+         color: "#fff"
+      },
+      {
+         title: "Доступ к коворкингу",
+         description: "Коворкинг - это зона, оборудованная всем необходимым для того, чтобы вы могли дополнительно практиковаться.",
+         src: "coworking.webp",
+         link: "https://www.ignant.com/2022/09/30/clement-chapillon-questions-geographical-and-mental-isolation-with-les-rochers-fauves/",
+         color: "#fff"
+      },
+      {
+         title: "Личный кабинет",
+         description: "Вы получите доступ к личному кабинету чтобы видеть свой прогресс обучения.",
+         src: "locale.webp",
+         link: "https://www.ignant.com/2023/10/28/capturing-balis-many-faces-zissou-documents-the-sacred-and-the-mundane-of-a-fragile-island/",
+         color: "#fff"
+      },
+      {
+         title: "Бонусный английский язык",
+         description: "Вы можете изучать английский язык в нашем английском центре “Wespeak”",
+         src: "englishBonus.webp",
+         link: "https://www.ignant.com/2019/03/13/a-photographic-series-depicting-the-uncertain-future-of-denmarks-treasured-coastlines/",
+         color: "#fff"
+      }
+   ]
    const container = useRef(null);
    const { scrollYProgress } = useScroll({
       target: container,
@@ -69,3 +72,5 @@ export default function Home() {
       </div>
    )
 }
+
+export default ScrollAnimation
