@@ -208,8 +208,8 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                            </h3>
                            <ul className="text-[#A3A2AB] grid grid-cols-2 gap-x-3 font-medium">
                               {
-                                 courses.map((course: { title: string, link: string }) => (
-                                    <li className="w-fit max-md:text-sm max-sm:leading-tight mb-2">
+                                 courses.map((course: { title: string, link: string }, idx: number) => (
+                                    <li key={idx} className="w-fit max-md:text-sm max-sm:leading-tight mb-2">
                                        <AnimateLink href={`/course/${course.link}`}>
                                           {course.title}
                                        </AnimateLink>
@@ -236,7 +236,7 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                                  <AnimateLink href="https://uz.linkedin.com/in/khamidovshakh">LinkedIn</AnimateLink>
                               </li>
                            </ul>
-                        </div>
+                        </div>   
                         <div className="max-xs:col-span-2">
                            <h3 className="text-lg font-bold mb-5 max-md:mb-2">
                               {homePage.footer.contacts}
