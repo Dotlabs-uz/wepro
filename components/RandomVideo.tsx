@@ -10,18 +10,19 @@ interface RandomVideoProps {
 
 const RandomVideo: React.FC<RandomVideoProps> = ({ reviews, homePage }) => {
     const [randomNumber, setRandomNumber] = useState<string | null>("0");
+    const [stop, setStop] = useState(false);
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            const newRandomNumber = Math.floor(Math.random() * 8);
-            setRandomNumber(newRandomNumber.toString());
-        }, 10000);
+        const interval = setInterval(() => {
+            const randomVideo = Math.floor(Math.random() * 8);
+            setRandomNumber(randomVideo.toString());
+        }, 5000);
 
-        return () => clearInterval(intervalId);
+        return (() => clearInterval(interval))
     }, []);
 
     return (
-        <div className='max-md:hidden h-full relative row-span-2 flex p-5 max-2xl:p-3 rounded-[22px] overflow-hidden'>
+        <div onClick={() => setStop(true)} className='max-md:hidden h-full relative row-span-2 flex p-5 max-2xl:p-3 rounded-[22px] overflow-hidden'>
             <AnimatePresence>
                 {
                     reviews.map((item: { _id: string; name: string; url: string }) => (

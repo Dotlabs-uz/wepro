@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Modal from "../Modal";
+import moment from "moment";
 
 interface GroupProps {
     item: any
@@ -9,6 +10,7 @@ interface GroupProps {
 
 const Group: React.FC<GroupProps> = ({ item }) => {
     const [isOpened, setIsOpened] = useState(false);
+    const [greeting, setGreeting] = useState("");
 
     const onOpen = () => {
         setIsOpened(true);
@@ -24,6 +26,18 @@ const Group: React.FC<GroupProps> = ({ item }) => {
             document.body.style.overflowY = "scroll";
         }
     }, [isOpened]);
+
+    useEffect(() => {
+        let time = +item.time.slice(0, 2)
+
+        if (time >= 18) {
+            setGreeting("вечер")
+        } else if (time > 12) {
+            setGreeting("день")
+        } else if (time > 6) {
+            setGreeting("утро")
+        }
+    }, [])
 
     return (
         <>
@@ -56,7 +70,7 @@ const Group: React.FC<GroupProps> = ({ item }) => {
                         }
                     </p>
                     <p className="max-xl:text-sm mb-0.5">
-                        Вечер, {item.time}
+                        {greeting}, {item.time}
                     </p>
                     <p className="max-xl:text-sm mb-5 max-xl:mb-4">
                         {item.courseId.price} сум/месяц

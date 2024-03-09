@@ -66,13 +66,18 @@ const Header = ({ lang }: any) => {
    };
 
    useEffect(() => {
+      const wrap: HTMLDivElement | null = document.querySelector('.wrapper');
+      // if (wrap) {
       if (menu) {
-         document.body.style.overflow = "hidden";
+         // wrap.style.height = 'auto';
+         // wrap.style.overflowY = 'hidden';
+         document.body.style.overflow = "hidden"
       } else {
-         document.body.style.overflowY = "scroll";
+         document.body.style.overflowY = "scroll"
+         // wrap.style.height = 'auto';
+         // wrap.style.overflow = 'unset';
       }
-
-      console.log(document.body);
+      // }
    }, [menu]);
 
    useEffect(() => {
@@ -87,7 +92,7 @@ const Header = ({ lang }: any) => {
 
    return (
       <>
-         <Modal
+         {/* <Modal
             isOpened={isOpened}
             onClose={onClose}
             select={false}
@@ -96,7 +101,7 @@ const Header = ({ lang }: any) => {
             courseId={""}
             title={"Заявка на консультацию"}
             type={"consultation"}
-         />
+         /> */}
 
          <motion.header
             transition={{ duration: 0.3, ease: "easeOut" }}

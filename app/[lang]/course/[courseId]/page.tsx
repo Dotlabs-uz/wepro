@@ -160,7 +160,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                   {data?.suitableFor.map(
                      (item: { title: string; text: string }, idx: number) => {
                         return (
-                           <div key={idx} className="bg-[#3D2582] p-6 max-lg:p-4 rounded-3xl flex flex-col">
+                           <div key={idx} className="random-bg p-6 max-lg:p-4 rounded-3xl flex flex-col">
                               <p className="text-xl font-bold mb-28 max-3xl:mb-20 max-2xl:mb-12 max-lg:mb-7 text-white">
                                  0{idx + 1}.
                               </p>

@@ -35,7 +35,7 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
 
    return (
       <>
-         <Modal
+         {/* <Modal
             isOpened={isOpened}
             onClose={onClose}
             select={true}
@@ -44,7 +44,7 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
             courseId={""}
             title={"Оставить заявку"}
             dcr={"Оставьте заявку и получите возможность попасть на открытый урок абсолютно бесплатно."}
-         />
+         /> */}
 
          <div className="custom-container my-28 max-lg:my-24 max-sm:my-20">
             <div className="flex max-lg:flex-col items-center gap-20 max-2xl:gap-10 max-lg:gap-7 max-sm:gap-4 mb-11 max-lg:mb-7 max-sm:mb-4 mx-28 max-2xl:mx-0 max-xl:mx-0">

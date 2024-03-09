@@ -9,10 +9,48 @@ import axios from "axios";
 import { usePathname, useRouter } from "next/navigation";
 import moment from "moment";
 
+const courses = [
+   {
+      title: "Frontend-программирование",
+      link: "frontend"
+   },
+   {
+      title: "Мобильная разработка",
+      link: "mobiledev"
+   },
+   {
+      title: "Графический дизайн",
+      link: "design"
+   },
+   {
+      title: "Веб-дизайн",
+      link: "web-design"
+   },
+   {
+      title: "Frontend-dasturlash",
+      link: "dasturlash"
+   },
+   {
+      title: "Мобилография",
+      link: "mobilography"
+   },
+   {
+      title: "Интерьер-дизайн",
+      link: "3ds-max"
+   },
+   {
+      title: "Kompyuter savodxonligi",
+      link: "savodxonlig"
+   },
+   {
+      title: "Компьютерная грамотность",
+      link: "digital"
+   },
+]
+
 interface FooterProps {
    homePage: any
 }
-
 type Inputs = {
    name: string;
    phone: string;
@@ -148,8 +186,8 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                            />
                         </div>
                      </div>
-                     <div className="grid grid-cols-4 max-3xl:grid-cols-3 max-lg:grid-cols-2 gap-5 py-16 max-lg:py-10 max-md:py-7 border-t border-[#1515151a]">
-                        <div className="max-3xl:col-span-3 max-lg:col-span-2 max-3xl:mb-10 max-sm:m-0">
+                     <div className="grid grid-cols-5 max-3xl:grid-cols-4 max-xl:grid-cols-3 max-md:grid-cols-2 gap-5 py-16 max-lg:py-10 max-md:py-7 border-t border-[#1515151a]">
+                        <div className="max-3xl:col-span-4 max-xl:col-span-3 max-md:col-span-2 max-3xl:mb-10 max-sm:m-0">
                            <div className="max-w-[160px] mb-4">
                               <Image
                                  src={"/images/logo.svg"}
@@ -164,28 +202,23 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                               </p>
                            </div>
                         </div>
-                        <div className="">
+                        <div className="col-span-2">
                            <h3 className="text-lg font-bold mb-5 max-md:mb-2">
                               {homePage.footer.courses}
                            </h3>
-                           <ul className="text-[#A3A2AB] font-medium">
-                              <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-2">
-                                 <AnimateLink href="/course/frontend">
-                                    Frontend-программирование
-                                 </AnimateLink>
-                              </li>
-                              <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-2">
-                                 <AnimateLink href="/course/mobiledev">Мобильная разработка</AnimateLink>
-                              </li>
-                              <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-2">
-                                 <AnimateLink href="/course/smm">SMM</AnimateLink>
-                              </li>
-                              <li className="w-fit max-sm:text-sm max-sm:leading-tight mb-0">
-                                 <AnimateLink href="/course/design">Графический дизайн</AnimateLink>
-                              </li>
+                           <ul className="text-[#A3A2AB] grid grid-cols-2 gap-x-3 font-medium">
+                              {
+                                 courses.map((course: { title: string, link: string }) => (
+                                    <li className="w-fit max-md:text-sm max-sm:leading-tight mb-2">
+                                       <AnimateLink href={`/course/${course.link}`}>
+                                          {course.title}
+                                       </AnimateLink>
+                                    </li>
+                                 ))
+                              }
                            </ul>
                         </div>
-                        <div className="">
+                        <div className="max-xs:col-span-2">
                            <h3 className="text-lg font-bold mb-5 max-md:mb-2">
                               {homePage.footer.net}
                            </h3>
@@ -204,7 +237,7 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                               </li>
                            </ul>
                         </div>
-                        <div className="max-lg:col-span-2">
+                        <div className="max-xs:col-span-2">
                            <h3 className="text-lg font-bold mb-5 max-md:mb-2">
                               {homePage.footer.contacts}
                            </h3>

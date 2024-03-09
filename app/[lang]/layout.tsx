@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Modal from "@/components/Modal";
+import { ModalProvider } from "@/components/test";
 
 // const inter = Roboto({
 //    subsets: ["latin"],
@@ -50,9 +52,25 @@ export default async function RootLayout({
    return (
       <html lang="en">
          <body className={cn(defaultFont.variable, fontBold.variable, fontMedium.variable)}>
-            <Header lang={header} />
-            {children}
-            <Footer homePage={homePage} />
+            <ModalProvider>
+               {/* <Modal /> */}
+               <div className="wrapper">
+
+                  {/* <Modal
+                  isOpened={isOpened}
+                  onClose={onClose}
+                  admissionId={""}
+                  courseId={item?._id}
+                  select={false}
+                  title={"Записаться на курс"}
+                  dcr={"Оставьте заявку и получите возможность попасть на открытый урок абсолютно бесплатно."}
+                  type={"classic"}
+               /> */}
+                  <Header lang={header} />
+                  {children}
+                  <Footer homePage={homePage} />
+               </div>
+            </ModalProvider>
          </body>
       </html>
    );

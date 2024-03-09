@@ -20,6 +20,8 @@ import BgAnimated from "@/container/BgAnimated";
 import CoursesLoading from "@/components/CoursesLoading";
 import RandomVideo from "@/components/RandomVideo";
 import DragableSection from "@/components/DragableSection";
+import Velocity from "@/container/Velocity";
+// import Loadind from "./loading";
 
 export default async function Home({
    params: { lang },
@@ -30,6 +32,7 @@ export default async function Home({
 
    return (
       <>
+         {/* <Loadind /> */}
          <section>
             <Hero lang={lang} />
          </section>
@@ -91,7 +94,7 @@ export default async function Home({
                   </h2>
                </div>
                <Suspense fallback={<CoursesLoading />}>
-                  <Courses category="all" />
+                  <Courses category="all" lang={lang} />
                </Suspense>
             </div>
          </section>
@@ -129,7 +132,7 @@ export default async function Home({
          </section> */}
 
          <Company homePage={homePage} />
-         <DragableSection />
+         {/* <DragableSection /> */}
          <section className="bg-[#F5F5F5] mb-28">
             <div className="custom-container">
                <div className="flex px-28 max-2xl:px-10 max-xl:px-0">
@@ -167,6 +170,7 @@ export default async function Home({
                </div>
             </div>
          </section>
+         {/* <Velocity /> */}
          <Form courseId={""} homePage={homePage} />
          <FAQ faq={faq} />
       </>

@@ -10,7 +10,7 @@ interface HeroCourseProps {
 
 const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
     const [isOpened, setIsOpened] = useState(false);
-    let price = `${data?.price.toString().slice(0, 3)},${data?.price.toString().slice(3)}`;
+    let price = data?.price.toLocaleString()
 
     const onOpen = () => {
         setIsOpened(true);
@@ -175,7 +175,7 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                             data?.lessons ?
                                                 (
                                                     <span className="">
-                                                        {data?.lessons.length} {course.hero.lessons},
+                                                        {data?.lessons.length} {course.hero.lessons}, &nbsp;
                                                         {Math.ceil(data?.lessons.length * 1.5)} {course.hero.hours}
                                                     </span>
                                                 )

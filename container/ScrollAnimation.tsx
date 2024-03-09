@@ -1,7 +1,7 @@
 'use client';
 import { useScroll } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import Lenis from '@studio-freight/lenis'
+// import Lenis from '@studio-freight/lenis'
 import Card from '@/components/Card';
 
 interface ScrollAnimationProps {
@@ -45,16 +45,16 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ lang }) => {
       offset: ['start start', 'end end']
    })
 
-   useEffect(() => {
-      const lenis = new Lenis()
+   // useEffect(() => {
+   //    const lenis = new Lenis()
 
-      function raf(time: any) {
-         lenis.raf(time)
-         requestAnimationFrame(raf)
-      }
+   //    function raf(time: any) {
+   //       lenis.raf(time)
+   //       requestAnimationFrame(raf)
+   //    }
 
-      requestAnimationFrame(raf)
-   })
+   //    requestAnimationFrame(raf)
+   // })
 
    return (
       <div className="">

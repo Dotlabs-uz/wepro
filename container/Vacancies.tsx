@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useInView, motion, useScroll } from "framer-motion";
 import Vacancy from "@/components/Vacancy";
-import Lenis from '@studio-freight/lenis'
+// import Lenis from '@studio-freight/lenis'
 
 import {
    Carousel,
@@ -25,16 +25,16 @@ const Vacancies: React.FC<VacanciesProps> = ({ data, course }) => {
       offset: ['start start', 'end end']
    })
 
-   useEffect(() => {
-      const lenis = new Lenis()
+   // useEffec t(() => {
+   //    const lenis = new Lenis()
 
-      function raf(time: any) {
-         lenis.raf(time)
-         requestAnimationFrame(raf)
-      }
+   //    function raf(time: any) {
+   //       lenis.raf(time)
+   //       requestAnimationFrame(raf)
+   //    }
 
-      requestAnimationFrame(raf)
-   })
+   //    requestAnimationFrame(raf)
+   // })
 
    return (
       <motion.div
