@@ -9,8 +9,9 @@ import { cn } from "@/lib/utils";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ModalProvider } from "@/context";
 import Modal from "@/components/Modal";
-import { ModalProvider } from "@/components/test";
+
 
 // const inter = Roboto({
 //    subsets: ["latin"],
@@ -53,7 +54,7 @@ export default async function RootLayout({
       <html lang="en">
          <body className={cn(defaultFont.variable, fontBold.variable, fontMedium.variable)}>
             <ModalProvider>
-               {/* <Modal /> */}
+               <Modal />
                <div className="wrapper">
 
                   {/* <Modal

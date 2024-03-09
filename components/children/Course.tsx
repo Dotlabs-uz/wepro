@@ -4,7 +4,8 @@ import Link from "next/link";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import Modal from "../Modal";
 import { useContext, useEffect, useState } from "react";
-import { ModalContext } from "../test";
+import { ModalContext } from "@/context";
+
 
 interface CourseProps {
 	item: {
@@ -26,7 +27,6 @@ interface CourseProps {
 }
 
 const Course: React.FC<CourseProps> = ({ item }) => {
-	const [isOpened, setIsOpened] = useState(false);
 	const { openModal } = useContext(ModalContext)
 
 	const onOpen = () => {

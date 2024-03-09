@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,6 +16,7 @@ import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import axios from "axios";
+import { ModalContext } from "@/context";
 
 const Header = ({ lang }: any) => {
    const pathName = usePathname();
@@ -23,7 +24,8 @@ const Header = ({ lang }: any) => {
    const href = pathName ? `/${locale}/${pathName.slice(4)}` : `/${locale}`
    const [data, setdata] = useState<any>();
 
-   const [isOpened, setIsOpened] = useState(false);
+   const {openModal} = useContext(ModalContext)
+
    const [menu, setMenu] = useState(false);
    const links = [
       {
@@ -56,10 +58,7 @@ const Header = ({ lang }: any) => {
    }
 
    const onOpen = () => {
-      setIsOpened(true);
-   };
-   const onClose = () => {
-      setIsOpened(false);
+      openModal("")
    };
    const HandelMenu = () => {
       setMenu(!menu);
