@@ -14,7 +14,7 @@ import Course from "./children/Course";
 
 interface CoursesProps {
    category: string;
-   lang: string
+   lang?: string
 }
 
 type CoursesTyps = {
