@@ -31,7 +31,7 @@ const Courses: React.FC<CoursesProps> = async ({ searchParams, params: { lang } 
                </div>
 
                <Suspense fallback={<CoursesLoading />}>
-                  <CoursesCom category={category} />
+                  <CoursesCom category={category} lang={lang} />
                </Suspense>
             </div>
          </section>
