@@ -170,7 +170,6 @@ export default async function Home({
                </div>
             </div>
          </section>
-         {/* <Velocity /> */}
          <Form courseId={""} homePage={homePage} />
          <FAQ faq={faq} />
       </>

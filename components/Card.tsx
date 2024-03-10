@@ -32,9 +32,9 @@ const Card: React.FC<CardProps> = ({ i, title, description, src, url, color, pro
             style={{ backgroundColor: color, scale, top: `calc(-5vh + ${i * 25}px)` }}
             className={"card"}
          >
-            <h2>{title}</h2>
             <div className={"body"}>
-               <div className={"description"}>
+               <h2>{title}</h2>
+               <div className={"description h-20"}>
                   <p>{description}</p>
                </div>
 

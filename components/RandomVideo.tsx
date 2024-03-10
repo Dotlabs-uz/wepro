@@ -10,19 +10,40 @@ interface RandomVideoProps {
 
 const RandomVideo: React.FC<RandomVideoProps> = ({ reviews, homePage }) => {
     const [randomNumber, setRandomNumber] = useState<string | null>("0");
-    const [stop, setStop] = useState(false);
+    const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const randomVideo = Math.floor(Math.random() * 8);
-            setRandomNumber(randomVideo.toString());
-        }, 5000);
+    const handlePlay = () => {
+        console.log('play');
 
-        return (() => clearInterval(interval))
-    }, []);
+        setIsPlaying(true)
+    }
+    const handleStop = () => {
+        console.log('pause');
+
+        setIsPlaying(false)
+    }
+
+    const changeVideo = () => {
+        if (!isPlaying) {
+            let interval = setInterval(() => {
+                const randomVideo = Math.floor(Math.random() * 8);
+                setRandomNumber(randomVideo.toString());
+            }, 5000);
+        }
+    }
+
+    console.log(isPlaying);
+
+
+    // useEffect(() => {
+    // }, []);
+
+    // const clearChange = () => {
+    //     return (() => clearInterval(interval))
+    // }
 
     return (
-        <div onClick={() => setStop(true)} className='max-md:hidden h-full relative row-span-2 flex p-5 max-2xl:p-3 rounded-[22px] overflow-hidden'>
+        <div className='max-md:hidden h-full relative row-span-2 flex p-5 max-2xl:p-3 rounded-[22px] overflow-hidden'>
             <AnimatePresence>
                 {
                     reviews.map((item: { _id: string; name: string; url: string }) => (
@@ -33,9 +54,16 @@ const RandomVideo: React.FC<RandomVideoProps> = ({ reviews, homePage }) => {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 className=""
+                                onClick={handlePlay}
                             >
-                                <motion.div className="absolute top-0 left-0 w-full h-full">
-                                    <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${item.url}`} frameBorder="0" allowFullScreen></iframe>
+                                <motion.div className="absolute z-10 top-0 left-0 w-full h-full">
+                                    <iframe
+                                        onPlay={() => console.log("log")}
+                                        width="100%"
+                                        height="100%"
+                                        src={`https://www.youtube.com/embed/${item.url}`}
+                                        allowFullScreen
+                                    ></iframe>
                                 </motion.div>
                                 <div className="absolute bottom-3 left-3 flex gap-2">
                                     {/* <button className="bg-white px-6 max-2xl:px-4 rounded-xl">

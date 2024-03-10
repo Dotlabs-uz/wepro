@@ -1,55 +1,44 @@
 "use client"
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
 
-const Marquee = ({ children }: any) => {
-    const containerRef = React.useRef<any>(null);
-    const [isHovered, setIsHovered] = React.useState(false);
-
-    // Calculate the width of the content
-    React.useEffect(() => {
-        const containerWidth = containerRef.current.offsetWidth;
-        const contentWidth = containerRef.current.scrollWidth;
-
-        if (contentWidth > containerWidth) {
-            const animationDuration = (contentWidth / 50); // Adjust speed here
-            containerRef.current.style.setProperty('--animation-duration', `${animationDuration}s`);
-        }
-    }, []);
-
-    return (
-        <div
-            className="marquee-container"
-            ref={containerRef}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            <motion.div
-                className={`marquee-content ${isHovered ? 'paused' : ''}`}
-                animate={{
-                    x: '-100%',
-                    transition: {
-                        duration: 'var(--animation-duration)',
-                        ease: 'linear',
-                        repeat: Infinity,
-                        delay: 0.5 // Adjust delay here
-                    }
-                }}
-            >
-                {children}
-            </motion.div>
-        </div>
-    );
+interface MarqueeProps {
+  children: React.ReactNode;
+  speed?: number;
 }
 
-const Velocity = () => {
-    return (
-        <div>
-            <Marquee>
-                <p>Your scrolling content goes here</p>
-            </Marquee>
-        </div>
-    );
-}
+const Marquee: React.FC<MarqueeProps> = ({ children, speed = 50 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
-export default Velocity;
+  useEffect(() => {
+    const containerWidth = containerRef.current?.offsetWidth || 0;
+    const contentWidth = contentRef.current?.offsetWidth || 0;
+
+    if (containerWidth < contentWidth) {
+      const distance = contentWidth - containerWidth;
+      const duration = distance / speed;
+      const keyframes = `marquee ${duration}s linear infinite`;
+
+      if (contentRef.current) {
+        contentRef.current.style.animation = keyframes;
+      }
+    }
+  }, [speed]);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{ overflow: 'hidden', width: '100%' }}
+    >
+      <div
+        ref={contentRef}
+        style={{ whiteSpace: 'nowrap' }}
+        className='flex gap-10'
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export default Marquee;

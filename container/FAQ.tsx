@@ -31,8 +31,7 @@ const Accordion = ({ item, idx }: any) => {
                   <AiOutlinePlus
                      size={26}
                      color="#6734EE"
-                     className={`duration-150 ease-in ${isOpen ? "-rotate-45" : "rotate-0"
-                        }`}
+                     className={`duration-150 ease-in ${isOpen ? "-rotate-45" : "rotate-0"}`}
                   />
                </button>
             </div>

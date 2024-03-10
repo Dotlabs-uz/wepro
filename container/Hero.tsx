@@ -1,12 +1,14 @@
 import Image from "next/image";
 import { FaFigma } from "react-icons/fa";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useContext, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import axios from "axios";
 import HeroTabs from "@/components/HeroTabs";
 import HeroLoading from "@/components/HeroLoading";
 import { getDictionary } from "@/lib/dictionary";
 import Link from "next/link";
+import { ModalContext } from "@/context";
+import HeroButton from "@/components/children/HeroButton";
 
 interface HeroProps {
    lang: any
@@ -29,9 +31,7 @@ const Hero: React.FC<HeroProps> = async ({ lang }) => {
             </p>
 
             <div className="flex flex-col gap-2">
-               <button className="bg-[#151FE1] text-[#ffffff] w-full font-bold py-3 rounded-lg border-2 border-[#151FE1]">
-                  {homePage.Hero.buttton}
-               </button>
+               <HeroButton homePage={homePage} />
                <Link href={"#courses"} className="bg-[#ffffff] text-[#151FE1] w-full font-bold text-center py-3 rounded-lg border-2 border-[#151FE1]">
                   {homePage.Hero.buttton2}
                </Link>

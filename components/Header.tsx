@@ -183,7 +183,7 @@ const Header = ({ lang }: any) => {
                               {
                                  data.map((item: any, idx: number) => {
                                     return (
-                                       <Link key={item._id} href={{ pathname: `/course/${item.url}` }}>
+                                       <Link onClick={() => setMenu(false)} key={item._id} href={{ pathname: `/course/${item.url}` }}>
                                           <li className={`w-full max-md:w-[200px] flex items-center gap-3 max p-1 rounded-xl cursor-pointer duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                              <p className={`text-gray-400 text-sm font- p-3 px-3.5  rounded-lg ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
                                                 {idx >= 9 ? "" : "0"}{idx + 1}

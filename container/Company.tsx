@@ -12,6 +12,9 @@ interface CompanyProps {
 }
 
 const Company: React.FC<CompanyProps> = async ({ homePage }) => {
+
+   
+
    return (
       <section className="">
          <div className="custom-container my-28 max-lg:my-24 max-sm:my-20">
@@ -121,7 +124,10 @@ const Company: React.FC<CompanyProps> = async ({ homePage }) => {
                   <li className=""></li>
                </ul>
             </div>
-         </div>   
+            <div className="mt-10">
+
+            </div>
+         </div>
       </section>
    );
 };

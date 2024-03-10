@@ -7,8 +7,8 @@
    padding: 0;
    box-sizing: border-box;
    font-family: var(--font-helveticaNeue);
+   scroll-behavior: smooth;
    /* border: 2px black solid; */
-   // scroll-behavior: smooth;
 }
 
 ul,
@@ -279,8 +279,7 @@ h2 {
 }
 
 .circle {
-   height: 100px;
-   width: 200px;
+   @apply w-[200px] h-[120px] max-md:w-[150px] max-md:h-[100px];
    transform: skew(30deg, 5deg) !important;
    rotate: 30deg;
    border-radius: 8px;
@@ -363,4 +362,18 @@ h2 {
 
 .modal-st {
    position: fixed !important;
+}
+
+@keyframes marquee {
+   0% {
+      transform: translateX(0);
+   }
+
+   50% {
+      transform: translateX(-100%);
+   }
+
+   100% {
+      transform: translateX(0);
+   }
 }
