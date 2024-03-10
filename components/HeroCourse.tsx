@@ -1,7 +1,8 @@
 "use client"
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Modal from "./Modal";
+import { ModalContext } from "@/context";
 
 interface HeroCourseProps {
     data: any
@@ -9,36 +10,15 @@ interface HeroCourseProps {
 }
 
 const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
-    const [isOpened, setIsOpened] = useState(false);
+    const { openModal } = useContext(ModalContext)
     let price = data?.price.toLocaleString()
 
     const onOpen = () => {
-        setIsOpened(true);
+        openModal(data?._id, "classic", "")
     };
-    const onClose = () => {
-        setIsOpened(false);
-    };
-
-    useEffect(() => {
-        if (isOpened) {
-            document.body.style.overflowY = "hidden";
-        } else {
-            document.body.style.overflowY = "scroll";
-        }
-    }, [isOpened]);
 
     return (
         <>
-            <Modal
-                isOpened={isOpened}
-                onClose={onClose}
-                select={false}
-                title={"Записаться на курс"}
-                type={"classic"}
-                admissionId={""}
-                courseId={data?._id}
-                dcr={"Оставьте заявку и получите возможность попасть на открытый урок абсолютно бесплатно."}
-            />
             <section className="hero-gradient">
                 <div className="flex gap-16 max-3xl:gap-10">
                     <div className="w-1/2 relative max-lg:hidden">

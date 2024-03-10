@@ -24,7 +24,7 @@ const Header = ({ lang }: any) => {
    const href = pathName ? `/${locale}/${pathName.slice(4)}` : `/${locale}`
    const [data, setdata] = useState<any>();
 
-   const {openModal} = useContext(ModalContext)
+   const { openModal } = useContext(ModalContext)
 
    const [menu, setMenu] = useState(false);
    const links = [
@@ -50,33 +50,19 @@ const Header = ({ lang }: any) => {
       },
    ];
 
-   const redirectedPathName = (locale: string) => {
-      if (!pathName) return '/'
-      const segments = pathName.split('/')
-      segments[1] = locale
-      return segments.join('/')
-   }
-
    const onOpen = () => {
-      openModal("")
+      openModal("", "consultation", "")
    };
    const HandelMenu = () => {
       setMenu(!menu);
    };
 
    useEffect(() => {
-      const wrap: HTMLDivElement | null = document.querySelector('.wrapper');
-      // if (wrap) {
       if (menu) {
-         // wrap.style.height = 'auto';
-         // wrap.style.overflowY = 'hidden';
          document.body.style.overflow = "hidden"
       } else {
          document.body.style.overflowY = "scroll"
-         // wrap.style.height = 'auto';
-         // wrap.style.overflow = 'unset';
       }
-      // }
    }, [menu]);
 
    useEffect(() => {

@@ -1,9 +1,10 @@
 "use client";
 import Modal from "@/components/Modal";
+import { ModalContext } from "@/context";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 
 interface BranchProps {
@@ -21,31 +22,16 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
          title: lang.branch.button2,
       },
    ];
+   const { openModal } = useContext(ModalContext)
 
    let [active, setActive] = useState(tabs[0].id);
-   const [isOpened, setIsOpened] = useState(false);
-   const [change, setChange] = useState(false);
 
    const onOpen = () => {
-      setIsOpened(true);
-   };
-   const onClose = () => {
-      setIsOpened(false);
+      openModal("", "classic", "")
    };
 
    return (
       <>
-         {/* <Modal
-            isOpened={isOpened}
-            onClose={onClose}
-            select={true}
-            type={"classic"}
-            admissionId={""}
-            courseId={""}
-            title={"Оставить заявку"}
-            dcr={"Оставьте заявку и получите возможность попасть на открытый урок абсолютно бесплатно."}
-         /> */}
-
          <div className="custom-container my-28 max-lg:my-24 max-sm:my-20">
             <div className="flex max-lg:flex-col items-center gap-20 max-2xl:gap-10 max-lg:gap-7 max-sm:gap-4 mb-11 max-lg:mb-7 max-sm:mb-4 mx-28 max-2xl:mx-0 max-xl:mx-0">
                <div className="w-1/2 max-lg:w-full">

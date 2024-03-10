@@ -1,31 +1,21 @@
 "use client"
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Modal from "../Modal";
 import moment from "moment";
+import { ModalContext } from "@/context";
 
 interface GroupProps {
     item: any
 }
 
 const Group: React.FC<GroupProps> = ({ item }) => {
-    const [isOpened, setIsOpened] = useState(false);
+    const { openModal } = useContext(ModalContext)
     const [greeting, setGreeting] = useState("");
 
     const onOpen = () => {
-        setIsOpened(true);
+        openModal(item.courseId._id, "admission", item._id);
     };
-    const onClose = () => {
-        setIsOpened(false);
-    };
-
-    useEffect(() => {
-        if (isOpened) {
-            document.body.style.overflowY = "hidden";
-        } else {
-            document.body.style.overflowY = "scroll";
-        }
-    }, [isOpened]);
 
     useEffect(() => {
         let time = +item.time.slice(0, 2)
@@ -41,16 +31,6 @@ const Group: React.FC<GroupProps> = ({ item }) => {
 
     return (
         <>
-            <Modal
-                isOpened={isOpened}
-                onClose={onClose}
-                select={false}
-                type={"admission"}
-                admissionId={item._id}
-                courseId={item.courseId._id}
-                title={"Записать на набор"}
-                dcr={"Успейте получить место в новой группе! Группы в среднем открываются за 10 дней."}
-            />
             <div className="w-[450px] max-2xl:w-[400px] max-lg:w-[310px] flex flex-col rounded-[20px] shadow-[0px_4px_5px_0px_#00000026] hover:shadow-[0px_5px_15px_3px_#00000026] duration-150 ease-in">
                 <div className="p-2">
                     <Image
@@ -73,7 +53,7 @@ const Group: React.FC<GroupProps> = ({ item }) => {
                         {greeting}, {item.time}
                     </p>
                     <p className="max-xl:text-sm mb-5 max-xl:mb-4">
-                        {item.courseId.price} сум/месяц
+                        {item.courseId.price.toLocaleString()} сум/месяц
                     </p>
                     <div className="mt-auto">
                         <button onClick={onOpen} className="max-md:w-full px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-bold rounded-lg duration-100 ease-in border-2 border-transparent hover:bg-transparent bg-[#151FE1] hover:border-black text-white hover:text-black">

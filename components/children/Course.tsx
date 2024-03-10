@@ -30,7 +30,7 @@ const Course: React.FC<CourseProps> = ({ item }) => {
 	const { openModal } = useContext(ModalContext)
 
 	const onOpen = () => {
-		openModal(item._id);
+		openModal(item._id, "classic", "");
 	};
 
 	return (

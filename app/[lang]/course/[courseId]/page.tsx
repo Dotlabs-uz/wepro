@@ -15,6 +15,7 @@ import Group from "@/components/children/Group";
 
 import { MdArrowOutward } from "react-icons/md";
 import Image from "next/image";
+import AdditionalWork from "@/components/AdditionalWork";
 
 interface CourseProps { }
 
@@ -104,7 +105,9 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                      })}
                   </div>
 
-                  <div className="">
+                  <AdditionalWork course={course} data={data} />
+
+                  {/* <div className="">
                      <div className="mb-9 max-lg:mb-5 mt-12 max-xl:mt-8 max-md:mt-6">
                         <h3 className="text-2xl max-md:text-xl font-bold md:text-center text-white">
                            {course.studentsWork.additional}
@@ -132,7 +135,8 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                      </div>
                      <button
                         // onClick={onOpen}
-                        className="bg-white flex items-center gap-2 m-auto p-2 rounded-lg max-md:hidden">
+                        className="bg-white flex items-center gap-2 m-auto p-2 rounded-lg max-md:hidden"
+                     >
                         <span className="p-2 rounded-lg bg-[#000]">
                            <MdArrowOutward
                               size={20}
@@ -144,7 +148,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                            {course.studentsWork.button} “{data?.title}”
                         </span>
                      </button>
-                  </div>
+                  </div> */}
                </div>
             </BgAnimated>
          </section>
