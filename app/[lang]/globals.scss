@@ -281,7 +281,7 @@ h2 {
 .circle {
    @apply w-[200px] h-[120px] max-md:w-[150px] max-md:h-[100px];
    transform: skew(30deg, 5deg) !important;
-   rotate: 30deg;
+   rotate: 30deg !important;
    border-radius: 8px;
    background: #0575e6;
    background: -webkit-linear-gradient(to right, #0575e6, #021b79);
