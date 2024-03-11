@@ -9,8 +9,6 @@ import {
 } from "@/components/ui/carousel"
 
 import Course from "./children/Course";
-// import { useEffect, useRef, useState } from "react";
-
 
 interface CoursesProps {
    category: string;
@@ -48,7 +46,7 @@ const Courses: React.FC<CoursesProps> = async ({ category, lang }) => {
                dragFree: true
             }}
          >
-            <CarouselContent className="3xl:mx-auto grid grid-flow-col grid-rows-2 gap-5 mx-36 max-3xl:mx-16 max-lg:mx-5 max-sm:mx-4 py-3 max-md:py-2">
+            <CarouselContent className="grid grid-flow-col grid-rows-2 gap-5 mx-36 max-3xl:mx-16 max-lg:mx-5 max-sm:mx-4 py-3 max-md:py-2">
                {
                   data.map((item: CoursesTyps) => {
                      if (category === item.category && lang === item.language) {

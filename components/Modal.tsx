@@ -121,8 +121,7 @@ const Modal: React.FC<ModalProps> = () => {
 						<form onSubmit={handleSubmit(onSubmit)}>
 							<label className="flex flex-col mb-3">
 								<span
-									className={`text-[#A3A2AB] text-sm mb-1 ${errors.name && "text-[red]"
-										}`}
+									className={`text-[#A3A2AB] text-sm mb-1 ${errors.name && "text-[red]"}`}
 								>
 									Ваши имя и фамилия
 								</span>
@@ -130,12 +129,10 @@ const Modal: React.FC<ModalProps> = () => {
 									type="text"
 									{...register("name", {
 										required: true,
-										pattern: /^[а-яА-ЯёЁa-zA-Z]+$/,
+										pattern: /^[a-zA-Zа-яА-ЯёЁ]+\s[a-zA-Zа-яА-ЯёЁ]+$/,
 									})}
 									placeholder="Имя и фамилия"
-									className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone &&
-										"border-[red] outline-[red]"
-										}`}
+									className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone && "border-[red] outline-[red]"}`}
 								/>
 							</label>
 							<label className="flex flex-col mb-3">
@@ -148,9 +145,7 @@ const Modal: React.FC<ModalProps> = () => {
 								<InputMask
 									type="text"
 									placeholder="+998-(__)-___-__-__"
-									className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone &&
-										"border-[red] outline-[red]"
-										}`}
+									className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone && "border-[red] outline-[red]"}`}
 									{...register("phone", {
 										pattern:
 											/^\+\d{3}-\(\d{2}\)-\d{3}-\d{2}-\d{2}$/,
@@ -202,8 +197,7 @@ const Modal: React.FC<ModalProps> = () => {
 								disabled={disabled}
 								className={`bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] w-full text-lg max-sm:text-base font-bold py-3 border rounded-[7px] duration-150 ease-in ${disabled
 									? "bg-transparent border-[#151FE1] text-[#151FE1]"
-									: "text-white"
-									}`}
+									: "text-white"}`}
 							>
 								{disabled ? (
 									<div className="w-10 h-10 m-auto rounded-full animate-spin border-y-2 border-[#151FE1]"></div>
@@ -223,7 +217,6 @@ const Modal: React.FC<ModalProps> = () => {
 								<p className="text-sm max-md:text-xs font-bold text-[#A3A2AB]">
 									Или напишите нам в
 									<span className="text-[#000]">
-										{" "}
 										Telegram
 									</span>
 									:

@@ -91,7 +91,7 @@ const Form: React.FC<FormProps> = ({ homePage, courseId }) => {
                      </span>
                      <input
                         type="text"
-                        {...register("name", { required: true, pattern: /^[а-яА-ЯёЁa-zA-Z]+$/ })}
+                        {...register("name", { required: true, pattern: /^[a-zA-Zа-яА-ЯёЁ]+\s[a-zA-Zа-яА-ЯёЁ]+$/ })}
                         placeholder={homePage.form.inp}
                         className={`max-sm:text-sm px-5 max-sm:px-3 py-3 rounded-lg outline-[#F4F4F4] border border-[#F4F4F4] bg-[#F4F4F4] ${errors.phone && "border-[red] outline-[red]"}`}
                      />

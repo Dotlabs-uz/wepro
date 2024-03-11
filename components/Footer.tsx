@@ -137,7 +137,7 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                            >
                               <input
                                  type="text"
-                                 {...register("name", { required: true })}
+                                 {...register("name", { required: true, pattern: /^[a-zA-Zа-яА-ЯёЁ]+\s[a-zA-Zа-яА-ЯёЁ]+$/ })}
                                  placeholder={homePage.footer.inp}
                                  className="bg-white p-4 max-md:p-3 rounded-lg border border-[#E0E0E0] outline-[#151FE1] col-span-2"
                               />
@@ -236,7 +236,7 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                                  <AnimateLink href="https://uz.linkedin.com/in/khamidovshakh">LinkedIn</AnimateLink>
                               </li>
                            </ul>
-                        </div>   
+                        </div>
                         <div className="max-xs:col-span-2">
                            <h3 className="text-lg font-bold mb-5 max-md:mb-2">
                               {homePage.footer.contacts}

@@ -75,6 +75,8 @@ const Header = ({ lang }: any) => {
          })
    }, [])
 
+   console.log(data);
+
    return (
       <>
          {/* <Modal
@@ -179,21 +181,23 @@ const Header = ({ lang }: any) => {
                                  {lang.menu.course}:
                               </p>
                            </div>
-                           <ul className="w-full grid grid-cols-3 grid-rows-3 max-md:grid-flow-col max-md:grid-cols-[200px] gap-x-5 max-lg:gap-2 gap-y-3 mt-auto max-md:p-3 max-md:overflow-auto no-scroll">
+                           <ul className="w-full grid grid-cols-3 grid-rows-3 max-md:grid-flow-col max-md:grid-cols-[230px] gap-x-5 max-lg:gap-2 gap-y-3 mt-auto max-md:p-3 max-md:overflow-auto no-scroll">
                               {
                                  data.map((item: any, idx: number) => {
-                                    return (
-                                       <Link onClick={() => setMenu(false)} key={item._id} href={{ pathname: `/course/${item.url}` }}>
-                                          <li className={`w-full max-md:w-[200px] flex items-center gap-3 max p-1 rounded-xl cursor-pointer duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
-                                             <p className={`text-gray-400 text-sm font- p-3 px-3.5  rounded-lg ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
-                                                {idx >= 9 ? "" : "0"}{idx + 1}
-                                             </p>
-                                             <p className={`text-sm font-semibold ${pathName.includes("/course/") ? "text-white" : ""}`}>
-                                                {item.title}
-                                             </p>
-                                          </li>
-                                       </Link>
-                                    )
+                                    if (item.language == pathName.split('/')[1]) {
+                                       return (
+                                          <Link onClick={() => setMenu(false)} key={item._id} href={{ pathname: `/course/${item.url}` }}>
+                                             <li className={`w-full max-md:w-[230px] flex items-center gap-3 max p-1 rounded-xl cursor-pointer duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                                                <p className={`text-gray-400 text-sm font- p-3 px-3.5  rounded-lg ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
+                                                   {idx >= 9 ? "" : "0"}{idx + 1}
+                                                </p>
+                                                <p className={`text-sm font-semibold ${pathName.includes("/course/") ? "text-white" : ""}`}>
+                                                   {item.title}
+                                                </p>
+                                             </li>
+                                          </Link>
+                                       )
+                                    }
                                  })
                               }
                            </ul>

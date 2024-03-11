@@ -1,6 +1,7 @@
 "use client"
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion"
 
 interface HeroTabsProps {
     courses: any
@@ -9,6 +10,7 @@ interface HeroTabsProps {
 
 const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [index, setIndex] = useState<number>(0);
     const [progress, setProgress] = useState(0);
     const sliderRef = useRef(null);
 
@@ -20,9 +22,8 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
 
             if (progress === 100) {
                 setProgress(0);
-                setCurrentSlide(
-                    (prevSlide: number) => (prevSlide + 1) % courses.length
-                );
+                setCurrentSlide((prevSlide: number) => (prevSlide + 1) % courses.length);
+                setIndex((prevSlide: number) => (prevSlide + 1) % courses.length);
             }
         }, 100);
 
@@ -49,17 +50,38 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
 
     const handelSlide = (id: number) => {
         setProgress(0);
+        setIndex(id)
         setCurrentSlide(id);
     };
 
     return (
         <>
-            <div className="relative min-h-[650px] max-3xl:min-h-[550px] max-lg:min-h-[350px] max-sm:min-h-[300px] max-xs:min-h-[270px] flex p-5 max-xl:p-4 max-sm:px-2 max-sm:py-4 rounded-3xl bg-cover bg-no-repeat">
-                <img
-                    className="w-full h-full absolute top-0 left-0 object-cover rounded-3xl max-md:rounded-2xl pointer-events-none select-none"
-                    src={courses[currentSlide]?.preview}
-                    alt="course"
-                />
+            <motion.div
+                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                transition={{
+                    duration: .3,
+                    type: "tween"
+                }}
+                className="relative min-h-[650px] max-3xl:min-h-[550px] max-lg:min-h-[350px] max-sm:min-h-[300px] max-xs:min-h-[270px] flex p-5 max-xl:p-4 max-sm:px-2 max-sm:py-4 rounded-3xl bg-cover bg-no-repeat"
+            >
+                <AnimatePresence>
+                    {
+                        index === currentSlide && (
+                            <div className="w-full h-full absolute top-0 left-0 z-[-1]">
+                                <motion.img
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: .4, }}
+                                    className="w-full h-full object-cover rounded-3xl max-md:rounded-2xl pointer-events-none select-none"
+                                    src={courses[currentSlide]?.preview}
+                                    alt="course"
+                                />
+                            </div>
+                        )
+                    }
+                </AnimatePresence>
                 <div className="w-full mt-auto rounded-3xl max-lg:rounded-xl max-sm:rounded-lg px-6 max-xl:px-3 max-sm:px-2 backdrop-blur-[15px] bg-[#f4f4f48c]">
                     <div className="max-lg:hidden py-6 max-2xl:py-4 text-center border-b border-[#1515151a]">
                         <h1 className="text-3xl max-lg:text-2xl font-bold">
@@ -76,47 +98,62 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                         >
                             {courses.map((item: any, idx: number) => {
                                 return (
-                                    <li
-                                        key={item._id}
-                                        id={`item-${idx}`}
-                                        onClick={() => handelSlide(idx)}
-                                        className="overflow-hidden flex-shrink-0 text-nowrap space-nowrap relative flex items-center gap-2 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer"
-                                        style={{
-                                            background:
-                                                currentSlide === idx
-                                                    ? "#151fe166"
-                                                    : "transparent",
-                                            color:
-                                                currentSlide === idx
-                                                    ? "white"
-                                                    : "black",
-                                        }}
-                                    >
-                                        <span
-                                            className="absolute inset-0 z-[-1] rounded-lg transition-all bg-[#151FE1]"
-                                            style={
-                                                currentSlide === idx
-                                                    ? {
-                                                        width: `${progress}%`,
-                                                        background: "#151FE1",
-                                                    }
-                                                    : {
-                                                        background: "transparent",
-                                                    }
-                                            }
+                                    <>
+                                        <motion.li
+                                            key={item._id}
+                                            id={`item-${idx}`}
+                                            onClick={() => handelSlide(idx)}
+                                            className="overflow-hidden flex-shrink-0 text-nowrap space-nowrap relative flex items-center gap-2 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer"
+                                            style={{
+                                                background:
+                                                    currentSlide === idx
+                                                        ? "#151fe166"
+                                                        : "transparent",
+                                                color:
+                                                    currentSlide === idx
+                                                        ? "white"
+                                                        : "black",
+                                            }}
                                         >
-                                        </span>
+                                            <AnimatePresence>
+                                                {
+                                                    idx === currentSlide && (
+                                                        <motion.span
+                                                            initial={{ opacity: 0 }}
+                                                            animate={{ opacity: 1 }}
+                                                            exit={{ opacity: 0 }}
+                                                            transition={{
+                                                                duration: .4,
+                                                            }}
+                                                            className="absolute inset-0 z-[-1] rounded-lg transition-all bg-[#151FE1]"
+                                                            style={
+                                                                currentSlide === idx
+                                                                    ? {
+                                                                        width: `${progress}%`,
+                                                                        background: "#151FE1",
+                                                                    }
+                                                                    : {
+                                                                        background: "transparent",
+                                                                    }
+                                                            }
+                                                        >
+                                                        </motion.span>
+                                                    )
+                                                }
+                                            </AnimatePresence >
 
-                                        <p className="text-xs font-bold">
-                                            {item.title}
-                                        </p>
-                                    </li>
+                                            <p className="text-xs font-bold">
+                                                {item.title}
+                                            </p>
+                                        </motion.li>
+                                    </>
+
                                 );
                             })}
                         </ul>
                     </div>
                 </div>
-            </div>
+            </motion.div >
         </>
     );
 }
