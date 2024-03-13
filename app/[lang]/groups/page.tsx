@@ -2,6 +2,10 @@ import { Suspense } from "react";
 
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
+import {
+   Carousel,
+   CarouselContent,
+} from "@/components/ui/carousel"
 
 import axios from "axios";
 
@@ -54,15 +58,21 @@ const Page: React.FC<PageProps> = async ({ params: { lang } }) => {
                </div>
 
                <Suspense fallback={<GroupsLoading />}>
-                  <div className="custom-container py-3 max-sm:py-2 overflow-scroll no-scroll">
-                     <div className="grid grid-flow-col grid-rows-2 grid-cols-[450px] max-2xl:grid-cols-[400px] max-lg:grid-cols-[310px] gap-7 max-2xl:gap-5 mb-7 max-2xl:mb-5 p-3 max-sm:p-2">
+                  <Carousel
+                     className="py-3 max-sm:py-2"
+                     opts={{
+                        align: "start",
+                        dragFree: true
+                     }}
+                  >
+                     <CarouselContent className="grid grid-flow-col grid-rows-2 grid-cols-[400px] max-2xl:grid-cols-[400px] max-lg:grid-cols-[300px] gap-5 mx-36 max-3xl:mx-16 max-lg:mx-5 max-sm:mx-4 py-3 max-md:py-2">
                         {
                            data.map((item: any) => {
                               return <Group key={item._id} item={item} />;
                            })
                         }
-                     </div>
-                  </div>
+                     </CarouselContent>
+                  </Carousel>
                </Suspense>
             </div>
          </section >
