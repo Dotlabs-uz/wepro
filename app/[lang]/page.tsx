@@ -21,7 +21,7 @@ import CoursesLoading from "@/components/CoursesLoading";
 import RandomVideo from "@/components/RandomVideo";
 import DragableSection from "@/components/DragableSection";
 import Velocity from "@/container/Velocity";
-import Loadind from "./loading";
+// import Loadind from "./loading";
 
 export default async function Home({
    params: { lang },
@@ -32,7 +32,7 @@ export default async function Home({
 
    return (
       <>
-         <Loadind />
+         {/* <Loadind /> */}
          <section>
             <Hero lang={lang} />
          </section>
