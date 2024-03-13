@@ -275,11 +275,12 @@ h2 {
    display: flex;
    align-items: center;
    justify-content: center;
-   margin: 200px auto;
+   height: 200px;
+   margin: 100px auto 100px auto;
 }
 
 .circle {
-   @apply w-[200px] h-[190px] max-md:w-[190px] max-md:h-[180px];
+   @apply w-[200px] h-[200px] max-md:w-[190px] max-md:h-[180px] max-sm:w-[150px] max-sm:h-[150px];
    transform: skew(30deg, 5deg) rotate(30deg) !important;
    border-radius: 8px;
    background: #0575e6;
@@ -289,23 +290,21 @@ h2 {
 
 .loading-block {
    position: absolute;
+   top: 0;
    animation: 2s block infinite ease;
 }
 
 .loading-block:nth-child(1) {
-   @apply left-[-160px];
-   top: 0;
+   @apply left-[-160px] max-sm:left-[-140px];
 }
 
 .loading-block:nth-child(2) {
-   @apply left-[-95px];
-   top: 0;
+   @apply left-[-75px];
    animation-delay: .2s;
 }
 
 .loading-block:nth-child(3) {
-   @apply left-[-30px];
-   top: 0;
+   @apply left-[-10px];
    animation-delay: .4s;
 }
 

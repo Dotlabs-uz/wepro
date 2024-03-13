@@ -15,7 +15,9 @@ const Accordion = ({ item, idx }: any) => {
    };
 
    return (
-      <div className="bg-[#F4F4F4] h-fit rounded-xl py-6 max-sm:py-3 px-4 max-sm:px-3 overflow-hidden">
+      <div
+         onClick={toggleAccordion}
+         className="bg-[#F4F4F4] h-fit rounded-xl py-6 max-sm:py-3 px-4 max-sm:px-3 overflow-hidden">
          <div className="">
             <div className="flex items-center max-sm:justify-between mb-2 max-md:mb-1">
                <p className="bg-[#E0E0E0] text-[#A3A2AB] text-lg font-bold py-1 px-2 rounded-md">
@@ -25,7 +27,6 @@ const Accordion = ({ item, idx }: any) => {
                   {item.question}
                </p>
                <button
-                  onClick={toggleAccordion}
                   className="bg-white ml-5 p-2 rounded-md"
                >
                   <AiOutlinePlus
