@@ -295,11 +295,11 @@ h2 {
 }
 
 .loading-block:nth-child(1) {
-   @apply left-[-160px] max-sm:left-[-140px];
+   @apply left-[-160px] max-sm:left-[-130px];
 }
 
 .loading-block:nth-child(2) {
-   @apply left-[-75px];
+   @apply left-[-90px] max-sm:left-[-75px];
    animation-delay: .2s;
 }
 

@@ -46,14 +46,14 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ lang }) => {
    })
 
    // useEffect(() => {
-   //    const lenis = new Lenis()
+   // const lenis = new Lenis()
 
-   //    function raf(time: any) {
-   //       lenis.raf(time)
-   //       requestAnimationFrame(raf)
-   //    }
-
+   // function raf(time: any) {
+   //    lenis.raf(time)
    //    requestAnimationFrame(raf)
+   // }
+
+   // requestAnimationFrame(raf)
    // })
 
    return (
