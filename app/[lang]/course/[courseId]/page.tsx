@@ -13,7 +13,6 @@ import Company from "@/container/Company";
 import Lessons from "@/components/Lessons";
 import Group from "@/components/children/Group";
 
-import { MdArrowOutward } from "react-icons/md";
 import Image from "next/image";
 import AdditionalWork from "@/components/AdditionalWork";
 

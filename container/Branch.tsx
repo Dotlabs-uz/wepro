@@ -38,7 +38,7 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
                   <h2 className="text-5xl max-2xl:text-4xl leading-normal font-bold mb-4">
                      {lang.branch.title}
                   </h2>
-                  <p className="mb-8 max-lg:mb-4 text-xl max-md:text-lg font-medium max-xs:leading-snug text-[#A3A2AB]">
+                  <p className="mb-8 max-lg:mb-4 text-xl max-md:text-lg font-helveticaNeueMedium max-xs:leading-snug text-[#A3A2AB]">
                      {lang.branch.dcr}
                   </p>
 
@@ -77,7 +77,7 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
                         <FaLocationDot color="#151FE1" size={73} className="" />
                      </div>
                      <div className="">
-                        <p className="text-3xl max-sm:text-xl font-bold">
+                        <p className="text-3xl max-sm:text-xl font-helveticaNeueBold">
                            {
                               active === 0 ?
                                  lang.branch.address
@@ -96,24 +96,22 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
                      </div>
                   </div>
                </div>
-               <div className="w-1/2 max-lg:w-full max-h-[280px] max-xl:max-h-[400px] h-full flex rounded-2xl overflow-hidden">
+               <div className="w-1/2 max-lg:w-full bg-[red] min-h-[300px] max-xl:max-h-[400px] h-full flex rounded-2xl overflow-hidden">
                   {
                      active === 0 ?
-                        <Image
-                           className="w-full h-full object-cover"
-                           src={"/images/company.jpg"}
-                           width={1000}
-                           height={1000}
-                           alt="branch"
-                        />
+                        <iframe
+                           className="w-full h-auto"
+                           src="https://yandex.uz/map-widget/v1/?ll=66.925564%2C39.651621&mode=whatshere&whatshere%5Bpoint%5D=66.923055%2C39.652016&whatshere%5Bzoom%5D=17&z=16.37"
+                           frameBorder="1"
+                           allowFullScreen
+                        ></iframe>
                         :
-                        <Image
-                           className="w-full h-full object-cover"
-                           src={"/images/students-project.jpg"}
-                           width={1000}
-                           height={1000}
-                           alt="branch"
-                        />
+                        <iframe
+                           className="w-full h-auto"
+                           src="https://yandex.uz/map-widget/v1/?ll=66.952576%2C39.655731&mode=whatshere&whatshere%5Bpoint%5D=66.951692%2C39.655811&whatshere%5Bzoom%5D=17&z=17.43"
+                           frameBorder="1"
+                           allowFullScreen
+                        ></iframe>
                   }
                </div>
             </div>

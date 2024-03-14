@@ -19,9 +19,7 @@ import FAQ from "@/container/FAQ";
 import BgAnimated from "@/container/BgAnimated";
 import CoursesLoading from "@/components/CoursesLoading";
 import RandomVideo from "@/components/RandomVideo";
-import DragableSection from "@/components/DragableSection";
-import Velocity from "@/container/Velocity";
-// import Loadind from "./loading";
+import Loadind from "./loading";
 
 export default async function Home({
    params: { lang },
@@ -32,7 +30,7 @@ export default async function Home({
 
    return (
       <>
-         {/* <Loadind /> */}
+         <Loadind />
          <section>
             <Hero lang={lang} />
          </section>
@@ -45,12 +43,12 @@ export default async function Home({
             </div>
             <div className="custom-container min-h-[541px] max-xl:min-h-[350px] grid gap-5 max-2xl:gap-3 grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 py-14 max-xl:py-4 max-xl:rounded-3xl max-xl:bg-[#F5F5F5]">
                <div className="col-span-2 flex max-xl:hidden">
-                  <h2 className="max-w-[470px] m-auto text-5xl font-bold">
+                  <h2 className="max-w-[470px] m-auto text-5xl font-helveticaNeueBold">
                      {homePage.howOur.title}
                   </h2>
                </div>
                <div className="bg-[#FFF] flex flex-col justify-center py-4 px-7 max-xl:p-5 rounded-[22px]">
-                  <p className="text-8xl max-3xl:text-7xl max-2xl:text-6xl max-sm:text-4xl font-bold tracking-tighter text-white-gradient mb-2">
+                  <p className="text-8xl max-3xl:text-7xl max-2xl:text-6xl max-sm:text-4xl font-helveticaNeueBold tracking-tighter text-white-gradient mb-2">
                      11
                   </p>
                   <p className="max-sm:text-sm">
@@ -60,7 +58,7 @@ export default async function Home({
 
                <RandomVideo reviews={reviewsVideo} homePage={homePage} />
                <div className="bg-[#FFF] flex flex-col justify-center py-4 px-7 max-xl:p-5 rounded-[22px]">
-                  <p className="text-8xl max-3xl:text-7xl max-2xl:text-6xl max-sm:text-4xl font-bold tracking-tighter text-white-gradient mb-2">
+                  <p className="text-8xl max-3xl:text-7xl max-2xl:text-6xl max-sm:text-4xl font-helveticaNeueBold tracking-tighter text-white-gradient mb-2">
                      2200+
                   </p>
                   <p className="max-sm:text-sm">
@@ -68,7 +66,7 @@ export default async function Home({
                   </p>
                </div>
                <div className="bg-[#FFF] flex flex-col justify-center py-4 px-7 max-xl:p-5 rounded-[22px]">
-                  <p className="text-8xl max-3xl:text-7xl max-2xl:text-6xl max-sm:text-4xl font-bold tracking-tighter text-white-gradient mb-2">
+                  <p className="text-8xl max-3xl:text-7xl max-2xl:text-6xl max-sm:text-4xl font-helveticaNeueBold tracking-tighter text-white-gradient mb-2">
                      24/7
                   </p>
                   <p className="max-sm:text-sm">
@@ -76,7 +74,7 @@ export default async function Home({
                   </p>
                </div>
                <div className="bg-[#FFF] flex flex-col justify-center py-4 px-7 max-xl:p-5 rounded-[22px]">
-                  <p className="text-8xl max-3xl:text-7xl max-2xl:text-6xl max-sm:text-4xl font-bold tracking-tighter text-white-gradient mb-2">
+                  <p className="text-8xl max-3xl:text-7xl max-2xl:text-6xl max-sm:text-4xl font-helveticaNeueBold tracking-tighter text-white-gradient mb-2">
                      70%
                   </p>
                   <p className="max-sm:text-sm">
@@ -88,7 +86,7 @@ export default async function Home({
 
          <section className="">
             <div id="courses" className="">
-               <div className="custom-container mb-10 max-2xl:mb-2">
+               <div className="custom-container mb-4 max-2xl:mb-2">
                   <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl leading-normal font-bold">
                      {homePage.courses.title}
                   </h2>

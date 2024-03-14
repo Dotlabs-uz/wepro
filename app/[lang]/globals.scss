@@ -280,7 +280,7 @@ h2 {
 }
 
 .circle {
-   @apply w-[200px] h-[200px] max-md:w-[190px] max-md:h-[180px] max-sm:w-[150px] max-sm:h-[150px];
+   @apply w-[190px] h-[190px] max-md:w-[190px] max-md:h-[170px] max-sm:w-[140px] max-sm:h-[140px];
    transform: skew(30deg, 5deg) rotate(30deg) !important;
    border-radius: 8px;
    background: #0575e6;

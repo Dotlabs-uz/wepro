@@ -48,7 +48,7 @@ const Course: React.FC<CourseProps> = ({ item }) => {
 						/>
 					</div>
 					<div className="flex flex-col h-full px-7 max-2xl:px-4 pb-6 max-xl:pb-3 pt-3 max-xl:pt-0 max-lg:p-5">
-						<h3 className="text-3xl max-2xl:text-2xl max-sm:text-xl leading-normal max-sm:leading-tight font-bold mb-3">
+						<h3 className="text-3xl max-2xl:text-2xl max-sm:text-xl leading-normal max-sm:leading-tight font-helveticaNeueBold mb-3">
 							{item.title}
 						</h3>
 						<ul className="flex flex-wrap gap-1.5 mb-3 max-2xl:mb-3">

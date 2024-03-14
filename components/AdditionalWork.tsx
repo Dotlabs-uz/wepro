@@ -53,7 +53,7 @@ const AdditionalWork: React.FC<AdditionalWorkProps> = ({ course, data }) => {
                         className=""
                     />
                 </span>
-                <span className="text-xl max-xl:text-lg font-bold">
+                <span className="text-xl max-xl:text-lg font-helveticaNeueBold">
                     {course.studentsWork.button} “{data?.title}”
                 </span>
             </button>
