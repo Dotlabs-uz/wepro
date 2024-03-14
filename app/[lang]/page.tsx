@@ -19,7 +19,7 @@ import FAQ from "@/container/FAQ";
 import BgAnimated from "@/container/BgAnimated";
 import CoursesLoading from "@/components/CoursesLoading";
 import RandomVideo from "@/components/RandomVideo";
-import Loadind from "./loading";
+// import Loadind from "./loading";
 
 export default async function Home({
    params: { lang },
@@ -30,7 +30,7 @@ export default async function Home({
 
    return (
       <>
-         <Loadind />
+         {/* <Loadind /> */}
          <section>
             <Hero lang={lang} />
          </section>
