@@ -10,7 +10,7 @@ import Modal from "./Modal";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { IoIosMenu, IoLogoWhatsapp } from "react-icons/io";
-import { FaLinkedin, FaTelegram, FaTiktok, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaTelegram, FaTiktok, FaYoutube } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
@@ -79,17 +79,6 @@ const Header = ({ lang }: any) => {
 
    return (
       <>
-         {/* <Modal
-            isOpened={isOpened}
-            onClose={onClose}
-            select={false}
-            dcr={""}
-            admissionId={""}
-            courseId={""}
-            title={"Заявка на консультацию"}
-            type={"consultation"}
-         /> */}
-
          <motion.header
             transition={{ duration: 0.3, ease: "easeOut" }}
             className={`relative z-[56] m-auto duration-300 ease-in 
@@ -233,26 +222,15 @@ const Header = ({ lang }: any) => {
                               </p>
                            </div>
                            <div className="flex max-xl:flex-col items-center gap-3 mt-auto">
-                              <Link href={"#"} className={`text-gray-400 p-3.5 rounded-2xl duration-150 ease-in max-xl:hidden hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                              <Link href={"https://t.me/weprouz"} className={`text-gray-400 p-3.5 rounded-2xl duration-150 ease-in max-xl:hidden hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <FaTelegram size={25} />
                               </Link>
-                              <Link href={"#"} className={`text-gray-400 p-3.5 rounded-2xl duration-150 ease-in max-xl:hidden hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
-                                 <IoLogoWhatsapp size={25} />
-                              </Link>
-                              <a href="tel:+998 95 500-50-05" className={`w-full max-xl:flex hidden items-center gap-5 p-1 rounded-2xl cursor-pointer duration-150 ease-in text-[#151515cc] hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                              <a href="https://t.me/weprouz" className={`w-full max-xl:flex hidden items-center gap-5 p-1 rounded-2xl cursor-pointer duration-150 ease-in text-[#151515cc] hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <p className="bg-white text-gray-400 p-3 rounded-xl" style={pathName.includes("/course/") ? { background: "#020119" } : { background: "#fff" }}>
                                     <FaTelegram size={25} />
                                  </p>
                                  <p className="text-sm font-semibold" style={pathName.includes("/course/") ? { color: "#fff" } : {}}>
                                     Telegram
-                                 </p>
-                              </a>
-                              <a href="tel:+998 95 500-50-05" className={`w-full max-xl:flex hidden items-center gap-5 p-1 rounded-2xl cursor-pointer duration-150 ease-in text-[#151515cc] hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
-                                 <p className="bg-white text-gray-400 p-3 rounded-xl" style={pathName.includes("/course/") ? { background: "#020119" } : { background: "#fff" }}>
-                                    <IoLogoWhatsapp size={25} />
-                                 </p>
-                                 <p className="text-sm font-semibold" style={pathName.includes("/course/") ? { color: "#fff" } : {}}>
-                                    Whatsapp
                                  </p>
                               </a>
                               <a href="tel:+998 95 500-50-05" className={`w-full flex items-center gap-5 p-1 rounded-2xl cursor-pointer duration-150 ease-in text-[#151515cc] hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
@@ -268,7 +246,7 @@ const Header = ({ lang }: any) => {
                                     <MdEmail size={20} />
                                  </p>
                                  <p className="text-sm font-semibold" style={pathName.includes("/course/") ? { color: "#fff" } : {}}>
-                                    wepro@gmail.com
+                                    shakhabdumalikovich@gmail.com
                                  </p>
                               </Link>
                            </div>
@@ -286,22 +264,22 @@ const Header = ({ lang }: any) => {
                               </p>
                            </div>
                            <div className="flex flex-wrap items-center justify-between gap-3 mt-auto">
-                              <Link href={"#"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                              <Link href={"https://t.me/weprouz"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <FaTelegram size={25} className="m-auto" />
                               </Link>
-                              <Link href={"#"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
-                                 <IoLogoWhatsapp size={25} className="m-auto" />
-                              </Link>
-                              <Link href={"#"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                              {/* <Link href={"https://www.facebook.com/wepro.uz"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                                 <FaFacebook size={25} className="m-auto" />
+                              </Link> */}
+                              <Link href={"https://www.instagram.com/wepro.uz/"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <RiInstagramFill size={25} className="m-auto" />
                               </Link>
-                              <Link href={"#"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                              <Link href={"https://tiktok.com/weprouz"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <FaTiktok size={25} className="m-auto" />
                               </Link>
-                              <Link href={"#"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                              <Link href={"https://uz.linkedin.com/in/khamidovshakh"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <FaLinkedin size={25} className="m-auto" />
                               </Link>
-                              <Link href={"#"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                              <Link href={"https://www.youtube.com/@weproacademy2988"} className={`text-gray-400 w-fit p-3.5 rounded-2xl duration-150 ease-in hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <FaYoutube size={25} className="m-auto" />
                               </Link>
                            </div>

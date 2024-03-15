@@ -84,10 +84,10 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                 </AnimatePresence>
                 <div className="w-full mt-auto rounded-3xl max-lg:rounded-xl max-sm:rounded-lg px-6 max-xl:px-3 max-sm:px-2 backdrop-blur-[15px] bg-[#f4f4f48c]">
                     <div className="max-lg:hidden py-6 max-2xl:py-4 text-center border-b border-[#1515151a]">
-                        <h1 className="text-3xl max-lg:text-2xl font-bold">
+                        <h1 className="text-3xl max-lg:text-2xl font-helveticaNeueBold">
                             {homePage.Hero.title}
                         </h1>
-                        <p className="text-[#00000099] text-sm font-bold">
+                        <p className="text-[#00000099] text-sm font-helveticaNeueBold">
                             {homePage.Hero.dcr}
                         </p>
                     </div>
@@ -142,7 +142,7 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                                                 }
                                             </AnimatePresence >
 
-                                            <p className="text-xs font-bold">
+                                            <p className="text-xs font-helveticaNeueBold">
                                                 {item.title}
                                             </p>
                                         </motion.li>

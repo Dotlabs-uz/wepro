@@ -96,7 +96,7 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
                      </div>
                   </div>
                </div>
-               <div className="w-1/2 max-lg:w-full bg-[red] min-h-[300px] max-xl:max-h-[400px] h-full flex rounded-2xl overflow-hidden">
+               <div className="w-1/2 max-lg:w-full min-h-[300px] max-xl:max-h-[400px] h-full flex rounded-2xl overflow-hidden">
                   {
                      active === 0 ?
                         <iframe

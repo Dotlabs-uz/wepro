@@ -1,14 +1,11 @@
 import Image from "next/image";
-import { FaFigma } from "react-icons/fa";
-import { Suspense, useContext, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { Suspense, } from "react";
 import axios from "axios";
 import HeroTabs from "@/components/HeroTabs";
 import HeroLoading from "@/components/HeroLoading";
 import { getDictionary } from "@/lib/dictionary";
 import Link from "next/link";
 import HeroButton from "@/components/children/HeroButton";
-
 
 interface HeroProps {
    lang: any
@@ -24,11 +21,11 @@ const Hero: React.FC<HeroProps> = async ({ lang }) => {
       <div className="custom-container mt-10">
          <div className="max-sm:block hidden mb-8">
             <h1
-               className="text-4xl font-bold text-center mb-3"
+               className="text-4xl font-helveticaNeueBold text-center mb-3"
             >
                {homePage.Hero.title}
             </h1>
-            <p className="text-[#00000099] text-sm font-bold text-center mb-7">
+            <p className="text-[#00000099] text-sm font-helveticaNeueBold text-center mb-7">
                {homePage.Hero.dcr}
             </p>
 

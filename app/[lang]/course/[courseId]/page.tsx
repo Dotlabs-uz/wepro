@@ -16,7 +16,10 @@ import Group from "@/components/children/Group";
 import Image from "next/image";
 import AdditionalWork from "@/components/AdditionalWork";
 
-interface CourseProps { }
+interface CourseProps {
+}
+
+// Frontend-разработка обучение для начинающих в Самарканде
 
 const Page: React.FC<CourseProps> = async ({ params }: any) => {
    const { course, homePage, faq } = await getDictionary(params.lang);
@@ -279,4 +282,4 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
    );
 };
 
-export default Page;
+export default Page
