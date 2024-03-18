@@ -75,8 +75,6 @@ const Header = ({ lang }: any) => {
          })
    }, [])
 
-   console.log(data);
-
    return (
       <>
          <motion.header

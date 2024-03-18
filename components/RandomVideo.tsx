@@ -12,35 +12,14 @@ const RandomVideo: React.FC<RandomVideoProps> = ({ reviews, homePage }) => {
     const [randomNumber, setRandomNumber] = useState<string | null>("0");
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
-    const handlePlay = () => {
-        console.log('play');
+    useEffect(() => {
+        // const interval = setInterval(() => {
+        const randomVideo = Math.floor(Math.random() * 8);
+        setRandomNumber(randomVideo.toString());
+        // }, 10000);
 
-        setIsPlaying(true)
-    }
-    const handleStop = () => {
-        console.log('pause');
-
-        setIsPlaying(false)
-    }
-
-    const changeVideo = () => {
-        if (!isPlaying) {
-            let interval = setInterval(() => {
-                const randomVideo = Math.floor(Math.random() * 8);
-                setRandomNumber(randomVideo.toString());
-            }, 5000);
-        }
-    }
-
-    console.log(isPlaying);
-
-
-    // useEffect(() => {
-    // }, []);
-
-    // const clearChange = () => {
-    //     return (() => clearInterval(interval))
-    // }
+        // return (() => clearInterval(interval))
+    }, []);
 
     return (
         <div className='max-md:hidden h-full relative row-span-2 flex p-5 max-2xl:p-3 rounded-[22px] overflow-hidden'>
@@ -53,12 +32,9 @@ const RandomVideo: React.FC<RandomVideoProps> = ({ reviews, homePage }) => {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                className=""
-                                onClick={handlePlay}
                             >
-                                <motion.div className="absolute z-10 top-0 left-0 w-full h-full">
+                                <motion.div className="absolute top-0 left-0 w-full h-full">
                                     <iframe
-                                        onPlay={() => console.log("log")}
                                         width="100%"
                                         height="100%"
                                         src={`https://www.youtube.com/embed/${item.url}`}
@@ -66,9 +42,9 @@ const RandomVideo: React.FC<RandomVideoProps> = ({ reviews, homePage }) => {
                                     ></iframe>
                                 </motion.div>
                                 <div className="absolute bottom-3 left-3 flex gap-2">
-                                    {/* <button className="bg-white px-6 max-2xl:px-4 rounded-xl">
+                                    <button className="bg-white px-6 max-2xl:px-4 rounded-xl">
                                         <FaPlay size={20} color="black" />
-                                    </button> */}
+                                    </button>
                                     <div className="backdrop-blur-[7px] rounded-xl p-3 max-2xl:p-2 bg-[#ffffff99]">
                                         <p className="text-xs font-bold">
                                             {homePage.howOur.look}

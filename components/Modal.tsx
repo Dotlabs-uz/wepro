@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
+// import Lenis from '@studio-freight/lenis'
 
 import { BiCloset } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
@@ -86,6 +87,15 @@ const Modal: React.FC<ModalProps> = () => {
 				console.log(err);
 			});
 	};
+
+	// useEffect(() => {
+	// 	const lenis = new Lenis()
+	// 	function raf(time: any) {
+	// 		lenis.raf(time)
+	// 		requestAnimationFrame(raf)
+	// 	}
+	// 		requestAnimationFrame(raf)
+	// }, [])
 
 	useEffect(() => {
 		if (isOpen) {
