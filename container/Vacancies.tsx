@@ -38,9 +38,9 @@ const Vacancies: React.FC<VacanciesProps> = ({ data, course }) => {
 
    return (
       <motion.div
-         className="bg-[#D6001C] mx-auto rounded-3xl"
+         className="bg-[#D6001C] mx-auto rounded-3xl my-14 max-lg:my-10"
       >
-         <div className="custom-container py-14 max-xl:py-10 max-lg:py-7">
+         <div className="custom-container  py-14 max-xl:py-10 max-lg:py-7">
             <div className="mb-11 max-lg:mb-8 max-md:mb-6">
                <h2 className="mb-8 max-lg:mb-4 text-white">
                   {course.vacancies.title}
