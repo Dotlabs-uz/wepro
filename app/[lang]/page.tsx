@@ -103,7 +103,7 @@ export default async function Home({
                <div className="md:text-center">
                   <h2 className="text-white">{homePage.reviews.title}</h2>
                   <div className="max-w-[400px] max-md:max-w-[300px] md:m-auto">
-                     <p className="text-xl max-md:text-lg leading-normal font-medium text-[#A3A2AB]">
+                     <p className="text-xl max-md:text-lg leading-normal font-helveticaNeueMedium text-[#A3A2AB]">
                         {homePage.reviews.dcr}
                      </p>
                   </div>
@@ -129,8 +129,35 @@ export default async function Home({
             </BgAnimated>
          </section> */}
 
+         <section>
+            <div className="custom-container">
+               <div className="text-center mb-12">
+                  <h2>
+                     Наши учителя влюбляют в учебу
+                  </h2>
+                  <p className="max-w-4xl m-auto text-xl max-md:text-lg leading-normal font-helveticaNeueMedium text-[#A3A2AB]">
+                     Кто-то любит пошутить и объяснить сложные штуки через игру. Кто-то направит, а кто-то даст свободу. Но все наши учителя любят своё дело и заряжают интересом всех учеников
+                  </p>
+               </div>
+               <div className="max-md:w-fit m-auto flex items-center justify-center flex-wrap max-md:grid max-md:grid-cols-3 max-sm:grid-cols-2 gap-10 max-md:gap-6">
+                  {
+                     [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item: number) => (
+                        <div key={item} className="max-w-[240px] h-auto bg-[red] w-full">
+                           <Image
+                              className="w-full h-full object-cover"
+                              src={`/images/teachers/teacher-${item}.webp`}
+                              width={1000}
+                              height={1000}
+                              alt="teacher"
+                           />
+                        </div>
+                     ))
+                  }
+               </div>
+            </div>
+         </section>
+
          <Company homePage={homePage} />
-         {/* <DragableSection /> */}
          <section className="bg-[#F5F5F5] mb-28">
             <div className="custom-container">
                <div className="flex px-28 max-2xl:px-10 max-xl:px-0">

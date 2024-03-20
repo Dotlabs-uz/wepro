@@ -98,56 +98,53 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                         >
                             {courses.map((item: any, idx: number) => {
                                 return (
-                                    <>
-                                        <motion.li
-                                            key={item._id}
-                                            id={`item-${idx}`}
-                                            onClick={() => handelSlide(idx)}
-                                            className="overflow-hidden flex-shrink-0 text-nowrap space-nowrap relative flex items-center gap-2 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer"
-                                            style={{
-                                                background:
-                                                    currentSlide === idx
-                                                        ? "#151fe166"
-                                                        : "transparent",
-                                                color:
-                                                    currentSlide === idx
-                                                        ? "white"
-                                                        : "black",
-                                            }}
-                                        >
-                                            <AnimatePresence>
-                                                {
-                                                    idx === currentSlide && (
-                                                        <motion.span
-                                                            initial={{ opacity: 0 }}
-                                                            animate={{ opacity: 1 }}
-                                                            exit={{ opacity: 0 }}
-                                                            transition={{
-                                                                duration: .4,
-                                                            }}
-                                                            className="absolute inset-0 z-[-1] rounded-lg transition-all bg-[#151FE1]"
-                                                            style={
-                                                                currentSlide === idx
-                                                                    ? {
-                                                                        width: `${progress}%`,
-                                                                        background: "#151FE1",
-                                                                    }
-                                                                    : {
-                                                                        background: "transparent",
-                                                                    }
-                                                            }
-                                                        >
-                                                        </motion.span>
-                                                    )
-                                                }
-                                            </AnimatePresence >
+                                    <motion.li
+                                        key={idx}
+                                        id={`item-${idx}`}
+                                        onClick={() => handelSlide(idx)}
+                                        className="overflow-hidden flex-shrink-0 text-nowrap space-nowrap relative flex items-center gap-2 max-2xl:gap-2 py-3 px-7 max-3xl:px-5 max-2xl:px-4 rounded-lg cursor-pointer"
+                                        style={{
+                                            background:
+                                                currentSlide === idx
+                                                    ? "#151fe166"
+                                                    : "transparent",
+                                            color:
+                                                currentSlide === idx
+                                                    ? "white"
+                                                    : "black",
+                                        }}
+                                    >
+                                        <AnimatePresence>
+                                            {
+                                                idx === currentSlide && (
+                                                    <motion.span
+                                                        initial={{ opacity: 0 }}
+                                                        animate={{ opacity: 1 }}
+                                                        exit={{ opacity: 0 }}
+                                                        transition={{
+                                                            duration: .4,
+                                                        }}
+                                                        className="absolute inset-0 z-[-1] rounded-lg transition-all bg-[#151FE1]"
+                                                        style={
+                                                            currentSlide === idx
+                                                                ? {
+                                                                    width: `${progress}%`,
+                                                                    background: "#151FE1",
+                                                                }
+                                                                : {
+                                                                    background: "transparent",
+                                                                }
+                                                        }
+                                                    >
+                                                    </motion.span>
+                                                )
+                                            }
+                                        </AnimatePresence >
 
-                                            <p className="text-xs font-helveticaNeueBold">
-                                                {item.title}
-                                            </p>
-                                        </motion.li>
-                                    </>
-
+                                        <p className="text-xs font-helveticaNeueBold">
+                                            {item.title}
+                                        </p>
+                                    </motion.li>
                                 );
                             })}
                         </ul>

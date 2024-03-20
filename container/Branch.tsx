@@ -100,9 +100,8 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
                   {
                      active === 0 ?
                         <iframe
+                           className="w-full h-auto"
                            src="https://yandex.uz/map-widget/v1/?ll=66.923906%2C39.652239&mode=whatshere&whatshere%5Bpoint%5D=66.922920%2C39.652300&whatshere%5Bzoom%5D=17&z=17.87"
-                           width="560"
-                           height="400"
                            frameBorder="1"
                            allowFullScreen
                         ></iframe>
