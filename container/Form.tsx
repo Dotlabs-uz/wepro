@@ -135,11 +135,11 @@ const Form: React.FC<FormProps> = ({ homePage, courseId }) => {
                   <div className="">
                      <p className="max-md:text-xs font-bold text-[#A3A2AB]">
                         {homePage.form.text2}
-                        <span className="text-[#000]"> {homePage.form.telegram}</span>:
+                        <span className="text-[#000]">&nbsp;{homePage.form.telegram}</span>:
                      </p>
                   </div>
                   <Link
-                     href={"#"}
+                     href={"https://t.me/weprouz"}
                      className="flex items-center p-2 max-sm:p-1 rounded-lg bg-[#F4F4F4]"
                   >
                      <span className="bg-white p-2 max-sm:p-1 rounded-lg">

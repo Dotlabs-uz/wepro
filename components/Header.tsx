@@ -147,6 +147,7 @@ const Header = ({ lang }: any) => {
                      animate={{ opacity: 1 }}
                      exit={{ opacity: 0 }}
                      transition={{ duration: 0.3 }}
+                     onClick={() => setMenu(false)}
                      className={`w-full h-full fixed z-[-1] top-0 left-0 backdrop-blur-sm ${pathName.includes("/course/") ? "bg-white/10" : "bg-[#010018E5]"}`}
                   >
                      <motion.div
@@ -154,9 +155,9 @@ const Header = ({ lang }: any) => {
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: 20, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="custom-container h-screen overflow-auto no-scroll m-auto pt-24 pb-20 max-sm:pb-60 grid grid-cols-10 gap-2.5"
+                        className="custom-container h-screen grid-cols-10 gap-2.5 m-auto pt-24 pb-20 max-sm:pb-60 grid overflow-auto no-scroll"
                      >
-                        <div className={`col-span-6 max-2xl:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-0 rounded-2xl ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
+                        <div onClick={(e) => e.stopPropagation()} className={`col-span-6 max-2xl:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-0 rounded-2xl ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
                            <div className="flex items-center gap-4 mb-10 max-md:mb-5 max-md:p-3">
                               <div className={`w-fit flex gap-0.5 py-2 px-3 rounded-lg ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
@@ -189,7 +190,7 @@ const Header = ({ lang }: any) => {
                               }
                            </ul>
                         </div>
-                        <div className={`col-span-4 max-2xl:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-0 rounded-2xl ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
+                        <div onClick={(e) => e.stopPropagation()} className={`col-span-4 max-2xl:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-0 rounded-2xl ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
                            <div className="flex items-center gap-4 mb-10 max-md:mb-5 max-md:p-3">
                               <div className={`w-fit flex gap-0.5 py-2 px-3 rounded-lg ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
@@ -207,7 +208,7 @@ const Header = ({ lang }: any) => {
                               }
                            </div>
                         </div>
-                        <div className={`col-span-6 max-xl:col-span-5 max-md:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-3 rounded-2xl ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
+                        <div onClick={(e) => e.stopPropagation()} className={`col-span-6 max-xl:col-span-5 max-md:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-3 rounded-2xl ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
                            <div className="flex items-center gap-4 mb-10 max-md:mb-5">
                               <div className={`w-fit flex gap-0.5 py-2 px-3 rounded-lg ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
@@ -239,17 +240,17 @@ const Header = ({ lang }: any) => {
                                     +998 95 500-50-05
                                  </p>
                               </a>
-                              <Link href="#" className={`w-full flex items-center gap-5 p-1 rounded-2xl cursor-pointer duration-150 ease-in text-[#151515cc] hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                              <a href="mailto:shakhabdumalikovich@gmail.com" className={`w-full flex items-center gap-5 p-1 rounded-2xl cursor-pointer duration-150 ease-in text-[#151515cc] hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <p className="text-gray-400 p-3 rounded-xl" style={pathName.includes("/course/") ? { background: "#020119" } : { background: "#fff" }}>
                                     <MdEmail size={20} />
                                  </p>
                                  <p className="text-sm font-semibold" style={pathName.includes("/course/") ? { color: "#fff" } : {}}>
                                     shakhabdumalikovich@gmail.com
                                  </p>
-                              </Link>
+                              </a>
                            </div>
                         </div>
-                        <div className={`col-span-4 max-xl:col-span-5 max-md:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-3 rounded-2xl ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
+                        <div onClick={(e) => e.stopPropagation()} className={`col-span-4 max-xl:col-span-5 max-md:col-span-10 flex flex-col p-8 max-lg:p-5 max-md:p-3 rounded-2xl ${pathName.includes("/course/") ? "bg-[#020119]" : "bg-white"}`}>
                            <div className="flex items-center gap-4 mb-10 max-md:mb-5">
                               <div className={`w-fit flex gap-0.5 py-2 px-3 rounded-lg ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <span className="block w-1.5 h-6 rounded-full bg-blue-700"></span>
