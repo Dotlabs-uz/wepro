@@ -130,9 +130,23 @@ export default async function Home({
          </section> */}
 
          <section>
-            <div className="custom-container">
-               <div className="text-center mb-12">
-                  <h2>
+            <div className="custom-container relative">
+               <div className="md:text-center mb-12">
+                  <Image
+                     className="max-w-7xl w-full h-auto m-auto absolute z-[-1] top-0 left-1/2 -translate-x-1/2"
+                     src={'/images/yellow-hearts.png'}
+                     width={1000}
+                     height={1000}
+                     alt="hearts"
+                  />
+                  <Image
+                     className="max-w-7xl w-full h-auto m-auto absolute z-[-1] top-0 left-1/2 -translate-x-1/2"
+                     src={'/images/gray-hearts.png'}
+                     width={1000}
+                     height={1000}
+                     alt="hearts"
+                  />
+                  <h2 className="max-w-md w-full m-auto">
                      Наши учителя влюбляют в учебу
                   </h2>
                   <p className="max-w-4xl m-auto text-xl max-md:text-lg leading-normal font-helveticaNeueMedium text-[#A3A2AB]">
