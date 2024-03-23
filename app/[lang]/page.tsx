@@ -114,9 +114,9 @@ export default async function Home({
             </div>
          </BgAnimated>
 
-         <section>
+         {/* <section>
             <ScrollAnimation lang={homePage} />
-         </section>
+         </section> */}
 
          <section>
             <Branch lang={homePage} />

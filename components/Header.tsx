@@ -123,12 +123,12 @@ const Header = ({ lang }: any) => {
                   </div>
 
                   <div className="flex items-center gap-7 max-2xl:gap-5 max-xl:gap-3">
-                     <Link
+                     {/* <Link
                         className={`uppercase underline underline-offset-2 font-semibold ${pathName.includes("/course/") ? "text-white" : "text-black"}`}
                         href={href}
                      >
                         {locale}
-                     </Link>
+                     </Link> */}
 
                      <button
                         onClick={onOpen}
