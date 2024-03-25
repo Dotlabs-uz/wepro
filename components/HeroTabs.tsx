@@ -75,8 +75,8 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: .4, }}
                                     className="w-full h-full object-cover rounded-3xl max-md:rounded-2xl pointer-events-none select-none"
-                                    src={courses[currentSlide]?.preview}
-                                    alt="course"
+                                    src={courses[currentSlide]?.image}
+                                    alt="banner"
                                 />
                             </div>
                         )
@@ -142,7 +142,7 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                                         </AnimatePresence >
 
                                         <p className="text-xs font-helveticaNeueBold">
-                                            {item.title}
+                                            {item.buttonText}
                                         </p>
                                     </motion.li>
                                 );

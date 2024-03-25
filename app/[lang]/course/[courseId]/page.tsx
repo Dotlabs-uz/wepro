@@ -28,7 +28,6 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
    return (
       <>
          <HeroCourse data={data} course={course} />
-
          {
             data?.canCreate[0] ?
                <section>

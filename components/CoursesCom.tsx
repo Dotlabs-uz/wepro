@@ -1,7 +1,4 @@
 import axios from "axios";
-import { motion } from 'framer-motion';
-
-import { Locale } from "@/i18n.config";
 
 import {
    Carousel,

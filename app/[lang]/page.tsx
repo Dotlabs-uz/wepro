@@ -19,6 +19,7 @@ import FAQ from "@/container/FAQ";
 import BgAnimated from "@/container/BgAnimated";
 import CoursesLoading from "@/components/CoursesLoading";
 import RandomVideo from "@/components/RandomVideo";
+import axios from "axios";
 // import Loadind from "./loading";
 
 export default async function Home({
@@ -27,6 +28,12 @@ export default async function Home({
    params: { lang: Locale };
 }) {
    const { homePage, faq } = await getDictionary(lang);
+   const { data } = await axios.get(
+      process.env.NEXT_PUBLIC_BASE + "/banners"
+   );
+
+   console.log(data);
+
 
    return (
       <>
@@ -94,6 +101,22 @@ export default async function Home({
                <Suspense fallback={<CoursesLoading />}>
                   <Courses category="all" lang={lang} />
                </Suspense>
+               <div className="grid grid-cols-3 gap-5">
+                  {
+                     data.map((item: any) => (
+                        <div key={item._id} className="">
+                           <div className="">
+                              <img src={item?.image} alt="banner" />
+                           </div>
+                           <div className="">
+                              <h3>{item?.title}</h3>
+                              <p>{item?.description}</p>
+                              <button>{item.buttonText}</button>
+                           </div>
+                        </div>
+                     ))
+                  }
+               </div>
             </div>
          </section>
 

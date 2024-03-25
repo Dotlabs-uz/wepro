@@ -13,7 +13,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = async ({ lang }) => {
    const { data } = await axios.get(
-      process.env.NEXT_PUBLIC_BASE + "/courses?project=wepro"
+      process.env.NEXT_PUBLIC_BASE + "/banners"
    );
    const { homePage } = await getDictionary(lang);
 

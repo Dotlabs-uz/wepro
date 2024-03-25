@@ -61,6 +61,78 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                     }
                                 </h1>
 
+                                <div className="bg-white py-4 max-xs:py-3 px-7 max-xl:px-5 max-xs:px-3 rounded-3xl max-md:rounded-2xl mb-5">
+                                    <div className="sm:flex max-sm:flex-wrap sm:items-center sm:justify-between max-sm:grid grid-cols-2  max-md:gap-y-4 mb-5">
+                                        <div className="">
+                                            <p className="flex gap-1 font-bold leading-normal">
+                                                {
+                                                    data?.month ?
+                                                        (
+                                                            <span className="">
+                                                                {data?.month} {course.hero.months}
+                                                            </span>
+                                                        )
+                                                        :
+                                                        (
+                                                            <span className="w-24 h-4 animate-pulse rounded-xl bg-gray-300"></span>
+                                                        )
+                                                }
+                                            </p>
+                                            <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
+                                                {course.hero.duration}
+                                            </p>
+                                        </div>
+                                        <div className="">
+                                            <p className="font-bold leading-normal">
+                                                {
+                                                    data?.price ?
+                                                        (
+                                                            <span className="">
+                                                                {price} {course.hero.sum}
+                                                            </span>
+                                                        )
+                                                        :
+                                                        (
+                                                            <span className="block w-24 h-4 animate-pulse rounded-xl bg-gray-300"></span>
+                                                        )
+                                                }
+                                            </p>
+                                            <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
+                                                {course.hero.price}
+                                            </p>
+                                        </div>
+                                        <div className="">
+                                            <p className="font-bold leading-normal">
+                                                {
+                                                    data?.lessons ?
+                                                        (
+                                                            <span className="">
+                                                                {data?.lessons.length} {course.hero.lessons}, &nbsp;
+                                                                {Math.ceil(data?.lessons.length * 1.5)} {course.hero.hours}
+                                                            </span>
+                                                        )
+                                                        :
+                                                        (
+                                                            <span className="block w-24 h-4 animate-pulse rounded-xl bg-gray-300"></span>
+                                                        )
+                                                }
+                                            </p>
+
+                                            <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
+                                                {course.hero.number}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="">
+                                        <button
+                                            onClick={onOpen}
+                                            className="bg-black text-white w-full text-xl max-lg:text-lg font-bold py-4 rounded-lg"
+                                        >
+                                            {course.hero.button}
+                                        </button>
+                                    </div>
+                                </div>
+
                                 <h3 className="text-2xl max-2xl:text-xl max-lg:text-lg leading-normal max-sm:leading-snug mb-5 text-white">
                                     {
                                         data?.textAboutCourse ?
@@ -108,8 +180,7 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                 }
                             </div>
                         </div>
-
-                        <div className="bg-white py-4 max-xs:py-3 px-7 max-xl:px-5 max-xs:px-3 rounded-3xl max-md:rounded-2xl">
+                        <div className="bg-white py-4 max-xs:py-3 px-7 max-xl:px-5 max-xs:px-3 rounded-3xl max-md:rounded-2xl max-md:hidden">
                             <div className="sm:flex max-sm:flex-wrap sm:items-center sm:justify-between max-sm:grid grid-cols-2  max-md:gap-y-4 mb-5">
                                 <div className="">
                                     <p className="flex gap-1 font-bold leading-normal">
