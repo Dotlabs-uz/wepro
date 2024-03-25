@@ -243,8 +243,8 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                            </h3>
                            <ul className="text-[#A3A2AB] font-medium">
                               <li className="text-black text-2xl max-md:text-xl font-bold mb-5 max-md:mb-2">
-                                 <a href={"tel:+998 (90) 197-71-00"}>
-                                    +998 (90) 197-71-00
+                                 <a href={"tel:+998 90 197-71-00"}>
+                                    +998 90 197-71-00
                                  </a>
                               </li>
                               <li className="mb-1">

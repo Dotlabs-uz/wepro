@@ -232,12 +232,12 @@ const Header = ({ lang }: any) => {
                                     Telegram
                                  </p>
                               </a>
-                              <a href="tel:+998 95 500-50-05" className={`w-full flex items-center gap-5 p-1 rounded-2xl cursor-pointer duration-150 ease-in text-[#151515cc] hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
+                              <a href="tel:+998 90 197-71-00" className={`w-full flex items-center gap-5 p-1 rounded-2xl cursor-pointer duration-150 ease-in text-[#151515cc] hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
                                  <p className="bg-white p-3 text-gray-400 rounded-xl" style={pathName.includes("/course/") ? { background: "#020119" } : { background: "#fff" }}>
                                     <FaPhone size={20} />
                                  </p>
                                  <p className="text-sm font-semibold" style={pathName.includes("/course/") ? { color: "#fff" } : {}}>
-                                    +998 95 500-50-05
+                                    +998 90 197-71-00
                                  </p>
                               </a>
                               <a href="mailto:shakhabdumalikovich@gmail.com" className={`w-full flex items-center gap-5 p-1 rounded-2xl cursor-pointer duration-150 ease-in text-[#151515cc] hover:text-white hover:bg-[#151FE1] ${pathName.includes("/course/") ? "bg-[#0b0a24]" : "bg-[#f4f4f4]"}`}>
