@@ -46,7 +46,7 @@ const RandomVideo: React.FC<RandomVideoProps> = ({ reviews, homePage }) => {
                                         <FaPlay size={20} color="black" />
                                     </button>
                                     <div className="backdrop-blur-[7px] rounded-xl p-3 max-2xl:p-2 bg-[#ffffff99]">
-                                        <p className="text-xs font-bold">
+                                        <p className="text-xs font-helveticaNeueBold">
                                             {homePage.howOur.look}
                                         </p>
                                         <p>{item.name}</p>

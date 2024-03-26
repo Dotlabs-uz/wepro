@@ -35,7 +35,7 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
          <div className="custom-container my-28 max-lg:my-24 max-sm:my-20">
             <div className="flex max-lg:flex-col items-center gap-20 max-2xl:gap-10 max-lg:gap-7 max-sm:gap-4 mb-11 max-lg:mb-7 max-sm:mb-4 mx-28 max-2xl:mx-0 max-xl:mx-0">
                <div className="w-1/2 max-lg:w-full">
-                  <h2 className="text-5xl max-2xl:text-4xl leading-normal font-bold mb-4">
+                  <h2 className="text-5xl max-2xl:text-4xl leading-normal font-helveticaNeueBold mb-4">
                      {lang.branch.title}
                   </h2>
                   <p className="mb-8 max-lg:mb-4 text-xl max-md:text-lg font-helveticaNeueMedium max-xs:leading-snug text-[#A3A2AB]">
@@ -50,7 +50,7 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
                            className={`${active === tab.id
                               ? "text-white"
                               : "hover:text-black/60"
-                              } relative w-full z-10 rounded-lg py-4 max-lg:py-3 px-8 max-3xl:px-5 max-lg:px-4 text-sm font-bold text-center text-nowrap text-black outline-sky-400 transition focus-visible:outline-2`}
+                              } relative w-full z-10 rounded-lg py-4 max-lg:py-3 px-8 max-3xl:px-5 max-lg:px-4 text-sm font-helveticaNeueBold text-center text-nowrap text-black outline-sky-400 transition focus-visible:outline-2`}
                            style={{
                               WebkitTapHighlightColor: "transparent",
                            }}
@@ -116,7 +116,7 @@ const Branch: React.FC<BranchProps> = ({ lang }) => {
                </div>
             </div>
             <div className="w-fit m-auto max-sm:w-full">
-               <button onClick={onOpen} className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-sm:w-full py-4 px-[94px] text-[20px] max-sm:text-base font-bold rounded-[7px] border duration-150 ease-in">
+               <button onClick={onOpen} className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-sm:w-full py-4 px-[94px] text-[20px] max-sm:text-base font-helveticaNeueBold rounded-[7px] border duration-150 ease-in">
                   {lang.branch.button3}
                </button>
             </div>

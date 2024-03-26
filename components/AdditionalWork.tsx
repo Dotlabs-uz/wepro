@@ -18,7 +18,7 @@ const AdditionalWork: React.FC<AdditionalWorkProps> = ({ course, data }) => {
     return (
         <div className="">
             <div className="mb-9 max-lg:mb-5 mt-12 max-xl:mt-8 max-md:mt-6">
-                <h3 className="text-2xl max-md:text-xl font-bold md:text-center text-white">
+                <h3 className="text-2xl max-md:text-xl font-helveticaNeueBold md:text-center text-white">
                     {course.studentsWork.additional}
                 </h3>
             </div>
@@ -29,13 +29,13 @@ const AdditionalWork: React.FC<AdditionalWorkProps> = ({ course, data }) => {
                             key={item._id}
                             className="flex items-center justify-between py-4 border-b border-[#ffffff66]"
                         >
-                            <p className="text-[#A3A2AB] max-lg:text-sm font-bold">
+                            <p className="text-[#A3A2AB] max-lg:text-sm font-helveticaNeueBold">
                                 0{idx + 1}.
                             </p>
-                            <p className="text-white text-2xl max-2xl:text-xl font-bold">
+                            <p className="text-white text-2xl max-2xl:text-xl font-helveticaNeueBold">
                                 {item.title}
                             </p>
-                            <p className="p-1 px-2 font-bold rounded-lg max-2xl:text-base text-white bg-[#ffffff99]">
+                            <p className="p-1 px-2 font-helveticaNeueBold rounded-lg max-2xl:text-base text-white bg-[#ffffff99]">
                                 {course.studentsWork.from} ${item.money}$/{course.studentsWork.month}
                             </p>
                         </div>

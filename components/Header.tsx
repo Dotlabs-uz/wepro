@@ -115,7 +115,7 @@ const Header = ({ lang }: any) => {
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                      <button
                         onClick={HandelMenu}
-                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white flex items-center gap-2 font-bold py-2 max-sm:py-1 px-4 max-sm:px-2 rounded-md border duration-150 ease-in"
+                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white flex items-center gap-2 font-helveticaNeueBold py-2 max-sm:py-1 px-4 max-sm:px-2 rounded-md border duration-150 ease-in"
                      >
                         {menu ? <IoClose size={20} /> : <IoIosMenu size={20} />}
                         {lang.menu.title}
@@ -132,7 +132,7 @@ const Header = ({ lang }: any) => {
 
                      <button
                         onClick={onOpen}
-                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-bold py-3 px-6 max-3xl:px-3 rounded-md border duration-150 ease-in max-lg:hidden block"
+                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-helveticaNeueBold py-3 px-6 max-3xl:px-3 rounded-md border duration-150 ease-in max-lg:hidden block"
                      >
                         {lang.button}
                      </button>
@@ -204,7 +204,7 @@ const Header = ({ lang }: any) => {
                            </div>
                            <div className="grid grid-cols-2 max-2xl:grid-cols-4 max-md:grid-flow-col max-md:grid-cols-[200px] gap-2 mt-auto max-md:p-3 max-md:overflow-auto no-scroll">
                               {
-                                 links.map((link: { title: string, link: string, img: string }, idx: number) => <LinkPages link={link} idx={idx} HandelMenu={HandelMenu} pathName={pathName} />)
+                                 links.map((link: { title: string, link: string, img: string }, idx: number) => <LinkPages key={idx} link={link} idx={idx} HandelMenu={HandelMenu} pathName={pathName} />)
                               }
                            </div>
                         </div>

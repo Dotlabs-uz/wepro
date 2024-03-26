@@ -125,10 +125,10 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                   <div className="md:mb-12 pt-16 max-lg:pt-10 max-md:pt-7 px-28 max-3xl:px-20 max-2xl:px-10 max-lg:px-4 rounded-2xl shadow-[0px_5px_20px_0px_#15151526] bg-[#F5F5F5]">
                      <div className="flex md:gap-5 items-center justify-between pb-16 max-lg:pb-10 max-md:pb-7">
                         <div className="w-full">
-                           <h2 className="text-5xl max-xl:text-4xl max-md:text-2xl font-bold mb-4">
+                           <h2 className="text-5xl max-xl:text-4xl max-md:text-2xl font-helveticaNeueBold mb-4">
                               {homePage.footer.title}
                            </h2>
-                           <p className="text-[#A3A2AB] max-w-xl text-[22px] max-2xl:text-xl max-lg:text-lg font-medium mb-5 xl:mr-20">
+                           <p className="text-[#A3A2AB] max-w-xl text-[22px] max-2xl:text-xl max-lg:text-lg font-helveticaNeueMedium mb-5 xl:mr-20">
                               {homePage.footer.dcr}
                            </p>
                            <form
@@ -166,7 +166,7 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                               </div>
                               <button
                                  disabled={disabled}
-                                 className={`bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white text-lg font-bold py-4 max-sm:py-3 border rounded-[7px] col-span-2 duration-150 ease-in ${disabled ? "bg-transparent border-[#151FE1] text-[#151FE1]" : "text-white"}`}
+                                 className={`bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white text-lg font-helveticaNeueBold py-4 max-sm:py-3 border rounded-[7px] col-span-2 duration-150 ease-in ${disabled ? "bg-transparent border-[#151FE1] text-[#151FE1]" : "text-white"}`}
                               >
                                  {
                                     disabled ?
@@ -197,16 +197,16 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                               />
                            </div>
                            <div className="max-w-xs">
-                              <p className="max-sm:text-sm max-sm:leading-tight font-medium text-[#A3A2AB]">
+                              <p className="max-sm:text-sm max-sm:leading-tight font-helveticaNeueMedium text-[#A3A2AB]">
                                  {homePage.footer.text}
                               </p>
                            </div>
                         </div>
                         <div className="col-span-2">
-                           <h3 className="text-lg font-bold mb-5 max-md:mb-2">
+                           <h3 className="text-lg font-helveticaNeueBold mb-5 max-md:mb-2">
                               {homePage.footer.courses}
                            </h3>
-                           <ul className="text-[#A3A2AB] grid grid-cols-2 gap-x-3 font-medium">
+                           <ul className="text-[#A3A2AB] grid grid-cols-2 gap-x-3 font-helveticaNeueMedium">
                               {
                                  courses.map((course: { title: string, link: string }, idx: number) => (
                                     <li key={idx} className="w-fit max-md:text-sm max-sm:leading-tight mb-2">
@@ -219,10 +219,10 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                            </ul>
                         </div>
                         <div className="max-xs:col-span-2">
-                           <h3 className="text-lg font-bold mb-5 max-md:mb-2">
+                           <h3 className="text-lg font-helveticaNeueBold mb-5 max-md:mb-2">
                               {homePage.footer.net}
                            </h3>
-                           <ul className="text-[#A3A2AB] font-medium">
+                           <ul className="text-[#A3A2AB] font-helveticaNeueMedium">
                               <li className="max-sm:text-sm max-sm:leading-tight mb-2">
                                  <AnimateLink href="https://www.instagram.com/wepro.uz/">Instagram</AnimateLink>
                               </li>
@@ -238,11 +238,11 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                            </ul>
                         </div>
                         <div className="max-xs:col-span-2">
-                           <h3 className="text-lg font-bold mb-5 max-md:mb-2">
+                           <h3 className="text-lg font-helveticaNeueBold mb-5 max-md:mb-2">
                               {homePage.footer.contacts}
                            </h3>
-                           <ul className="text-[#A3A2AB] font-medium">
-                              <li className="text-black text-2xl max-md:text-xl font-bold mb-5 max-md:mb-2">
+                           <ul className="text-[#A3A2AB] font-helveticaNeueMedium">
+                              <li className="text-black text-2xl max-md:text-xl font-helveticaNeueBold mb-5 max-md:mb-2">
                                  <a href={"tel:+998 90 197-71-00"}>
                                     +998 90 197-71-00
                                  </a>
@@ -257,7 +257,7 @@ const Footer: React.FC<FooterProps> = ({ homePage }) => {
                         </div>
                      </div>
                      <div className="py-8 max-md:py-6 border-t border-[#1515151a]">
-                        <p className="font-bold">MChJ “Wepro” © 2024</p>
+                        <p className="font-helveticaNeueBold">MChJ “Wepro” © 2024</p>
                      </div>
                   </div>
                </footer>

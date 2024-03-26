@@ -7,10 +7,10 @@ const HeroLoading: React.FC<HeroLoadingProps> = () => {
             <div className="w-full min-h-[650px] max-3xl:min-h-[550px] max-lg:min-h-[350px] max-sm:min-h-[300px] max-xs:min-h-[270px] flex flex-col p-5 max-xl:p-4 max-sm:px-2 max-sm:py-4 rounded-3xl animate-pulse bg-gray-400">
                 <div className="bg-gray-300 mt-auto px-6 max-xl:px-3 max-sm:px-2 rounded-3xl max-lg:rounded-xl max-sm:rounded-lg">
                     <div className="max-lg:hidden py-6 max-2xl:py-4 text-center border-b border-[#1515151a]">
-                        <h1 className="text-3xl max-lg:text-2xl font-bold">
+                        <h1 className="text-3xl max-lg:text-2xl font-helveticaNeueBold">
                             С нуля до PRO за 5 месяца
                         </h1>
-                        <p className="text-[#00000099] text-sm font-bold">
+                        <p className="text-[#00000099] text-sm font-helveticaNeueBold">
                             Wepro - это сеть IT-школ в Самарканде
                         </p>
                     </div>

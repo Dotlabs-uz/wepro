@@ -47,18 +47,18 @@ const Vacancies: React.FC<VacanciesProps> = ({ data, course }) => {
                </h2>
                <div className="flex max-xs:flex-col sm:items-center gap-24 max-xl:gap-14 max-lg:gap-12 max-md:gap-2 mb-11 max-lg:mb-8 max-md:mb-6">
                   <div className="">
-                     <p className="font-helveticaNeueMedium text-xl max-xl:text-lg max-md:text-base font-medium leading-normal text-nowrap text-white">
+                     <p className="font-helveticaNeueMedium text-xl max-xl:text-lg max-md:text-base font-helveticaNeueMedium leading-normal text-nowrap text-white">
                         {course.vacancies.salary}
                      </p>
-                     <p className="font-helveticaNeueMedium text-lg max-xl:text-base max-md:text-sm font-medium leading-normal text-[#E0E0E0]">
+                     <p className="font-helveticaNeueMedium text-lg max-xl:text-base max-md:text-sm font-helveticaNeueMedium leading-normal text-[#E0E0E0]">
                         {course.vacancies.text}
                      </p>
                   </div>
                   <div className="">
-                     <p className="font-helveticaNeueMedium text-xl max-xl:text-lg max-md:text-base font-medium leading-normal text-nowrap text-white">
+                     <p className="font-helveticaNeueMedium text-xl max-xl:text-lg max-md:text-base font-helveticaNeueMedium leading-normal text-nowrap text-white">
                         {course.vacancies.vacancies}
                      </p>
-                     <p className="font-helveticaNeueMedium text-lg max-xl:text-base max-md:text-sm font-medium leading-normal text-[#E0E0E0]">
+                     <p className="font-helveticaNeueMedium text-lg max-xl:text-base max-md:text-sm font-helveticaNeueMedium leading-normal text-[#E0E0E0]">
                         {course.vacancies.text2}
                      </p>
                   </div>
@@ -66,7 +66,7 @@ const Vacancies: React.FC<VacanciesProps> = ({ data, course }) => {
 
                <div className="flex items-center gap-3">
                   <Image src={"/icons/hh.svg"} width={48} height={48} alt="hh" />
-                  <p className="text-xl max-lg:text-lg max-md:text-base font-medium text-white">
+                  <p className="text-xl max-lg:text-lg max-md:text-base font-helveticaNeueMedium text-white">
                      {course.vacancies.hh}
                   </p>
                </div>

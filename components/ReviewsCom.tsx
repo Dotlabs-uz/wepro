@@ -35,7 +35,7 @@ const ReviewsCom: React.FC<ReviewsProps> = ({ reviews }) => {
                      </motion.div>
 
                      <motion.div className="relative z-10 mt-auto px-5 max-lg:px-2 py-2 max-sm:py-1.5 rounded-[4px] bg-white">
-                        <motion.p className="text-sm max-sm:text-xs font-medium">
+                        <motion.p className="text-sm max-sm:text-xs font-helveticaNeueMedium">
                            {item.name}
                         </motion.p>
                      </motion.div>
@@ -70,7 +70,7 @@ const ReviewsCom: React.FC<ReviewsProps> = ({ reviews }) => {
                               </motion.div>
 
                               <motion.div className="relative z-10 mt-auto px-5 max-lg:px-2 py-2 rounded-[4px] bg-white">
-                                 <motion.p className="text-sm font-medium">
+                                 <motion.p className="text-sm font-helveticaNeueMedium">
                                     {item.name}
                                  </motion.p>
                               </motion.div>

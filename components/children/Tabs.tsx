@@ -45,7 +45,7 @@ const Tabs: React.FC<Tabs> = ({ category }) => {
             <button
                key={tab.id}
                onClick={() => push(`?type=${tab.category}`)}
-               className={`${category === tab.category ? "text-white" : "hover:text-black/60"} relative w-full z-10 rounded-lg py-4 max-lg:py-3 px-8 max-3xl:px-5 max-lg:px-4 text-sm font-bold text-center text-nowrap bg-transparent text-black transition focus-visible:outline-2`}
+               className={`${category === tab.category ? "text-white" : "hover:text-black/60"} relative w-full z-10 rounded-lg py-4 max-lg:py-3 px-8 max-3xl:px-5 max-lg:px-4 text-sm font-helveticaNeueBold text-center text-nowrap bg-transparent text-black transition focus-visible:outline-2`}
             // style={{ WebkitTapHighlightColor: "transparent", }}
             >
                {category === tab.category && (

@@ -74,7 +74,7 @@ const Course: React.FC<CourseProps> = ({ item }) => {
 					</div>
 				</Link>
 				<div className="mt-auto px-7 max-2xl:px-4 pb-6 max-xl:pb-3">
-					<button onClick={onOpen} className="px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-bold rounded-lg max-sm:rounded-full duration-100 ease-in sm:border-2 sm:border-black hover:bg-[#151FE1] max-sm:bg-[#151FE1] hover:border-[#151FE1] hover:text-white">
+					<button onClick={onOpen} className="px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-helveticaNeueBold rounded-lg max-sm:rounded-full duration-100 ease-in sm:border-2 sm:border-black hover:bg-[#151FE1] max-sm:bg-[#151FE1] hover:border-[#151FE1] hover:text-white">
 						<span className="hidden max-sm:block">
 							<IoArrowForwardOutline size={15} color="white" />
 						</span>

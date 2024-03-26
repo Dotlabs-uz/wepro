@@ -48,7 +48,7 @@ const Page: React.FC<PageProps> = async ({ params: { lang } }) => {
          <section>
             <div className="mb-28 max-xl:mb-20 max-md:mb-5">
                <div className="custom-container my-10 max-md:my-7">
-                  <h2 className="max-w-2xl text-5xl max-lg:text-4xl max-md:text-3xl leading-normal font-bold mb-10 max-xl:mb-6">
+                  <h2 className="max-w-2xl text-5xl max-lg:text-4xl max-md:text-3xl leading-normal font-helveticaNeueBold mb-10 max-xl:mb-6">
                      {groups}
                   </h2>
 

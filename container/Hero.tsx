@@ -31,7 +31,7 @@ const Hero: React.FC<HeroProps> = async ({ lang }) => {
 
             <div className="flex flex-col gap-2">
                <HeroButton homePage={homePage} />
-               <Link href={"#courses"} className="bg-[#ffffff] text-[#151FE1] w-full font-bold text-center py-3 rounded-lg border-2 border-[#151FE1]">
+               <Link href={"#courses"} className="bg-[#ffffff] text-[#151FE1] w-full font-helveticaNeueBold text-center py-3 rounded-lg border-2 border-[#151FE1]">
                   {homePage.Hero.buttton2}
                </Link>
             </div>

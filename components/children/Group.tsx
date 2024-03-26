@@ -41,7 +41,7 @@ const Group: React.FC<GroupProps> = ({ item }) => {
                     />
                 </div>
                 <div className="px-7 max-2xl:px-4 pb-4 max-sm:p-5 flex flex-col flex-grow">
-                    <h3 className="text-3xl max-2xl:text-2xl max-xl:text-xl leading-normal font-bold mb-4 max-2xl:mb-3">
+                    <h3 className="text-3xl max-2xl:text-2xl max-xl:text-xl leading-normal font-helveticaNeueBold mb-4 max-2xl:mb-3">
                         {item.courseId.title}
                     </h3>
                     <p className="max-xl:text-sm mb-0.5">
@@ -56,7 +56,7 @@ const Group: React.FC<GroupProps> = ({ item }) => {
                         {item.courseId.price.toLocaleString()} сум/месяц
                     </p>
                     <div className="mt-auto">
-                        <button onClick={onOpen} className="max-md:w-full px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-bold rounded-lg duration-100 ease-in border-2 border-transparent hover:bg-transparent bg-[#151FE1] hover:border-black text-white hover:text-black">
+                        <button onClick={onOpen} className="max-md:w-full px-7 max-xl:px-5 py-3 max-xl:py-2 max-sm:p-3 max-lg:text-sm font-helveticaNeueBold rounded-lg duration-100 ease-in border-2 border-transparent hover:bg-transparent bg-[#151FE1] hover:border-black text-white hover:text-black">
                             Хочу в эту группу!
                         </button>
                     </div>

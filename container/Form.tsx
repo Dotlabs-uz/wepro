@@ -75,10 +75,10 @@ const Form: React.FC<FormProps> = ({ homePage, courseId }) => {
                className="max-w-[660px] w-full mx-auto p-5 max-sm:p-3 rounded-3xl max-lg:rounded-2xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
             >
                <div className="mb-5 p-7 pb-20 max-md:pb-12 max-sm:p-4 rounded-2xl bg-[url('/images/bg-form-black.webp')] bg-no-repeat bg-cover">
-                  <h2 className="text-white text-5xl max-xl:text-4xl max-md:text-3xl max-sm:text-2xl font-bold">
+                  <h2 className="text-white text-5xl max-xl:text-4xl max-md:text-3xl max-sm:text-2xl font-helveticaNeueBold">
                      {homePage.form.title}
                   </h2>
-                  <p className="text-white text-xl max-2xl:text-xl max-lg:text-lg max-sm:text-base max-sm:leading-6 font-medium">
+                  <p className="text-white text-xl max-2xl:text-xl max-lg:text-lg max-sm:text-base max-sm:leading-6 font-helveticaNeueMedium">
                      {homePage.form.dcr}
                   </p>
                </div>
@@ -116,7 +116,7 @@ const Form: React.FC<FormProps> = ({ homePage, courseId }) => {
 
                   <button
                      disabled={disabled}
-                     className={`bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-lg max-sm:text-base font-bold py-4 max-sm:py-3 border rounded-[7px] duration-150 ease-in ${disabled ? "bg-transparent border-[#151FE1] text-[#151FE1]" : "text-white"}`}
+                     className={`bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white w-full text-lg max-sm:text-base font-helveticaNeueBold py-4 max-sm:py-3 border rounded-[7px] duration-150 ease-in ${disabled ? "bg-transparent border-[#151FE1] text-[#151FE1]" : "text-white"}`}
                   >
                      {
                         disabled ?
@@ -133,7 +133,7 @@ const Form: React.FC<FormProps> = ({ homePage, courseId }) => {
                </form>
                <div className="flex gap-2 items-center justify-between pt-7 max-sm:pt-4 pb-1 border-t border-[#1515151a]">
                   <div className="">
-                     <p className="max-md:text-xs font-bold text-[#A3A2AB]">
+                     <p className="max-md:text-xs font-helveticaNeueBold text-[#A3A2AB]">
                         {homePage.form.text2}
                         <span className="text-[#000]">&nbsp;{homePage.form.telegram}</span>:
                      </p>
@@ -145,7 +145,7 @@ const Form: React.FC<FormProps> = ({ homePage, courseId }) => {
                      <span className="bg-white p-2 max-sm:p-1 rounded-lg">
                         <FaTelegram color={"#229ED9"} size={25} />
                      </span>
-                     <span className="text-xl max-sm:text-sm font-bold mx-2 text-[#A3A2AB]">
+                     <span className="text-xl max-sm:text-sm font-helveticaNeueBold mx-2 text-[#A3A2AB]">
                         t.me/weprouz
                      </span>
                   </Link>

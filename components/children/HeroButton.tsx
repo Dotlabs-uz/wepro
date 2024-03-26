@@ -15,7 +15,7 @@ const HeroButton: React.FC<HeroButtonProps> = ({ homePage }) => {
     };
 
     return (
-        <button onClick={onOpen} className="bg-[#151FE1] text-[#ffffff] w-full font-bold py-3 rounded-lg border-2 border-[#151FE1]">
+        <button onClick={onOpen} className="bg-[#151FE1] text-[#ffffff] w-full font-helveticaNeueBold py-3 rounded-lg border-2 border-[#151FE1]">
             {homePage.Hero.buttton}
         </button>
     );

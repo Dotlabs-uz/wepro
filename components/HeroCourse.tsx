@@ -50,7 +50,7 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                 }
                             </div>
                             <div className="max-lg:w-3/5 max-md:w-full">
-                                <h1 className="text-5xl max-3xl:text-4xl max-xl:text-3xl font-bold leading-normal mb-7 max-2xl:mb-5 max-sm:mb-3 text-white">
+                                <h1 className="text-5xl max-3xl:text-4xl max-xl:text-3xl font-helveticaNeueBold leading-normal mb-7 max-2xl:mb-5 max-sm:mb-3 text-white">
                                     {
                                         data?.title ?
                                             data?.title
@@ -64,11 +64,11 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                 <div className="bg-white py-4 max-xs:py-3 px-7 max-xl:px-5 max-xs:px-3 rounded-3xl max-md:rounded-2xl mb-5">
                                     <div className="sm:flex max-sm:flex-wrap sm:items-center sm:justify-between max-sm:grid grid-cols-2  max-md:gap-y-4 mb-5">
                                         <div className="">
-                                            <p className="flex gap-1 font-bold leading-normal">
+                                            <p className="flex gap-1 leading-normal">
                                                 {
                                                     data?.month ?
                                                         (
-                                                            <span className="">
+                                                            <span className="font-helveticaNeueBold">
                                                                 {data?.month} {course.hero.months}
                                                             </span>
                                                         )
@@ -78,16 +78,16 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                                         )
                                                 }
                                             </p>
-                                            <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
+                                            <p className="text-sm max-xs:text-xs font-helveticaNeueMedium text-[#00000099]">
                                                 {course.hero.duration}
                                             </p>
                                         </div>
                                         <div className="">
-                                            <p className="font-bold leading-normal">
+                                            <p className="leading-normal">
                                                 {
                                                     data?.price ?
                                                         (
-                                                            <span className="">
+                                                            <span className="font-helveticaNeueBold">
                                                                 {price} {course.hero.sum}
                                                             </span>
                                                         )
@@ -97,16 +97,16 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                                         )
                                                 }
                                             </p>
-                                            <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
+                                            <p className="text-sm max-xs:text-xs font-helveticaNeueMedium text-[#00000099]">
                                                 {course.hero.price}
                                             </p>
                                         </div>
                                         <div className="">
-                                            <p className="font-bold leading-normal">
+                                            <p className=" leading-normal">
                                                 {
                                                     data?.lessons ?
                                                         (
-                                                            <span className="">
+                                                            <span className="font-helveticaNeueBold">
                                                                 {data?.lessons.length} {course.hero.lessons}, &nbsp;
                                                                 {Math.ceil(data?.lessons.length * 1.5)} {course.hero.hours}
                                                             </span>
@@ -118,7 +118,7 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                                 }
                                             </p>
 
-                                            <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
+                                            <p className="text-sm max-xs:text-xs font-helveticaNeueMedium text-[#00000099]">
                                                 {course.hero.number}
                                             </p>
                                         </div>
@@ -126,7 +126,7 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                     <div className="">
                                         <button
                                             onClick={onOpen}
-                                            className="bg-black text-white w-full text-xl max-lg:text-lg font-bold py-4 rounded-lg"
+                                            className="bg-black text-white w-full text-xl max-lg:text-lg font-helveticaNeueBold py-4 rounded-lg"
                                         >
                                             {course.hero.button}
                                         </button>
@@ -180,14 +180,15 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                 }
                             </div>
                         </div>
+
                         <div className="bg-white py-4 max-xs:py-3 px-7 max-xl:px-5 max-xs:px-3 rounded-3xl max-md:rounded-2xl max-md:hidden">
                             <div className="sm:flex max-sm:flex-wrap sm:items-center sm:justify-between max-sm:grid grid-cols-2  max-md:gap-y-4 mb-5">
                                 <div className="">
-                                    <p className="flex gap-1 font-bold leading-normal">
+                                    <p className="flex gap-1 font-helveticaNeueBold leading-normal">
                                         {
                                             data?.month ?
                                                 (
-                                                    <span className="">
+                                                    <span className="font-helveticaNeueBold">
                                                         {data?.month} {course.hero.months}
                                                     </span>
                                                 )
@@ -197,16 +198,16 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                                 )
                                         }
                                     </p>
-                                    <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
+                                    <p className="text-sm max-xs:text-xs font-helveticaNeueMedium text-[#00000099]">
                                         {course.hero.duration}
                                     </p>
                                 </div>
                                 <div className="">
-                                    <p className="font-bold leading-normal">
+                                    <p className="font-helveticaNeueBold leading-normal">
                                         {
                                             data?.price ?
                                                 (
-                                                    <span className="">
+                                                    <span className="font-helveticaNeueBold">
                                                         {price} {course.hero.sum}
                                                     </span>
                                                 )
@@ -216,16 +217,16 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                                 )
                                         }
                                     </p>
-                                    <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
+                                    <p className="text-sm max-xs:text-xs font-helveticaNeueMedium text-[#00000099]">
                                         {course.hero.price}
                                     </p>
                                 </div>
                                 <div className="">
-                                    <p className="font-bold leading-normal">
+                                    <p className="font-helveticaNeueBold leading-normal">
                                         {
                                             data?.lessons ?
                                                 (
-                                                    <span className="">
+                                                    <span className="font-helveticaNeueBold">
                                                         {data?.lessons.length} {course.hero.lessons}, &nbsp;
                                                         {Math.ceil(data?.lessons.length * 1.5)} {course.hero.hours}
                                                     </span>
@@ -237,7 +238,7 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                         }
                                     </p>
 
-                                    <p className="text-sm max-xs:text-xs font-medium text-[#00000099]">
+                                    <p className="text-sm max-xs:text-xs font-helveticaNeueMedium text-[#00000099]">
                                         {course.hero.number}
                                     </p>
                                 </div>
@@ -245,7 +246,7 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                             <div className="">
                                 <button
                                     onClick={onOpen}
-                                    className="bg-black text-white w-full text-xl max-lg:text-lg font-bold py-4 rounded-lg"
+                                    className="bg-black text-white w-full text-xl max-lg:text-lg font-helveticaNeueBold py-4 rounded-lg"
                                 >
                                     {course.hero.button}
                                 </button>
@@ -256,7 +257,7 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
 
                 <div className="custom-container py-16 max-2xl:py-12 max-lg:py-8 max-md:hidden">
                     <div className="mb-5 ">
-                        <h3 className="text-3xl max-xl:text-2xl font-bold text-center text-white">
+                        <h3 className="text-3xl max-xl:text-2xl font-helveticaNeueBold text-center text-white">
                             Зачем становиться дизайнером?
                         </h3>
                     </div>
@@ -271,8 +272,8 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                 />
                             </div>
                             <div className="">
-                                <p className="font-bold">10,000 вакансий</p>
-                                <p className="text-[#00000066] text-sm font-medium">
+                                <p className="font-helveticaNeueBold">10,000 вакансий</p>
+                                <p className="text-[#00000066] text-sm font-helveticaNeueMedium">
                                     На площадках по поиску работ
                                 </p>
                             </div>
@@ -287,8 +288,8 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                 />
                             </div>
                             <div className="">
-                                <p className="font-bold">${data?.earning}</p>
-                                <p className="text-[#00000066] text-sm font-medium">
+                                <p className="font-helveticaNeueBold">${data?.earning}</p>
+                                <p className="text-[#00000066] text-sm font-helveticaNeueMedium">
                                     Диапазон зарплат
                                 </p>
                             </div>
@@ -303,8 +304,8 @@ const HeroCourse: React.FC<HeroCourseProps> = ({ data, course }) => {
                                 />
                             </div>
                             <div className="">
-                                <p className="font-bold">Топ 3</p>
-                                <p className="text-[#00000066] text-sm font-medium">
+                                <p className="font-helveticaNeueBold">Топ 3</p>
+                                <p className="text-[#00000066] text-sm font-helveticaNeueMedium">
                                     Востребованная профессия
                                 </p>
                             </div>

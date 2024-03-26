@@ -121,10 +121,10 @@ const Modal: React.FC<ModalProps> = () => {
 						className="max-w-[550px] w-full mx-auto max-md:mx-3 p-5 max-sm:p-3 rounded-3xl max-md:rounded-2xl max-sm:rounded-xl max-md:shadow-[0px_4px_20px_0px_#15151526] bg-white"
 					>
 						<div className="mb-4 lg:p-7 lg:pb-14 rounded-2xl bg-[url('/images/bg-form-black.webp')] bg-no-repeat bg-cover max-lg:bg-none">
-							<h2 className="text-white max-lg:text-black text-4xl max-md:text-3xl font-bold">
+							<h2 className="text-white max-lg:text-black text-4xl max-md:text-3xl font-helveticaNeueBold">
 								{title}
 							</h2>
-							<p className="text-white max-lg:text-[#A3A2AB] text-[22px] max-2xl:text-xl max-lg:text-lg leading-[20px] font-medium">
+							<p className="text-white max-lg:text-[#A3A2AB] text-[22px] max-2xl:text-xl max-lg:text-lg leading-[20px] font-helveticaNeueMedium">
 								{dcr}
 							</p>
 						</div>
@@ -205,7 +205,7 @@ const Modal: React.FC<ModalProps> = () => {
 										: undefined
 								}
 								disabled={disabled}
-								className={`bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] w-full text-lg max-sm:text-base font-bold py-3 border rounded-[7px] duration-150 ease-in ${disabled
+								className={`bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] w-full text-lg max-sm:text-base font-helveticaNeueBold py-3 border rounded-[7px] duration-150 ease-in ${disabled
 									? "bg-transparent border-[#151FE1] text-[#151FE1]"
 									: "text-white"}`}
 							>
@@ -224,7 +224,7 @@ const Modal: React.FC<ModalProps> = () => {
 						</form>
 						<div className="flex gap-2 items-center justify-between pt-4 max-sm:pt-4 pb-0 border-t border-[#1515151a]">
 							<div className="">
-								<p className="text-sm max-md:text-xs font-bold text-[#A3A2AB]">
+								<p className="text-sm max-md:text-xs font-helveticaNeueBold text-[#A3A2AB]">
 									Или напишите нам в
 									<span className="text-[#000]">
 										Telegram
@@ -239,7 +239,7 @@ const Modal: React.FC<ModalProps> = () => {
 								<span className="bg-white p-2 max-sm:p-1 rounded-lg">
 									<FaTelegram color={"#229ED9"} size={25} />
 								</span>
-								<span className="max-sm:text-sm font-bold mx-2 text-[#A3A2AB]">
+								<span className="max-sm:text-sm font-helveticaNeueBold mx-2 text-[#A3A2AB]">
 									t.me/weprouz
 								</span>
 							</Link>

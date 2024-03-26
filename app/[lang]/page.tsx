@@ -94,7 +94,7 @@ export default async function Home({
          <section className="">
             <div id="courses" className="">
                <div className="custom-container mb-4 max-2xl:mb-2">
-                  <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl leading-normal font-bold">
+                  <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl leading-normal font-helveticaNeueBold">
                      {homePage.courses.title}
                   </h2>
                </div>
@@ -216,7 +216,7 @@ export default async function Home({
                      <Link
                         target="_blank"
                         href={"https://wespeak.uz/"}
-                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-bold py-3 px-6 max-3xl:px-3 rounded-md border duration-150 ease-in"
+                        className="bg-[#151FE1] hover:bg-transparent border-[#151FE1] hover:text-[#151FE1] text-white max-2xl:text-sm font-helveticaNeueBold py-3 px-6 max-3xl:px-3 rounded-md border duration-150 ease-in"
                      >
                         {homePage.english.button}
                      </Link>

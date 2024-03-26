@@ -45,7 +45,7 @@ body {
 
 h2 {
    font-family: var(--font-helveticaNeueBold);
-   @apply text-5xl max-xl:text-4xl max-sm:text-3xl font-helveticaNeueBold font-bold leading-normal;
+   @apply text-5xl max-xl:text-4xl max-sm:text-3xl font-helveticaNeueBold font-helveticaNeueBold leading-normal;
 }
 
 .space-nowrap {

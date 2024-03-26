@@ -51,7 +51,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                                        alt="photo"
                                     />
                                     <div className="card-title">
-                                       <p className="text-sm font-bold max-md:text-center">
+                                       <p className="text-sm font-helveticaNeueBold max-md:text-center">
                                           {item.title}
                                        </p>
                                     </div>
@@ -83,10 +83,10 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                            data?.workAfterCourse ?
                               <>
                                  <div className="mb-12 max-xl:mb-8 max-md:mb-6 md:text-center">
-                                    <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold mb-4 text-white">
+                                    <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-helveticaNeueBold mb-4 text-white">
                                        {course.studentsWork.title}
                                     </h2>
-                                    <p className="max-w-2xl m-auto font-helveticaNeueMedium text-xl max-md:text-lg font-medium text-[#A3A2AB]">
+                                    <p className="max-w-2xl m-auto text-xl max-md:text-lg font-helveticaNeueMedium text-[#A3A2AB]">
                                        {course.studentsWork.dcr}
                                     </p>
                                  </div>
@@ -98,16 +98,16 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                                              className="flex flex-col p-6 max-xl:p-4 rounded-3xl bg-gradient-to-b from-[47%] from-[#f4f4f41a] to-[100%] to-[#f4f4f408]"
                                           >
                                              <div className="mb-11 max-xl:mb-8 max-md:mb-5">
-                                                <p className="text-white font-helveticaNeueBold text-2xl leading-normal font-bold mb-2">
+                                                <p className="text-white font-helveticaNeueBold text-2xl leading-normal mb-2">
                                                    {item.title}
                                                 </p>
-                                                <p className="text-white bg-[#ffffff99] w-fit px-2 py-1 text-base leading-normal font-bold rounded-lg">
+                                                <p className="text-white bg-[#ffffff99] w-fit px-2 py-1 text-base leading-normal font-helveticaNeueBold rounded-lg">
                                                    {course.studentsWork.from} ${item.money}$/{course.studentsWork.month}
                                                 </p>
                                              </div>
 
                                              <div className="mt-auto max-w-[280px]">
-                                                <p className="text-[#ffffff99] text-base font-medium leading-snug">
+                                                <p className="text-[#ffffff99] text-base font-helveticaNeueMedium leading-snug">
                                                    Создает макеты лендингов, сайтов,
                                                    интернет-магазинов, приложений для бизнеса.
                                                 </p>
@@ -137,7 +137,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                <section>
                   <div className="custom-container my-14 max-lg:my-10">
                      <div className="mb-14 max-xl:mb-8 max-md:mb-4">
-                        <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold sm:text-center">
+                        <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-helveticaNeueBold sm:text-center">
                            {course.suitableFor.title}
                         </h2>
                      </div>
@@ -146,11 +146,11 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                            (item: { title: string; text: string }, idx: number) => {
                               return (
                                  <div key={idx} className="random-bg p-6 max-lg:p-4 rounded-3xl flex flex-col">
-                                    <p className="text-xl font-bold mb-28 max-3xl:mb-20 max-2xl:mb-12 max-lg:mb-7 text-white">
+                                    <p className="text-xl font-helveticaNeueBold mb-28 max-3xl:mb-20 max-2xl:mb-12 max-lg:mb-7 text-white">
                                        0{idx + 1}.
                                     </p>
                                     <div className="mt-auto">
-                                       <p className="text-lg font-bold text-white">
+                                       <p className="text-lg font-helveticaNeueBold text-white">
                                           {item.title}
                                        </p>
                                        <p className="max-sm:text-sm text-[#E0E0E0]">
@@ -172,7 +172,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                <section>
                   <div className="custom-container my-14 max-lg:my-10">
                      <div className="mb-14 max-xl:mb-8 max-md:mb-4">
-                        <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-bold sm:text-center">
+                        <h2 className="text-5xl max-xl:text-4xl max-sm:text-3xl font-helveticaNeueBold sm:text-center">
                            {course.admissions.title}
                         </h2>
                      </div>
@@ -196,10 +196,10 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                      <div className="custom-container my-14 max-lg:my-10">
                         <div className="mx-28 max-2xl:mx-10 max-xl:mx-0">
                            <div className="pt-14 pb-12 max-xl:py-8 max-md:py-7 max-sm:pb-0 md:text-center">
-                              <h2 className="text-white text-5xl max-xl:text-4xl max-sm:text-3xl font-bold mb-4 max-lg:mb-2">
+                              <h2 className="text-white text-5xl max-xl:text-4xl max-sm:text-3xl font-helveticaNeueBold mb-4 max-lg:mb-2">
                                  {course.reviews.title}
                               </h2>
-                              <p className="text-[#A3A2AB] max-w-xs md:m-auto text-xl max-md:text-lg font-medium">
+                              <p className="text-[#A3A2AB] max-w-xs md:m-auto text-xl max-md:text-lg font-helveticaNeueMedium">
                                  {course.reviews.dcr}
                               </p>
                            </div>
@@ -210,20 +210,20 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
 
                         <div className="mx-28 max-2xl:mx-10 max-xl:mx-0">
                            <div className="pt-14 pb-12 max-xl:py-8 max-md:py-7 md:text-center">
-                              <h2 className="text-white font-bold mb-4">
+                              <h2 className="text-white font-helveticaNeueBold mb-4">
                                  {course.lessons.title}
                               </h2>
                               <div className="flex max-md:flex-wrap items-center md:justify-center gap-2">
-                                 <p className="py-1 px-3 text-lg max-lg:text-base font-bold rounded-lg text-white bg-[#26145D]">
+                                 <p className="py-1 px-3 text-lg max-lg:text-base font-helveticaNeueBold rounded-lg text-white bg-[#26145D]">
                                     {data?.month} {course.lessons.months}
                                  </p>
-                                 <p className="py-1 px-3 text-lg max-lg:text-base font-bold rounded-lg text-white bg-[#26145D]">
+                                 <p className="py-1 px-3 text-lg max-lg:text-base font-helveticaNeueBold rounded-lg text-white bg-[#26145D]">
                                     {data?.lessons.length} {course.lessons.lesson}
                                  </p>
-                                 <p className="py-1 px-3 text-lg max-lg:text-base font-bold rounded-lg text-white bg-[#26145D]">
+                                 <p className="py-1 px-3 text-lg max-lg:text-base font-helveticaNeueBold rounded-lg text-white bg-[#26145D]">
                                     48 {course.lessons.hours}
                                  </p>
-                                 <p className="py-1 px-3 text-lg max-lg:text-base font-bold rounded-lg text-white bg-[#26145D]">
+                                 <p className="py-1 px-3 text-lg max-lg:text-base font-helveticaNeueBold rounded-lg text-white bg-[#26145D]">
                                     8 {course.lessons.control}
                                  </p>
                               </div>
@@ -245,7 +245,7 @@ const Page: React.FC<CourseProps> = async ({ params }: any) => {
                                        className="w-full min-h-[420px] max-xl:min-h-[370px] max-lg:min-h-[300px] max-md:min-h-[250px] flex rounded-xl p-5 max-lg:p-2 bg-no-repeat bg-cover bg-center"
                                     >
                                        <div className="mt-auto px-5 max-md:px-2 max-lg:px-2 py-2 rounded-xl max-md:rounded-md md:backdrop-blur-[6px] bg-[#ffffff99] max-md:bg-white">
-                                          <p className="text-sm font-bold max-xs:hidden">
+                                          <p className="text-sm font-helveticaNeueBold max-xs:hidden">
                                              {teacher.description}
                                           </p>
                                           <p className="max-sm:text-sm">

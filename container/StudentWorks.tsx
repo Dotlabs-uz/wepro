@@ -58,10 +58,10 @@ const StudentWorks: React.FC<StudentWorksProps> = () => {
       <>
          <div className="custom-container pt-14 pb-20 max-lg:py-8">
             <div className="max-w-4xl w-full mx-auto md:text-center">
-               <h2 className="font-bold text-white">
+               <h2 className="font-helveticaNeueBold text-white">
                   Работы студентов
                </h2>
-               <p className="text-xl max-2xl:text-lg font-medium text-[#A3A2AB]">
+               <p className="text-xl max-2xl:text-lg font-helveticaNeueMedium text-[#A3A2AB]">
                   Выпускники курса — настоящие профи. Мы упаковали некоторые из
                   кейсов, чтобы показать их вам: вы сможете так же. И даже еще
                   лучше.
@@ -78,7 +78,7 @@ const StudentWorks: React.FC<StudentWorksProps> = () => {
                         className={`${activeTab === item.id
                            ? "text-white"
                            : "hover:text-black/60"
-                           } relative w-full z-10 rounded-lg py-4 max-xl:py-3 px-6 max-3xl:px-5 max-xl:px-3 text-xs max-3xl:text-xs font-bold text-center text-nowrap space-nowrap text-black outline-sky-400 transition `}
+                           } relative w-full z-10 rounded-lg py-4 max-xl:py-3 px-6 max-3xl:px-5 max-xl:px-3 text-xs max-3xl:text-xs font-helveticaNeueBold text-center text-nowrap space-nowrap text-black outline-sky-400 transition `}
                         style={{
                            WebkitTapHighlightColor: "transparent",
                         }}

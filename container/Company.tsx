@@ -21,7 +21,7 @@ const Company: React.FC<CompanyProps> = async ({ homePage }) => {
                <h2 className="mb-4">
                   {homePage.company.title}
                </h2>
-               <p className="text-xl max-lg:text-lg font-medium text-[#A3A2AB]">
+               <p className="text-xl max-lg:text-lg font-helveticaNeueMedium text-[#A3A2AB]">
                   {homePage.company.dcr}
                </p>
             </div>

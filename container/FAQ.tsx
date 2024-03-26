@@ -20,10 +20,10 @@ const Accordion = ({ item, idx }: any) => {
          className="bg-[#F4F4F4] h-fit rounded-xl py-6 max-sm:py-3 px-4 max-sm:px-3 overflow-hidden">
          <div className="">
             <div className="flex items-center max-sm:justify-between mb-2 max-md:mb-1">
-               <p className="bg-[#E0E0E0] text-[#A3A2AB] text-lg font-bold py-1 px-2 rounded-md">
+               <p className="bg-[#E0E0E0] text-[#A3A2AB] text-lg font-helveticaNeueBold py-1 px-2 rounded-md">
                   {idx + 1 < 10 ? "0" : ""}{idx + 1}
                </p>
-               <p className="font-bold sm:ml-4 flex-1 max-sm:hidden">
+               <p className="font-helveticaNeueBold sm:ml-4 flex-1 max-sm:hidden">
                   {item.question}
                </p>
                <button
@@ -37,7 +37,7 @@ const Accordion = ({ item, idx }: any) => {
                </button>
             </div>
             <div className="sm:hidden">
-               <p className="font-bold sm:ml-4 flex-1">
+               <p className="font-helveticaNeueBold sm:ml-4 flex-1">
                   {item.question}
                </p>
             </div>
@@ -49,7 +49,7 @@ const Accordion = ({ item, idx }: any) => {
                   animate={{ height: "auto" }}
                   exit={{ height: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="text-[#A3A2AB] max-sm:text-sm font-bold sm:px-14 overflow-hidden "
+                  className="text-[#A3A2AB] max-sm:text-sm font-helveticaNeueBold sm:px-14 overflow-hidden "
                >
                   <p>
                      {item.answer}
