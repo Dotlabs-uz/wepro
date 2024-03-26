@@ -75,7 +75,7 @@ const HeroTabs: React.FC<HeroTabsProps> = ({ courses, homePage }) => {
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: .4, }}
                                     className="w-full h-full object-cover rounded-3xl max-md:rounded-2xl pointer-events-none select-none"
-                                    src={courses[currentSlide]?.image}
+                                    src={`https://wepro.uz/api/${courses[currentSlide]?.image}`}
                                     alt="banner"
                                 />
                             </div>
